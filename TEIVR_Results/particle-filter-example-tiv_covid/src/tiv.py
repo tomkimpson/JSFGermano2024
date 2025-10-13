@@ -4,10 +4,10 @@ import pypfilt                  # type: ignore
 from pypfilt.model import Model # type: ignore
 from pypfilt.obs import Univariate, Obs # type: ignore
 import pdb
-# import src.JSF_Solver_BasePython as JSF
-import sys
-sys.path.append('/Users/domenicgermano/Desktop/SIR_RA_LIT/Code/jsf_pck') 
-import jsf as JSF
+import src.JSF_Solver_BasePython as JSF
+#import sys
+#sys.path.append('/fred/oz022/tkimpson/sandbox/jsf_sandbox/jsf')
+#import jsf as JSF
 import statsmodels.stats.weightstats as smws
 
 from pypfilt.io import time_field

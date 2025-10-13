@@ -7,10 +7,10 @@ import pypfilt                  # type: ignore
 import matplotlib.pyplot as plt # type: ignore
 import matplotlib.image as mpimg # type: ignore
 import matplotlib as matplotlib # type: ignore
-matplotlib.use('QtAgg')
+#matplotlib.use('QtAgg')
 import pandas as pd
-import plotnine as p9
-from plotnine import ggplot, geom_rect, aes, geom_ribbon, geom_point, scale_y_log10, scale_x_continuous, labs, theme_bw, geom_vline
+#import plotnine as p9
+#from plotnine import ggplot, geom_rect, aes, geom_ribbon, geom_point, scale_y_log10, scale_x_continuous, labs, theme_bw, geom_vline
 import pdb
 from src.inf import plottable_model_cis, param_plt_p9, state_plt_p9, tiv_run_inference
 import os
@@ -23,7 +23,7 @@ import multiprocessing
 # set random seed
 random.seed(1)
 
-patient_list = ['432192', '443108', '444332', '444391', '445602', '451152']
+patient_list = ['432192'] #, '443108', '444332', '444391', '445602', '451152']
 
 def process_patient(ii):
     try:
