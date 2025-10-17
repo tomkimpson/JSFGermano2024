@@ -1,0 +1,29 @@
+# Python
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# SLURM output files
+*.err
+*.out
+slurm-*.out
+
+# Data/Output directories
+outputs/
+outputs*/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

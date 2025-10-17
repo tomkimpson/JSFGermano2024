@@ -28,7 +28,7 @@ echo ""
 
 # Run the particle filter inference
 echo "Starting COVID TIV inference..."
-time python COVID_TEIVR_Inf_loop.py
+time python -u COVID_TEIVR_Inf_loop.py
 
 # Check exit status
 if [ $? -eq 0 ]; then
