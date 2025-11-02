@@ -1,0 +1,19 @@
+# NPE-specific requirements
+# Install with: pip install -r requirements_npe.txt
+
+# Core SBI and neural network dependencies
+sbi==0.22.0
+torch==2.1.0
+# pyro-ppl==1.8.6  # Optional, only if needed for advanced features
+
+# Already in requirements.txt but listing for completeness
+numpy==1.25.1
+scipy==1.11.1
+matplotlib==3.7.2
+pandas==2.0.3
+tqdm==4.66.1
+h5py==3.9.0
+tomli==2.0.1
+
+# Additional utilities for NPE
+tensorboard==2.15.0  # For training monitoring

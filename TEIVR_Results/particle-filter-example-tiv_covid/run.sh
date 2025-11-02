@@ -8,8 +8,8 @@
 #SBATCH --time=24:00:00
 
 # Optional: Uncomment to receive email notifications
-# #SBATCH --mail-type=END,FAIL
-# #SBATCH --mail-user=your.email@example.com
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=tomkimpson@gmail.com
 
 # Print job information
 echo "Job ID: $SLURM_JOB_ID"

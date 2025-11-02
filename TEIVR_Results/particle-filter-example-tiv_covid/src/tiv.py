@@ -9,6 +9,7 @@ import src.JSF_Solver_BasePython as JSF
 #sys.path.append('/fred/oz022/tkimpson/sandbox/jsf_sandbox/jsf')
 #import jsf as JSF
 import statsmodels.stats.weightstats as smws
+from tqdm import tqdm           # type: ignore
 
 from pypfilt.io import time_field
 
@@ -17,6 +18,7 @@ class RefractoryCellModel_JSF(Model):
     """
     num_particles = -1
     threshold = 100
+    pbar = None
     #    T, R, E, I, V
     _nu_reactants = [
         [1, 0, 0, 0, 1],
@@ -91,7 +93,14 @@ class RefractoryCellModel_JSF(Model):
         """
         prior = ctx.data['prior']
         self.num_particles = prior['T0'].shape[0]
-        
+
+        # Initialize progress bar
+        time_start = ctx.settings['time']['start']
+        time_until = ctx.settings['time']['until']
+        steps_per_unit = ctx.settings['time']['steps_per_unit']
+        total_steps = int((time_until - time_start) * steps_per_unit)
+        self.pbar = tqdm(total=total_steps, desc="Timesteps", unit="step")
+
         vec['lnV0'] = prior['lnV0']
         vec['beta'] = prior['beta']
         vec['phi'] = prior['phi']
@@ -139,10 +148,6 @@ class RefractoryCellModel_JSF(Model):
                 time_step.dt,
                 _my_opts
             )
-            # print clean line
-            print('\033[2K', end='\r')
-
-            print('time = ', time_step.start, ' partile = ', p_ix, end='\r')
 
             # check if any of the xs are nans at the end of the simulation
             # if (np.isnan(xs[0][-1]) or np.isnan(xs[1][-1]) or np.isnan(xs[2][-1]) or np.isnan(xs[3][-1]) or np.isnan(xs[4][-1])):
@@ -165,6 +170,10 @@ class RefractoryCellModel_JSF(Model):
             # print('T = ' + str(ptcl['T']) + ' R = ' + str(ptcl['R']) + ' E = ' + str(ptcl['E']) + ' I = ' + str(ptcl['I']) + ' V = ' + str(ptcl['V']) )
             # print('Beta = ' + str(ptcl['beta']) + ' phi = ' + str(ptcl['phi']) + ' rho = ' + str(ptcl['rho']) + ' delta = ' + str(ptcl['delta']) + ' pi = ' + str(ptcl['pi']))
             curr[p_ix] = ptcl
+
+        # Update progress bar once per timestep
+        if self.pbar is not None:
+            self.pbar.update(1)
     def can_smooth(self):
         """
         """
