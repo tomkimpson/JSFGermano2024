@@ -9,7 +9,8 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 # File path
-pkl_file = Path(__file__).parent / 'outputs4/432192/src.tiv.RefractoryCellModel_JSF_6000/fit_result.pkl'
+#pkl_file = Path(__file__).parent / 'outputs4/432192/src.tiv.RefractoryCellModel_JSF_6000/fit_result.pkl'
+pkl_file = Path(__file__).parent / 'outputs4/432192/src.tiv.RefractoryCellModel_JSF_1000/fit_result.pkl'
 
 # Load the pickle file
 print("Loading pickle file...")

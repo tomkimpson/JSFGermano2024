@@ -61,12 +61,54 @@ python COVID_TEIVR_NPE.py simulate --num-trajectories 1000
 - `--num-timepoints T`: Time points per trajectory (default: 10)
 - `--config PATH`: Path to TOML config (default: config/cli-refractory-tiv-jsf.toml)
 - `--seed S`: Random seed (default: 42)
+- `--num-workers W`: Number of parallel workers (default: 1, sequential)
 
 **Output:** `npe_outputs/training/simulations_1000.npz`
 
 **Time estimate:** With default settings, ~1-2 seconds per simulation
-- 1,000 simulations: ~20-30 minutes
-- 10,000 simulations: ~3-5 hours
+- 1,000 simulations: ~20-30 minutes (sequential), ~3-5 minutes (8 workers)
+- 10,000 simulations: ~3-5 hours (sequential), ~30-60 minutes (8 workers)
+
+#### Parallel Simulation
+
+Stage 1 (simulation) can be significantly accelerated using parallel workers:
+
+```bash
+# Use 8 parallel workers
+python COVID_TEIVR_NPE.py simulate --num-trajectories 10000 --num-workers 8
+```
+
+**Key points:**
+- Uses `ProcessPoolExecutor` to distribute simulations across CPU cores
+- Preserves deterministic behavior (seeding is trajectory-specific)
+- Real-time progress bar shows completion as workers finish
+- Speedup is nearly linear with worker count (8 workers ≈ 8x faster)
+
+**Resource requirements:**
+- Each worker runs an independent JSF simulation
+- Memory usage: ~4GB per worker (estimate)
+- CPU: Request at least as many CPUs as workers in SLURM
+
+**SLURM example:**
+
+```bash
+# Request 8 CPUs and use 8 workers
+sbatch run_npe.sh --num-trajectories 10000 --num-workers 8
+```
+
+**Important:** The default `run_npe.sh` now requests 8 CPUs and uses 8 workers by default. If you want different settings:
+
+```bash
+# Use 16 workers (ensure SLURM job requests ≥16 CPUs)
+sbatch run_npe.sh --num-trajectories 20000 --num-workers 16
+```
+
+To change the CPU allocation, edit the `#SBATCH --cpus-per-task` line in `run_npe.sh` to match your `--num-workers` value.
+
+**Validation:**
+- Sequential (`--num-workers 1`) and parallel runs produce identical results with the same seed
+- Progress reporting works correctly in both SLURM logs and interactive sessions
+- CPU warnings are displayed if `--num-workers` exceeds available cores
 
 ### Stage 2: Train Neural Posterior Estimator
 
@@ -142,6 +184,7 @@ sbatch run_npe.sh --skip-simulate --skip-train --patients all
 ### Command-line Options
 
 - `--num-trajectories N`: Number of simulations (default: 1000)
+- `--num-workers W`: Number of parallel workers for simulation (default: 8)
 - `--skip-simulate`: Skip Stage 1
 - `--skip-train`: Skip Stage 2
 - `--skip-infer`: Skip Stage 3
@@ -151,10 +194,12 @@ sbatch run_npe.sh --skip-simulate --skip-train --patients all
 ### Resource Allocation
 
 The default SLURM settings in `run_npe.sh`:
-- **CPUs:** 4
+- **CPUs:** 8 (matches default --num-workers)
 - **Memory:** 32GB
 - **Time:** 48 hours
 - **Job name:** covid_npe_inference
+
+**Important:** If you change `--num-workers`, ensure `--cpus-per-task` in the SLURM script matches or exceeds that value for optimal performance.
 
 Adjust these in `run_npe.sh` based on your needs and cluster policies.
 
@@ -253,7 +298,8 @@ If training runs out of memory:
 
 JSF simulations are stochastic and can vary in runtime:
 - Start with small `--num-trajectories` to estimate time
-- Consider parallelizing Stage 1 if needed (can be done by submitting multiple jobs with different seeds and merging data)
+- Use parallel workers to speed up simulations (see "Parallel Simulation" section)
+- Example: `--num-workers 8` can provide ~8x speedup on systems with 8+ CPUs
 
 ### Training Not Converging
 

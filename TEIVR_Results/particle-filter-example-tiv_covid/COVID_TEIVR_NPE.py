@@ -15,10 +15,12 @@ Usage:
 """
 
 import argparse
+import os
 import sys
 import time
 from pathlib import Path
 from typing import List, Optional, Dict, Tuple
+from concurrent.futures import ProcessPoolExecutor
 import random
 
 import numpy as np
@@ -153,6 +155,26 @@ def simulate_trajectory(
     return observations.flatten()
 
 
+def _simulate_single(args_tuple):
+    """
+    Worker wrapper for parallel simulation.
+
+    Args:
+        args_tuple: Tuple of (theta, fixed_params, obs_scale, n_timepoints, seed)
+
+    Returns:
+        observations: Array of observations in log10 space (shape: n_timepoints,)
+    """
+    theta, fixed_params, obs_scale, n_timepoints, seed = args_tuple
+    return simulate_trajectory(
+        theta,
+        fixed_params,
+        n_timepoints=n_timepoints,
+        obs_scale=obs_scale,
+        seed=seed
+    )
+
+
 def stage1_simulate(args):
     """
     Stage 1: Generate training data by simulating the JSF model.
@@ -179,6 +201,13 @@ def stage1_simulate(args):
     print(f"\nNumber of trajectories to simulate: {args.num_trajectories}")
     print(f"Number of time points per trajectory: {args.num_timepoints}")
     print(f"Random seed: {args.seed}")
+    print(f"Number of parallel workers: {args.num_workers}")
+
+    # Validate CPU count
+    cpu_count = os.cpu_count() or 1
+    if args.num_workers > cpu_count:
+        print(f"\nWARNING: Requested {args.num_workers} workers but only {cpu_count} CPUs available.")
+        print(f"         This may lead to suboptimal performance. Consider reducing --num-workers.")
 
     # Sample parameters from prior
     print("\nSampling parameters from prior...")
@@ -191,25 +220,54 @@ def stage1_simulate(args):
 
     # Simulate trajectories
     print("\nSimulating trajectories...")
-    x_obs_list = []
-
     start_time = time.time()
-    for i in tqdm(range(args.num_trajectories), desc="Simulations"):
-        # Use different seed for each simulation
-        sim_seed = args.seed + i if args.seed is not None else None
 
-        obs = simulate_trajectory(
-            theta_samples[i],
-            fixed_params,
-            n_timepoints=args.num_timepoints,
-            obs_scale=obs_scale,
-            seed=sim_seed
-        )
-        x_obs_list.append(obs)
+    if args.num_workers == 1:
+        # Sequential simulation (original behavior)
+        x_obs_list = []
+        for i in tqdm(range(args.num_trajectories), desc="Simulations"):
+            # Use different seed for each simulation
+            sim_seed = args.seed + i if args.seed is not None else None
+
+            obs = simulate_trajectory(
+                theta_samples[i],
+                fixed_params,
+                n_timepoints=args.num_timepoints,
+                obs_scale=obs_scale,
+                seed=sim_seed
+            )
+            x_obs_list.append(obs)
+    else:
+        # Parallel simulation using ProcessPoolExecutor
+        print(f"Using {args.num_workers} parallel workers...")
+
+        # Prepare argument tuples for all simulations
+        args_list = [
+            (
+                theta_samples[i],
+                fixed_params,
+                obs_scale,
+                args.num_timepoints,
+                args.seed + i if args.seed is not None else None
+            )
+            for i in range(args.num_trajectories)
+        ]
+
+        # Execute simulations in parallel with progress bar
+        with ProcessPoolExecutor(max_workers=args.num_workers) as executor:
+            x_obs_list = list(
+                tqdm(
+                    executor.map(_simulate_single, args_list),
+                    total=args.num_trajectories,
+                    desc="Simulations"
+                )
+            )
 
     elapsed_time = time.time() - start_time
     print(f"\nSimulation completed in {elapsed_time:.2f} seconds")
     print(f"Average time per simulation: {elapsed_time / args.num_trajectories:.2f} seconds")
+    if args.num_workers > 1:
+        print(f"Parallelization: {args.num_workers} workers (theoretical speedup: {args.num_workers}x)")
 
     # Convert to array
     x_obs = np.array(x_obs_list)
@@ -223,6 +281,7 @@ def stage1_simulate(args):
         'obs_scale': obs_scale,
         'n_timepoints': args.num_timepoints,
         'seed': args.seed,
+        'num_workers': args.num_workers,
         'timestamp': time.strftime('%Y-%m-%d %H:%M:%S'),
     }
 
@@ -491,6 +550,8 @@ Examples:
                             help=f'Output directory (default: {DEFAULT_OUTPUT_DIR})')
     parser_sim.add_argument('--seed', type=int, default=42,
                             help='Random seed (default: 42)')
+    parser_sim.add_argument('--num-workers', type=int, default=1,
+                            help='Number of parallel workers for simulation (default: 1, sequential)')
 
     # Stage 2: Train
     parser_train = subparsers.add_parser('train', help='Train neural posterior estimator')

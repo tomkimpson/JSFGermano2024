@@ -3,7 +3,7 @@
 #SBATCH --output=slurm_npe_%j.out
 #SBATCH --error=slurm_npe_%j.err
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=8
 #SBATCH --mem=32GB
 #SBATCH --time=48:00:00
 
@@ -40,6 +40,7 @@ echo ""
 # Configuration
 NUM_TRAJECTORIES=1000
 NUM_TIMEPOINTS=10
+NUM_WORKERS=8
 PATIENTS="all"
 NUM_SAMPLES=10000
 
@@ -52,6 +53,10 @@ while [[ $# -gt 0 ]]; do
     case $1 in
         --num-trajectories)
             NUM_TRAJECTORIES="$2"
+            shift 2
+            ;;
+        --num-workers)
+            NUM_WORKERS="$2"
             shift 2
             ;;
         --skip-simulate)
@@ -84,6 +89,7 @@ done
 echo "Configuration:"
 echo "  Number of trajectories: $NUM_TRAJECTORIES"
 echo "  Number of timepoints: $NUM_TIMEPOINTS"
+echo "  Number of workers: $NUM_WORKERS"
 echo "  Patients: $PATIENTS"
 echo "  Posterior samples: $NUM_SAMPLES"
 echo "  Skip simulate: $SKIP_SIMULATE"
@@ -98,7 +104,8 @@ if [ "$SKIP_SIMULATE" = false ]; then
     echo "=========================================="
     time python -u COVID_TEIVR_NPE.py simulate \
         --num-trajectories $NUM_TRAJECTORIES \
-        --num-timepoints $NUM_TIMEPOINTS
+        --num-timepoints $NUM_TIMEPOINTS \
+        --num-workers $NUM_WORKERS
 
     if [ $? -eq 0 ]; then
         echo ""

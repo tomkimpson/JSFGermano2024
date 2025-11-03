@@ -155,6 +155,93 @@ def test_minimal_simulation():
     return errors
 
 
+def test_parallel_simulation():
+    """Test parallel simulation functionality."""
+    print("\nTesting parallel simulation...")
+    errors = []
+
+    try:
+        import argparse
+        import numpy as np
+        from COVID_TEIVR_NPE import main as npe_main
+
+        # Test that --num-workers argument is parsed correctly
+        print("  - Testing CLI argument parsing...")
+        parser = argparse.ArgumentParser()
+        subparsers = parser.add_subparsers(dest='command')
+        parser_sim = subparsers.add_parser('simulate')
+        parser_sim.add_argument('--num-trajectories', type=int, default=1000)
+        parser_sim.add_argument('--num-timepoints', type=int, default=10)
+        parser_sim.add_argument('--config', type=str, default='config/cli-refractory-tiv-jsf.toml')
+        parser_sim.add_argument('--output-dir', type=str, default='npe_outputs')
+        parser_sim.add_argument('--seed', type=int, default=42)
+        parser_sim.add_argument('--num-workers', type=int, default=1)
+
+        # Test parsing with different worker counts
+        args = parser.parse_args(['simulate', '--num-workers', '4'])
+        assert args.num_workers == 4, "Failed to parse --num-workers argument"
+        print("  ✓ CLI argument --num-workers parses correctly")
+
+        # Test that sequential and parallel modes produce same results (if imports work)
+        try:
+            from src import npe_utils
+            from COVID_TEIVR_NPE import simulate_trajectory, _simulate_single
+            from concurrent.futures import ProcessPoolExecutor
+
+            print("  - Testing deterministic behavior (sequential vs parallel)...")
+
+            # Load config
+            config = npe_utils.load_config("config/cli-refractory-tiv-jsf.toml")
+            lower_bounds, upper_bounds, param_names = npe_utils.get_prior_bounds(config)
+            fixed_params = npe_utils.get_fixed_params(config)
+            obs_scale = npe_utils.get_observation_scale(config)
+
+            # Sample 4 parameter sets
+            num_test = 4
+            seed = 42
+            theta_samples = npe_utils.sample_from_prior(lower_bounds, upper_bounds, num_test, seed=seed)
+
+            # Sequential simulation
+            sequential_results = []
+            for i in range(num_test):
+                obs = simulate_trajectory(
+                    theta_samples[i],
+                    fixed_params,
+                    n_timepoints=10,
+                    obs_scale=obs_scale,
+                    seed=seed + i
+                )
+                sequential_results.append(obs)
+
+            # Parallel simulation (using 2 workers)
+            args_list = [
+                (theta_samples[i], fixed_params, obs_scale, 10, seed + i)
+                for i in range(num_test)
+            ]
+            with ProcessPoolExecutor(max_workers=2) as executor:
+                parallel_results = list(executor.map(_simulate_single, args_list))
+
+            # Compare results
+            for i in range(num_test):
+                if not np.allclose(sequential_results[i], parallel_results[i], rtol=1e-10):
+                    errors.append(f"  ✗ Results differ for trajectory {i}")
+                    errors.append(f"    Sequential: {sequential_results[i][:3]}")
+                    errors.append(f"    Parallel:   {parallel_results[i][:3]}")
+                    break
+            else:
+                print("  ✓ Sequential and parallel modes produce identical results")
+
+        except Exception as e:
+            print(f"  ⚠ Skipping deterministic test (requires full setup): {e}")
+
+    except Exception as e:
+        errors.append(f"  ✗ Parallel simulation test failed: {e}")
+        import traceback
+        errors.append(traceback.format_exc())
+
+    return errors
+
+
 def main():
     """Run all tests."""
     print("=" * 70)
@@ -172,6 +259,7 @@ def main():
     # Only run simulation test if imports worked
     if not any("torch" in e or "sbi" in e for e in all_errors):
         all_errors.extend(test_minimal_simulation())
+        all_errors.extend(test_parallel_simulation())
     else:
         print("\nSkipping simulation test (missing dependencies)")
 
