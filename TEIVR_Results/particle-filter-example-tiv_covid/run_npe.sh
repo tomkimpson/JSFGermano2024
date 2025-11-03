@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32GB
-#SBATCH --time=48:00:00
+#SBATCH --time=6:00:00
 
 # Optional: Uncomment to receive email notifications
 #SBATCH --mail-type=END,FAIL
@@ -38,11 +38,15 @@ python -c "import sbi; print(sbi.__version__)" 2>/dev/null || echo "SBI not inst
 echo ""
 
 # Configuration
-NUM_TRAJECTORIES=1000
+NUM_TRAJECTORIES=10000
 NUM_TIMEPOINTS=10
 NUM_WORKERS=8
 PATIENTS="all"
 NUM_SAMPLES=10000
+
+# Create timestamped output directory (shared across all stages)
+RUN_TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+OUTPUT_DIR="results/npe/${RUN_TIMESTAMP}"
 
 # Parse command line arguments for flexibility
 SKIP_SIMULATE=false
@@ -92,6 +96,7 @@ echo "  Number of timepoints: $NUM_TIMEPOINTS"
 echo "  Number of workers: $NUM_WORKERS"
 echo "  Patients: $PATIENTS"
 echo "  Posterior samples: $NUM_SAMPLES"
+echo "  Output directory: $OUTPUT_DIR"
 echo "  Skip simulate: $SKIP_SIMULATE"
 echo "  Skip train: $SKIP_TRAIN"
 echo "  Skip infer: $SKIP_INFER"
@@ -105,7 +110,8 @@ if [ "$SKIP_SIMULATE" = false ]; then
     time python -u COVID_TEIVR_NPE.py simulate \
         --num-trajectories $NUM_TRAJECTORIES \
         --num-timepoints $NUM_TIMEPOINTS \
-        --num-workers $NUM_WORKERS
+        --num-workers $NUM_WORKERS \
+        --output-dir $OUTPUT_DIR
 
     if [ $? -eq 0 ]; then
         echo ""
@@ -127,7 +133,8 @@ if [ "$SKIP_TRAIN" = false ]; then
     echo "STAGE 2: TRAIN"
     echo "=========================================="
     time python -u COVID_TEIVR_NPE.py train \
-        --num-trajectories $NUM_TRAJECTORIES
+        --num-trajectories $NUM_TRAJECTORIES \
+        --output-dir $OUTPUT_DIR
 
     if [ $? -eq 0 ]; then
         echo ""
@@ -153,6 +160,7 @@ if [ "$SKIP_INFER" = false ]; then
         --num-trajectories $NUM_TRAJECTORIES \
         --num-samples $NUM_SAMPLES \
         --num-timepoints $NUM_TIMEPOINTS \
+        --output-dir $OUTPUT_DIR \
         --plot
 
     if [ $? -eq 0 ]; then
