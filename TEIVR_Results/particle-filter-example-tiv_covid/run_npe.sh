@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=covid_npe_inference
-#SBATCH --output=slurm_npe_%j.out
-#SBATCH --error=slurm_npe_%j.err
+#SBATCH --output=logs/slurm_npe_%j.out
+#SBATCH --error=logs/slurm_npe_%j.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32GB

@@ -17,11 +17,14 @@ import os
 import random
 import pickle
 import multiprocessing
-import multiprocessing
+from datetime import datetime
 
 
 # set random seed
 random.seed(1)
+
+# Generate timestamp for this run
+run_timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
 
 patient_list = ['432192'] #, '443108', '444332', '444391', '445602', '451152']
 
@@ -31,7 +34,7 @@ def process_patient(ii):
         inst = list(pypfilt.load_instances("config/cli-refractory-tiv-jsf.toml"))[0]
         patient_id = '/' + patient_list[ii]
 
-        out_dir = 'outputs4/' + patient_id + '/' +  inst.settings['components']['model'] + '_' + str(inst.settings['filter']['particles'])
+        out_dir = f'results/particle_filter/{run_timestamp}{patient_id}/' +  inst.settings['components']['model'] + '_' + str(inst.settings['filter']['particles'])
         cli_args = {'obs_ssv': 'data/' + patient_id + '.ssv'}
 
         # make output directory if it doesn't exist

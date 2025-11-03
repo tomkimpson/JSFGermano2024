@@ -18,13 +18,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-def load_particle_filter_results(patient_id, pf_output_dir="outputs4"):
+def load_particle_filter_results(patient_id, pf_output_dir="results/particle_filter/<timestamp>"):
     """
     Load particle filter results from fit_result.pkl.
 
     Args:
         patient_id: Patient identifier
-        pf_output_dir: Base directory for particle filter outputs
+        pf_output_dir: Base directory for particle filter outputs (e.g., results/particle_filter/20250103_143022)
 
     Returns:
         Dictionary with parameter samples or summaries
@@ -54,13 +54,13 @@ def load_particle_filter_results(patient_id, pf_output_dir="outputs4"):
     return fit_result
 
 
-def load_npe_results(patient_id, npe_output_dir="npe_outputs"):
+def load_npe_results(patient_id, npe_output_dir="results/npe/<timestamp>"):
     """
     Load NPE results.
 
     Args:
         patient_id: Patient identifier
-        npe_output_dir: Base directory for NPE outputs
+        npe_output_dir: Base directory for NPE outputs (e.g., results/npe/20250103_143022)
 
     Returns:
         Dictionary with samples and summary
@@ -234,15 +234,30 @@ def print_comparison_stats(npe_samples, pf_samples, param_names):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Compare NPE and Particle Filter results")
+    parser = argparse.ArgumentParser(
+        description="Compare NPE and Particle Filter results",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  # Compare results for a single patient
+  python compare_npe_pf.py --patient 432192 \\
+    --pf-dir results/particle_filter/20250103_143022 \\
+    --npe-dir results/npe/20250103_143022
+
+  # Compare all patients
+  python compare_npe_pf.py --patient all \\
+    --pf-dir results/particle_filter/20250103_143022 \\
+    --npe-dir results/npe/20250103_143022
+        """
+    )
     parser.add_argument('--patient', type=str, required=True,
                         help='Patient ID or "all"')
-    parser.add_argument('--pf-dir', type=str, default='outputs4',
-                        help='Particle filter output directory')
-    parser.add_argument('--npe-dir', type=str, default='npe_outputs',
-                        help='NPE output directory')
+    parser.add_argument('--pf-dir', type=str, required=True,
+                        help='Particle filter output directory (e.g., results/particle_filter/20250103_143022)')
+    parser.add_argument('--npe-dir', type=str, required=True,
+                        help='NPE output directory (e.g., results/npe/20250103_143022)')
     parser.add_argument('--output-dir', type=str, default='comparison_plots',
-                        help='Output directory for comparison plots')
+                        help='Output directory for comparison plots (default: comparison_plots)')
 
     args = parser.parse_args()
 

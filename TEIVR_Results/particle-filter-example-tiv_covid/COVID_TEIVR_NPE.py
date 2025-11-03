@@ -43,7 +43,7 @@ from src.tiv import RefractoryCellModel_JSF
 # Default paths
 DEFAULT_CONFIG = "config/cli-refractory-tiv-jsf.toml"
 DEFAULT_DATA_DIR = "data"
-DEFAULT_OUTPUT_DIR = "npe_outputs"
+DEFAULT_OUTPUT_DIR = "results/npe"
 
 
 def simulate_trajectory(
@@ -588,6 +588,14 @@ Examples:
     if args.command is None:
         parser.print_help()
         sys.exit(1)
+
+    # Add timestamp to output directory if using default (for all commands)
+    from datetime import datetime
+    if hasattr(args, 'output_dir') and args.output_dir == DEFAULT_OUTPUT_DIR:
+        run_timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        args.output_dir = f"{DEFAULT_OUTPUT_DIR}/{run_timestamp}"
+        print(f"\nUsing timestamped output directory: {args.output_dir}")
+        print(f"(To use a specific directory, pass --output-dir)\n")
 
     # Execute command
     if args.command == 'simulate':
