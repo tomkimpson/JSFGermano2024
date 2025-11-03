@@ -49,7 +49,7 @@ R0 = { name = "constant", args.value = 0.0 }
 # log(1.0E-2) = -4.61
 # log(1.0E0) = 0.00
 # log(1.0E1) = 2.30
-prior.lnV0 = { name = "uniform", args.loc = 0, args.scale = 5 }
+prior.lnV0 = { name = "uniform", args.loc = 0, args.scale = 6.5 }
 # prior.lnV0 = { name = "constant", args.value = -1.0 }
 prior.c = { name = "constant", args.value = 10.0}
 prior.k = { name = "constant", args.value = 4.0}
@@ -59,11 +59,11 @@ prior.k = { name = "constant", args.value = 4.0}
 # prior.rho = { name = "uniform", args.loc = 1.0E-3, args.scale = 1.0E-1}
 # prior.delta = { name = "uniform", args.loc = 1.0, args.scale = 3}
 # prior.pi = { name = "uniform", args.loc = 350, args.scale = 50}
-prior.beta = { name = "uniform", args.loc = 0, args.scale = 20}
-prior.phi = { name = "uniform", args.loc = 0, args.scale = 15}
-prior.rho = { name = "uniform", args.loc = 0, args.scale = 1}
-prior.delta = { name = "uniform", args.loc = 1.0, args.scale = 10}
-prior.pi = { name = "uniform", args.loc = 200, args.scale = 400}
+prior.beta = { name = "uniform", args.loc = 0, args.scale = 30}
+prior.phi = { name = "uniform", args.loc = 0, args.scale = 25}
+prior.rho = { name = "uniform", args.loc = 0, args.scale = 1.5}
+prior.delta = { name = "uniform", args.loc = 1.0, args.scale = 14}
+prior.pi = { name = "uniform", args.loc = 150, args.scale = 600}
 
 # summary.tables.model_cints.component = "pypfilt.summary.ModelCIs"
 # summary.tables.model_cints.credible_intervals = [ 0, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 95 ]
