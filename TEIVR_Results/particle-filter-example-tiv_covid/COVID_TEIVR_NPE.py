@@ -445,7 +445,10 @@ def stage3_infer(args):
 
             # Sample from posterior
             print(f"Sampling {args.num_samples} samples from posterior...")
+            start_time = time.time()
             posterior_samples = posterior.sample((args.num_samples,), x=x_obs)
+            inference_time = time.time() - start_time
+            print(f"Inference completed in {inference_time:.4f} seconds ({inference_time/60:.2f} minutes)")
 
             # Convert to numpy
             samples_np = npe_utils.from_tensor(posterior_samples)
@@ -486,6 +489,17 @@ def stage3_infer(args):
             })
             summary_df.to_csv(summary_path, index=False)
             print(f"Summary saved to: {summary_path}")
+
+            # Save timing information
+            timing_path = output_dir / "inference_timing.txt"
+            with open(timing_path, 'w') as f:
+                f.write(f"Inference timing for patient {patient_id}\n")
+                f.write(f"{'=' * 50}\n")
+                f.write(f"Number of posterior samples: {args.num_samples}\n")
+                f.write(f"Inference time: {inference_time:.4f} seconds\n")
+                f.write(f"Inference time: {inference_time/60:.2f} minutes\n")
+                f.write(f"Time per sample: {inference_time/args.num_samples*1000:.4f} ms\n")
+            print(f"Timing saved to: {timing_path}")
 
             # Generate diagnostic plots
             if args.plot:

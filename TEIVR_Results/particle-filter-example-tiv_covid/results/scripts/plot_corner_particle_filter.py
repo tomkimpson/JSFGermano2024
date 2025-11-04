@@ -24,6 +24,13 @@ except ImportError:
     print("Error: corner package not found. Install with: pip install corner")
     sys.exit(1)
 
+try:
+    import scienceplots
+except ImportError:
+    print("Warning: scienceplots package not found. Install with: pip install scienceplots")
+    print("Continuing without scienceplots styling...")
+    scienceplots = None
+
 
 def transform_samples(samples: np.ndarray) -> np.ndarray:
     """
@@ -209,6 +216,10 @@ def plot_corner_for_patient(
     """
     print(f"\nProcessing patient {patient_id} (n_particles={n_particles})...")
 
+    # Apply publication-quality styling
+    if scienceplots is not None:
+        plt.style.use('science')
+
     # Load samples and weights
     samples, weights = load_particle_filter_samples(patient_id, input_dir, n_particles)
 
@@ -233,12 +244,12 @@ def plot_corner_for_patient(
     # Note: β and φ are scaled (×10⁻⁹ and ×10⁻⁵ respectively) in the model
     # but the priors in the config are defined in the scaled space
     prior_bounds = [
-        (0.0, 20.0),      # β: Uniform(0, 20)
-        (0.0, 1.0),       # ρ: Uniform(0, 1)
+        (0.0, 25.0),      # β: Extended range for better visualization
+        (-0.1, 1.0),      # ρ: Extended range for better visualization
         (200.0, 600.0),   # π: Uniform(200, 600)
-        (0.0, 15.0),      # φ: Uniform(0, 15)
-        (1.0, 11.0),      # δ: Uniform(1, 11)
-        (0.0, 2.17)       # log₁₀V₀: V₀ = exp(Uniform(0,5)) → log₁₀(V₀) ∈ [0, 2.17]
+        (-2.0, 20.0),     # φ: Extended range for better visualization
+        (-0.2, 12.0),     # δ: Extended range for better visualization
+        (-0.1, 3.0)       # log₁₀V₀: Extended range for better visualization
     ]
 
     # Default corner plot settings
@@ -257,8 +268,8 @@ def plot_corner_for_patient(
         'smooth1d': smooth,
         'quantiles': [0.16, 0.5, 0.84],
         'show_titles': True,
-        'title_kwargs': {"fontsize": 12},
-        'label_kwargs': {"fontsize": 14}
+        'title_kwargs': {"fontsize": 20},
+        'label_kwargs': {"fontsize": 22}
     }
 
     # Update with user-provided kwargs
@@ -270,7 +281,7 @@ def plot_corner_for_patient(
 
     # Add patient ID and particle count as suptitle
     fig.suptitle(f'Patient {patient_id} - Particle Filter Posterior (N={n_particles})',
-                 fontsize=16, y=0.995)
+                 fontsize=24, y=0.995)
 
     # Construct output path
     patient_dir = Path(input_dir) / patient_id
@@ -278,7 +289,7 @@ def plot_corner_for_patient(
     output_path = run_dir / output_filename
 
     # Save figure
-    plt.savefig(output_path, dpi=150, bbox_inches='tight')
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
 
     print(f"  Corner plot saved to: {output_path}")
