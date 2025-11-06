@@ -1,0 +1,41 @@
+{
+  "posterior_path": "results/npe/20250103_existing_primary/models/posterior_N10000.pkl",
+  "patient_id": "444391",
+  "times": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "observations": [
+    5.465,
+    7.6775,
+    7.8475,
+    7.55,
+    7.2375,
+    6.2975,
+    5.2825,
+    5.5425,
+    5.7375,
+    4.195,
+    4.0425,
+    3.435,
+    3.18,
+    1.2525
+  ],
+  "T_obs": 14,
+  "num_samples": 5,
+  "seed": 42,
+  "n_timepoints_npe": 10,
+  "n_timepoints_filter": 14
+}

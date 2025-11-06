@@ -1,0 +1,63 @@
+2025-11-05 12:51:47,304 - __main__ - INFO - ============================================================
+2025-11-05 12:51:47,305 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-05 12:51:47,305 - __main__ - INFO - ============================================================
+2025-11-05 12:51:47,305 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-05 12:51:47,306 - __main__ - INFO - Output directory: results/posterior_predictive/20251105_125147
+2025-11-05 12:51:47,306 - __main__ - INFO - Configuration: config/cli-refractory-tiv-jsf.toml
+2025-11-05 12:51:47,306 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-05 12:51:47,306 - __main__ - INFO - Number of samples: 1
+2025-11-05 12:51:47,306 - __main__ - INFO - Particles per filter: 10
+2025-11-05 12:51:47,306 - __main__ - INFO - Prediction horizon: 1 days
+2025-11-05 12:51:47,306 - __main__ - INFO - Random seed: 123
+2025-11-05 12:51:47,306 - __main__ - INFO - Parallel workers: 1
+2025-11-05 12:51:47,306 - __main__ - INFO - Processing 1 patients: ['432192']
+2025-11-05 12:51:47,307 - __main__ - INFO - 
+============================================================
+2025-11-05 12:51:47,307 - __main__ - INFO - Processing patient: 432192
+2025-11-05 12:51:47,307 - __main__ - INFO - ============================================================
+2025-11-05 12:51:47,307 - __main__ - INFO - Loading posterior and sampling 1 parameter sets
+2025-11-05 12:51:47,307 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 12:52:07,289 - arviz.preview - INFO - arviz_base not installed
+2025-11-05 12:52:07,290 - arviz.preview - INFO - arviz_stats not installed
+2025-11-05 12:52:07,290 - arviz.preview - INFO - arviz_plots not installed
+2025-11-05 12:52:07,893 - src.posterior_predictive - INFO - Sampling 1 parameter sets from posterior
+2025-11-05 12:52:08,212 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 12:52:08,212 - __main__ - INFO - Prediction horizon: H=1 days beyond observations
+2025-11-05 12:52:08,215 - __main__ - INFO - Processing 1 samples with 10 particles each
+2025-11-05 12:52:08,215 - __main__ - INFO - Using sequential processing
+2025-11-05 12:52:08,696 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 12:52:08,751 - pypfilt - INFO -   12:52:08  Estimating  from 0.0 to 14.0
+2025-11-05 12:53:57,133 - pypfilt - INFO -   12:53:57  Forecasting from 14.0 to 21.0
+2025-11-05 12:54:38,917 - src.posterior_predictive - WARNING - Failed to construct snapshot at time 8.000: index 22 is out of bounds for axis 0 with size 22
+2025-11-05 12:54:38,917 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: No particle history snapshot available at time 8.0
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to construct snapshot at time 9.000: index 23 is out of bounds for axis 0 with size 22
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: No particle history snapshot available at time 9.0
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to construct snapshot at time 10.000: index 24 is out of bounds for axis 0 with size 22
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: No particle history snapshot available at time 10.0
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to construct snapshot at time 11.000: index 25 is out of bounds for axis 0 with size 22
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: No particle history snapshot available at time 11.0
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to construct snapshot at time 12.000: index 26 is out of bounds for axis 0 with size 22
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: No particle history snapshot available at time 12.0
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to construct snapshot at time 13.000: index 27 is out of bounds for axis 0 with size 22
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: No particle history snapshot available at time 13.0
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to construct snapshot at time 14.000: index 28 is out of bounds for axis 0 with size 22
+2025-11-05 12:54:38,918 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: No particle history snapshot available at time 14.0
+2025-11-05 12:54:38,919 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 12:54:38,921 - src.posterior_predictive - WARNING - Failed to construct snapshot at time 14.000: index 28 is out of bounds for axis 0 with size 22
+2025-11-05 12:54:38,921 - __main__ - ERROR - Sample 0: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 309, in extract_latent_state
+    raise ValueError(
+ValueError: No particle history snapshot available at time 14.0
+2025-11-05 12:54:38,941 - __main__ - WARNING - 1/1 samples failed
+2025-11-05 12:54:38,942 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_125147/432192
+2025-11-05 12:54:39,051 - src.posterior_predictive - WARNING - No valid filter trajectories to save
+2025-11-05 12:54:39,051 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_125147/432192
+2025-11-05 12:54:39,051 - __main__ - INFO - Patient 432192 completed in 171.7s (171.74s per sample)
+2025-11-05 12:54:39,095 - __main__ - INFO - 
+============================================================
+2025-11-05 12:54:39,095 - __main__ - INFO - All patients completed in 171.8s
+2025-11-05 12:54:39,095 - __main__ - INFO - Results saved to: results/posterior_predictive/20251105_125147
+2025-11-05 12:54:39,095 - __main__ - INFO - ============================================================

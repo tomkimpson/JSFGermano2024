@@ -1,0 +1,1338 @@
+2025-11-05 09:44:37,422 - __main__ - INFO - ============================================================
+2025-11-05 09:44:37,423 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-05 09:44:37,423 - __main__ - INFO - ============================================================
+2025-11-05 09:44:37,423 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-05 09:44:37,423 - __main__ - INFO - Output directory: results/posterior_predictive/20251105_094437
+2025-11-05 09:44:37,423 - __main__ - INFO - Configuration: config/cli-refractory-tiv-jsf.toml
+2025-11-05 09:44:37,423 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-05 09:44:37,423 - __main__ - INFO - Number of samples: 5
+2025-11-05 09:44:37,423 - __main__ - INFO - Particles per filter: 5
+2025-11-05 09:44:37,423 - __main__ - INFO - Prediction horizon: 14 days
+2025-11-05 09:44:37,423 - __main__ - INFO - Random seed: 42
+2025-11-05 09:44:37,423 - __main__ - INFO - Parallel workers: 8
+2025-11-05 09:44:37,424 - __main__ - INFO - Auto-detected 6 patients: ['432192', '443108', '444332', '444391', '445602', '451152']
+2025-11-05 09:44:37,424 - __main__ - INFO - 
+============================================================
+2025-11-05 09:44:37,424 - __main__ - INFO - Processing patient: 432192
+2025-11-05 09:44:37,424 - __main__ - INFO - ============================================================
+2025-11-05 09:44:37,424 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 09:44:37,425 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 09:44:38,904 - arviz.preview - INFO - arviz_base not installed
+2025-11-05 09:44:38,904 - arviz.preview - INFO - arviz_stats not installed
+2025-11-05 09:44:38,904 - arviz.preview - INFO - arviz_plots not installed
+2025-11-05 09:44:38,954 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 09:44:38,964 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 09:44:38,964 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 09:44:38,965 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 09:44:38,965 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 09:44:39,030 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 09:44:39,030 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 09:44:39,030 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 09:44:39,030 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 09:44:39,031 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 09:44:39,077 - pypfilt - INFO -   09:44:39  Estimating  from 0.0 to 14.0
+2025-11-05 09:44:39,077 - pypfilt - INFO -   09:44:39  Estimating  from 0.0 to 14.0
+2025-11-05 09:44:39,078 - pypfilt - INFO -   09:44:39  Estimating  from 0.0 to 14.0
+2025-11-05 09:44:39,079 - pypfilt - INFO -   09:44:39  Estimating  from 0.0 to 14.0
+2025-11-05 09:44:39,079 - pypfilt - INFO -   09:44:39  Estimating  from 0.0 to 14.0
+2025-11-05 09:44:44,180 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:44:44,181 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:44:44,181 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 09:44:44,181 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 09:44:44,181 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 09:44:44,181 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 6.41614846e-01  4.34248210e+00  4.25670737e+00 -1.48677547e-01
+         2.50798708e+00 -6.10291671e+01]
+       [ 4.34248210e+00  6.82345538e+01  6.33881676e+01 -2.57349674e+00
+         3.00890379e+01 -5.37808917e+02]
+       [ 4.25670737e+00  6.33881676e+01  6.01222367e+01 -2.40386570e+00
+         2.87141717e+01 -5.44700738e+02]
+       [-1.48677547e-01 -2.57349674e+00 -2.40386570e+00  9.86102481e-02
+        -1.10956217e+00  1.97156766e+01]
+       [ 2.50798708e+00  3.00890379e+01  2.87141717e+01 -1.10956217e+00
+         1.45444842e+01 -2.91974515e+02]
+       [-6.10291671e+01 -5.37808917e+02 -5.44700738e+02  1.97156766e+01
+        -2.91974515e+02  6.96094682e+03]]
+2025-11-05 09:44:47,819 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:44:47,819 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:44:47,819 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 09:44:47,819 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 09:44:47,819 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 09:44:47,820 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 4.28109534e+00  1.40087773e+01  1.15799872e+01 -2.60766486e-02
+         3.11824809e+00 -1.32190049e+02]
+       [ 1.40087773e+01  7.86412554e+01  4.30218191e+01 -1.24822337e+00
+         1.43058700e+01 -8.46817384e+02]
+       [ 1.15799872e+01  4.30218191e+01  3.70015762e+01 -4.15789335e-02
+         7.42814803e+00 -2.87910502e+02]
+       [-2.60766486e-02 -1.24822337e+00 -4.15789335e-02  6.39932542e-02
+        -1.04436997e-01  2.14015248e+01]
+       [ 3.11824809e+00  1.43058700e+01  7.42814803e+00 -1.04436997e-01
+         4.61733905e+00 -1.92562599e+02]
+       [-1.32190049e+02 -8.46817384e+02 -2.87910502e+02  2.14015248e+01
+        -1.92562599e+02  1.30201334e+04]]
+2025-11-05 09:45:08,070 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:45:08,070 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:45:08,070 - pypfilt.resample - WARNING - Minimum values: [2.46186895e-01 2.54051465e+00 1.86636428e+00 1.46257812e-01
+ 1.89343442e+00 2.65430277e+02]
+2025-11-05 09:45:08,070 - pypfilt.resample - WARNING - Maximum values: [  4.08088209  17.31302921  12.92705913   0.88175062  10.69404176
+ 574.28927517]
+2025-11-05 09:45:08,071 - pypfilt.resample - WARNING - Mean values:    [  2.45698667  10.30281936   7.93806667   0.4742918    6.23933118
+ 419.3258669 ]
+2025-11-05 09:45:08,071 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 2.19572565e+00 -6.09397812e+00  7.89541346e+00  4.94815238e-01
+         2.22044954e+00 -6.28761376e+01]
+       [-6.09397812e+00  1.69162981e+01 -2.19104187e+01 -1.37328494e+00
+        -6.16167156e+00  1.74475899e+02]
+       [ 7.89541346e+00 -2.19104187e+01  2.83922417e+01  1.77925968e+00
+         7.98520214e+00 -2.26123513e+02]
+       [ 4.94815238e-01 -1.37328494e+00  1.77925968e+00  1.11512089e-01
+         5.00344615e-01 -1.41669224e+01]
+       [ 2.22044954e+00 -6.16167156e+00  7.98520214e+00  5.00344615e-01
+         2.24635687e+00 -6.36279651e+01]
+       [-6.28761376e+01  1.74475899e+02 -2.26123513e+02 -1.41669224e+01
+        -6.36279651e+01  1.80273175e+03]]
+2025-11-05 09:45:25,473 - pypfilt - INFO -   09:45:25  Forecasting from 14.0 to 21.0
+2025-11-05 09:45:26,276 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:45:26,276 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:45:26,276 - pypfilt.resample - WARNING - Minimum values: [3.70459706e-01 2.65940343e+00 1.41328862e+00 8.73434778e-02
+ 2.11406430e+00 2.07203829e+02]
+2025-11-05 09:45:26,276 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573  10.32383303
+ 556.95017842]
+2025-11-05 09:45:26,276 - pypfilt.resample - WARNING - Mean values:    [  2.46456439  10.54272179   7.86267147   0.47776206   6.18430167
+ 383.3322927 ]
+2025-11-05 09:45:26,277 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 8.19317685e-01 -2.84129683e+00  2.17036023e+00  7.10660720e-02
+         1.43312442e+00  6.65974637e+01]
+       [-2.84129683e+00  9.85367429e+00 -7.52628171e+00 -2.46425852e-01
+        -4.97018826e+00 -2.30945528e+02]
+       [ 2.17036023e+00 -7.52628171e+00  5.74943836e+00  1.88268729e-01
+         3.79613049e+00  1.76420230e+02]
+       [ 7.10660720e-02 -2.46425852e-01  1.88268729e-01  6.16546940e-03
+         1.24290077e-01  5.77692278e+00]
+       [ 1.43312442e+00 -4.97018826e+00  3.79613049e+00  1.24290077e-01
+         2.50697840e+00  1.16485424e+02]
+       [ 6.65974637e+01 -2.30945528e+02  1.76420230e+02  5.77692278e+00
+         1.16485424e+02  5.41342274e+03]]
+2025-11-05 09:45:26,851 - pypfilt - INFO -   09:45:26  Forecasting from 14.0 to 21.0
+2025-11-05 09:45:30,841 - pypfilt - INFO -   09:45:30  Forecasting from 14.0 to 21.0
+2025-11-05 09:45:31,335 - pypfilt - INFO -   09:45:31  Forecasting from 14.0 to 21.0
+2025-11-05 09:45:38,959 - pypfilt - INFO -   09:45:38  Forecasting from 14.0 to 21.0
+2025-11-05 09:45:47,626 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:45:47,626 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:45:47,626 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:45:47,627 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:45:47,627 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:45:47,628 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 09:45:47,628 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 09:45:49,320 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:45:49,320 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:45:49,320 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:45:49,320 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:45:49,320 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:45:49,320 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:45:49,320 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:45:49,320 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:45:49,320 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:45:49,320 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:45:49,321 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:45:49,321 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:45:49,321 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:45:49,321 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:45:49,321 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:45:49,321 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:45:49,321 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 09:45:49,321 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 09:45:52,741 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:45:52,741 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:45:52,742 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:45:52,743 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:45:52,743 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 09:45:52,743 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 09:45:53,221 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:45:53,221 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:45:53,221 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:45:53,222 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:45:53,222 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:45:53,223 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 09:45:53,223 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 09:46:00,871 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:46:00,871 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:46:00,871 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:46:00,871 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:46:00,871 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:46:00,871 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:46:00,871 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:46:00,872 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:46:00,872 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:46:00,872 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:46:00,872 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:46:00,872 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:46:00,872 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:46:00,872 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:46:00,872 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:46:00,872 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:46:00,872 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 09:46:00,872 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 09:46:02,231 - __main__ - INFO - Sample 1: Complete
+2025-11-05 09:46:03,847 - __main__ - INFO - Sample 4: Complete
+2025-11-05 09:46:07,456 - __main__ - INFO - Sample 2: Complete
+2025-11-05 09:46:07,880 - __main__ - INFO - Sample 3: Complete
+2025-11-05 09:46:15,352 - __main__ - INFO - Sample 0: Complete
+2025-11-05 09:46:15,372 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_094437/432192
+2025-11-05 09:46:15,557 - src.posterior_predictive - INFO - Filter trajectories saved
+2025-11-05 09:46:15,558 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_094437/432192
+2025-11-05 09:46:15,558 - __main__ - INFO - Patient 432192 completed in 98.1s (19.63s per sample)
+2025-11-05 09:46:15,593 - __main__ - INFO - 
+============================================================
+2025-11-05 09:46:15,593 - __main__ - INFO - Processing patient: 443108
+2025-11-05 09:46:15,593 - __main__ - INFO - ============================================================
+2025-11-05 09:46:15,593 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 09:46:15,594 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 09:46:15,608 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 09:46:15,615 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 09:46:15,615 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 09:46:15,616 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 09:46:15,616 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 09:46:15,688 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 09:46:15,688 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 09:46:15,688 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 09:46:15,688 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 09:46:15,688 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 09:46:15,706 - pypfilt - INFO -   09:46:15  Estimating  from 0.0 to 14.0
+2025-11-05 09:46:15,707 - pypfilt - INFO -   09:46:15  Estimating  from 0.0 to 14.0
+2025-11-05 09:46:15,707 - pypfilt - INFO -   09:46:15  Estimating  from 0.0 to 14.0
+2025-11-05 09:46:15,707 - pypfilt - INFO -   09:46:15  Estimating  from 0.0 to 14.0
+2025-11-05 09:46:15,707 - pypfilt - INFO -   09:46:15  Estimating  from 0.0 to 14.0
+2025-11-05 09:46:21,411 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:46:21,411 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:46:21,411 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 09:46:21,412 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 09:46:21,412 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 09:46:21,412 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 3.22961647e-01  4.09247392e+00  3.89640180e+00 -1.52183862e-01
+         1.94044738e+00 -3.83871873e+01]
+       [ 4.09247392e+00  7.15414890e+01  6.72012802e+01 -2.72482746e+00
+         3.14200800e+01 -5.58009934e+02]
+       [ 3.89640180e+00  6.72012802e+01  6.34242848e+01 -2.56276774e+00
+         2.96970563e+01 -5.34995633e+02]
+       [-1.52183862e-01 -2.72482746e+00 -2.56276774e+00  1.04157568e-01
+        -1.19061148e+00  2.11156387e+01]
+       [ 1.94044738e+00  3.14200800e+01  2.96970563e+01 -1.19061148e+00
+         1.41066869e+01 -2.58275235e+02]
+       [-3.83871873e+01 -5.58009934e+02 -5.34995633e+02  2.11156387e+01
+        -2.58275235e+02  5.00803257e+03]]
+2025-11-05 09:46:24,492 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:46:24,492 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:46:24,492 - pypfilt.resample - WARNING - Minimum values: [3.70459706e-01 2.65940343e+00 1.41328862e+00 8.73434778e-02
+ 2.11406430e+00 2.07203829e+02]
+2025-11-05 09:46:24,493 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573  10.32383303
+ 556.95017842]
+2025-11-05 09:46:24,493 - pypfilt.resample - WARNING - Mean values:    [  2.46456439  10.54272179   7.86267147   0.47776206   6.18430167
+ 383.3322927 ]
+2025-11-05 09:46:24,493 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 1.59219913e+00  3.29918502e-01  8.21694847e+00  4.76702250e-01
+        -1.39417044e+00  2.26742149e+02]
+       [ 3.29918502e-01  7.14780978e+00  6.50775795e+00  5.06334553e-01
+        -5.31908379e+00  1.63905717e+02]
+       [ 8.21694847e+00  6.50775795e+00  4.58209829e+01  2.74621898e+00
+        -1.07163469e+01  1.25379783e+03]
+       [ 4.76702250e-01  5.06334553e-01  2.74621898e+00  1.66767098e-01
+        -7.13587628e-01  7.48796280e+01]
+       [-1.39417044e+00 -5.31908379e+00 -1.07163469e+01 -7.13587628e-01
+         4.87015677e+00 -2.84573764e+02]
+       [ 2.26742149e+02  1.63905717e+02  1.25379783e+03  7.48796280e+01
+        -2.84573764e+02  3.43407533e+04]]
+2025-11-05 09:46:43,872 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:46:43,873 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:46:43,873 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 09:46:43,873 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 09:46:43,873 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 09:46:43,873 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 5.01201649e+00  1.25201001e+01  6.06222667e+00 -4.22790224e-01
+         3.23599573e+00 -2.97325258e+02]
+       [ 1.25201001e+01  3.12754170e+01  1.51435426e+01 -1.05613696e+00
+         8.08357089e+00 -7.42723407e+02]
+       [ 6.06222667e+00  1.51435426e+01  7.33249688e+00 -5.11380975e-01
+         3.91406146e+00 -3.59626318e+02]
+       [-4.22790224e-01 -1.05613696e+00 -5.11380975e-01  3.56646076e-02
+        -2.72973418e-01  2.50809669e+01]
+       [ 3.23599573e+00  8.08357089e+00  3.91406146e+00 -2.72973418e-01
+         2.08931250e+00 -1.91967294e+02]
+       [-2.97325258e+02 -7.42723407e+02 -3.59626318e+02  2.50809669e+01
+        -1.91967294e+02  1.76380727e+04]]
+2025-11-05 09:46:58,507 - pypfilt - INFO -   09:46:58  Forecasting from 14.0 to 21.0
+2025-11-05 09:47:06,080 - pypfilt - INFO -   09:47:06  Forecasting from 14.0 to 21.0
+2025-11-05 09:47:10,258 - pypfilt - INFO -   09:47:10  Forecasting from 14.0 to 21.0
+2025-11-05 09:47:10,260 - pypfilt - INFO -   09:47:10  Forecasting from 14.0 to 21.0
+2025-11-05 09:47:14,682 - pypfilt - INFO -   09:47:14  Forecasting from 14.0 to 21.0
+2025-11-05 09:47:21,865 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:47:21,866 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:47:21,867 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:47:21,867 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:47:21,867 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:47:21,867 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 09:47:21,867 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 09:47:28,727 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:47:28,727 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:47:28,727 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:47:28,727 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:47:28,727 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:47:28,727 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:47:28,727 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:47:28,727 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:47:28,727 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:47:28,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:47:28,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:47:28,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:47:28,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:47:28,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:47:28,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:47:28,728 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:47:28,728 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 09:47:28,728 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:47:32,956 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:47:32,957 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:47:32,957 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:47:32,957 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:47:32,957 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:47:32,957 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 09:47:32,957 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 09:47:33,733 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:47:33,734 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:47:33,734 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:47:33,734 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:47:33,734 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:47:33,734 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:47:33,734 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:47:33,734 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:47:33,734 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:47:33,734 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:47:33,735 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:47:33,735 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:47:33,735 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:47:33,735 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:47:33,735 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:47:33,735 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:47:33,735 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 09:47:33,735 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 09:47:36,595 - __main__ - INFO - Sample 4: Complete
+2025-11-05 09:47:36,993 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:47:36,993 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:47:36,993 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:47:36,993 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:47:36,993 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:47:36,994 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:47:36,994 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:47:36,994 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:47:36,994 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:47:36,994 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:47:36,994 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:47:36,994 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:47:36,994 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:47:36,994 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:47:36,994 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:47:36,994 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:47:36,995 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 09:47:36,995 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 09:47:43,378 - __main__ - INFO - Sample 0: Complete
+2025-11-05 09:47:47,678 - __main__ - INFO - Sample 2: Complete
+2025-11-05 09:47:48,325 - __main__ - INFO - Sample 3: Complete
+2025-11-05 09:47:51,596 - __main__ - INFO - Sample 1: Complete
+2025-11-05 09:47:51,614 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_094437/443108
+2025-11-05 09:47:51,949 - src.posterior_predictive - INFO - Filter trajectories saved
+2025-11-05 09:47:51,949 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_094437/443108
+2025-11-05 09:47:51,949 - __main__ - INFO - Patient 443108 completed in 96.4s (19.27s per sample)
+2025-11-05 09:47:52,014 - __main__ - INFO - 
+============================================================
+2025-11-05 09:47:52,014 - __main__ - INFO - Processing patient: 444332
+2025-11-05 09:47:52,014 - __main__ - INFO - ============================================================
+2025-11-05 09:47:52,014 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 09:47:52,015 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 09:47:52,027 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 09:47:52,033 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 09:47:52,033 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 09:47:52,035 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 09:47:52,035 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 09:47:52,107 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 09:47:52,107 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 09:47:52,107 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 09:47:52,107 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 09:47:52,107 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 09:47:52,125 - pypfilt - INFO -   09:47:52  Estimating  from 0.0 to 14.0
+2025-11-05 09:47:52,125 - pypfilt - INFO -   09:47:52  Estimating  from 0.0 to 14.0
+2025-11-05 09:47:52,126 - pypfilt - INFO -   09:47:52  Estimating  from 0.0 to 14.0
+2025-11-05 09:47:52,126 - pypfilt - INFO -   09:47:52  Estimating  from 0.0 to 14.0
+2025-11-05 09:47:52,126 - pypfilt - INFO -   09:47:52  Estimating  from 0.0 to 14.0
+2025-11-05 09:47:55,299 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:47:55,299 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:47:55,300 - pypfilt.resample - WARNING - Minimum values: [6.72318902e-02 3.15891590e+00 2.49790332e+00 7.00802654e-02
+ 1.11168723e+00 2.20653315e+02]
+2025-11-05 09:47:55,300 - pypfilt.resample - WARNING - Maximum values: [  4.25095322  16.26779116  12.47232573   0.86292134  10.20706639
+ 533.59201554]
+2025-11-05 09:47:55,300 - pypfilt.resample - WARNING - Mean values:    [  2.29680684   9.61654513   7.32157576   0.49866606   5.97881632
+ 384.45919648]
+2025-11-05 09:47:55,300 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 1.36035991e+00 -1.59017388e+00  1.86132488e+00  2.40758726e-02
+        -1.87045211e-01  2.21717975e+01]
+       [-1.59017388e+00  4.19526698e+01 -3.21424126e+01  2.04103801e+00
+        -1.85650611e+00  8.26413588e+02]
+       [ 1.86132488e+00 -3.21424126e+01  2.50923025e+01 -1.46239223e+00
+         2.27813697e+00 -5.91111878e+02]
+       [ 2.40758726e-02  2.04103801e+00 -1.46239223e+00  1.27821861e-01
+         2.60152134e-01  5.10455574e+01]
+       [-1.87045211e-01 -1.85650611e+00  2.27813697e+00  2.60152134e-01
+         6.98294552e+00  6.98046667e+01]
+       [ 2.21717975e+01  8.26413588e+02 -5.91111878e+02  5.10455574e+01
+         6.98046667e+01  2.06811034e+04]]
+2025-11-05 09:48:00,671 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:48:00,671 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:48:00,671 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 09:48:00,672 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 09:48:00,672 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 09:48:00,672 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 3.02530616e+00  8.59096645e+00  1.32563280e+01  3.17675004e-02
+        -1.92528092e+00  6.69650284e+01]
+       [ 8.59096645e+00  2.51014446e+01  3.76847133e+01  6.51434235e-02
+        -5.32663102e+00  1.79350163e+02]
+       [ 1.32563280e+01  3.76847133e+01  5.84661797e+01  1.42375157e-01
+        -8.66910613e+00  3.03114179e+02]
+       [ 3.17675004e-02  6.51434235e-02  1.42375157e-01  1.69867498e-03
+        -2.40992277e-02  1.21659513e+00]
+       [-1.92528092e+00 -5.32663102e+00 -8.66910613e+00 -2.40992277e-02
+         1.44679981e+00 -5.13290374e+01]
+       [ 6.69650284e+01  1.79350163e+02  3.03114179e+02  1.21659513e+00
+        -5.13290374e+01  1.92976869e+03]]
+2025-11-05 09:48:07,146 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:48:07,146 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:48:07,146 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 09:48:07,146 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 09:48:07,147 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 09:48:07,147 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 2.68181108e-01  3.90122642e+00  3.79596708e+00 -1.47467029e-01
+         1.85016870e+00 -3.65766137e+01]
+       [ 3.90122642e+00  7.18583576e+01  6.75560594e+01 -2.74699121e+00
+         3.13301559e+01 -5.50160820e+02]
+       [ 3.79596708e+00  6.75560594e+01  6.38067430e+01 -2.57876322e+00
+         2.97958249e+01 -5.32579195e+02]
+       [-1.47467029e-01 -2.74699121e+00 -2.57876322e+00  1.05063251e-01
+        -1.19325294e+00  2.08337775e+01]
+       [ 1.85016870e+00  3.13301559e+01  2.97958249e+01 -1.19325294e+00
+         1.40565893e+01 -2.57677982e+02]
+       [-3.65766137e+01 -5.50160820e+02 -5.32579195e+02  2.08337775e+01
+        -2.57677982e+02  5.01271831e+03]]
+2025-11-05 09:48:22,866 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:48:22,866 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:48:22,866 - pypfilt.resample - WARNING - Minimum values: [3.70459706e-01 2.65940343e+00 1.41328862e+00 8.73434778e-02
+ 2.11406430e+00 2.07203829e+02]
+2025-11-05 09:48:22,866 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573  10.32383303
+ 556.95017842]
+2025-11-05 09:48:22,866 - pypfilt.resample - WARNING - Mean values:    [  2.46456439  10.54272179   7.86267147   0.47776206   6.18430167
+ 383.3322927 ]
+2025-11-05 09:48:22,867 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 8.19308094e-01 -2.84128209e+00  2.17028963e+00  7.10621097e-02
+         1.43314704e+00  6.65956032e+01]
+       [-2.84128209e+00  9.85421483e+00 -7.52623337e+00 -2.46415340e-01
+        -4.97026697e+00 -2.30943854e+02]
+       [ 2.17028963e+00 -7.52623337e+00  5.74896141e+00  1.88241390e-01
+         3.79627235e+00  1.76407524e+02]
+       [ 7.10621097e-02 -2.46415340e-01  1.88241390e-01  6.16401292e-03
+         1.24297220e-01  5.77619950e+00]
+       [ 1.43314704e+00 -4.97026697e+00  3.79627235e+00  1.24297220e-01
+         2.50695208e+00  1.16489207e+02]
+       [ 6.65956032e+01 -2.30943854e+02  1.76407524e+02  5.77619950e+00
+         1.16489207e+02  5.41308482e+03]]
+2025-11-05 09:48:33,611 - pypfilt - INFO -   09:48:33  Forecasting from 14.0 to 21.0
+2025-11-05 09:48:36,500 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:48:36,500 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:48:36,500 - pypfilt.resample - WARNING - Minimum values: [2.46186895e-01 2.54051465e+00 1.86636428e+00 1.46257812e-01
+ 1.89343442e+00 2.65430277e+02]
+2025-11-05 09:48:36,500 - pypfilt.resample - WARNING - Maximum values: [  4.08088209  17.31302921  12.92705913   0.88175062  10.69404176
+ 574.28927517]
+2025-11-05 09:48:36,501 - pypfilt.resample - WARNING - Mean values:    [  2.45698667  10.30281936   7.93806667   0.4742918    6.23933118
+ 419.3258669 ]
+2025-11-05 09:48:36,501 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 3.08777800e-01  3.38668605e+00  4.14640884e+00  8.50869339e-02
+         1.60174932e+00 -4.95757041e+01]
+       [ 3.38668605e+00  3.99585021e+01  4.93743692e+01  9.58615945e-01
+         1.86333810e+01 -6.02022120e+02]
+       [ 4.14640884e+00  4.93743692e+01  6.10765530e+01  1.17773759e+00
+         2.29845543e+01 -7.46437073e+02]
+       [ 8.50869339e-02  9.58615945e-01  1.17773759e+00  2.36755502e-02
+         4.50989633e-01 -1.41868210e+01]
+       [ 1.60174932e+00  1.86333810e+01  2.29845543e+01  4.50989633e-01
+         8.71232397e+00 -2.79236121e+02]
+       [-4.95757041e+01 -6.02022120e+02 -7.46437073e+02 -1.41868210e+01
+        -2.79236121e+02  9.16672301e+03]]
+2025-11-05 09:48:38,216 - pypfilt - INFO -   09:48:38  Forecasting from 14.0 to 21.0
+2025-11-05 09:48:42,497 - pypfilt - INFO -   09:48:42  Forecasting from 14.0 to 21.0
+2025-11-05 09:48:47,917 - pypfilt - INFO -   09:48:47  Forecasting from 14.0 to 21.0
+2025-11-05 09:48:54,823 - pypfilt - INFO -   09:48:54  Forecasting from 14.0 to 21.0
+2025-11-05 09:48:55,533 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:48:55,534 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:48:55,535 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:48:55,535 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:48:55,535 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:48:55,535 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:48:55,535 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 09:48:55,535 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 09:49:00,162 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:49:00,162 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:49:00,162 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:49:00,162 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:49:00,162 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:49:00,162 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:49:00,162 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:49:00,162 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:49:00,163 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:49:00,163 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:49:00,163 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:49:00,163 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:49:00,163 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:49:00,163 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:49:00,163 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:49:00,163 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:49:00,163 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 09:49:00,163 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 09:49:04,718 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:49:04,718 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:49:04,718 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:49:04,718 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:49:04,719 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:49:04,719 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:49:04,720 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 09:49:04,720 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 09:49:09,978 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:49:09,978 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:49:09,978 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:49:09,978 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:49:09,978 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:49:09,978 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:49:09,978 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:49:09,978 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:49:09,978 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:49:09,978 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:49:09,979 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:49:09,979 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:49:09,979 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:49:09,979 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:49:09,979 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:49:09,979 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:49:09,979 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 09:49:09,979 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 09:49:10,096 - __main__ - INFO - Sample 4: Complete
+2025-11-05 09:49:14,772 - __main__ - INFO - Sample 1: Complete
+2025-11-05 09:49:16,816 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:49:16,816 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:49:16,816 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:49:16,816 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:49:16,816 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:49:16,817 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:49:16,817 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:49:16,817 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:49:16,817 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:49:16,817 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:49:16,817 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:49:16,817 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:49:16,817 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:49:16,817 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:49:16,817 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:49:16,817 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:49:16,818 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 09:49:16,818 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 09:49:19,323 - __main__ - INFO - Sample 0: Complete
+2025-11-05 09:49:24,314 - __main__ - INFO - Sample 2: Complete
+2025-11-05 09:49:31,375 - __main__ - INFO - Sample 3: Complete
+2025-11-05 09:49:31,397 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_094437/444332
+2025-11-05 09:49:31,591 - src.posterior_predictive - INFO - Filter trajectories saved
+2025-11-05 09:49:31,591 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_094437/444332
+2025-11-05 09:49:31,591 - __main__ - INFO - Patient 444332 completed in 99.6s (19.92s per sample)
+2025-11-05 09:49:31,611 - __main__ - INFO - 
+============================================================
+2025-11-05 09:49:31,611 - __main__ - INFO - Processing patient: 444391
+2025-11-05 09:49:31,611 - __main__ - INFO - ============================================================
+2025-11-05 09:49:31,611 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 09:49:31,612 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 09:49:31,624 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 09:49:31,631 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 09:49:31,631 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 09:49:31,632 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 09:49:31,632 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 09:49:31,703 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 09:49:31,703 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 09:49:31,703 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 09:49:31,703 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 09:49:31,703 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 09:49:31,723 - pypfilt - INFO -   09:49:31  Estimating  from 0.0 to 14.0
+2025-11-05 09:49:31,723 - pypfilt - INFO -   09:49:31  Estimating  from 0.0 to 14.0
+2025-11-05 09:49:31,723 - pypfilt - INFO -   09:49:31  Estimating  from 0.0 to 14.0
+2025-11-05 09:49:31,723 - pypfilt - INFO -   09:49:31  Estimating  from 0.0 to 14.0
+2025-11-05 09:49:31,723 - pypfilt - INFO -   09:49:31  Estimating  from 0.0 to 14.0
+2025-11-05 09:49:36,811 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:49:36,813 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:49:36,813 - pypfilt.resample - WARNING - Minimum values: [6.72318902e-02 3.15891590e+00 2.49790332e+00 7.00802654e-02
+ 1.11168723e+00 2.20653315e+02]
+2025-11-05 09:49:36,813 - pypfilt.resample - WARNING - Maximum values: [  4.25095322  16.26779116  12.47232573   0.86292134  10.20706639
+ 533.59201554]
+2025-11-05 09:49:36,813 - pypfilt.resample - WARNING - Mean values:    [  2.29680684   9.61654513   7.32157576   0.49866606   5.97881632
+ 384.45919648]
+2025-11-05 09:49:36,813 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 1.57443032e+00 -9.67637631e+00  8.26628626e+00 -2.03127009e-01
+         2.78252465e+00 -7.67288666e+01]
+       [-9.67637631e+00  5.94884596e+01 -5.08178562e+01  1.24915238e+00
+        -1.71048925e+01  4.71885713e+02]
+       [ 8.26628626e+00 -5.08178562e+01  4.34112086e+01 -1.06703566e+00
+         1.46122340e+01 -4.03086343e+02]
+       [-2.03127009e-01  1.24915238e+00 -1.06703566e+00  2.62446880e-02
+        -3.59019128e-01  9.91470568e+00]
+       [ 2.78252465e+00 -1.71048925e+01  1.46122340e+01 -3.59019128e-01
+         4.92049221e+00 -1.35627781e+02]
+       [-7.67288666e+01  4.71885713e+02 -4.03086343e+02  9.91470568e+00
+        -1.35627781e+02  3.74565888e+03]]
+2025-11-05 09:49:40,403 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:49:40,405 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:49:40,405 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 09:49:40,405 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 09:49:40,405 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 09:49:40,405 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 3.30965653e+00 -4.38213495e+00  4.12300568e+00  2.82948076e-01
+         7.80276539e+00 -3.94243557e+02]
+       [-4.38213495e+00  1.47821331e+01  2.07196380e-01 -8.96760066e-01
+        -1.20495928e+01  5.73311522e+02]
+       [ 4.12300568e+00  2.07196380e-01  8.71195605e+00  2.30127456e-02
+         8.63600242e+00 -4.58759577e+02]
+       [ 2.82948076e-01 -8.96760066e-01  2.30127456e-02  5.45489374e-02
+         7.66995713e-01 -3.66878084e+01]
+       [ 7.80276539e+00 -1.20495928e+01  8.63600242e+00  7.66995713e-01
+         1.87246493e+01 -9.39278992e+02]
+       [-3.94243557e+02  5.73311522e+02 -4.58759577e+02 -3.66878084e+01
+        -9.39278992e+02  4.72554415e+04]]
+2025-11-05 09:49:45,572 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:49:45,572 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:49:45,572 - pypfilt.resample - WARNING - Minimum values: [2.46186895e-01 2.54051465e+00 1.86636428e+00 1.46257812e-01
+ 1.89343442e+00 2.65430277e+02]
+2025-11-05 09:49:45,572 - pypfilt.resample - WARNING - Maximum values: [  4.08088209  17.31302921  12.92705913   0.88175062  10.69404176
+ 574.28927517]
+2025-11-05 09:49:45,572 - pypfilt.resample - WARNING - Mean values:    [  2.45698667  10.30281936   7.93806667   0.4742918    6.23933118
+ 419.3258669 ]
+2025-11-05 09:49:45,573 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 2.19592144e+00 -6.09475316e+00  7.89601355e+00  4.94841623e-01
+         2.22080362e+00 -6.28919973e+01]
+       [-6.09475316e+00  1.69159131e+01 -2.19152893e+01 -1.37342689e+00
+        -6.16381335e+00  1.74555973e+02]
+       [ 7.89601355e+00 -2.19152893e+01  2.83921952e+01  1.77933331e+00
+         7.98548402e+00 -2.26144735e+02]
+       [ 4.94841623e-01 -1.37342689e+00  1.77933331e+00  1.11510472e-01
+         5.00448698e-01 -1.41724450e+01]
+       [ 2.22080362e+00 -6.16381335e+00  7.98548402e+00  5.00448698e-01
+         2.24596798e+00 -6.36046455e+01]
+       [-6.28919973e+01  1.74555973e+02 -2.26144735e+02 -1.41724450e+01
+        -6.36046455e+01  1.80125070e+03]]
+2025-11-05 09:49:54,006 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:49:54,006 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:49:54,006 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 09:49:54,007 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 09:49:54,007 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 09:49:54,007 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 5.01199682e+00  1.25199517e+01  6.06218023e+00 -4.22785582e-01
+         3.23597083e+00 -2.97323036e+02]
+       [ 1.25199517e+01  3.12757255e+01  1.51435175e+01 -1.05614493e+00
+         8.08355844e+00 -7.42721846e+02]
+       [ 6.06218023e+00  1.51435175e+01  7.33246091e+00 -5.11379848e-01
+         3.91404250e+00 -3.59624545e+02]
+       [-4.22785582e-01 -1.05614493e+00 -5.11379848e-01  3.56648020e-02
+        -2.72972834e-01  2.50808990e+01]
+       [ 3.23597083e+00  8.08355844e+00  3.91404250e+00 -2.72972834e-01
+         2.08930248e+00 -1.91966351e+02]
+       [-2.97323036e+02 -7.42721846e+02 -3.59624545e+02  2.50808990e+01
+        -1.91966351e+02  1.76379832e+04]]
+2025-11-05 09:50:03,211 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:50:03,211 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:50:03,211 - pypfilt.resample - WARNING - Minimum values: [3.70459706e-01 2.65940343e+00 1.41328862e+00 8.73434778e-02
+ 2.11406430e+00 2.07203829e+02]
+2025-11-05 09:50:03,211 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573  10.32383303
+ 556.95017842]
+2025-11-05 09:50:03,211 - pypfilt.resample - WARNING - Mean values:    [  2.46456439  10.54272179   7.86267147   0.47776206   6.18430167
+ 383.3322927 ]
+2025-11-05 09:50:03,211 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 8.19308106e-01 -2.84134051e+00  2.17028182e+00  7.10607616e-02
+         1.43316293e+00  6.65953927e+01]
+       [-2.84134051e+00  9.85369976e+00 -7.52648441e+00 -2.46436986e-01
+        -4.97017408e+00 -2.30951198e+02]
+       [ 2.17028182e+00 -7.52648441e+00  5.74890342e+00  1.88234289e-01
+         3.79633428e+00  1.76405883e+02]
+       [ 7.10607616e-02 -2.46436986e-01  1.88234289e-01  6.16328803e-03
+         1.24302016e-01  5.77599475e+00]
+       [ 1.43316293e+00 -4.97017408e+00  3.79633428e+00  1.24302016e-01
+         2.50693966e+00  1.16491034e+02]
+       [ 6.65953927e+01 -2.30951198e+02  1.76405883e+02  5.77599475e+00
+         1.16491034e+02  5.41303852e+03]]
+2025-11-05 09:50:15,648 - pypfilt - INFO -   09:50:15  Forecasting from 14.0 to 21.0
+2025-11-05 09:50:19,990 - pypfilt - INFO -   09:50:19  Forecasting from 14.0 to 21.0
+2025-11-05 09:50:26,948 - pypfilt - INFO -   09:50:26  Forecasting from 14.0 to 21.0
+2025-11-05 09:50:33,861 - pypfilt - INFO -   09:50:33  Forecasting from 14.0 to 21.0
+2025-11-05 09:50:37,602 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:50:37,602 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:50:37,602 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:50:37,602 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:50:37,603 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:50:37,604 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:50:37,604 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 09:50:37,604 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 09:50:40,624 - pypfilt - INFO -   09:50:40  Forecasting from 14.0 to 21.0
+2025-11-05 09:50:41,966 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:50:41,966 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:50:41,966 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:50:41,966 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:50:41,966 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:50:41,966 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:50:41,966 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:50:41,966 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:50:41,966 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:50:41,967 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:50:41,967 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:50:41,967 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:50:41,967 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:50:41,967 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:50:41,967 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:50:41,967 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:50:41,967 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 09:50:41,967 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 09:50:48,972 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:50:48,972 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:50:48,972 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:50:48,972 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:50:48,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:50:48,973 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:50:48,974 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 09:50:48,974 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 09:50:52,254 - __main__ - INFO - Sample 4: Complete
+2025-11-05 09:50:55,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:50:55,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:50:55,851 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:50:55,851 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:50:55,851 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:50:55,851 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:50:55,851 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 09:50:55,851 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 09:50:56,609 - __main__ - INFO - Sample 3: Complete
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:51:02,449 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:51:02,450 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:51:02,450 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:51:02,450 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:51:02,450 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:51:02,450 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 09:51:02,450 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 09:51:03,602 - __main__ - INFO - Sample 1: Complete
+2025-11-05 09:51:10,343 - __main__ - INFO - Sample 0: Complete
+2025-11-05 09:51:16,931 - __main__ - INFO - Sample 2: Complete
+2025-11-05 09:51:16,950 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_094437/444391
+2025-11-05 09:51:17,842 - src.posterior_predictive - INFO - Filter trajectories saved
+2025-11-05 09:51:17,842 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_094437/444391
+2025-11-05 09:51:17,842 - __main__ - INFO - Patient 444391 completed in 106.2s (21.25s per sample)
+2025-11-05 09:51:17,921 - __main__ - INFO - 
+============================================================
+2025-11-05 09:51:17,921 - __main__ - INFO - Processing patient: 445602
+2025-11-05 09:51:17,921 - __main__ - INFO - ============================================================
+2025-11-05 09:51:17,921 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 09:51:17,921 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 09:51:17,934 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 09:51:17,940 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 09:51:17,941 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 09:51:17,942 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 09:51:17,942 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 09:51:18,014 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 09:51:18,014 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 09:51:18,014 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 09:51:18,014 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 09:51:18,014 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 09:51:18,033 - pypfilt - INFO -   09:51:18  Estimating  from 0.0 to 14.0
+2025-11-05 09:51:18,033 - pypfilt - INFO -   09:51:18  Estimating  from 0.0 to 14.0
+2025-11-05 09:51:18,033 - pypfilt - INFO -   09:51:18  Estimating  from 0.0 to 14.0
+2025-11-05 09:51:18,033 - pypfilt - INFO -   09:51:18  Estimating  from 0.0 to 14.0
+2025-11-05 09:51:18,033 - pypfilt - INFO -   09:51:18  Estimating  from 0.0 to 14.0
+2025-11-05 09:51:31,635 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:51:31,635 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:51:31,635 - pypfilt.resample - WARNING - Minimum values: [2.46186895e-01 2.54051465e+00 1.86636428e+00 1.46257812e-01
+ 1.89343442e+00 2.65430277e+02]
+2025-11-05 09:51:31,635 - pypfilt.resample - WARNING - Maximum values: [  4.08088209  17.31302921  12.92705913   0.88175062  10.69404176
+ 574.28927517]
+2025-11-05 09:51:31,636 - pypfilt.resample - WARNING - Mean values:    [  2.45698667  10.30281936   7.93806667   0.4742918    6.23933118
+ 419.3258669 ]
+2025-11-05 09:51:31,636 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 9.73693059e-01 -2.26480392e+00  3.01407453e+00  4.16920856e-01
+        -1.52660829e+00  1.14446335e+02]
+       [-2.26480392e+00  8.79837875e+00 -4.14763183e+00 -1.00627339e+00
+         5.31950725e+00 -3.40013885e+02]
+       [ 3.01407453e+00 -4.14763183e+00  1.16519644e+01  1.26096694e+00
+        -3.29133108e+00  2.94410073e+02]
+       [ 4.16920856e-01 -1.00627339e+00  1.26096694e+00  1.78897035e-01
+        -6.71965126e-01  4.97677107e+01]
+       [-1.52660829e+00  5.31950725e+00 -3.29133108e+00 -6.71965126e-01
+         3.27951314e+00 -2.16412339e+02]
+       [ 1.14446335e+02 -3.40013885e+02  2.94410073e+02  4.97677107e+01
+        -2.16412339e+02  1.49950604e+04]]
+2025-11-05 09:51:45,281 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:51:45,282 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:51:45,282 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 09:51:45,282 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 09:51:45,282 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 09:51:45,282 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 3.67770939e-01  2.69593078e+00  3.03303998e+00 -9.74495991e-02
+         1.73971446e+00 -4.67445691e+01]
+       [ 2.69593078e+00  7.47455926e+01  6.71830077e+01 -2.89435489e+00
+         2.90554561e+01 -4.10870103e+02]
+       [ 3.03303998e+00  6.71830077e+01  6.17702598e+01 -2.58488401e+00
+         2.77007504e+01 -4.41635232e+02]
+       [-9.74495991e-02 -2.89435489e+00 -2.58488401e+00  1.12352069e-01
+        -1.10480765e+00  1.50542903e+01]
+       [ 1.73971446e+00  2.90554561e+01  2.77007504e+01 -1.10480765e+00
+         1.31303923e+01 -2.42302482e+02]
+       [-4.67445691e+01 -4.10870103e+02 -4.41635232e+02  1.50542903e+01
+        -2.42302482e+02  6.03959336e+03]]
+2025-11-05 09:51:49,242 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:51:49,243 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:51:49,243 - pypfilt.resample - WARNING - Minimum values: [3.70459706e-01 2.65940343e+00 1.41328862e+00 8.73434778e-02
+ 2.11406430e+00 2.07203829e+02]
+2025-11-05 09:51:49,243 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573  10.32383303
+ 556.95017842]
+2025-11-05 09:51:49,243 - pypfilt.resample - WARNING - Mean values:    [  2.46456439  10.54272179   7.86267147   0.47776206   6.18430167
+ 383.3322927 ]
+2025-11-05 09:51:49,243 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 8.19306181e-01 -2.84130457e+00  2.17029692e+00  7.10623001e-02
+         1.43313853e+00  6.65957284e+01]
+       [-2.84130457e+00  9.85379742e+00 -7.52623595e+00 -2.46420924e-01
+        -4.97027088e+00 -2.30944542e+02]
+       [ 2.17029692e+00 -7.52623595e+00  5.74915077e+00  1.88253113e-01
+         3.79614463e+00  1.76412163e+02]
+       [ 7.10623001e-02 -2.46420924e-01  1.88253113e-01  6.16466728e-03
+         1.24289339e-01  5.77647916e+00]
+       [ 1.43313853e+00 -4.97027088e+00  3.79614463e+00  1.24289339e-01
+         2.50702726e+00  1.16486004e+02]
+       [ 6.65957284e+01 -2.30944542e+02  1.76412163e+02  5.77647916e+00
+         1.16486004e+02  5.41319714e+03]]
+2025-11-05 09:51:56,876 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:51:56,876 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:51:56,876 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 09:51:56,876 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 09:51:56,876 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 09:51:56,877 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 1.41187549e+00  4.17264086e+00  7.26231554e-01  2.24023420e-01
+         5.37265178e+00 -1.18738471e+02]
+       [ 4.17264086e+00  1.23317789e+01  2.14619549e+00  6.62080093e-01
+         1.58783899e+01 -3.50921115e+02]
+       [ 7.26231554e-01  2.14619549e+00  3.76675325e-01  1.15114005e-01
+         2.75997943e+00 -6.09900707e+01]
+       [ 2.24023420e-01  6.62080093e-01  1.15114005e-01  3.55504180e-02
+         8.52617700e-01 -1.88435682e+01]
+       [ 5.37265178e+00  1.58783899e+01  2.75997943e+00  8.52617700e-01
+         2.04487977e+01 -4.51937290e+02]
+       [-1.18738471e+02 -3.50921115e+02 -6.09900707e+01 -1.88435682e+01
+        -4.51937290e+02  9.98824640e+03]]
+2025-11-05 09:51:59,679 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:51:59,679 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:51:59,679 - pypfilt.resample - WARNING - Minimum values: [6.72318902e-02 3.15891590e+00 2.49790332e+00 7.00802654e-02
+ 1.11168723e+00 2.20653315e+02]
+2025-11-05 09:51:59,680 - pypfilt.resample - WARNING - Maximum values: [  4.25095322  16.26779116  12.47232573   0.86292134  10.20706639
+ 533.59201554]
+2025-11-05 09:51:59,680 - pypfilt.resample - WARNING - Mean values:    [  2.29680684   9.61654513   7.32157576   0.49866606   5.97881632
+ 384.45919648]
+2025-11-05 09:51:59,680 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 1.57446992e+00 -9.67830647e+00  8.26780808e+00 -2.03182847e-01
+         2.78322424e+00 -7.67531953e+01]
+       [-9.67830647e+00  5.94927950e+01 -5.08224257e+01  1.24897011e+00
+        -1.71085499e+01  4.71803836e+02]
+       [ 8.26780808e+00 -5.08224257e+01  4.34156598e+01 -1.06694753e+00
+         1.46151816e+01 -4.03044022e+02]
+       [-2.03182847e-01  1.24897011e+00 -1.06694753e+00  2.62204244e-02
+        -3.59170676e-01  9.90487821e+00]
+       [ 2.78322424e+00 -1.71085499e+01  1.46151816e+01 -3.59170676e-01
+         4.91996516e+00 -1.35678269e+02]
+       [-7.67531953e+01  4.71803836e+02 -4.03044022e+02  9.90487821e+00
+        -1.35678269e+02  3.74161038e+03]]
+2025-11-05 09:52:07,091 - pypfilt - INFO -   09:52:07  Forecasting from 14.0 to 21.0
+2025-11-05 09:52:09,279 - pypfilt - INFO -   09:52:09  Forecasting from 14.0 to 21.0
+2025-11-05 09:52:10,094 - pypfilt - INFO -   09:52:10  Forecasting from 14.0 to 21.0
+2025-11-05 09:52:11,569 - pypfilt - INFO -   09:52:11  Forecasting from 14.0 to 21.0
+2025-11-05 09:52:12,390 - pypfilt - INFO -   09:52:12  Forecasting from 14.0 to 21.0
+2025-11-05 09:52:29,397 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:52:29,397 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:52:29,397 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:52:29,398 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:52:29,398 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:52:29,399 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 09:52:29,399 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 09:52:31,781 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:52:31,781 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:52:31,782 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:52:31,783 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:52:31,783 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 09:52:31,783 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 09:52:32,577 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:52:32,577 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:52:32,577 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:52:32,577 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:52:32,577 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:52:32,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:52:32,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:52:32,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:52:32,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:52:32,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:52:32,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:52:32,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:52:32,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:52:32,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:52:32,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:52:32,578 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:52:32,579 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 09:52:32,579 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 09:52:33,833 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:52:33,833 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:52:33,833 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:52:33,833 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:52:33,834 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:52:33,834 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:52:33,835 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 09:52:33,835 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 09:52:34,708 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:52:34,708 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:52:34,708 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:52:34,709 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:52:34,709 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:52:34,710 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 09:52:34,710 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 09:52:44,078 - __main__ - INFO - Sample 1: Complete
+2025-11-05 09:52:46,520 - __main__ - INFO - Sample 0: Complete
+2025-11-05 09:52:47,134 - __main__ - INFO - Sample 4: Complete
+2025-11-05 09:52:48,611 - __main__ - INFO - Sample 2: Complete
+2025-11-05 09:52:49,306 - __main__ - INFO - Sample 3: Complete
+2025-11-05 09:52:49,323 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_094437/445602
+2025-11-05 09:52:49,557 - src.posterior_predictive - INFO - Filter trajectories saved
+2025-11-05 09:52:49,557 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_094437/445602
+2025-11-05 09:52:49,557 - __main__ - INFO - Patient 445602 completed in 91.6s (18.33s per sample)
+2025-11-05 09:52:49,571 - __main__ - INFO - 
+============================================================
+2025-11-05 09:52:49,571 - __main__ - INFO - Processing patient: 451152
+2025-11-05 09:52:49,571 - __main__ - INFO - ============================================================
+2025-11-05 09:52:49,571 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 09:52:49,572 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 09:52:49,584 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 09:52:49,591 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 09:52:49,591 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 09:52:49,592 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 09:52:49,592 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 09:52:49,664 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 09:52:49,664 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 09:52:49,664 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 09:52:49,664 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 09:52:49,664 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 09:52:49,682 - pypfilt - INFO -   09:52:49  Estimating  from 0.0 to 14.0
+2025-11-05 09:52:49,682 - pypfilt - INFO -   09:52:49  Estimating  from 0.0 to 14.0
+2025-11-05 09:52:49,682 - pypfilt - INFO -   09:52:49  Estimating  from 0.0 to 14.0
+2025-11-05 09:52:49,682 - pypfilt - INFO -   09:52:49  Estimating  from 0.0 to 14.0
+2025-11-05 09:52:49,684 - pypfilt - INFO -   09:52:49  Estimating  from 0.0 to 14.0
+2025-11-05 09:52:58,735 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:52:58,735 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:52:58,735 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 09:52:58,735 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 09:52:58,735 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 09:52:58,735 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 4.28115721e+00  1.40092077e+01  1.15802021e+01 -2.60871284e-02
+         3.11829297e+00 -1.32194529e+02]
+       [ 1.40092077e+01  7.86423488e+01  4.30229847e+01 -1.24822345e+00
+         1.43060218e+01 -8.46825376e+02]
+       [ 1.15802021e+01  4.30229847e+01  3.70020730e+01 -4.16107958e-02
+         7.42834352e+00 -2.87927351e+02]
+       [-2.60871284e-02 -1.24822345e+00 -4.16107958e-02  6.39913192e-02
+        -1.04441269e-01  2.14011689e+01]
+       [ 3.11829297e+00  1.43060218e+01  7.42834352e+00 -1.04441269e-01
+         4.61727957e+00 -1.92562077e+02]
+       [-1.32194529e+02 -8.46825376e+02 -2.87927351e+02  2.14011689e+01
+        -1.92562077e+02  1.30200291e+04]]
+2025-11-05 09:53:00,483 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:53:00,483 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:53:00,483 - pypfilt.resample - WARNING - Minimum values: [6.72318902e-02 3.15891590e+00 2.49790332e+00 7.00802654e-02
+ 1.11168723e+00 2.20653315e+02]
+2025-11-05 09:53:00,483 - pypfilt.resample - WARNING - Maximum values: [  4.25095322  16.26779116  12.47232573   0.86292134  10.20706639
+ 533.59201554]
+2025-11-05 09:53:00,484 - pypfilt.resample - WARNING - Mean values:    [  2.29680684   9.61654513   7.32157576   0.49866606   5.97881632
+ 384.45919648]
+2025-11-05 09:53:00,484 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 7.70562100e-01  2.49762776e-01  6.57309616e-01  2.15270840e-01
+         2.71976461e+00  7.79734000e+01]
+       [ 2.49762776e-01  1.35318220e+01 -8.92887281e+00  9.18706484e-01
+         4.54374773e+00  3.36934707e+02]
+       [ 6.57309616e-01 -8.92887281e+00  6.77404404e+00 -3.93346922e-01
+        -1.68988693e-01 -1.45308204e+02]
+       [ 2.15270840e-01  9.18706484e-01 -3.93346922e-01  1.13718851e-01
+         9.90950153e-01  4.14533286e+01]
+       [ 2.71976461e+00  4.54374773e+00 -1.68988693e-01  9.90950153e-01
+         1.05967238e+01  3.60067918e+02]
+       [ 7.79734000e+01  3.36934707e+02 -1.45308204e+02  4.14533286e+01
+         3.60067918e+02  1.51114452e+04]]
+2025-11-05 09:53:24,867 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:53:24,868 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:53:24,868 - pypfilt.resample - WARNING - Minimum values: [  3.75911829  10.77285391  11.45589688   0.25253697   8.69097147
+ 206.84421559]
+2025-11-05 09:53:24,868 - pypfilt.resample - WARNING - Maximum values: [  5.41065215  19.52004416  16.27544879   0.46958152  12.6302479
+ 322.50950611]
+2025-11-05 09:53:24,868 - pypfilt.resample - WARNING - Mean values:    [  4.35372614  15.01083639  13.26371908   0.35965686  10.0351124
+ 255.64896779]
+2025-11-05 09:53:24,868 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 1.60661855e-01  8.19194508e-01  2.31449912e-01 -1.62889129e-02
+         2.83222314e-01  1.32809819e+00]
+       [ 8.19194508e-01  5.63621104e+00  9.70000279e-01 -1.13347245e-01
+         1.34823039e+00  4.17056597e+01]
+       [ 2.31449912e-01  9.70000279e-01  3.67371128e-01 -1.91964120e-02
+         4.22823527e-01 -3.21186273e+00]
+       [-1.62889129e-02 -1.13347245e-01 -1.91964120e-02  2.28263699e-03
+        -2.67496397e-02 -8.57457374e-01]
+       [ 2.83222314e-01  1.34823039e+00  4.22823527e-01 -2.67496397e-02
+         5.05853574e-01  1.99756354e-02]
+       [ 1.32809819e+00  4.17056597e+01 -3.21186273e+00 -8.57457374e-01
+         1.99756354e-02  8.49713997e+02]]
+2025-11-05 09:53:28,239 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:53:28,239 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:53:28,239 - pypfilt.resample - WARNING - Minimum values: [2.46186895e-01 2.54051465e+00 1.86636428e+00 1.46257812e-01
+ 1.89343442e+00 2.65430277e+02]
+2025-11-05 09:53:28,240 - pypfilt.resample - WARNING - Maximum values: [  4.08088209  17.31302921  12.92705913   0.88175062  10.69404176
+ 574.28927517]
+2025-11-05 09:53:28,240 - pypfilt.resample - WARNING - Mean values:    [  2.45698667  10.30281936   7.93806667   0.4742918    6.23933118
+ 419.3258669 ]
+2025-11-05 09:53:28,240 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 2.13845604e+00 -5.92517330e+00  7.66023794e+00  4.90742607e-01
+         2.04670750e+00 -5.47425886e+01]
+       [-5.92517330e+00  1.64198543e+01 -2.12321452e+01 -1.35749588e+00
+        -5.70030985e+00  1.53325063e+02]
+       [ 7.66023794e+00 -2.12321452e+01  2.74613179e+01  1.75143385e+00
+         7.41639730e+00 -2.00851354e+02]
+       [ 4.90742607e-01 -1.35749588e+00  1.75143385e+00  1.14583418e-01
+         4.43930459e-01 -1.11182332e+01]
+       [ 2.04670750e+00 -5.70030985e+00  7.41639730e+00  4.43930459e-01
+         2.29642370e+00 -7.13208800e+01]
+       [-5.47425886e+01  1.53325063e+02 -2.00851354e+02 -1.11182332e+01
+        -7.13208800e+01  2.46269598e+03]]
+2025-11-05 09:53:35,752 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 09:53:35,752 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 09:53:35,752 - pypfilt.resample - WARNING - Minimum values: [3.70459706e-01 2.65940343e+00 1.41328862e+00 8.73434778e-02
+ 2.11406430e+00 2.07203829e+02]
+2025-11-05 09:53:35,752 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573  10.32383303
+ 556.95017842]
+2025-11-05 09:53:35,752 - pypfilt.resample - WARNING - Mean values:    [  2.46456439  10.54272179   7.86267147   0.47776206   6.18430167
+ 383.3322927 ]
+2025-11-05 09:53:35,752 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 8.19308103e-01 -2.84134053e+00  2.17028182e+00  7.10607614e-02
+         1.43316293e+00  6.65953927e+01]
+       [-2.84134053e+00  9.85369973e+00 -7.52648442e+00 -2.46436987e-01
+        -4.97017410e+00 -2.30951198e+02]
+       [ 2.17028182e+00 -7.52648442e+00  5.74890343e+00  1.88234289e-01
+         3.79633428e+00  1.76405884e+02]
+       [ 7.10607614e-02 -2.46436987e-01  1.88234289e-01  6.16328804e-03
+         1.24302015e-01  5.77599477e+00]
+       [ 1.43316293e+00 -4.97017410e+00  3.79633428e+00  1.24302015e-01
+         2.50693966e+00  1.16491034e+02]
+       [ 6.65953927e+01 -2.30951198e+02  1.76405884e+02  5.77599477e+00
+         1.16491034e+02  5.41303854e+03]]
+2025-11-05 09:53:36,177 - pypfilt - INFO -   09:53:36  Forecasting from 14.0 to 21.0
+2025-11-05 09:53:36,573 - pypfilt - INFO -   09:53:36  Forecasting from 14.0 to 21.0
+2025-11-05 09:53:41,117 - pypfilt - INFO -   09:53:41  Forecasting from 14.0 to 21.0
+2025-11-05 09:53:51,817 - pypfilt - INFO -   09:53:51  Forecasting from 14.0 to 21.0
+2025-11-05 09:53:56,575 - pypfilt - INFO -   09:53:56  Forecasting from 14.0 to 21.0
+2025-11-05 09:53:58,243 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:53:58,243 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:53:58,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:53:58,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:53:58,245 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:53:58,245 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 09:53:58,245 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 09:53:58,511 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:53:58,511 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:53:58,511 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:53:58,511 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:53:58,511 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:53:58,511 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:53:58,511 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:53:58,511 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:53:58,511 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:53:58,512 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:53:58,512 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:53:58,512 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:53:58,512 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:53:58,512 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:53:58,512 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:53:58,512 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:53:58,512 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 09:53:58,512 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 09:54:03,228 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:54:03,228 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:54:03,228 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:54:03,228 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:54:03,228 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:54:03,228 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:54:03,228 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:54:03,229 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:54:03,229 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:54:03,229 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:54:03,229 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:54:03,229 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:54:03,229 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:54:03,229 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:54:03,229 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:54:03,229 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:54:03,229 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 09:54:03,229 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 09:54:12,950 - __main__ - INFO - Sample 4: Complete
+2025-11-05 09:54:13,213 - __main__ - INFO - Sample 1: Complete
+2025-11-05 09:54:13,875 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:54:13,875 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:54:13,875 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:54:13,875 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:54:13,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:54:13,876 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:54:13,877 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 09:54:13,877 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 09:54:17,768 - __main__ - INFO - Sample 2: Complete
+2025-11-05 09:54:18,799 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 09:54:18,799 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 09:54:18,799 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 09:54:18,799 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 09:54:18,799 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 09:54:18,799 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 09:54:18,799 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 09:54:18,800 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 09:54:18,800 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 09:54:18,800 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 09:54:18,800 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 09:54:18,800 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 09:54:18,800 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 09:54:18,800 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 09:54:18,800 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 09:54:18,800 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 09:54:18,800 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 09:54:18,800 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 09:54:28,497 - __main__ - INFO - Sample 0: Complete
+2025-11-05 09:54:33,389 - __main__ - INFO - Sample 3: Complete
+2025-11-05 09:54:33,408 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_094437/451152
+2025-11-05 09:54:33,567 - src.posterior_predictive - INFO - Filter trajectories saved
+2025-11-05 09:54:33,567 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_094437/451152
+2025-11-05 09:54:33,567 - __main__ - INFO - Patient 451152 completed in 104.0s (20.80s per sample)
+2025-11-05 09:54:33,617 - __main__ - INFO - 
+============================================================
+2025-11-05 09:54:33,617 - __main__ - INFO - All patients completed in 596.2s
+2025-11-05 09:54:33,617 - __main__ - INFO - Results saved to: results/posterior_predictive/20251105_094437
+2025-11-05 09:54:33,617 - __main__ - INFO - ============================================================

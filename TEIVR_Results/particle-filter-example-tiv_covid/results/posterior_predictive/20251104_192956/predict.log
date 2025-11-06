@@ -1,0 +1,30 @@
+2025-11-04 19:29:56,455 - __main__ - INFO - ============================================================
+2025-11-04 19:29:56,456 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-04 19:29:56,456 - __main__ - INFO - ============================================================
+2025-11-04 19:29:56,456 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-04 19:29:56,456 - __main__ - INFO - Output directory: results/posterior_predictive/20251104_192956
+2025-11-04 19:29:56,456 - __main__ - INFO - Configuration: config/cli-refractory-tiv-jsf.toml
+2025-11-04 19:29:56,456 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-04 19:29:56,456 - __main__ - INFO - Number of samples: 1000
+2025-11-04 19:29:56,456 - __main__ - INFO - Particles per filter: 6000
+2025-11-04 19:29:56,456 - __main__ - INFO - Prediction horizon: 14 days
+2025-11-04 19:29:56,456 - __main__ - INFO - Random seed: 42
+2025-11-04 19:29:56,456 - __main__ - INFO - Parallel workers: 1
+2025-11-04 19:29:56,459 - __main__ - INFO - Auto-detected 6 patients: ['432192', '443108', '444332', '444391', '445602', '451152']
+2025-11-04 19:29:56,459 - __main__ - INFO - 
+============================================================
+2025-11-04 19:29:56,459 - __main__ - INFO - Processing patient: 432192
+2025-11-04 19:29:56,459 - __main__ - INFO - ============================================================
+2025-11-04 19:29:56,460 - __main__ - INFO - Loading posterior and sampling 1000 parameter sets
+2025-11-04 19:29:56,460 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-04 19:30:20,031 - arviz.preview - INFO - arviz_base not installed
+2025-11-04 19:30:20,032 - arviz.preview - INFO - arviz_stats not installed
+2025-11-04 19:30:20,032 - arviz.preview - INFO - arviz_plots not installed
+2025-11-04 19:30:20,759 - src.posterior_predictive - INFO - Sampling 1000 parameter sets from posterior
+2025-11-04 19:30:21,021 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-04 19:30:21,021 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-04 19:30:21,024 - __main__ - INFO - Processing 1000 samples with 6000 particles each
+2025-11-04 19:30:21,024 - __main__ - INFO - Using sequential processing
+2025-11-04 19:30:21,924 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-04 19:30:22,256 - pypfilt - INFO -   19:30:22  Estimating  from 0.0 to 14.0
+2025-11-05 12:22:17,087 - pypfilt - INFO -   12:22:17  Forecasting from 14.0 to 21.0

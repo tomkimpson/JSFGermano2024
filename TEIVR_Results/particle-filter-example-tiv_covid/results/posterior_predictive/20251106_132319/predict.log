@@ -1,0 +1,632 @@
+2025-11-06 13:23:20,007 - __main__ - INFO - ============================================================
+2025-11-06 13:23:20,007 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-06 13:23:20,007 - __main__ - INFO - ============================================================
+2025-11-06 13:23:20,007 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-06 13:23:20,007 - __main__ - INFO - Output directory: results/posterior_predictive/20251106_132319
+2025-11-06 13:23:20,008 - __main__ - INFO - Configuration: config/cli-refractory-tiv-jsf.toml
+2025-11-06 13:23:20,008 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-06 13:23:20,008 - __main__ - INFO - Number of samples: 100
+2025-11-06 13:23:20,008 - __main__ - INFO - Particles per filter: 50
+2025-11-06 13:23:20,008 - __main__ - INFO - Prediction horizon: 14 days
+2025-11-06 13:23:20,008 - __main__ - INFO - Random seed: 42
+2025-11-06 13:23:20,008 - __main__ - INFO - Parallel workers: 8
+2025-11-06 13:23:20,008 - __main__ - INFO - Processing 2 patients: ['432192', '444332']
+2025-11-06 13:23:20,008 - __main__ - INFO - 
+============================================================
+2025-11-06 13:23:20,008 - __main__ - INFO - Processing patient: 432192
+2025-11-06 13:23:20,008 - __main__ - INFO - ============================================================
+2025-11-06 13:23:20,008 - __main__ - INFO - Loading posterior and sampling 100 parameter sets
+2025-11-06 13:23:20,009 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-06 13:24:08,545 - arviz.preview - INFO - arviz_base not installed
+2025-11-06 13:24:08,546 - arviz.preview - INFO - arviz_stats not installed
+2025-11-06 13:24:08,546 - arviz.preview - INFO - arviz_plots not installed
+2025-11-06 13:24:10,518 - src.posterior_predictive - INFO - Sampling 100 parameter sets from posterior
+2025-11-06 13:24:10,905 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-06 13:24:10,905 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-06 13:24:10,937 - __main__ - INFO - Processing 100 samples with 50 particles each
+2025-11-06 13:24:10,937 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-06 13:24:12,498 - __main__ - INFO - Sample 20: Running particle filter
+2025-11-06 13:24:12,498 - __main__ - INFO - Sample 16: Running particle filter
+2025-11-06 13:24:12,498 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-06 13:24:12,498 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-06 13:24:12,498 - __main__ - INFO - Sample 28: Running particle filter
+2025-11-06 13:24:12,498 - __main__ - INFO - Sample 24: Running particle filter
+2025-11-06 13:24:12,498 - __main__ - INFO - Sample 12: Running particle filter
+2025-11-06 13:24:12,498 - __main__ - INFO - Sample 8: Running particle filter
+2025-11-06 13:24:13,145 - pypfilt - INFO -   13:24:13  Estimating  from 0.0 to 14.0
+2025-11-06 13:24:13,145 - pypfilt - INFO -   13:24:13  Estimating  from 0.0 to 14.0
+2025-11-06 13:24:13,145 - pypfilt - INFO -   13:24:13  Estimating  from 0.0 to 14.0
+2025-11-06 13:24:13,145 - pypfilt - INFO -   13:24:13  Estimating  from 0.0 to 14.0
+2025-11-06 13:24:13,145 - pypfilt - INFO -   13:24:13  Estimating  from 0.0 to 14.0
+2025-11-06 13:24:13,145 - pypfilt - INFO -   13:24:13  Estimating  from 0.0 to 14.0
+2025-11-06 13:24:13,145 - pypfilt - INFO -   13:24:13  Estimating  from 0.0 to 14.0
+2025-11-06 13:24:13,145 - pypfilt - INFO -   13:24:13  Estimating  from 0.0 to 14.0
+2025-11-06 13:31:54,706 - pypfilt - INFO -   13:31:54  Forecasting from 14.0 to 21.0
+2025-11-06 13:32:19,375 - pypfilt - INFO -   13:32:19  Forecasting from 14.0 to 21.0
+2025-11-06 13:32:36,542 - pypfilt - INFO -   13:32:36  Forecasting from 14.0 to 21.0
+2025-11-06 13:33:01,216 - pypfilt - INFO -   13:33:01  Forecasting from 14.0 to 21.0
+2025-11-06 13:33:17,780 - pypfilt - INFO -   13:33:17  Forecasting from 14.0 to 21.0
+2025-11-06 13:33:30,074 - pypfilt - INFO -   13:33:30  Forecasting from 14.0 to 21.0
+2025-11-06 13:33:32,646 - pypfilt - INFO -   13:33:32  Forecasting from 14.0 to 21.0
+2025-11-06 13:34:26,911 - pypfilt - INFO -   13:34:26  Forecasting from 14.0 to 21.0
+2025-11-06 13:35:35,346 - __main__ - INFO - Sample 28: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:35:35,348 - __main__ - INFO - Sample 28: Sampled latent state - V=0.00e+00
+2025-11-06 13:35:35,348 - __main__ - INFO - Sample 28: Simulating 14 days forward
+2025-11-06 13:35:47,837 - __main__ - INFO - Sample 20: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:35:47,837 - __main__ - INFO - Sample 20: Sampled latent state - V=0.00e+00
+2025-11-06 13:35:47,837 - __main__ - INFO - Sample 20: Simulating 14 days forward
+2025-11-06 13:35:49,103 - __main__ - INFO - Sample 28: Complete
+2025-11-06 13:35:49,109 - __main__ - INFO - Sample 29: Running particle filter
+2025-11-06 13:35:49,154 - pypfilt - INFO -   13:35:49  Estimating  from 0.0 to 14.0
+2025-11-06 13:36:01,536 - __main__ - INFO - Sample 20: Complete
+2025-11-06 13:36:01,542 - __main__ - INFO - Sample 21: Running particle filter
+2025-11-06 13:36:01,641 - pypfilt - INFO -   13:36:01  Estimating  from 0.0 to 14.0
+2025-11-06 13:36:06,805 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:36:06,805 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-06 13:36:06,805 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-06 13:36:20,607 - __main__ - INFO - Sample 4: Complete
+2025-11-06 13:36:20,613 - __main__ - INFO - Sample 5: Running particle filter
+2025-11-06 13:36:20,711 - pypfilt - INFO -   13:36:20  Estimating  from 0.0 to 14.0
+2025-11-06 13:36:26,663 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:36:26,663 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-06 13:36:26,663 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-06 13:36:40,344 - __main__ - INFO - Sample 0: Complete
+2025-11-06 13:36:40,351 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-06 13:36:40,438 - pypfilt - INFO -   13:36:40  Estimating  from 0.0 to 14.0
+2025-11-06 13:36:46,449 - __main__ - INFO - Sample 16: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:36:46,449 - __main__ - INFO - Sample 16: Sampled latent state - V=0.00e+00
+2025-11-06 13:36:46,449 - __main__ - INFO - Sample 16: Simulating 14 days forward
+2025-11-06 13:36:57,628 - __main__ - INFO - Sample 8: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:36:57,628 - __main__ - INFO - Sample 8: Sampled latent state - V=0.00e+00
+2025-11-06 13:36:57,628 - __main__ - INFO - Sample 8: Simulating 14 days forward
+2025-11-06 13:36:59,041 - __main__ - INFO - Sample 12: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:36:59,042 - __main__ - INFO - Sample 12: Sampled latent state - V=0.00e+00
+2025-11-06 13:36:59,042 - __main__ - INFO - Sample 12: Simulating 14 days forward
+2025-11-06 13:37:00,235 - __main__ - INFO - Sample 16: Complete
+2025-11-06 13:37:00,242 - __main__ - INFO - Sample 17: Running particle filter
+2025-11-06 13:37:00,336 - pypfilt - INFO -   13:37:00  Estimating  from 0.0 to 14.0
+2025-11-06 13:37:12,718 - __main__ - INFO - Sample 12: Complete
+2025-11-06 13:37:12,725 - __main__ - INFO - Sample 13: Running particle filter
+2025-11-06 13:37:12,743 - pypfilt - INFO -   13:37:12  Estimating  from 0.0 to 14.0
+2025-11-06 13:37:13,523 - __main__ - INFO - Sample 8: Complete
+2025-11-06 13:37:13,529 - __main__ - INFO - Sample 9: Running particle filter
+2025-11-06 13:37:13,616 - pypfilt - INFO -   13:37:13  Estimating  from 0.0 to 14.0
+2025-11-06 13:38:02,231 - __main__ - INFO - Sample 24: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:38:02,232 - __main__ - INFO - Sample 24: Sampled latent state - V=0.00e+00
+2025-11-06 13:38:02,232 - __main__ - INFO - Sample 24: Simulating 14 days forward
+2025-11-06 13:38:16,176 - __main__ - INFO - Sample 24: Complete
+2025-11-06 13:38:16,182 - __main__ - INFO - Sample 25: Running particle filter
+2025-11-06 13:38:16,278 - pypfilt - INFO -   13:38:16  Estimating  from 0.0 to 14.0
+2025-11-06 13:44:26,107 - pypfilt - INFO -   13:44:26  Forecasting from 14.0 to 21.0
+2025-11-06 13:44:56,495 - pypfilt - INFO -   13:44:56  Forecasting from 14.0 to 21.0
+2025-11-06 13:44:59,545 - pypfilt - INFO -   13:44:59  Forecasting from 14.0 to 21.0
+2025-11-06 13:45:42,332 - pypfilt - INFO -   13:45:42  Forecasting from 14.0 to 21.0
+2025-11-06 13:46:03,441 - pypfilt - INFO -   13:46:03  Forecasting from 14.0 to 21.0
+2025-11-06 13:46:06,499 - pypfilt - INFO -   13:46:06  Forecasting from 14.0 to 21.0
+2025-11-06 13:46:21,564 - pypfilt - INFO -   13:46:21  Forecasting from 14.0 to 21.0
+2025-11-06 13:46:22,961 - pypfilt - INFO -   13:46:22  Forecasting from 14.0 to 21.0
+2025-11-06 13:47:54,964 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:47:54,964 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-06 13:47:54,965 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-06 13:48:08,914 - __main__ - INFO - Sample 1: Complete
+2025-11-06 13:48:08,920 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-06 13:48:08,964 - pypfilt - INFO -   13:48:08  Estimating  from 0.0 to 14.0
+2025-11-06 13:48:27,036 - __main__ - INFO - Sample 9: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:48:27,037 - __main__ - INFO - Sample 9: Sampled latent state - V=0.00e+00
+2025-11-06 13:48:27,037 - __main__ - INFO - Sample 9: Simulating 14 days forward
+2025-11-06 13:48:28,444 - __main__ - INFO - Sample 5: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:48:28,444 - __main__ - INFO - Sample 5: Sampled latent state - V=0.00e+00
+2025-11-06 13:48:28,444 - __main__ - INFO - Sample 5: Simulating 14 days forward
+2025-11-06 13:48:40,874 - __main__ - INFO - Sample 9: Complete
+2025-11-06 13:48:40,881 - __main__ - INFO - Sample 10: Running particle filter
+2025-11-06 13:48:40,975 - pypfilt - INFO -   13:48:40  Estimating  from 0.0 to 14.0
+2025-11-06 13:48:42,316 - __main__ - INFO - Sample 5: Complete
+2025-11-06 13:48:42,322 - __main__ - INFO - Sample 6: Running particle filter
+2025-11-06 13:48:42,408 - pypfilt - INFO -   13:48:42  Estimating  from 0.0 to 14.0
+2025-11-06 13:49:09,769 - __main__ - INFO - Sample 17: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:49:09,769 - __main__ - INFO - Sample 17: Sampled latent state - V=0.00e+00
+2025-11-06 13:49:09,769 - __main__ - INFO - Sample 17: Simulating 14 days forward
+2025-11-06 13:49:23,799 - __main__ - INFO - Sample 17: Complete
+2025-11-06 13:49:23,806 - __main__ - INFO - Sample 18: Running particle filter
+2025-11-06 13:49:23,902 - pypfilt - INFO -   13:49:23  Estimating  from 0.0 to 14.0
+2025-11-06 13:49:34,696 - __main__ - INFO - Sample 13: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:49:34,697 - __main__ - INFO - Sample 13: Sampled latent state - V=0.00e+00
+2025-11-06 13:49:34,697 - __main__ - INFO - Sample 13: Simulating 14 days forward
+2025-11-06 13:49:42,352 - __main__ - INFO - Sample 21: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:49:42,352 - __main__ - INFO - Sample 21: Sampled latent state - V=0.00e+00
+2025-11-06 13:49:42,352 - __main__ - INFO - Sample 21: Simulating 14 days forward
+2025-11-06 13:49:48,483 - __main__ - INFO - Sample 13: Complete
+2025-11-06 13:49:48,489 - __main__ - INFO - Sample 14: Running particle filter
+2025-11-06 13:49:48,507 - pypfilt - INFO -   13:49:48  Estimating  from 0.0 to 14.0
+2025-11-06 13:49:50,350 - __main__ - INFO - Sample 29: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:49:50,350 - __main__ - INFO - Sample 29: Sampled latent state - V=0.00e+00
+2025-11-06 13:49:50,350 - __main__ - INFO - Sample 29: Simulating 14 days forward
+2025-11-06 13:49:53,398 - __main__ - INFO - Sample 25: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:49:53,398 - __main__ - INFO - Sample 25: Sampled latent state - V=0.00e+00
+2025-11-06 13:49:53,398 - __main__ - INFO - Sample 25: Simulating 14 days forward
+2025-11-06 13:49:56,213 - __main__ - INFO - Sample 21: Complete
+2025-11-06 13:49:56,219 - __main__ - INFO - Sample 22: Running particle filter
+2025-11-06 13:49:56,313 - pypfilt - INFO -   13:49:56  Estimating  from 0.0 to 14.0
+2025-11-06 13:50:04,227 - __main__ - INFO - Sample 29: Complete
+2025-11-06 13:50:04,234 - __main__ - INFO - Sample 30: Running particle filter
+2025-11-06 13:50:04,325 - pypfilt - INFO -   13:50:04  Estimating  from 0.0 to 14.0
+2025-11-06 13:50:07,370 - __main__ - INFO - Sample 25: Complete
+2025-11-06 13:50:07,377 - __main__ - INFO - Sample 26: Running particle filter
+2025-11-06 13:50:07,454 - pypfilt - INFO -   13:50:07  Estimating  from 0.0 to 14.0
+2025-11-06 13:55:45,481 - pypfilt - INFO -   13:55:45  Forecasting from 14.0 to 21.0
+2025-11-06 13:57:06,404 - pypfilt - INFO -   13:57:06  Forecasting from 14.0 to 21.0
+2025-11-06 13:57:43,745 - pypfilt - INFO -   13:57:43  Forecasting from 14.0 to 21.0
+2025-11-06 13:57:45,783 - pypfilt - INFO -   13:57:45  Forecasting from 14.0 to 21.0
+2025-11-06 13:58:19,701 - pypfilt - INFO -   13:58:19  Forecasting from 14.0 to 21.0
+2025-11-06 13:58:21,008 - pypfilt - INFO -   13:58:21  Forecasting from 14.0 to 21.0
+2025-11-06 13:58:23,370 - pypfilt - INFO -   13:58:23  Forecasting from 14.0 to 21.0
+2025-11-06 13:59:11,755 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-06 13:59:11,755 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-06 13:59:11,755 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-06 13:59:25,608 - __main__ - INFO - Sample 2: Complete
+2025-11-06 13:59:25,615 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-06 13:59:25,707 - pypfilt - INFO -   13:59:25  Estimating  from 0.0 to 14.0
+2025-11-06 14:00:33,846 - __main__ - INFO - Sample 18: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:00:33,847 - __main__ - INFO - Sample 18: Sampled latent state - V=0.00e+00
+2025-11-06 14:00:33,847 - __main__ - INFO - Sample 18: Simulating 14 days forward
+2025-11-06 14:00:47,693 - __main__ - INFO - Sample 18: Complete
+2025-11-06 14:00:47,699 - __main__ - INFO - Sample 19: Running particle filter
+2025-11-06 14:00:47,720 - pypfilt - INFO -   14:00:47  Estimating  from 0.0 to 14.0
+2025-11-06 14:01:12,192 - __main__ - INFO - Sample 10: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:01:12,192 - __main__ - INFO - Sample 10: Sampled latent state - V=0.00e+00
+2025-11-06 14:01:12,192 - __main__ - INFO - Sample 10: Simulating 14 days forward
+2025-11-06 14:01:13,099 - __main__ - INFO - Sample 30: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:01:13,100 - __main__ - INFO - Sample 30: Sampled latent state - V=0.00e+00
+2025-11-06 14:01:13,100 - __main__ - INFO - Sample 30: Simulating 14 days forward
+2025-11-06 14:01:26,081 - __main__ - INFO - Sample 10: Complete
+2025-11-06 14:01:26,087 - __main__ - INFO - Sample 11: Running particle filter
+2025-11-06 14:01:26,183 - pypfilt - INFO -   14:01:26  Estimating  from 0.0 to 14.0
+2025-11-06 14:01:26,967 - __main__ - INFO - Sample 30: Complete
+2025-11-06 14:01:26,973 - __main__ - INFO - Sample 31: Running particle filter
+2025-11-06 14:01:27,078 - pypfilt - INFO -   14:01:27  Estimating  from 0.0 to 14.0
+2025-11-06 14:01:46,963 - __main__ - INFO - Sample 14: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:01:46,964 - __main__ - INFO - Sample 14: Sampled latent state - V=0.00e+00
+2025-11-06 14:01:46,964 - __main__ - INFO - Sample 14: Simulating 14 days forward
+2025-11-06 14:01:49,436 - __main__ - INFO - Sample 26: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:01:49,437 - __main__ - INFO - Sample 26: Sampled latent state - V=0.00e+00
+2025-11-06 14:01:49,437 - __main__ - INFO - Sample 26: Simulating 14 days forward
+2025-11-06 14:02:00,784 - __main__ - INFO - Sample 14: Complete
+2025-11-06 14:02:00,790 - __main__ - INFO - Sample 15: Running particle filter
+2025-11-06 14:02:00,833 - pypfilt - INFO -   14:02:00  Estimating  from 0.0 to 14.0
+2025-11-06 14:02:03,272 - __main__ - INFO - Sample 26: Complete
+2025-11-06 14:02:03,279 - __main__ - INFO - Sample 27: Running particle filter
+2025-11-06 14:02:03,373 - pypfilt - INFO -   14:02:03  Estimating  from 0.0 to 14.0
+2025-11-06 14:02:08,970 - __main__ - INFO - Sample 6: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:02:08,970 - __main__ - INFO - Sample 6: Sampled latent state - V=0.00e+00
+2025-11-06 14:02:08,970 - __main__ - INFO - Sample 6: Simulating 14 days forward
+2025-11-06 14:02:24,709 - __main__ - INFO - Sample 6: Complete
+2025-11-06 14:02:24,715 - __main__ - INFO - Sample 7: Running particle filter
+2025-11-06 14:02:24,809 - pypfilt - INFO -   14:02:24  Estimating  from 0.0 to 14.0
+2025-11-06 14:06:57,262 - pypfilt - INFO -   14:06:57  Forecasting from 14.0 to 21.0
+2025-11-06 14:08:26,412 - pypfilt - INFO -   14:08:26  Forecasting from 14.0 to 21.0
+2025-11-06 14:08:37,916 - pypfilt - INFO -   14:08:37  Forecasting from 14.0 to 21.0
+2025-11-06 14:09:06,867 - pypfilt - INFO -   14:09:06  Forecasting from 14.0 to 21.0
+2025-11-06 14:10:13,231 - pypfilt - INFO -   14:10:13  Forecasting from 14.0 to 21.0
+2025-11-06 14:10:25,189 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:10:25,190 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-06 14:10:25,190 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-06 14:10:34,306 - pypfilt - INFO -   14:10:34  Forecasting from 14.0 to 21.0
+2025-11-06 14:10:39,081 - __main__ - INFO - Sample 3: Complete
+2025-11-06 14:10:39,088 - __main__ - INFO - Sample 32: Running particle filter
+2025-11-06 14:10:39,106 - pypfilt - INFO -   14:10:39  Estimating  from 0.0 to 14.0
+2025-11-06 14:10:57,461 - pypfilt - INFO -   14:10:57  Forecasting from 14.0 to 21.0
+2025-11-06 14:11:00,549 - pypfilt - INFO -   14:11:00  Forecasting from 14.0 to 21.0
+2025-11-06 14:11:55,074 - __main__ - INFO - Sample 22: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:11:55,074 - __main__ - INFO - Sample 22: Sampled latent state - V=0.00e+00
+2025-11-06 14:11:55,074 - __main__ - INFO - Sample 22: Simulating 14 days forward
+2025-11-06 14:12:08,948 - __main__ - INFO - Sample 22: Complete
+2025-11-06 14:12:08,954 - __main__ - INFO - Sample 23: Running particle filter
+2025-11-06 14:12:09,050 - pypfilt - INFO -   14:12:09  Estimating  from 0.0 to 14.0
+2025-11-06 14:12:34,525 - __main__ - INFO - Sample 19: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:12:34,525 - __main__ - INFO - Sample 19: Sampled latent state - V=0.00e+00
+2025-11-06 14:12:34,525 - __main__ - INFO - Sample 19: Simulating 14 days forward
+2025-11-06 14:12:37,808 - __main__ - INFO - Sample 31: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:12:37,809 - __main__ - INFO - Sample 31: Sampled latent state - V=0.00e+00
+2025-11-06 14:12:37,809 - __main__ - INFO - Sample 31: Simulating 14 days forward
+2025-11-06 14:12:50,669 - __main__ - INFO - Sample 19: Complete
+2025-11-06 14:12:50,685 - __main__ - INFO - Sample 36: Running particle filter
+2025-11-06 14:12:50,781 - pypfilt - INFO -   14:12:50  Estimating  from 0.0 to 14.0
+2025-11-06 14:12:51,577 - __main__ - INFO - Sample 31: Complete
+2025-11-06 14:12:51,584 - __main__ - INFO - Sample 40: Running particle filter
+2025-11-06 14:12:51,627 - pypfilt - INFO -   14:12:51  Estimating  from 0.0 to 14.0
+2025-11-06 14:14:02,115 - __main__ - INFO - Sample 11: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:14:02,116 - __main__ - INFO - Sample 11: Sampled latent state - V=0.00e+00
+2025-11-06 14:14:02,116 - __main__ - INFO - Sample 11: Simulating 14 days forward
+2025-11-06 14:14:04,254 - __main__ - INFO - Sample 27: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:14:04,254 - __main__ - INFO - Sample 27: Sampled latent state - V=0.00e+00
+2025-11-06 14:14:04,254 - __main__ - INFO - Sample 27: Simulating 14 days forward
+2025-11-06 14:14:18,485 - __main__ - INFO - Sample 11: Complete
+2025-11-06 14:14:18,492 - __main__ - INFO - Sample 44: Running particle filter
+2025-11-06 14:14:18,543 - __main__ - INFO - Sample 27: Complete
+2025-11-06 14:14:18,550 - __main__ - INFO - Sample 48: Running particle filter
+2025-11-06 14:14:18,561 - pypfilt - INFO -   14:14:18  Estimating  from 0.0 to 14.0
+2025-11-06 14:14:18,612 - pypfilt - INFO -   14:14:18  Estimating  from 0.0 to 14.0
+2025-11-06 14:14:28,520 - __main__ - INFO - Sample 7: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:14:28,521 - __main__ - INFO - Sample 7: Sampled latent state - V=0.00e+00
+2025-11-06 14:14:28,521 - __main__ - INFO - Sample 7: Simulating 14 days forward
+2025-11-06 14:14:29,214 - __main__ - INFO - Sample 15: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:14:29,214 - __main__ - INFO - Sample 15: Sampled latent state - V=0.00e+00
+2025-11-06 14:14:29,214 - __main__ - INFO - Sample 15: Simulating 14 days forward
+2025-11-06 14:14:42,527 - __main__ - INFO - Sample 7: Complete
+2025-11-06 14:14:42,543 - __main__ - INFO - Sample 52: Running particle filter
+2025-11-06 14:14:42,624 - pypfilt - INFO -   14:14:42  Estimating  from 0.0 to 14.0
+2025-11-06 14:14:43,139 - __main__ - INFO - Sample 15: Complete
+2025-11-06 14:14:43,155 - __main__ - INFO - Sample 56: Running particle filter
+2025-11-06 14:14:43,248 - pypfilt - INFO -   14:14:43  Estimating  from 0.0 to 14.0
+2025-11-06 14:20:26,439 - pypfilt - INFO -   14:20:26  Forecasting from 14.0 to 21.0
+2025-11-06 14:20:49,731 - pypfilt - INFO -   14:20:49  Forecasting from 14.0 to 21.0
+2025-11-06 14:21:30,941 - pypfilt - INFO -   14:21:30  Forecasting from 14.0 to 21.0
+2025-11-06 14:21:54,429 - pypfilt - INFO -   14:21:54  Forecasting from 14.0 to 21.0
+2025-11-06 14:23:31,564 - pypfilt - INFO -   14:23:31  Forecasting from 14.0 to 21.0
+2025-11-06 14:24:07,544 - __main__ - INFO - Sample 32: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:24:07,545 - __main__ - INFO - Sample 32: Sampled latent state - V=0.00e+00
+2025-11-06 14:24:07,545 - __main__ - INFO - Sample 32: Simulating 14 days forward
+2025-11-06 14:24:21,859 - __main__ - INFO - Sample 32: Complete
+2025-11-06 14:24:21,866 - __main__ - INFO - Sample 33: Running particle filter
+2025-11-06 14:24:21,884 - pypfilt - INFO -   14:24:21  Estimating  from 0.0 to 14.0
+2025-11-06 14:24:22,617 - __main__ - INFO - Sample 23: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:24:22,617 - __main__ - INFO - Sample 23: Sampled latent state - V=0.00e+00
+2025-11-06 14:24:22,617 - __main__ - INFO - Sample 23: Simulating 14 days forward
+2025-11-06 14:24:23,678 - pypfilt - INFO -   14:24:23  Forecasting from 14.0 to 21.0
+2025-11-06 14:24:37,055 - __main__ - INFO - Sample 23: Complete
+2025-11-06 14:24:37,071 - __main__ - INFO - Sample 60: Running particle filter
+2025-11-06 14:24:37,167 - pypfilt - INFO -   14:24:37  Estimating  from 0.0 to 14.0
+2025-11-06 14:24:41,935 - pypfilt - INFO -   14:24:41  Forecasting from 14.0 to 21.0
+2025-11-06 14:25:03,664 - __main__ - INFO - Sample 40: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:25:03,664 - __main__ - INFO - Sample 40: Sampled latent state - V=0.00e+00
+2025-11-06 14:25:03,665 - __main__ - INFO - Sample 40: Simulating 14 days forward
+2025-11-06 14:25:18,212 - __main__ - INFO - Sample 40: Complete
+2025-11-06 14:25:18,219 - __main__ - INFO - Sample 41: Running particle filter
+2025-11-06 14:25:18,313 - pypfilt - INFO -   14:25:18  Estimating  from 0.0 to 14.0
+2025-11-06 14:25:26,722 - __main__ - INFO - Sample 44: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:25:26,722 - __main__ - INFO - Sample 44: Sampled latent state - V=0.00e+00
+2025-11-06 14:25:26,722 - __main__ - INFO - Sample 44: Simulating 14 days forward
+2025-11-06 14:25:41,054 - __main__ - INFO - Sample 44: Complete
+2025-11-06 14:25:41,060 - __main__ - INFO - Sample 45: Running particle filter
+2025-11-06 14:25:41,149 - pypfilt - INFO -   14:25:41  Estimating  from 0.0 to 14.0
+2025-11-06 14:26:21,587 - pypfilt - INFO -   14:26:21  Forecasting from 14.0 to 21.0
+2025-11-06 14:27:11,218 - __main__ - INFO - Sample 52: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:27:11,218 - __main__ - INFO - Sample 52: Sampled latent state - V=0.00e+00
+2025-11-06 14:27:11,219 - __main__ - INFO - Sample 52: Simulating 14 days forward
+2025-11-06 14:27:25,653 - __main__ - INFO - Sample 52: Complete
+2025-11-06 14:27:25,659 - __main__ - INFO - Sample 53: Running particle filter
+2025-11-06 14:27:25,748 - pypfilt - INFO -   14:27:25  Estimating  from 0.0 to 14.0
+2025-11-06 14:27:58,375 - __main__ - INFO - Sample 36: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:27:58,375 - __main__ - INFO - Sample 36: Sampled latent state - V=0.00e+00
+2025-11-06 14:27:58,376 - __main__ - INFO - Sample 36: Simulating 14 days forward
+2025-11-06 14:28:12,772 - __main__ - INFO - Sample 36: Complete
+2025-11-06 14:28:12,779 - __main__ - INFO - Sample 37: Running particle filter
+2025-11-06 14:28:12,871 - pypfilt - INFO -   14:28:12  Estimating  from 0.0 to 14.0
+2025-11-06 14:28:14,197 - __main__ - INFO - Sample 56: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:28:14,199 - __main__ - INFO - Sample 56: Sampled latent state - V=0.00e+00
+2025-11-06 14:28:14,199 - __main__ - INFO - Sample 56: Simulating 14 days forward
+2025-11-06 14:28:28,569 - __main__ - INFO - Sample 56: Complete
+2025-11-06 14:28:28,584 - __main__ - INFO - Sample 57: Running particle filter
+2025-11-06 14:28:28,739 - pypfilt - INFO -   14:28:28  Estimating  from 0.0 to 14.0
+2025-11-06 14:29:59,324 - __main__ - INFO - Sample 48: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:29:59,334 - __main__ - INFO - Sample 48: Sampled latent state - V=0.00e+00
+2025-11-06 14:29:59,334 - __main__ - INFO - Sample 48: Simulating 14 days forward
+2025-11-06 14:30:13,700 - __main__ - INFO - Sample 48: Complete
+2025-11-06 14:30:13,760 - __main__ - INFO - Sample 49: Running particle filter
+2025-11-06 14:30:14,000 - pypfilt - INFO -   14:30:14  Estimating  from 0.0 to 14.0
+2025-11-06 14:32:28,631 - pypfilt - INFO -   14:32:28  Forecasting from 14.0 to 21.0
+2025-11-06 14:32:41,991 - pypfilt - INFO -   14:32:41  Forecasting from 14.0 to 21.0
+2025-11-06 14:33:01,902 - pypfilt - INFO -   14:33:01  Forecasting from 14.0 to 21.0
+2025-11-06 14:34:27,260 - pypfilt - INFO -   14:34:27  Forecasting from 14.0 to 21.0
+2025-11-06 14:36:01,353 - pypfilt - INFO -   14:36:01  Forecasting from 14.0 to 21.0
+2025-11-06 14:36:03,018 - pypfilt - INFO -   14:36:03  Forecasting from 14.0 to 21.0
+2025-11-06 14:36:04,316 - __main__ - INFO - Sample 33: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:36:04,317 - __main__ - INFO - Sample 33: Sampled latent state - V=0.00e+00
+2025-11-06 14:36:04,317 - __main__ - INFO - Sample 33: Simulating 14 days forward
+2025-11-06 14:36:15,037 - __main__ - INFO - Sample 60: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:36:15,038 - __main__ - INFO - Sample 60: Sampled latent state - V=0.00e+00
+2025-11-06 14:36:15,038 - __main__ - INFO - Sample 60: Simulating 14 days forward
+2025-11-06 14:36:18,611 - __main__ - INFO - Sample 33: Complete
+2025-11-06 14:36:18,633 - __main__ - INFO - Sample 34: Running particle filter
+2025-11-06 14:36:18,716 - pypfilt - INFO -   14:36:18  Estimating  from 0.0 to 14.0
+2025-11-06 14:36:29,571 - __main__ - INFO - Sample 60: Complete
+2025-11-06 14:36:29,577 - __main__ - INFO - Sample 61: Running particle filter
+2025-11-06 14:36:29,648 - pypfilt - INFO -   14:36:29  Estimating  from 0.0 to 14.0
+2025-11-06 14:36:35,611 - __main__ - INFO - Sample 45: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:36:35,611 - __main__ - INFO - Sample 45: Sampled latent state - V=0.00e+00
+2025-11-06 14:36:35,611 - __main__ - INFO - Sample 45: Simulating 14 days forward
+2025-11-06 14:36:35,759 - pypfilt - INFO -   14:36:35  Forecasting from 14.0 to 21.0
+2025-11-06 14:36:50,018 - __main__ - INFO - Sample 45: Complete
+2025-11-06 14:36:50,024 - __main__ - INFO - Sample 46: Running particle filter
+2025-11-06 14:36:50,048 - pypfilt - INFO -   14:36:50  Estimating  from 0.0 to 14.0
+2025-11-06 14:38:02,029 - __main__ - INFO - Sample 41: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:38:02,030 - __main__ - INFO - Sample 41: Sampled latent state - V=0.00e+00
+2025-11-06 14:38:02,031 - __main__ - INFO - Sample 41: Simulating 14 days forward
+2025-11-06 14:38:16,428 - __main__ - INFO - Sample 41: Complete
+2025-11-06 14:38:16,435 - __main__ - INFO - Sample 42: Running particle filter
+2025-11-06 14:38:16,516 - pypfilt - INFO -   14:38:16  Estimating  from 0.0 to 14.0
+2025-11-06 14:38:17,978 - pypfilt - INFO -   14:38:17  Forecasting from 14.0 to 21.0
+2025-11-06 14:39:37,289 - __main__ - INFO - Sample 37: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:39:37,289 - __main__ - INFO - Sample 37: Sampled latent state - V=0.00e+00
+2025-11-06 14:39:37,289 - __main__ - INFO - Sample 37: Simulating 14 days forward
+2025-11-06 14:39:38,477 - __main__ - INFO - Sample 57: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:39:38,478 - __main__ - INFO - Sample 57: Sampled latent state - V=0.00e+00
+2025-11-06 14:39:38,478 - __main__ - INFO - Sample 57: Simulating 14 days forward
+2025-11-06 14:39:51,831 - __main__ - INFO - Sample 37: Complete
+2025-11-06 14:39:51,838 - __main__ - INFO - Sample 38: Running particle filter
+2025-11-06 14:39:51,855 - pypfilt - INFO -   14:39:51  Estimating  from 0.0 to 14.0
+2025-11-06 14:39:52,908 - __main__ - INFO - Sample 57: Complete
+2025-11-06 14:39:52,915 - __main__ - INFO - Sample 58: Running particle filter
+2025-11-06 14:39:53,005 - pypfilt - INFO -   14:39:53  Estimating  from 0.0 to 14.0
+2025-11-06 14:40:11,252 - __main__ - INFO - Sample 53: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:40:11,253 - __main__ - INFO - Sample 53: Sampled latent state - V=0.00e+00
+2025-11-06 14:40:11,253 - __main__ - INFO - Sample 53: Simulating 14 days forward
+2025-11-06 14:40:25,559 - __main__ - INFO - Sample 53: Complete
+2025-11-06 14:40:25,566 - __main__ - INFO - Sample 54: Running particle filter
+2025-11-06 14:40:25,646 - pypfilt - INFO -   14:40:25  Estimating  from 0.0 to 14.0
+2025-11-06 14:41:52,102 - __main__ - INFO - Sample 49: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:41:52,126 - __main__ - INFO - Sample 49: Sampled latent state - V=0.00e+00
+2025-11-06 14:41:52,126 - __main__ - INFO - Sample 49: Simulating 14 days forward
+2025-11-06 14:42:05,941 - __main__ - INFO - Sample 49: Complete
+2025-11-06 14:42:05,947 - __main__ - INFO - Sample 50: Running particle filter
+2025-11-06 14:42:06,025 - pypfilt - INFO -   14:42:06  Estimating  from 0.0 to 14.0
+2025-11-06 14:45:29,400 - pypfilt - INFO -   14:45:29  Forecasting from 14.0 to 21.0
+2025-11-06 14:45:51,931 - pypfilt - INFO -   14:45:51  Forecasting from 14.0 to 21.0
+2025-11-06 14:45:51,993 - pypfilt - INFO -   14:45:51  Forecasting from 14.0 to 21.0
+2025-11-06 14:46:53,002 - pypfilt - INFO -   14:46:53  Forecasting from 14.0 to 21.0
+2025-11-06 14:47:47,481 - pypfilt - INFO -   14:47:47  Forecasting from 14.0 to 21.0
+2025-11-06 14:48:34,450 - pypfilt - INFO -   14:48:34  Forecasting from 14.0 to 21.0
+2025-11-06 14:49:04,945 - __main__ - INFO - Sample 34: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:49:04,945 - __main__ - INFO - Sample 34: Sampled latent state - V=0.00e+00
+2025-11-06 14:49:04,945 - __main__ - INFO - Sample 34: Simulating 14 days forward
+2025-11-06 14:49:19,537 - __main__ - INFO - Sample 34: Complete
+2025-11-06 14:49:19,544 - __main__ - INFO - Sample 35: Running particle filter
+2025-11-06 14:49:19,648 - pypfilt - INFO -   14:49:19  Estimating  from 0.0 to 14.0
+2025-11-06 14:49:28,300 - __main__ - INFO - Sample 46: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:49:28,301 - __main__ - INFO - Sample 46: Sampled latent state - V=0.00e+00
+2025-11-06 14:49:28,301 - __main__ - INFO - Sample 46: Simulating 14 days forward
+2025-11-06 14:49:33,039 - __main__ - INFO - Sample 61: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:49:33,039 - __main__ - INFO - Sample 61: Sampled latent state - V=0.00e+00
+2025-11-06 14:49:33,039 - __main__ - INFO - Sample 61: Simulating 14 days forward
+2025-11-06 14:49:42,972 - __main__ - INFO - Sample 46: Complete
+2025-11-06 14:49:42,979 - __main__ - INFO - Sample 47: Running particle filter
+2025-11-06 14:49:43,058 - pypfilt - INFO -   14:49:43  Estimating  from 0.0 to 14.0
+2025-11-06 14:49:48,107 - __main__ - INFO - Sample 61: Complete
+2025-11-06 14:49:48,114 - __main__ - INFO - Sample 62: Running particle filter
+2025-11-06 14:49:48,181 - pypfilt - INFO -   14:49:48  Estimating  from 0.0 to 14.0
+2025-11-06 14:50:29,578 - __main__ - INFO - Sample 42: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:50:29,579 - __main__ - INFO - Sample 42: Sampled latent state - V=0.00e+00
+2025-11-06 14:50:29,579 - __main__ - INFO - Sample 42: Simulating 14 days forward
+2025-11-06 14:50:44,073 - __main__ - INFO - Sample 42: Complete
+2025-11-06 14:50:44,079 - __main__ - INFO - Sample 43: Running particle filter
+2025-11-06 14:50:44,097 - pypfilt - INFO -   14:50:44  Estimating  from 0.0 to 14.0
+2025-11-06 14:51:28,026 - __main__ - INFO - Sample 54: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:51:28,027 - __main__ - INFO - Sample 54: Sampled latent state - V=0.00e+00
+2025-11-06 14:51:28,027 - __main__ - INFO - Sample 54: Simulating 14 days forward
+2025-11-06 14:51:35,477 - pypfilt - INFO -   14:51:35  Forecasting from 14.0 to 21.0
+2025-11-06 14:51:42,448 - __main__ - INFO - Sample 54: Complete
+2025-11-06 14:51:42,454 - __main__ - INFO - Sample 55: Running particle filter
+2025-11-06 14:51:42,562 - pypfilt - INFO -   14:51:42  Estimating  from 0.0 to 14.0
+2025-11-06 14:52:11,099 - __main__ - INFO - Sample 58: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:52:11,100 - __main__ - INFO - Sample 58: Sampled latent state - V=0.00e+00
+2025-11-06 14:52:11,100 - __main__ - INFO - Sample 58: Simulating 14 days forward
+2025-11-06 14:52:25,540 - __main__ - INFO - Sample 58: Complete
+2025-11-06 14:52:25,546 - __main__ - INFO - Sample 59: Running particle filter
+2025-11-06 14:52:25,601 - pypfilt - INFO -   14:52:25  Estimating  from 0.0 to 14.0
+2025-11-06 14:54:31,978 - pypfilt - INFO -   14:54:31  Forecasting from 14.0 to 21.0
+2025-11-06 14:55:09,114 - __main__ - INFO - Sample 50: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:55:09,114 - __main__ - INFO - Sample 50: Sampled latent state - V=0.00e+00
+2025-11-06 14:55:09,114 - __main__ - INFO - Sample 50: Simulating 14 days forward
+2025-11-06 14:55:23,694 - __main__ - INFO - Sample 50: Complete
+2025-11-06 14:55:23,701 - __main__ - INFO - Sample 51: Running particle filter
+2025-11-06 14:55:23,718 - pypfilt - INFO -   14:55:23  Estimating  from 0.0 to 14.0
+2025-11-06 14:57:42,861 - pypfilt - INFO -   14:57:42  Forecasting from 14.0 to 21.0
+2025-11-06 14:57:55,082 - pypfilt - INFO -   14:57:55  Forecasting from 14.0 to 21.0
+2025-11-06 14:58:08,159 - __main__ - INFO - Sample 38: Extracted filter trajectory over 15 timepoints
+2025-11-06 14:58:08,159 - __main__ - INFO - Sample 38: Sampled latent state - V=0.00e+00
+2025-11-06 14:58:08,160 - __main__ - INFO - Sample 38: Simulating 14 days forward
+2025-11-06 14:58:22,776 - __main__ - INFO - Sample 38: Complete
+2025-11-06 14:58:22,782 - __main__ - INFO - Sample 39: Running particle filter
+2025-11-06 14:58:22,856 - pypfilt - INFO -   14:58:22  Estimating  from 0.0 to 14.0
+2025-11-06 14:58:40,110 - pypfilt - INFO -   14:58:40  Forecasting from 14.0 to 21.0
+2025-11-06 15:00:14,907 - pypfilt - INFO -   15:00:14  Forecasting from 14.0 to 21.0
+2025-11-06 15:00:16,906 - pypfilt - INFO -   15:00:16  Forecasting from 14.0 to 21.0
+2025-11-06 15:00:56,978 - pypfilt - INFO -   15:00:56  Forecasting from 14.0 to 21.0
+2025-11-06 15:01:31,186 - __main__ - INFO - Sample 35: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:01:31,186 - __main__ - INFO - Sample 35: Sampled latent state - V=0.00e+00
+2025-11-06 15:01:31,186 - __main__ - INFO - Sample 35: Simulating 14 days forward
+2025-11-06 15:01:39,393 - __main__ - INFO - Sample 62: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:01:39,394 - __main__ - INFO - Sample 62: Sampled latent state - V=0.00e+00
+2025-11-06 15:01:39,394 - __main__ - INFO - Sample 62: Simulating 14 days forward
+2025-11-06 15:01:45,703 - __main__ - INFO - Sample 35: Complete
+2025-11-06 15:01:45,879 - __main__ - INFO - Sample 64: Running particle filter
+2025-11-06 15:01:45,957 - pypfilt - INFO -   15:01:45  Estimating  from 0.0 to 14.0
+2025-11-06 15:01:55,874 - __main__ - INFO - Sample 62: Complete
+2025-11-06 15:01:55,880 - __main__ - INFO - Sample 63: Running particle filter
+2025-11-06 15:01:55,974 - pypfilt - INFO -   15:01:55  Estimating  from 0.0 to 14.0
+2025-11-06 15:02:26,899 - __main__ - INFO - Sample 47: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:02:26,899 - __main__ - INFO - Sample 47: Sampled latent state - V=0.00e+00
+2025-11-06 15:02:26,899 - __main__ - INFO - Sample 47: Simulating 14 days forward
+2025-11-06 15:02:41,397 - __main__ - INFO - Sample 47: Complete
+2025-11-06 15:02:41,413 - __main__ - INFO - Sample 68: Running particle filter
+2025-11-06 15:02:41,469 - pypfilt - INFO -   15:02:41  Estimating  from 0.0 to 14.0
+2025-11-06 15:03:25,171 - pypfilt - INFO -   15:03:25  Forecasting from 14.0 to 21.0
+2025-11-06 15:03:51,428 - __main__ - INFO - Sample 43: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:03:51,429 - __main__ - INFO - Sample 43: Sampled latent state - V=0.00e+00
+2025-11-06 15:03:51,429 - __main__ - INFO - Sample 43: Simulating 14 days forward
+2025-11-06 15:03:57,527 - __main__ - INFO - Sample 55: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:03:57,527 - __main__ - INFO - Sample 55: Sampled latent state - V=0.00e+00
+2025-11-06 15:03:57,527 - __main__ - INFO - Sample 55: Simulating 14 days forward
+2025-11-06 15:04:05,967 - __main__ - INFO - Sample 43: Complete
+2025-11-06 15:04:05,983 - __main__ - INFO - Sample 72: Running particle filter
+2025-11-06 15:04:06,065 - pypfilt - INFO -   15:04:06  Estimating  from 0.0 to 14.0
+2025-11-06 15:04:12,128 - __main__ - INFO - Sample 55: Complete
+2025-11-06 15:04:12,142 - __main__ - INFO - Sample 76: Running particle filter
+2025-11-06 15:04:12,221 - pypfilt - INFO -   15:04:12  Estimating  from 0.0 to 14.0
+2025-11-06 15:04:34,617 - __main__ - INFO - Sample 59: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:04:34,617 - __main__ - INFO - Sample 59: Sampled latent state - V=0.00e+00
+2025-11-06 15:04:34,617 - __main__ - INFO - Sample 59: Simulating 14 days forward
+2025-11-06 15:04:49,094 - __main__ - INFO - Sample 59: Complete
+2025-11-06 15:04:49,109 - __main__ - INFO - Sample 80: Running particle filter
+2025-11-06 15:04:49,130 - pypfilt - INFO -   15:04:49  Estimating  from 0.0 to 14.0
+2025-11-06 15:07:02,598 - __main__ - INFO - Sample 51: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:07:02,598 - __main__ - INFO - Sample 51: Sampled latent state - V=0.00e+00
+2025-11-06 15:07:02,598 - __main__ - INFO - Sample 51: Simulating 14 days forward
+2025-11-06 15:07:17,190 - __main__ - INFO - Sample 51: Complete
+2025-11-06 15:07:17,206 - __main__ - INFO - Sample 84: Running particle filter
+2025-11-06 15:07:17,284 - pypfilt - INFO -   15:07:17  Estimating  from 0.0 to 14.0
+2025-11-06 15:07:39,171 - pypfilt - INFO -   15:07:39  Forecasting from 14.0 to 21.0
+2025-11-06 15:09:53,951 - pypfilt - INFO -   15:09:53  Forecasting from 14.0 to 21.0
+2025-11-06 15:11:15,395 - pypfilt - INFO -   15:11:15  Forecasting from 14.0 to 21.0
+2025-11-06 15:11:17,078 - __main__ - INFO - Sample 39: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:11:17,078 - __main__ - INFO - Sample 39: Sampled latent state - V=0.00e+00
+2025-11-06 15:11:17,078 - __main__ - INFO - Sample 39: Simulating 14 days forward
+2025-11-06 15:11:31,724 - __main__ - INFO - Sample 39: Complete
+2025-11-06 15:11:31,739 - __main__ - INFO - Sample 88: Running particle filter
+2025-11-06 15:11:31,831 - pypfilt - INFO -   15:11:31  Estimating  from 0.0 to 14.0
+2025-11-06 15:12:01,394 - pypfilt - INFO -   15:12:01  Forecasting from 14.0 to 21.0
+2025-11-06 15:13:09,353 - pypfilt - INFO -   15:13:09  Forecasting from 14.0 to 21.0
+2025-11-06 15:13:28,413 - pypfilt - INFO -   15:13:28  Forecasting from 14.0 to 21.0
+2025-11-06 15:13:35,183 - __main__ - INFO - Sample 64: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:13:35,183 - __main__ - INFO - Sample 64: Sampled latent state - V=0.00e+00
+2025-11-06 15:13:35,183 - __main__ - INFO - Sample 64: Simulating 14 days forward
+2025-11-06 15:13:49,821 - __main__ - INFO - Sample 64: Complete
+2025-11-06 15:13:49,827 - __main__ - INFO - Sample 65: Running particle filter
+2025-11-06 15:13:49,892 - pypfilt - INFO -   15:13:49  Estimating  from 0.0 to 14.0
+2025-11-06 15:13:53,016 - pypfilt - INFO -   15:13:53  Forecasting from 14.0 to 21.0
+2025-11-06 15:14:54,702 - __main__ - INFO - Sample 63: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:14:54,702 - __main__ - INFO - Sample 63: Sampled latent state - V=0.00e+00
+2025-11-06 15:14:54,702 - __main__ - INFO - Sample 63: Simulating 14 days forward
+2025-11-06 15:15:09,310 - __main__ - INFO - Sample 63: Complete
+2025-11-06 15:15:09,325 - __main__ - INFO - Sample 92: Running particle filter
+2025-11-06 15:15:09,411 - pypfilt - INFO -   15:15:09  Estimating  from 0.0 to 14.0
+2025-11-06 15:15:54,122 - __main__ - INFO - Sample 68: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:15:54,122 - __main__ - INFO - Sample 68: Sampled latent state - V=0.00e+00
+2025-11-06 15:15:54,123 - __main__ - INFO - Sample 68: Simulating 14 days forward
+2025-11-06 15:16:10,683 - __main__ - INFO - Sample 68: Complete
+2025-11-06 15:16:10,689 - __main__ - INFO - Sample 69: Running particle filter
+2025-11-06 15:16:10,707 - pypfilt - INFO -   15:16:10  Estimating  from 0.0 to 14.0
+2025-11-06 15:16:23,235 - pypfilt - INFO -   15:16:23  Forecasting from 14.0 to 21.0
+2025-11-06 15:17:05,878 - __main__ - INFO - Sample 76: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:17:05,878 - __main__ - INFO - Sample 76: Sampled latent state - V=0.00e+00
+2025-11-06 15:17:05,878 - __main__ - INFO - Sample 76: Simulating 14 days forward
+2025-11-06 15:17:06,941 - __main__ - INFO - Sample 80: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:17:06,942 - __main__ - INFO - Sample 80: Sampled latent state - V=0.00e+00
+2025-11-06 15:17:06,942 - __main__ - INFO - Sample 80: Simulating 14 days forward
+2025-11-06 15:17:20,394 - __main__ - INFO - Sample 76: Complete
+2025-11-06 15:17:20,400 - __main__ - INFO - Sample 77: Running particle filter
+2025-11-06 15:17:20,504 - pypfilt - INFO -   15:17:20  Estimating  from 0.0 to 14.0
+2025-11-06 15:17:21,790 - __main__ - INFO - Sample 80: Complete
+2025-11-06 15:17:21,797 - __main__ - INFO - Sample 81: Running particle filter
+2025-11-06 15:17:21,818 - pypfilt - INFO -   15:17:21  Estimating  from 0.0 to 14.0
+2025-11-06 15:17:33,611 - __main__ - INFO - Sample 72: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:17:33,611 - __main__ - INFO - Sample 72: Sampled latent state - V=0.00e+00
+2025-11-06 15:17:33,611 - __main__ - INFO - Sample 72: Simulating 14 days forward
+2025-11-06 15:17:48,050 - __main__ - INFO - Sample 72: Complete
+2025-11-06 15:17:48,056 - __main__ - INFO - Sample 73: Running particle filter
+2025-11-06 15:17:48,139 - pypfilt - INFO -   15:17:48  Estimating  from 0.0 to 14.0
+2025-11-06 15:20:03,391 - __main__ - INFO - Sample 84: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:20:03,408 - __main__ - INFO - Sample 84: Sampled latent state - V=0.00e+00
+2025-11-06 15:20:03,408 - __main__ - INFO - Sample 84: Simulating 14 days forward
+2025-11-06 15:20:17,979 - __main__ - INFO - Sample 84: Complete
+2025-11-06 15:20:17,986 - __main__ - INFO - Sample 85: Running particle filter
+2025-11-06 15:20:18,086 - pypfilt - INFO -   15:20:18  Estimating  from 0.0 to 14.0
+2025-11-06 15:20:42,990 - pypfilt - INFO -   15:20:42  Forecasting from 14.0 to 21.0
+2025-11-06 15:21:32,435 - pypfilt - INFO -   15:21:32  Forecasting from 14.0 to 21.0
+2025-11-06 15:24:22,932 - __main__ - INFO - Sample 88: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:24:22,933 - __main__ - INFO - Sample 88: Sampled latent state - V=0.00e+00
+2025-11-06 15:24:22,933 - __main__ - INFO - Sample 88: Simulating 14 days forward
+2025-11-06 15:24:37,424 - __main__ - INFO - Sample 88: Complete
+2025-11-06 15:24:37,430 - __main__ - INFO - Sample 89: Running particle filter
+2025-11-06 15:24:37,488 - pypfilt - INFO -   15:24:37  Estimating  from 0.0 to 14.0
+2025-11-06 15:25:09,076 - __main__ - INFO - Sample 65: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:25:09,076 - __main__ - INFO - Sample 65: Sampled latent state - V=0.00e+00
+2025-11-06 15:25:09,076 - __main__ - INFO - Sample 65: Simulating 14 days forward
+2025-11-06 15:25:23,564 - __main__ - INFO - Sample 65: Complete
+2025-11-06 15:25:23,570 - __main__ - INFO - Sample 66: Running particle filter
+2025-11-06 15:25:23,654 - pypfilt - INFO -   15:25:23  Estimating  from 0.0 to 14.0
+2025-11-06 15:25:40,164 - pypfilt - INFO -   15:25:40  Forecasting from 14.0 to 21.0
+2025-11-06 15:25:49,686 - pypfilt - INFO -   15:25:49  Forecasting from 14.0 to 21.0
+2025-11-06 15:25:51,040 - pypfilt - INFO -   15:25:51  Forecasting from 14.0 to 21.0
+2025-11-06 15:26:25,846 - pypfilt - INFO -   15:26:25  Forecasting from 14.0 to 21.0
+2025-11-06 15:26:55,838 - pypfilt - INFO -   15:26:55  Forecasting from 14.0 to 21.0
+2025-11-06 15:29:15,771 - __main__ - INFO - Sample 81: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:29:15,771 - __main__ - INFO - Sample 81: Sampled latent state - V=0.00e+00
+2025-11-06 15:29:15,771 - __main__ - INFO - Sample 81: Simulating 14 days forward
+2025-11-06 15:29:26,157 - __main__ - INFO - Sample 69: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:29:26,157 - __main__ - INFO - Sample 69: Sampled latent state - V=0.00e+00
+2025-11-06 15:29:26,157 - __main__ - INFO - Sample 69: Simulating 14 days forward
+2025-11-06 15:29:30,384 - __main__ - INFO - Sample 81: Complete
+2025-11-06 15:29:30,391 - __main__ - INFO - Sample 82: Running particle filter
+2025-11-06 15:29:30,433 - pypfilt - INFO -   15:29:30  Estimating  from 0.0 to 14.0
+2025-11-06 15:29:31,881 - __main__ - INFO - Sample 92: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:29:31,881 - __main__ - INFO - Sample 92: Sampled latent state - V=0.00e+00
+2025-11-06 15:29:31,881 - __main__ - INFO - Sample 92: Simulating 14 days forward
+2025-11-06 15:29:40,585 - __main__ - INFO - Sample 69: Complete
+2025-11-06 15:29:40,591 - __main__ - INFO - Sample 70: Running particle filter
+2025-11-06 15:29:40,664 - pypfilt - INFO -   15:29:40  Estimating  from 0.0 to 14.0
+2025-11-06 15:29:46,403 - __main__ - INFO - Sample 92: Complete
+2025-11-06 15:29:46,409 - __main__ - INFO - Sample 93: Running particle filter
+2025-11-06 15:29:46,487 - pypfilt - INFO -   15:29:46  Estimating  from 0.0 to 14.0
+2025-11-06 15:30:04,644 - pypfilt - INFO -   15:30:04  Forecasting from 14.0 to 21.0
+2025-11-06 15:30:23,491 - __main__ - INFO - Sample 73: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:30:23,491 - __main__ - INFO - Sample 73: Sampled latent state - V=0.00e+00
+2025-11-06 15:30:23,492 - __main__ - INFO - Sample 73: Simulating 14 days forward
+2025-11-06 15:30:37,123 - __main__ - INFO - Sample 77: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:30:37,123 - __main__ - INFO - Sample 77: Sampled latent state - V=0.00e+00
+2025-11-06 15:30:37,123 - __main__ - INFO - Sample 77: Simulating 14 days forward
+2025-11-06 15:30:40,024 - __main__ - INFO - Sample 73: Complete
+2025-11-06 15:30:40,031 - __main__ - INFO - Sample 74: Running particle filter
+2025-11-06 15:30:40,049 - pypfilt - INFO -   15:30:40  Estimating  from 0.0 to 14.0
+2025-11-06 15:30:51,667 - __main__ - INFO - Sample 77: Complete
+2025-11-06 15:30:51,674 - __main__ - INFO - Sample 78: Running particle filter
+2025-11-06 15:30:51,763 - pypfilt - INFO -   15:30:51  Estimating  from 0.0 to 14.0
+2025-11-06 15:33:02,952 - pypfilt - INFO -   15:33:02  Forecasting from 14.0 to 21.0
+2025-11-06 15:33:41,611 - __main__ - INFO - Sample 85: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:33:41,612 - __main__ - INFO - Sample 85: Sampled latent state - V=0.00e+00
+2025-11-06 15:33:41,612 - __main__ - INFO - Sample 85: Simulating 14 days forward
+2025-11-06 15:33:56,009 - __main__ - INFO - Sample 85: Complete
+2025-11-06 15:33:56,016 - __main__ - INFO - Sample 86: Running particle filter
+2025-11-06 15:33:56,147 - pypfilt - INFO -   15:33:56  Estimating  from 0.0 to 14.0
+2025-11-06 15:35:12,175 - pypfilt - INFO -   15:35:12  Forecasting from 14.0 to 21.0
+2025-11-06 15:36:52,111 - __main__ - INFO - Sample 66: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:36:52,216 - __main__ - INFO - Sample 66: Sampled latent state - V=0.00e+00
+2025-11-06 15:36:52,216 - __main__ - INFO - Sample 66: Simulating 14 days forward
+2025-11-06 15:37:06,661 - __main__ - INFO - Sample 66: Complete
+2025-11-06 15:37:06,701 - __main__ - INFO - Sample 67: Running particle filter
+2025-11-06 15:37:06,950 - pypfilt - INFO -   15:37:06  Estimating  from 0.0 to 14.0
+2025-11-06 15:38:37,920 - pypfilt - INFO -   15:38:37  Forecasting from 14.0 to 21.0
+2025-11-06 15:38:41,763 - pypfilt - INFO -   15:38:41  Forecasting from 14.0 to 21.0
+2025-11-06 15:38:49,752 - pypfilt - INFO -   15:38:49  Forecasting from 14.0 to 21.0
+2025-11-06 15:38:53,480 - __main__ - INFO - Sample 89: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:38:53,480 - __main__ - INFO - Sample 89: Sampled latent state - V=0.00e+00
+2025-11-06 15:38:53,480 - __main__ - INFO - Sample 89: Simulating 14 days forward
+2025-11-06 15:39:08,146 - __main__ - INFO - Sample 89: Complete
+2025-11-06 15:39:08,153 - __main__ - INFO - Sample 90: Running particle filter
+2025-11-06 15:39:08,536 - pypfilt - INFO -   15:39:08  Estimating  from 0.0 to 14.0
+2025-11-06 15:39:13,015 - pypfilt - INFO -   15:39:13  Forecasting from 14.0 to 21.0
+2025-11-06 15:42:20,906 - __main__ - INFO - Sample 70: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:42:20,907 - __main__ - INFO - Sample 70: Sampled latent state - V=0.00e+00
+2025-11-06 15:42:20,907 - __main__ - INFO - Sample 70: Simulating 14 days forward
+2025-11-06 15:42:21,357 - __main__ - INFO - Sample 93: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:42:21,358 - __main__ - INFO - Sample 93: Sampled latent state - V=0.00e+00
+2025-11-06 15:42:21,358 - __main__ - INFO - Sample 93: Simulating 14 days forward
+2025-11-06 15:42:29,020 - __main__ - INFO - Sample 82: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:42:29,020 - __main__ - INFO - Sample 82: Sampled latent state - V=0.00e+00
+2025-11-06 15:42:29,020 - __main__ - INFO - Sample 82: Simulating 14 days forward
+2025-11-06 15:42:35,438 - __main__ - INFO - Sample 70: Complete
+2025-11-06 15:42:35,458 - __main__ - INFO - Sample 71: Running particle filter
+2025-11-06 15:42:35,519 - pypfilt - INFO -   15:42:35  Estimating  from 0.0 to 14.0
+2025-11-06 15:42:35,951 - __main__ - INFO - Sample 93: Complete
+2025-11-06 15:42:35,957 - __main__ - INFO - Sample 94: Running particle filter
+2025-11-06 15:42:36,031 - pypfilt - INFO -   15:42:36  Estimating  from 0.0 to 14.0
+2025-11-06 15:42:43,567 - __main__ - INFO - Sample 82: Complete
+2025-11-06 15:42:43,574 - __main__ - INFO - Sample 83: Running particle filter
+2025-11-06 15:42:43,666 - pypfilt - INFO -   15:42:43  Estimating  from 0.0 to 14.0
+2025-11-06 15:42:53,738 - __main__ - INFO - Sample 78: Extracted filter trajectory over 15 timepoints
+2025-11-06 15:42:53,738 - __main__ - INFO - Sample 78: Sampled latent state - V=0.00e+00
+2025-11-06 15:42:53,738 - __main__ - INFO - Sample 78: Simulating 14 days forward
+2025-11-06 15:43:08,287 - __main__ - INFO - Sample 78: Complete
+2025-11-06 15:43:08,293 - __main__ - INFO - Sample 79: Running particle filter
+2025-11-06 15:43:08,376 - pypfilt - INFO -   15:43:08  Estimating  from 0.0 to 14.0
+2025-11-06 15:43:34,077 - pypfilt - INFO -   15:43:34  Forecasting from 14.0 to 21.0

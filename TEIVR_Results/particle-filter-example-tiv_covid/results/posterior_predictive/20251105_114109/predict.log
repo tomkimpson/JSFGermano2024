@@ -1,0 +1,19 @@
+2025-11-05 11:41:09,526 - __main__ - INFO - ============================================================
+2025-11-05 11:41:09,528 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-05 11:41:09,528 - __main__ - INFO - ============================================================
+2025-11-05 11:41:09,528 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-05 11:41:09,528 - __main__ - INFO - Output directory: results/posterior_predictive/20251105_114109
+2025-11-05 11:41:09,528 - __main__ - INFO - Configuration: config/cli-refractory-tiv-jsf.toml
+2025-11-05 11:41:09,528 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-05 11:41:09,528 - __main__ - INFO - Number of samples: 1
+2025-11-05 11:41:09,528 - __main__ - INFO - Particles per filter: 10
+2025-11-05 11:41:09,528 - __main__ - INFO - Prediction horizon: 1 days
+2025-11-05 11:41:09,528 - __main__ - INFO - Random seed: 123
+2025-11-05 11:41:09,528 - __main__ - INFO - Parallel workers: 1
+2025-11-05 11:41:09,529 - __main__ - INFO - Processing 1 patients: ['432192']
+2025-11-05 11:41:09,529 - __main__ - INFO - 
+============================================================
+2025-11-05 11:41:09,529 - __main__ - INFO - Processing patient: 432192
+2025-11-05 11:41:09,529 - __main__ - INFO - ============================================================
+2025-11-05 11:41:09,529 - __main__ - INFO - Loading posterior and sampling 1 parameter sets
+2025-11-05 11:41:09,530 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl

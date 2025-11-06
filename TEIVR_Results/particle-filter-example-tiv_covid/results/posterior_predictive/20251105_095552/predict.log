@@ -1,0 +1,957 @@
+2025-11-05 09:55:52,991 - __main__ - INFO - ============================================================
+2025-11-05 09:55:52,992 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-05 09:55:52,992 - __main__ - INFO - ============================================================
+2025-11-05 09:55:52,992 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-05 09:55:52,992 - __main__ - INFO - Output directory: results/posterior_predictive/20251105_095552
+2025-11-05 09:55:52,992 - __main__ - INFO - Configuration: config/cli-refractory-tiv-jsf.toml
+2025-11-05 09:55:52,992 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-05 09:55:52,992 - __main__ - INFO - Number of samples: 5
+2025-11-05 09:55:52,992 - __main__ - INFO - Particles per filter: 50
+2025-11-05 09:55:52,992 - __main__ - INFO - Prediction horizon: 14 days
+2025-11-05 09:55:52,992 - __main__ - INFO - Random seed: 42
+2025-11-05 09:55:52,992 - __main__ - INFO - Parallel workers: 8
+2025-11-05 09:55:52,993 - __main__ - INFO - Auto-detected 6 patients: ['432192', '443108', '444332', '444391', '445602', '451152']
+2025-11-05 09:55:52,993 - __main__ - INFO - 
+============================================================
+2025-11-05 09:55:52,993 - __main__ - INFO - Processing patient: 432192
+2025-11-05 09:55:52,993 - __main__ - INFO - ============================================================
+2025-11-05 09:55:52,993 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 09:55:52,994 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 09:55:54,203 - arviz.preview - INFO - arviz_base not installed
+2025-11-05 09:55:54,203 - arviz.preview - INFO - arviz_stats not installed
+2025-11-05 09:55:54,203 - arviz.preview - INFO - arviz_plots not installed
+2025-11-05 09:55:54,252 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 09:55:54,262 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 09:55:54,262 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 09:55:54,264 - __main__ - INFO - Processing 5 samples with 50 particles each
+2025-11-05 09:55:54,264 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 09:55:54,330 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 09:55:54,330 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 09:55:54,330 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 09:55:54,331 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 09:55:54,331 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 09:55:54,349 - pypfilt - INFO -   09:55:54  Estimating  from 0.0 to 14.0
+2025-11-05 09:55:54,349 - pypfilt - INFO -   09:55:54  Estimating  from 0.0 to 14.0
+2025-11-05 09:55:54,349 - pypfilt - INFO -   09:55:54  Estimating  from 0.0 to 14.0
+2025-11-05 09:55:54,349 - pypfilt - INFO -   09:55:54  Estimating  from 0.0 to 14.0
+2025-11-05 09:55:54,349 - pypfilt - INFO -   09:55:54  Estimating  from 0.0 to 14.0
+2025-11-05 10:03:53,809 - pypfilt - INFO -   10:03:53  Forecasting from 14.0 to 21.0
+2025-11-05 10:04:02,560 - pypfilt - INFO -   10:04:02  Forecasting from 14.0 to 21.0
+2025-11-05 10:04:20,554 - pypfilt - INFO -   10:04:20  Forecasting from 14.0 to 21.0
+2025-11-05 10:04:26,510 - pypfilt - INFO -   10:04:26  Forecasting from 14.0 to 21.0
+2025-11-05 10:05:25,004 - pypfilt - INFO -   10:05:25  Forecasting from 14.0 to 21.0
+2025-11-05 10:07:33,142 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:07:33,142 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:07:33,143 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:07:33,144 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:07:33,144 - __main__ - ERROR - Sample 2: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:07:40,040 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:07:40,040 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:07:40,040 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:07:40,040 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:07:40,040 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:07:40,040 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:07:40,041 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:07:40,041 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:07:40,041 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:07:40,041 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:07:40,041 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:07:40,041 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:07:40,041 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:07:40,041 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:07:40,041 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:07:40,041 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:07:40,041 - __main__ - ERROR - Sample 3: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:08:02,792 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:08:02,792 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:08:02,792 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:08:02,792 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:08:02,792 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:08:02,792 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:08:02,792 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:08:02,792 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:08:02,793 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:08:02,793 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:08:02,793 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:08:02,793 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:08:02,793 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:08:02,793 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:08:02,793 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:08:02,793 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:08:02,793 - __main__ - ERROR - Sample 0: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:08:23,848 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:08:23,849 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:08:23,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:08:23,850 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:08:23,850 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:08:23,850 - __main__ - ERROR - Sample 4: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:09:03,901 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:09:03,901 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:09:03,901 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:09:03,901 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:09:03,901 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:09:03,901 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:09:03,901 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:09:03,901 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:09:03,902 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:09:03,902 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:09:03,902 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:09:03,902 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:09:03,902 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:09:03,902 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:09:03,902 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:09:03,902 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:09:03,902 - __main__ - ERROR - Sample 1: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:09:03,923 - __main__ - WARNING - 5/5 samples failed
+2025-11-05 10:09:03,923 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_095552/432192
+2025-11-05 10:09:04,070 - src.posterior_predictive - WARNING - No valid filter trajectories to save
+2025-11-05 10:09:04,070 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_095552/432192
+2025-11-05 10:09:04,070 - __main__ - INFO - Patient 432192 completed in 791.1s (158.22s per sample)
+2025-11-05 10:09:04,094 - __main__ - INFO - 
+============================================================
+2025-11-05 10:09:04,094 - __main__ - INFO - Processing patient: 443108
+2025-11-05 10:09:04,094 - __main__ - INFO - ============================================================
+2025-11-05 10:09:04,094 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 10:09:04,095 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 10:09:04,126 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 10:09:04,139 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 10:09:04,139 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 10:09:04,140 - __main__ - INFO - Processing 5 samples with 50 particles each
+2025-11-05 10:09:04,140 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 10:09:04,212 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 10:09:04,212 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 10:09:04,212 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 10:09:04,212 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 10:09:04,213 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 10:09:04,230 - pypfilt - INFO -   10:09:04  Estimating  from 0.0 to 14.0
+2025-11-05 10:09:04,230 - pypfilt - INFO -   10:09:04  Estimating  from 0.0 to 14.0
+2025-11-05 10:09:04,230 - pypfilt - INFO -   10:09:04  Estimating  from 0.0 to 14.0
+2025-11-05 10:09:04,230 - pypfilt - INFO -   10:09:04  Estimating  from 0.0 to 14.0
+2025-11-05 10:09:04,231 - pypfilt - INFO -   10:09:04  Estimating  from 0.0 to 14.0
+2025-11-05 10:16:53,052 - pypfilt - INFO -   10:16:53  Forecasting from 14.0 to 21.0
+2025-11-05 10:17:01,308 - pypfilt - INFO -   10:17:01  Forecasting from 14.0 to 21.0
+2025-11-05 10:17:48,017 - pypfilt - INFO -   10:17:48  Forecasting from 14.0 to 21.0
+2025-11-05 10:17:54,897 - pypfilt - INFO -   10:17:54  Forecasting from 14.0 to 21.0
+2025-11-05 10:19:08,754 - pypfilt - INFO -   10:19:08  Forecasting from 14.0 to 21.0
+2025-11-05 10:20:34,578 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:20:34,579 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:20:34,580 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:20:34,580 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:20:34,580 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:20:34,580 - __main__ - ERROR - Sample 4: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:20:53,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:20:53,244 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:20:53,245 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:20:53,245 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:20:53,246 - __main__ - ERROR - Sample 1: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:21:35,757 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:21:35,757 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:21:35,757 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:21:35,757 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:21:35,757 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:21:35,757 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:21:35,757 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:21:35,758 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:21:35,758 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:21:35,758 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:21:35,758 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:21:35,758 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:21:35,758 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:21:35,758 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:21:35,758 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:21:35,758 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:21:35,758 - __main__ - ERROR - Sample 3: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:21:35,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:21:35,876 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:21:35,877 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:21:35,878 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:21:35,878 - __main__ - ERROR - Sample 2: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:22:52,522 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:22:52,522 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:22:52,522 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:22:52,522 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:22:52,523 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:22:52,523 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:22:52,524 - __main__ - ERROR - Sample 0: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:22:52,544 - __main__ - WARNING - 5/5 samples failed
+2025-11-05 10:22:52,544 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_095552/443108
+2025-11-05 10:22:52,842 - src.posterior_predictive - WARNING - No valid filter trajectories to save
+2025-11-05 10:22:52,842 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_095552/443108
+2025-11-05 10:22:52,842 - __main__ - INFO - Patient 443108 completed in 828.7s (165.75s per sample)
+2025-11-05 10:22:52,856 - __main__ - INFO - 
+============================================================
+2025-11-05 10:22:52,856 - __main__ - INFO - Processing patient: 444332
+2025-11-05 10:22:52,856 - __main__ - INFO - ============================================================
+2025-11-05 10:22:52,857 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 10:22:52,857 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 10:22:52,870 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 10:22:52,876 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 10:22:52,876 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 10:22:52,877 - __main__ - INFO - Processing 5 samples with 50 particles each
+2025-11-05 10:22:52,878 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 10:22:52,944 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 10:22:52,944 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 10:22:52,944 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 10:22:52,944 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 10:22:52,945 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 10:22:52,963 - pypfilt - INFO -   10:22:52  Estimating  from 0.0 to 14.0
+2025-11-05 10:22:52,963 - pypfilt - INFO -   10:22:52  Estimating  from 0.0 to 14.0
+2025-11-05 10:22:52,963 - pypfilt - INFO -   10:22:52  Estimating  from 0.0 to 14.0
+2025-11-05 10:22:52,963 - pypfilt - INFO -   10:22:52  Estimating  from 0.0 to 14.0
+2025-11-05 10:22:52,963 - pypfilt - INFO -   10:22:52  Estimating  from 0.0 to 14.0
+2025-11-05 10:31:34,276 - pypfilt - INFO -   10:31:34  Forecasting from 14.0 to 21.0
+2025-11-05 10:31:37,161 - pypfilt - INFO -   10:31:37  Forecasting from 14.0 to 21.0
+2025-11-05 10:31:42,900 - pypfilt - INFO -   10:31:42  Forecasting from 14.0 to 21.0
+2025-11-05 10:32:11,126 - pypfilt - INFO -   10:32:11  Forecasting from 14.0 to 21.0
+2025-11-05 10:32:15,357 - pypfilt - INFO -   10:32:15  Forecasting from 14.0 to 21.0
+2025-11-05 10:35:24,049 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:35:24,056 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:35:24,056 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:35:24,056 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:35:24,056 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:35:24,057 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:35:24,057 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:35:24,057 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:35:24,057 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:35:24,057 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:35:24,057 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:35:24,057 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:35:24,057 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:35:24,057 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:35:24,057 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:35:24,057 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:35:24,062 - __main__ - ERROR - Sample 4: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:35:25,018 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:35:25,018 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:35:25,018 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:35:25,018 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:35:25,018 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:35:25,018 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:35:25,018 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:35:25,019 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:35:25,019 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:35:25,019 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:35:25,019 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:35:25,019 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:35:25,019 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:35:25,019 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:35:25,019 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:35:25,019 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:35:25,019 - __main__ - ERROR - Sample 1: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:36:01,565 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:36:01,565 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:36:01,565 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:36:01,565 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:36:01,565 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:36:01,565 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:36:01,565 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:36:01,565 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:36:01,566 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:36:01,566 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:36:01,566 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:36:01,566 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:36:01,566 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:36:01,566 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:36:01,566 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:36:01,566 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:36:01,567 - __main__ - ERROR - Sample 3: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:36:05,820 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:36:05,821 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:36:05,822 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:36:05,822 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:36:05,822 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:36:05,822 - __main__ - ERROR - Sample 2: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:36:10,771 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:36:10,771 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:36:10,771 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:36:10,771 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:36:10,772 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:36:10,772 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:36:10,772 - __main__ - ERROR - Sample 0: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:36:10,825 - __main__ - WARNING - 5/5 samples failed
+2025-11-05 10:36:10,826 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_095552/444332
+2025-11-05 10:36:11,089 - src.posterior_predictive - WARNING - No valid filter trajectories to save
+2025-11-05 10:36:11,089 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_095552/444332
+2025-11-05 10:36:11,089 - __main__ - INFO - Patient 444332 completed in 798.2s (159.65s per sample)
+2025-11-05 10:36:11,248 - __main__ - INFO - 
+============================================================
+2025-11-05 10:36:11,248 - __main__ - INFO - Processing patient: 444391
+2025-11-05 10:36:11,248 - __main__ - INFO - ============================================================
+2025-11-05 10:36:11,248 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 10:36:11,249 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 10:36:11,411 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 10:36:11,720 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 10:36:11,720 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 10:36:11,721 - __main__ - INFO - Processing 5 samples with 50 particles each
+2025-11-05 10:36:11,722 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 10:36:12,979 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 10:36:12,979 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 10:36:12,979 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 10:36:12,979 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 10:36:12,979 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 10:36:13,117 - pypfilt - INFO -   10:36:13  Estimating  from 0.0 to 14.0
+2025-11-05 10:36:13,117 - pypfilt - INFO -   10:36:13  Estimating  from 0.0 to 14.0
+2025-11-05 10:36:13,117 - pypfilt - INFO -   10:36:13  Estimating  from 0.0 to 14.0
+2025-11-05 10:36:13,117 - pypfilt - INFO -   10:36:13  Estimating  from 0.0 to 14.0
+2025-11-05 10:36:13,117 - pypfilt - INFO -   10:36:13  Estimating  from 0.0 to 14.0
+2025-11-05 10:44:32,767 - pypfilt - INFO -   10:44:32  Forecasting from 14.0 to 21.0
+2025-11-05 10:44:55,912 - pypfilt - INFO -   10:44:55  Forecasting from 14.0 to 21.0
+2025-11-05 10:44:56,517 - pypfilt - INFO -   10:44:56  Forecasting from 14.0 to 21.0
+2025-11-05 10:45:16,406 - pypfilt - INFO -   10:45:16  Forecasting from 14.0 to 21.0
+2025-11-05 10:48:32,973 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:48:32,990 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:48:32,990 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:48:32,990 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:48:32,990 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:48:32,990 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:48:32,990 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:48:32,990 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:48:32,990 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:48:32,991 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:48:32,991 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:48:32,991 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:48:32,991 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:48:32,991 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:48:32,991 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:48:32,991 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:48:32,995 - __main__ - ERROR - Sample 4: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:48:50,695 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:48:50,695 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:48:50,695 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:48:50,695 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:48:50,695 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:48:50,695 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:48:50,695 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:48:50,696 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:48:50,696 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:48:50,696 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:48:50,696 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:48:50,696 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:48:50,696 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:48:50,696 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:48:50,696 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:48:50,696 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:48:50,696 - __main__ - ERROR - Sample 3: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:48:51,919 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:48:51,919 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:48:51,919 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:48:51,920 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:48:51,920 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:48:51,921 - __main__ - ERROR - Sample 2: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:49:01,132 - pypfilt - INFO -   10:49:01  Forecasting from 14.0 to 21.0
+2025-11-05 10:49:32,153 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:49:32,154 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:49:32,155 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:49:32,155 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:49:32,155 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:49:32,155 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:49:32,155 - __main__ - ERROR - Sample 1: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:52:56,789 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 10:52:56,790 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:52:56,791 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 10:52:56,791 - __main__ - ERROR - Sample 0: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 10:52:56,846 - __main__ - WARNING - 5/5 samples failed
+2025-11-05 10:52:56,846 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_095552/444391
+2025-11-05 10:52:57,083 - src.posterior_predictive - WARNING - No valid filter trajectories to save
+2025-11-05 10:52:57,083 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_095552/444391
+2025-11-05 10:52:57,083 - __main__ - INFO - Patient 444391 completed in 1005.8s (201.17s per sample)
+2025-11-05 10:52:57,337 - __main__ - INFO - 
+============================================================
+2025-11-05 10:52:57,337 - __main__ - INFO - Processing patient: 445602
+2025-11-05 10:52:57,337 - __main__ - INFO - ============================================================
+2025-11-05 10:52:57,337 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 10:52:57,338 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 10:52:57,527 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 10:52:57,834 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 10:52:57,834 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 10:52:57,835 - __main__ - INFO - Processing 5 samples with 50 particles each
+2025-11-05 10:52:57,835 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 10:52:59,219 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 10:52:59,219 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 10:52:59,219 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 10:52:59,219 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 10:52:59,219 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 10:52:59,310 - pypfilt - INFO -   10:52:59  Estimating  from 0.0 to 14.0
+2025-11-05 10:52:59,310 - pypfilt - INFO -   10:52:59  Estimating  from 0.0 to 14.0
+2025-11-05 10:52:59,310 - pypfilt - INFO -   10:52:59  Estimating  from 0.0 to 14.0
+2025-11-05 10:52:59,310 - pypfilt - INFO -   10:52:59  Estimating  from 0.0 to 14.0
+2025-11-05 10:52:59,311 - pypfilt - INFO -   10:52:59  Estimating  from 0.0 to 14.0
+2025-11-05 11:01:43,820 - pypfilt - INFO -   11:01:43  Forecasting from 14.0 to 21.0
+2025-11-05 11:01:52,643 - pypfilt - INFO -   11:01:52  Forecasting from 14.0 to 21.0
+2025-11-05 11:02:03,462 - pypfilt - INFO -   11:02:03  Forecasting from 14.0 to 21.0
+2025-11-05 11:02:04,075 - pypfilt - INFO -   11:02:04  Forecasting from 14.0 to 21.0
+2025-11-05 11:02:10,366 - pypfilt - INFO -   11:02:10  Forecasting from 14.0 to 21.0
+2025-11-05 11:05:32,013 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 11:05:32,016 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 11:05:32,016 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 11:05:32,016 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 11:05:32,017 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:05:32,017 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 11:05:32,021 - __main__ - ERROR - Sample 3: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:05:36,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 11:05:36,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 11:05:36,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 11:05:36,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 11:05:36,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 11:05:36,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 11:05:36,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 11:05:36,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 11:05:36,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 11:05:36,728 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 11:05:36,729 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 11:05:36,729 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 11:05:36,729 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 11:05:36,729 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 11:05:36,729 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:05:36,729 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 11:05:36,729 - __main__ - ERROR - Sample 1: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 11:05:45,683 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 11:05:45,684 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 11:05:45,684 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 11:05:45,684 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 11:05:45,684 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:05:45,684 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 11:05:45,684 - __main__ - ERROR - Sample 0: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:05:51,008 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 11:05:51,008 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 11:05:51,008 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 11:05:51,008 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 11:05:51,008 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 11:05:51,009 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 11:05:51,009 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 11:05:51,009 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 11:05:51,009 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 11:05:51,009 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 11:05:51,009 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 11:05:51,009 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 11:05:51,009 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 11:05:51,009 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 11:05:51,009 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:05:51,009 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 11:05:51,009 - __main__ - ERROR - Sample 2: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:05:54,679 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 11:05:54,680 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 11:05:54,681 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:05:54,681 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 11:05:54,681 - __main__ - ERROR - Sample 4: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:05:54,737 - __main__ - WARNING - 5/5 samples failed
+2025-11-05 11:05:54,738 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_095552/445602
+2025-11-05 11:05:55,353 - src.posterior_predictive - WARNING - No valid filter trajectories to save
+2025-11-05 11:05:55,354 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_095552/445602
+2025-11-05 11:05:55,354 - __main__ - INFO - Patient 445602 completed in 778.0s (155.60s per sample)
+2025-11-05 11:05:55,407 - __main__ - INFO - 
+============================================================
+2025-11-05 11:05:55,407 - __main__ - INFO - Processing patient: 451152
+2025-11-05 11:05:55,407 - __main__ - INFO - ============================================================
+2025-11-05 11:05:55,407 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 11:05:55,408 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 11:05:55,581 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 11:05:55,882 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 11:05:55,882 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 11:05:55,884 - __main__ - INFO - Processing 5 samples with 50 particles each
+2025-11-05 11:05:55,884 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 11:05:56,980 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 11:05:56,980 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 11:05:56,980 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 11:05:56,980 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 11:05:56,980 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 11:05:57,447 - pypfilt - INFO -   11:05:57  Estimating  from 0.0 to 14.0
+2025-11-05 11:05:57,447 - pypfilt - INFO -   11:05:57  Estimating  from 0.0 to 14.0
+2025-11-05 11:05:57,447 - pypfilt - INFO -   11:05:57  Estimating  from 0.0 to 14.0
+2025-11-05 11:05:57,447 - pypfilt - INFO -   11:05:57  Estimating  from 0.0 to 14.0
+2025-11-05 11:05:57,447 - pypfilt - INFO -   11:05:57  Estimating  from 0.0 to 14.0
+2025-11-05 11:14:06,292 - pypfilt - INFO -   11:14:06  Forecasting from 14.0 to 21.0
+2025-11-05 11:14:23,351 - pypfilt - INFO -   11:14:23  Forecasting from 14.0 to 21.0
+2025-11-05 11:14:35,305 - pypfilt - INFO -   11:14:35  Forecasting from 14.0 to 21.0
+2025-11-05 11:14:47,013 - pypfilt - INFO -   11:14:47  Forecasting from 14.0 to 21.0
+2025-11-05 11:15:07,122 - pypfilt - INFO -   11:15:07  Forecasting from 14.0 to 21.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 11:17:48,853 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 11:17:48,854 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 11:17:48,854 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 11:17:48,854 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 11:17:48,854 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:17:48,854 - __main__ - INFO - Sample 1: Extracted filter trajectory over 15 timepoints
+2025-11-05 11:17:48,936 - __main__ - ERROR - Sample 1: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:18:14,329 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 11:18:14,329 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 11:18:14,329 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 11:18:14,329 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 11:18:14,329 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 11:18:14,330 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 11:18:14,330 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 11:18:14,330 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 11:18:14,330 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 11:18:14,330 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 11:18:14,330 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 11:18:14,330 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 11:18:14,330 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 11:18:14,330 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 11:18:14,330 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:18:14,330 - __main__ - INFO - Sample 3: Extracted filter trajectory over 15 timepoints
+2025-11-05 11:18:14,330 - __main__ - ERROR - Sample 3: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:18:26,794 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 11:18:26,794 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 11:18:26,794 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 11:18:26,794 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 11:18:26,794 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 11:18:26,794 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 11:18:26,794 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 11:18:26,794 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 11:18:26,794 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 11:18:26,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 11:18:26,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 11:18:26,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 11:18:26,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 11:18:26,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 11:18:26,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:18:26,795 - __main__ - INFO - Sample 2: Extracted filter trajectory over 15 timepoints
+2025-11-05 11:18:26,795 - __main__ - ERROR - Sample 2: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:18:33,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 11:18:33,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 11:18:33,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 11:18:33,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 11:18:33,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 11:18:33,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 11:18:33,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 11:18:33,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 11:18:33,795 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 11:18:33,796 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 11:18:33,796 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 11:18:33,796 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 11:18:33,796 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 11:18:33,796 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 11:18:33,796 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:18:33,796 - __main__ - INFO - Sample 4: Extracted filter trajectory over 15 timepoints
+2025-11-05 11:18:33,796 - __main__ - ERROR - Sample 4: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:18:42,486 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 0.0: Snapshot time is 21.0, but expected 0.0
+2025-11-05 11:18:42,486 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 1.0: Snapshot time is 21.0, but expected 1.0
+2025-11-05 11:18:42,486 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 2.0: Snapshot time is 21.0, but expected 2.0
+2025-11-05 11:18:42,486 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 3.0: Snapshot time is 21.0, but expected 3.0
+2025-11-05 11:18:42,486 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 4.0: Snapshot time is 21.0, but expected 4.0
+2025-11-05 11:18:42,486 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 5.0: Snapshot time is 21.0, but expected 5.0
+2025-11-05 11:18:42,487 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 6.0: Snapshot time is 21.0, but expected 6.0
+2025-11-05 11:18:42,487 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 7.0: Snapshot time is 21.0, but expected 7.0
+2025-11-05 11:18:42,487 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 8.0: Snapshot time is 21.0, but expected 8.0
+2025-11-05 11:18:42,487 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 9.0: Snapshot time is 21.0, but expected 9.0
+2025-11-05 11:18:42,487 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 10.0: Snapshot time is 21.0, but expected 10.0
+2025-11-05 11:18:42,487 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 11.0: Snapshot time is 21.0, but expected 11.0
+2025-11-05 11:18:42,487 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 12.0: Snapshot time is 21.0, but expected 12.0
+2025-11-05 11:18:42,487 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 13.0: Snapshot time is 21.0, but expected 13.0
+2025-11-05 11:18:42,487 - src.posterior_predictive - WARNING - Failed to extract snapshot at time 14.0: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:18:42,487 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 11:18:42,487 - __main__ - ERROR - Sample 0: Failed with error:
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 122, in process_single_sample
+    latent_state = pp.extract_latent_state(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 226, in extract_latent_state
+    snap = forecast.history.snapshot(context, last_time)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/pypfilt/state.py", line 572, in snapshot
+    raise ValueError(msg_fmt.format(time, expect_time))
+ValueError: Snapshot time is 21.0, but expected 14.0
+2025-11-05 11:18:42,572 - __main__ - WARNING - 5/5 samples failed
+2025-11-05 11:18:42,574 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_095552/451152
+2025-11-05 11:18:42,788 - src.posterior_predictive - WARNING - No valid filter trajectories to save
+2025-11-05 11:18:42,788 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_095552/451152
+2025-11-05 11:18:42,788 - __main__ - INFO - Patient 451152 completed in 767.4s (153.48s per sample)
+2025-11-05 11:18:42,830 - __main__ - INFO - 
+============================================================
+2025-11-05 11:18:42,830 - __main__ - INFO - All patients completed in 4969.8s
+2025-11-05 11:18:42,830 - __main__ - INFO - Results saved to: results/posterior_predictive/20251105_095552
+2025-11-05 11:18:42,830 - __main__ - INFO - ============================================================
