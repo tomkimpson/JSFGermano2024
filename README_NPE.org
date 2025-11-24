@@ -1,0 +1,12 @@
+#+title: Jump-Switch-Flow + Neural Posterior Estimation
+#+author: Dr. Tom Kimpson
+
+This is the code repo accompanying the paper, which proposes using Neural Posterior Estimation 
+to accelerate the Bayesian inference for infectious disease modelling.
+This is built upon original JSF paper repo, https://github.com/DGermano8/JSFGermano2024.
+
+The code found in the directory [[file:./TEIVR_Results/particle-filter-example-tiv_covid/readme_npe.org][=TEIVR_Results=]] performs the analysis
+on the TEIVR model to estimate the model parameters. Here, we estimate
+viral reproduction number, and also estimate the probability of viral
+clearance for each patient.
+
