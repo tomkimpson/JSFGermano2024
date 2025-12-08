@@ -354,12 +354,16 @@ def stage2_train(args):
     print(f"  Training fraction: {args.training_fraction}")
     print(f"  Max epochs: {args.max_epochs}")
 
+    start_time = time.time()
     density_estimator = inference.train(
         training_batch_size=args.batch_size,
         max_num_epochs=args.max_epochs,
         validation_fraction=1 - args.training_fraction,
         show_train_summary=True,
     )
+    training_time = time.time() - start_time
+
+    print(f"\nTraining completed in {training_time:.2f} seconds ({training_time/60:.2f} minutes)")
 
     # Build posterior
     print("\nBuilding posterior...")
@@ -381,6 +385,21 @@ def stage2_train(args):
         lower_bounds=lower_bounds,
         upper_bounds=upper_bounds,
     )
+
+    # Save timing information
+    timing_path = output_path.parent / f"training_timing_N{args.num_trajectories}.txt"
+    with open(timing_path, 'w') as f:
+        f.write(f"Training timing for N={args.num_trajectories} trajectories\n")
+        f.write(f"{'=' * 50}\n")
+        f.write(f"Number of training samples: {len(theta)}\n")
+        f.write(f"Training fraction: {args.training_fraction}\n")
+        f.write(f"Validation fraction: {1 - args.training_fraction}\n")
+        f.write(f"Batch size: {args.batch_size}\n")
+        f.write(f"Max epochs: {args.max_epochs}\n")
+        f.write(f"Training time: {training_time:.2f} seconds\n")
+        f.write(f"Training time: {training_time/60:.2f} minutes\n")
+        f.write(f"Training time: {training_time/3600:.2f} hours\n")
+    print(f"Timing saved to: {timing_path}")
 
     print(f"\nTraining completed successfully!")
     print(f"Posterior saved to: {output_path}")
