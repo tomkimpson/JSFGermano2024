@@ -96,12 +96,10 @@ def _():
     """Configuration: Set paths and parameters"""
 
     # Input directory containing patient subdirectories with samples.npy files
-    #INPUT_DIR = "../results/npe/20250103_existing_primary/inference"
-    INPUT_DIR = "../results/npe/20251209_091829_gpu/inference"
+    INPUT_DIR = "../results/npe/20250103_existing_primary/inference"
 
     # Output filename for the plot
-    #OUTPUT_FILENAME = "marginalised_posteriors.png"
-    OUTPUT_FILENAME = "marginalised_posteriors_test.png"
+    OUTPUT_FILENAME = "marginalised_posteriors_canonical.png"
 
     # Figure size (width, height) in inches
     FIGSIZE = (20, 24)
@@ -430,7 +428,7 @@ def _():
     """Section 2: Configuration for corner plots"""
 
     # Output filename for corner plots (saved per patient)
-    CORNER_OUTPUT_FILENAME = "corner_plot.png"
+    CORNER_OUTPUT_FILENAME = "corner_plot_npe_canonical.png"
 
     # Smoothing parameter for KDE in corner plots
     CORNER_SMOOTH = 1.0
@@ -608,15 +606,23 @@ def _(mo):
     **Key Differences from NPE:**
     - Samples loaded from pickle files containing particle filter fit results
     - Weighted samples may be resampled if weights are non-uniform (CV > 0.01)
-    - Particle count is auto-detected from directory name
-    - If multiple particle counts exist, the highest is automatically selected
+    - User specifies full paths to run directories in `PF_RUN_DIRS`
+    - Patient ID and particle count are automatically extracted from the directory path
+
+    **Configuration:**
+    Specify the full path to each run directory in the `PF_RUN_DIRS` list:
+    ```python
+    PF_RUN_DIRS = [
+        "../results/particle_filter/<timestamp>/<patient_id>/src.tiv.RefractoryCellModel_JSF_<n_particles>",
+        # Add more paths as needed
+    ]
+    ```
 
     **Directory Structure:**
     ```
-    results/particle_filter/<timestamp>/<patient_id>/
-        src.tiv.RefractoryCellModel_JSF_<n_particles>/
-            fit_result.pkl
-            corner_plot.png  # output
+    <run_directory>/
+        fit_result.pkl      # input
+        corner_plot.png     # output
     ```
     """)
     return
@@ -626,11 +632,14 @@ def _(mo):
 def _():
     """Section 2.1: Configuration for particle filter corner plots"""
 
-    # Particle filter input directory
-    PF_INPUT_DIR = "../results/particle_filter/20251105"
+    # List of particle filter run directories to process
+    # Each path should point to a specific run directory containing fit_result.pkl
+    PF_RUN_DIRS = [
+        "../results/particle_filter/20250103_existing/432192/src.tiv.RefractoryCellModel_JSF_6000/"
+    ]
 
     # Output filename for corner plots (saved per patient)
-    PF_CORNER_OUTPUT_FILENAME = "corner_plot.png"
+    PF_CORNER_OUTPUT_FILENAME = "corner_plot_pf_canonical.png"
 
     # Smoothing parameter for KDE in corner plots
     PF_CORNER_SMOOTH = 1.0
@@ -640,104 +649,50 @@ def _():
     return (
         PF_CORNER_OUTPUT_FILENAME,
         PF_CORNER_SMOOTH,
-        PF_INPUT_DIR,
         PF_RESAMPLE_THRESHOLD,
+        PF_RUN_DIRS,
     )
 
 
 @app.cell
-def _(Path):
-    """Section 2.1: Helper function to find particle filter run directory"""
-
-    def find_particle_filter_run_dir(patient_dir: Path) -> tuple[Path, int]:
-        """
-        Find the particle filter run directory for a patient, auto-detecting particle count.
-
-        Searches for directories matching pattern: src.tiv.RefractoryCellModel_JSF_<n_particles>
-        If multiple particle counts exist, selects the highest.
-
-        Parameters:
-        -----------
-        patient_dir : Path
-            Patient directory path
-
-        Returns:
-        --------
-        tuple[Path, int]
-            (run_directory_path, particle_count)
-
-        Raises:
-        -------
-        FileNotFoundError
-            If no run directories found
-        """
-        # Pattern: src.tiv.RefractoryCellModel_JSF_<n_particles>
-        pattern = "src.tiv.RefractoryCellModel_JSF_*"
-        run_dirs = list(patient_dir.glob(pattern))
-
-        if not run_dirs:
-            raise FileNotFoundError(
-                f"No particle filter run directories found in {patient_dir}"
-            )
-
-        if len(run_dirs) == 1:
-            selected = run_dirs[0]
-            n_particles = int(selected.name.split('_')[-1])
-            return selected, n_particles
-
-        # Multiple particle counts - extract numbers and select highest
-        def extract_particle_count(path: Path) -> int:
-            # Extract number from "src.tiv.RefractoryCellModel_JSF_6000"
-            return int(path.name.split('_')[-1])
-
-        # Sort by particle count and return highest
-        sorted_dirs = sorted(run_dirs, key=extract_particle_count, reverse=True)
-        selected = sorted_dirs[0]
-        n_particles = extract_particle_count(selected)
-
-        print(f"  Found {len(run_dirs)} particle counts, using N={n_particles}")
-
-        return selected, n_particles
-    return (find_particle_filter_run_dir,)
-
-
-@app.cell
-def _(Path, find_particle_filter_run_dir, np):
+def _(Path, np):
     """Section 2.1: Helper function to load particle filter samples"""
 
     import pickle
 
-    def load_particle_filter_samples_pf(
-        patient_id: str,
-        input_dir: str
-    ) -> tuple[np.ndarray, np.ndarray, int]:
+    def load_particle_filter_samples_pf(run_dir: str) -> tuple[np.ndarray, np.ndarray, str, int]:
         """
-        Load particle filter samples from pickle file with auto-detected particle count.
+        Load particle filter samples from pickle file at specified run directory.
 
         Parameters:
         -----------
-        patient_id : str
-            Patient ID
-        input_dir : str
-            Directory containing patient results
+        run_dir : str
+            Full path to run directory containing fit_result.pkl
 
         Returns:
         --------
-        tuple[np.ndarray, np.ndarray, int]
+        tuple[np.ndarray, np.ndarray, str, int]
             samples: Parameter samples with shape (n_samples, 6) in order [lnV0, beta, phi, rho, delta, pi]
             weights: Sample weights with shape (n_samples,)
-            n_particles: Number of particles detected
+            patient_id: Patient ID extracted from path
+            n_particles: Number of particles extracted from directory name
         """
-        # Find run directory and particle count
-        patient_dir = Path(input_dir) / patient_id
-        run_dir, n_particles = find_particle_filter_run_dir(patient_dir)
-        pickle_path = run_dir / "fit_result.pkl"
+        run_path = Path(run_dir)
+        pickle_path = run_path / "fit_result.pkl"
+
+        # Extract patient ID from path (second-to-last directory)
+        # e.g., .../432192/src.tiv.RefractoryCellModel_JSF_6000/
+        patient_id = run_path.parent.name
+
+        # Extract particle count from directory name
+        # e.g., "src.tiv.RefractoryCellModel_JSF_6000" -> 6000
+        n_particles = int(run_path.name.split('_')[-1])
 
         # Check if file exists
         if not pickle_path.exists():
             raise FileNotFoundError(f"Results file not found: {pickle_path}")
 
-        print(f"  Loading from: {pickle_path}")
+        print(f"  Loading patient {patient_id} (N={n_particles}) from: {pickle_path}")
 
         # Load pickle file
         with open(pickle_path, 'rb') as f:
@@ -763,7 +718,7 @@ def _(Path, find_particle_filter_run_dir, np):
         print(f"  Weight stats: min={weights.min():.6f}, max={weights.max():.6f}, "
               f"sum={weights.sum():.6f}")
 
-        return samples, weights, n_particles
+        return samples, weights, patient_id, n_particles
     return (load_particle_filter_samples_pf,)
 
 
@@ -820,7 +775,6 @@ def _(
     Path,
     SCIENCE_RCPARAMS,
     corner,
-    find_particle_filter_run_dir,
     load_particle_filter_samples_pf,
     plt,
     resample_if_needed_pf,
@@ -829,21 +783,18 @@ def _(
     """Section 2.1: Corner plot function for particle filter"""
 
     def plot_corner_for_patient_pf(
-        patient_id: str,
-        input_dir: str,
+        run_dir: str,
         output_filename: str,
         smooth: float = 1.0,
         resample_threshold: float = 0.01
     ) -> tuple:
         """
-        Generate corner plot for a single patient's particle filter posterior samples.
+        Generate corner plot for particle filter posterior samples from specified run directory.
 
         Parameters:
         -----------
-        patient_id : str
-            Patient ID
-        input_dir : str
-            Directory containing patient results
+        run_dir : str
+            Full path to run directory containing fit_result.pkl
         output_filename : str
             Name for output corner plot file
         smooth : float
@@ -854,15 +805,11 @@ def _(
         Returns:
         --------
         tuple
-            (figure, output_path, n_particles) or (None, None, None) if error
+            (figure, output_path, patient_id, n_particles) or (None, None, None, None) if error
         """
-        print(f"  Processing patient {patient_id}...")
-
         try:
-            # Load samples, weights, and auto-detected particle count
-            samples, weights, n_particles = load_particle_filter_samples_pf(
-                patient_id, input_dir
-            )
+            # Load samples, weights, patient ID, and particle count
+            samples, weights, patient_id, n_particles = load_particle_filter_samples_pf(run_dir)
 
             # Resample if weights are non-uniform
             samples = resample_if_needed_pf(samples, weights, resample_threshold)
@@ -872,7 +819,7 @@ def _(
 
         except FileNotFoundError as e:
             print(f"  Warning: {e}, skipping...")
-            return None, None, None
+            return None, None, None, None
 
         # Parameter labels in display order
         param_labels = [
@@ -924,16 +871,14 @@ def _(
                      fontsize=24, y=0.995)
 
         # Construct output path
-        patient_dir = Path(input_dir) / patient_id
-        run_dir, _ = find_particle_filter_run_dir(patient_dir)
-        output_path = run_dir / output_filename
+        output_path = Path(run_dir) / output_filename
 
         # Save figure
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
 
         print(f"  Corner plot saved to: {output_path}")
 
-        return fig, output_path, n_particles
+        return fig, output_path, patient_id, n_particles
     return (plot_corner_for_patient_pf,)
 
 
@@ -941,47 +886,33 @@ def _(
 def _(
     PF_CORNER_OUTPUT_FILENAME,
     PF_CORNER_SMOOTH,
-    PF_INPUT_DIR,
     PF_RESAMPLE_THRESHOLD,
-    Path,
+    PF_RUN_DIRS,
     plot_corner_for_patient_pf,
 ):
-    """Section 2.1: Generate corner plots for all patients"""
+    """Section 2.1: Generate corner plots for all specified run directories"""
 
-    # Get all patient directories
-    pf_input_path = Path(PF_INPUT_DIR)
+    print(f"\nGenerating particle filter corner plots for {len(PF_RUN_DIRS)} run(s)...")
 
-    if not pf_input_path.exists():
-        print(f"Warning: Particle filter input directory not found: {PF_INPUT_DIR}")
-        pf_corner_figs = []
-        pf_corner_patient_ids = []
-        pf_corner_particle_counts = []
-    else:
-        pf_patient_dirs = sorted([d for d in pf_input_path.iterdir() if d.is_dir()])
-        pf_patient_ids = [d.name for d in pf_patient_dirs]
+    # Generate corner plots for all specified run directories
+    pf_corner_figs = []
+    pf_corner_patient_ids = []
+    pf_corner_particle_counts = []
 
-        print(f"\nGenerating particle filter corner plots for {len(pf_patient_ids)} patients...")
+    for run_dir in PF_RUN_DIRS:
+        pf_fig, pf_output_path, patient_id_idx, n_particles_idx = plot_corner_for_patient_pf(
+            run_dir=run_dir,
+            output_filename=PF_CORNER_OUTPUT_FILENAME,
+            smooth=PF_CORNER_SMOOTH,
+            resample_threshold=PF_RESAMPLE_THRESHOLD
+        )
 
-        # Generate corner plots for all patients
-        pf_corner_figs = []
-        pf_corner_patient_ids = []
-        pf_corner_particle_counts = []
+        if pf_fig is not None:
+            pf_corner_figs.append(pf_fig)
+            pf_corner_patient_ids.append(patient_id_idx)
+            pf_corner_particle_counts.append(n_particles_idx)
 
-        for patient_idj in pf_patient_ids:
-            pf_fig, pf_output_path, n_particles_j = plot_corner_for_patient_pf(
-                patient_id=patient_idj,
-                input_dir=PF_INPUT_DIR,
-                output_filename=PF_CORNER_OUTPUT_FILENAME,
-                smooth=PF_CORNER_SMOOTH,
-                resample_threshold=PF_RESAMPLE_THRESHOLD
-            )
-
-            if pf_fig is not None:
-                pf_corner_figs.append(pf_fig)
-                pf_corner_patient_ids.append(patient_idj)
-                pf_corner_particle_counts.append(n_particles_j)
-
-        print(f"\nSuccessfully generated {len(pf_corner_figs)} particle filter corner plots")
+    print(f"\nSuccessfully generated {len(pf_corner_figs)} particle filter corner plots")
     return pf_corner_figs, pf_corner_particle_counts, pf_corner_patient_ids
 
 
@@ -991,15 +922,20 @@ def _(mo, pf_corner_figs, pf_corner_particle_counts, pf_corner_patient_ids):
 
     # Display all corner plots with patient ID and particle count headers
     pf_plots = []
-    for i, (fig, patient_id, n_particles) in enumerate(
+    for k, (fig_k, patient_id_k, n_particles_k) in enumerate(
         zip(pf_corner_figs, pf_corner_patient_ids, pf_corner_particle_counts)
     ):
         pf_plots.append(
-            mo.md(f"### Patient {patient_id} (N={n_particles} particles)")
+            mo.md(f"### Patient {patient_id_k} (N={n_particles_k} particles)")
         )
-        pf_plots.append(fig)
+        pf_plots.append(fig_k)
 
     mo.vstack(pf_plots) if pf_plots else mo.md("_No particle filter corner plots generated_")
+    return
+
+
+@app.cell
+def _():
     return
 
 
