@@ -337,13 +337,13 @@ def stage2_train(args):
     # Define prior for SBI
     print("\nSetting up SBI prior...")
     prior = sbi_utils.BoxUniform(
-        low=torch.tensor(lower_bounds, dtype=torch.float32),
-        high=torch.tensor(upper_bounds, dtype=torch.float32)
+        low=torch.tensor(lower_bounds, dtype=torch.float32, device=args.device),
+        high=torch.tensor(upper_bounds, dtype=torch.float32, device=args.device)
     )
 
     # Initialize SNPE
     print("\nInitializing SNPE...")
-    inference = SNPE(prior=prior, density_estimator='nsf')  # Neural Spline Flow
+    inference = SNPE(prior=prior, density_estimator='nsf', device=args.device)  # Neural Spline Flow
 
     # Append simulations
     print("Appending simulations to SNPE...")
@@ -415,6 +415,14 @@ def stage3_infer(args):
 
     print(f"Posterior loaded successfully")
 
+    # Ensure posterior is on the correct device
+    print('checking device')
+    if hasattr(posterior, '_device'):
+        posterior._device = args.device
+    if hasattr(posterior, 'net'):
+        posterior.net = posterior.net.to(args.device)
+
+
     # Get patient list
     if args.patients == 'all':
         patient_ids = npe_utils.get_all_patient_ids(args.data_dir)
@@ -442,6 +450,8 @@ def stage3_infer(args):
 
             # Convert to tensor
             x_obs = npe_utils.to_tensor(observations.reshape(1, -1))
+
+            x_obs = x_obs.to(args.device)
 
             # Sample from posterior
             print(f"Sampling {args.num_samples} samples from posterior...")
@@ -579,6 +589,9 @@ Examples:
                               help='Maximum number of epochs (default: 100)')
     parser_train.add_argument('--training-fraction', type=float, default=0.8,
                               help='Fraction of data for training (default: 0.8)')
+    parser_train.add_argument('--device', type=str, default='cpu',
+                              help=f'device (cpu or cuda. Default: cpu)')
+
 
     # Stage 3: Infer
     parser_infer = subparsers.add_parser('infer', help='Perform inference on patient data')
@@ -596,6 +609,9 @@ Examples:
                               help=f'Output directory (default: {DEFAULT_OUTPUT_DIR})')
     parser_infer.add_argument('--plot', action='store_true',
                               help='Generate diagnostic plots')
+    parser_infer.add_argument('--device', type=str, default='cpu',
+                              help=f'device (cpu or cuda. Default: cpu)')
+
 
     args = parser.parse_args()
 
