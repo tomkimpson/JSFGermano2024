@@ -1,17 +1,78 @@
 import marimo
 
-__generated_with = "0.9.34"
+__generated_with = "0.18.4"
 app = marimo.App(width="medium")
 
 
 @app.cell
-def __():
-    """
-    Section 1: Marginalised Posterior Plots
+def _():
+    """Import marimo for markdown functionality"""
+    import marimo as mo
+    return (mo,)
 
-    This section recreates the marginalised posterior plots for multiple patients
-    in a grid layout, showing 1D marginalised posteriors for each parameter.
-    """
+
+@app.cell
+def _(mo):
+    """Notebook introduction"""
+    mo.md(
+        """
+        # Plots for Paper
+
+        This notebook generates all the publication-ready plots for the TEIVR analysis paper.
+        Each section below produces a specific figure or set of figures that will be included
+        in the final manuscript.
+
+        ## Overview
+
+        The notebook is organized into sections, each corresponding to a specific analysis
+        or comparison:
+
+        1. **Marginalised Posterior Distributions** - Grid of 1D marginalised posteriors for all patients
+        2. **Corner Plots** - 2D posterior correlations and 1D marginals for all patients
+        3. _(Additional sections to be added)_
+
+        All plots are saved with high resolution (300 DPI) and publication-quality styling
+        using the `scienceplots` package.
+        """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    """Section 1 introduction"""
+    mo.md(
+        """
+        ---
+
+        ## Section 1: Marginalised Posterior Distributions
+
+        This section generates a comprehensive grid visualization showing the marginalised
+        posterior distributions for all six model parameters across all patients.
+
+        **Model Parameters:**
+        - β (beta): Viral production rate
+        - ρ (rho): Death rate of infected cells
+        - π (pi): Clearance rate of virus
+        - φ (phi): Infection rate
+        - δ (delta): Death rate of target cells
+        - log₁₀V₀: Initial viral load (log-transformed)
+
+        Each subplot displays:
+        - Kernel Density Estimate (KDE) of the posterior distribution
+        - Mean value (red dashed line)
+        - 95% credible interval (blue dotted lines)
+
+        The grid layout shows one row per patient and one column per parameter,
+        making it easy to compare posterior distributions across patients and parameters.
+        """
+    )
+    return
+
+
+@app.cell
+def _():
+    """Section 1: Import libraries for marginalised posteriors"""
     import numpy as np
     import matplotlib.pyplot as plt
     import matplotlib as mpl
@@ -20,32 +81,35 @@ def __():
 
     try:
         import scienceplots
+        print("Scienceplots package imported successfully")
+        plt.style.use('science') #Set once, globally.
+        SCIENCE_RCPARAMS = dict(plt.rcParams)
     except ImportError:
         print("Warning: scienceplots package not found. Install with: pip install scienceplots")
         print("Continuing without scienceplots styling...")
         scienceplots = None
-
-    return np, plt, mpl, Path, gaussian_kde, scienceplots
+    return Path, SCIENCE_RCPARAMS, mpl, np, plt
 
 
 @app.cell
-def __():
+def _():
     """Configuration: Set paths and parameters"""
 
     # Input directory containing patient subdirectories with samples.npy files
-    INPUT_DIR = "../results/npe/20250103_existing_primary/inference"
+    #INPUT_DIR = "../results/npe/20250103_existing_primary/inference"
+    INPUT_DIR = "../results/npe/20251209_091829_gpu/inference"
 
     # Output filename for the plot
-    OUTPUT_FILENAME = "marginalised_posteriors.png"
+    #OUTPUT_FILENAME = "marginalised_posteriors.png"
+    OUTPUT_FILENAME = "marginalised_posteriors_test.png"
 
     # Figure size (width, height) in inches
     FIGSIZE = (20, 24)
-
-    return INPUT_DIR, OUTPUT_FILENAME, FIGSIZE
+    return FIGSIZE, INPUT_DIR, OUTPUT_FILENAME
 
 
 @app.cell
-def __(np):
+def _(np):
     """Helper function: Transform samples for display"""
 
     def transform_samples(samples: np.ndarray) -> np.ndarray:
@@ -93,12 +157,11 @@ def __(np):
         ])
 
         return display_samples
-
-    return transform_samples,
+    return (transform_samples,)
 
 
 @app.cell
-def __(np):
+def _(np):
     """Helper function: Plot KDE with statistics"""
 
     def plot_kde_with_stats(ax, samples, param_label, patient_id, color='teal', show_title=True):
@@ -162,12 +225,21 @@ def __(np):
 
         # Set y-axis to start at 0
         ax.set_ylim(bottom=0)
-
-    return plot_kde_with_stats,
+    return (plot_kde_with_stats,)
 
 
 @app.cell
-def __(np, plt, mpl, Path, scienceplots, transform_samples, plot_kde_with_stats, INPUT_DIR, OUTPUT_FILENAME, FIGSIZE):
+def _(
+    FIGSIZE,
+    INPUT_DIR,
+    OUTPUT_FILENAME,
+    Path,
+    mpl,
+    np,
+    plot_kde_with_stats,
+    plt,
+    transform_samples,
+):
     """Main function: Generate marginalised posteriors grid"""
 
     def plot_marginalised_posteriors_grid(
@@ -195,9 +267,6 @@ def __(np, plt, mpl, Path, scienceplots, transform_samples, plot_kde_with_stats,
         Path
             Path to saved plot
         """
-        # Apply publication-quality styling
-        if scienceplots is not None:
-            plt.style.use('science')
 
         # Disable LaTeX if it causes issues
         mpl.rcParams['text.usetex'] = False
@@ -295,19 +364,642 @@ def __(np, plt, mpl, Path, scienceplots, transform_samples, plot_kde_with_stats,
         return fig, output_path
 
     # Generate the plot
+
     fig_marginals, output_path_marginals = plot_marginalised_posteriors_grid(
         input_dir=INPUT_DIR,
         output_filename=OUTPUT_FILENAME,
         figsize=FIGSIZE
     )
-
-    return plot_marginalised_posteriors_grid, fig_marginals, output_path_marginals
+    return (fig_marginals,)
 
 
 @app.cell
-def __(fig_marginals):
+def _(fig_marginals):
     """Display the plot"""
     fig_marginals
+    return
+
+
+@app.cell
+def _(mo):
+    """Section 2 introduction"""
+    mo.md(
+        """
+        ---
+
+        ## Section 2: Corner Plots
+
+        This section generates corner plots for all patients, showing both 2D posterior
+        correlations between parameters and 1D marginal distributions.
+
+        **Model Parameters:**
+        - β (beta): Viral production rate
+        - ρ (rho): Death rate of infected cells
+        - π (pi): Clearance rate of virus
+        - φ (phi): Infection rate
+        - δ (delta): Death rate of target cells
+        - log₁₀V₀: Initial viral load (log-transformed)
+
+        **Visualization Features:**
+        - **1D histograms** on the diagonal showing marginal distributions
+        - **2D contour plots** in off-diagonal panels showing parameter correlations
+        - **Quantiles** displayed: 16th, 50th (median), and 84th percentiles
+        - **Mean and credible intervals** shown in subplot titles
+
+        One corner plot is generated for each patient, displaying the full joint
+        posterior distribution and revealing correlations between parameters that
+        may not be apparent from marginal distributions alone.
+        """
+    )
+    return
+
+
+@app.cell
+def _():
+    """Section 2: Import corner library"""
+    try:
+        import corner
+    except ImportError:
+        print("Error: corner package not found. Install with: pip install corner")
+        corner = None
+    return (corner,)
+
+
+@app.cell
+def _():
+    """Section 2: Configuration for corner plots"""
+
+    # Output filename for corner plots (saved per patient)
+    CORNER_OUTPUT_FILENAME = "corner_plot.png"
+
+    # Smoothing parameter for KDE in corner plots
+    CORNER_SMOOTH = 1.0
+    return CORNER_OUTPUT_FILENAME, CORNER_SMOOTH
+
+
+@app.cell
+def _(Path, SCIENCE_RCPARAMS, corner, np, plt, transform_samples):
+    """Section 2: Corner plot function"""
+
+    def plot_corner_for_patient(
+        patient_id: str,
+        input_dir: str,
+        output_filename: str,
+        smooth: float = 1.0
+    ) -> tuple:
+        """
+        Generate corner plot for a single patient's posterior samples.
+
+        Parameters:
+        -----------
+        patient_id : str
+            Patient ID
+        input_dir : str
+            Directory containing patient results
+        output_filename : str
+            Name for output corner plot file
+        smooth : float
+            Smoothing parameter for corner plots
+
+        Returns:
+        --------
+        tuple
+            (figure, output_path) or (None, None) if error
+        """
+        # Construct paths
+        patient_dir = Path(input_dir) / patient_id
+        samples_path = patient_dir / "samples.npy"
+        output_path = patient_dir / output_filename
+
+        # Check if samples file exists
+        if not samples_path.exists():
+            print(f"Warning: Samples file not found for patient {patient_id}, skipping...")
+            return None, None
+
+        print(f"  Processing patient {patient_id}...")
+
+
+        # Load samples
+        samples = np.load(samples_path)
+
+        # Transform and reorder parameters
+        display_samples = transform_samples(samples)
+
+        # Parameter labels in display order
+        param_labels = [
+            r'$\beta$',
+            r'$\rho$',
+            r'$\pi$',
+            r'$\phi$',
+            r'$\delta$',
+            r'$\log_{10}V_0$'
+        ]
+
+        # Prior bounds matching exact prior ranges from config
+        # Display order: [β, ρ, π, φ, δ, log₁₀V₀]
+        prior_bounds = [
+            (0.0, 25.0),      # β: Extended range for better visualization
+            (-0.1, 1.0),      # ρ: Extended range for better visualization
+            (200.0, 600.0),   # π: Uniform(200, 600)
+            (-2.0, 20.0),     # φ: Extended range for better visualization
+            (-0.2, 12.0),     # δ: Extended range for better visualization
+            (-0.1, 3.0)       # log₁₀V₀: Extended range for better visualization
+        ]
+
+        # Corner plot settings
+        corner_kwargs = {
+            'labels': param_labels,
+            'color': 'teal',
+            'bins': 30,
+            'range': prior_bounds,
+            'plot_datapoints': True,
+            'plot_density': True,
+            'plot_contours': True,
+            'data_kwargs': {'alpha': 0.2, 'color': 'lightblue'},
+            'hist_kwargs': {'alpha': 0.8, 'color': 'teal'},
+            'contour_kwargs': {'colors': 'teal'},
+            'smooth': smooth,
+            'smooth1d': smooth,
+            'quantiles': [0.16, 0.5, 0.84],
+            'show_titles': True,
+            'title_kwargs': {"fontsize": 20},
+            'label_kwargs': {"fontsize": 22}
+        }
+
+        # Create corner plot
+        plt.rcParams.update(SCIENCE_RCPARAMS) #set science plot parameters manually. Corner seems to override things and handiling with marimo reactivity is a bit tricky. This option is a bit hacky but works nicely
+        fig = corner.corner(display_samples, **corner_kwargs)
+
+        # Add patient ID as suptitle
+        fig.suptitle(f'Patient {patient_id} - NPE Posterior',
+                     fontsize=24, y=0.995)
+
+        # Save figure
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+        print(f"  Corner plot saved to: {output_path}")
+
+        return fig, output_path
+    return (plot_corner_for_patient,)
+
+
+@app.cell
+def _(
+    CORNER_OUTPUT_FILENAME,
+    CORNER_SMOOTH,
+    INPUT_DIR,
+    Path,
+    plot_corner_for_patient,
+):
+    """Section 2: Generate corner plots for all patients"""
+
+    # Get all patient directories
+    input_path = Path(INPUT_DIR)
+    patient_dirs = sorted([d for d in input_path.iterdir() if d.is_dir()])
+    patient_ids = [d.name for d in patient_dirs]
+
+    print(f"\nGenerating corner plots for {len(patient_ids)} patients...")
+
+    # Generate corner plots for all patients
+    corner_figs = []
+    corner_patient_ids = []
+
+    for patient_idx in patient_ids:
+        corner_fig, output_path = plot_corner_for_patient(
+            patient_id=patient_idx,
+            input_dir=INPUT_DIR,
+            output_filename=CORNER_OUTPUT_FILENAME,
+            smooth=CORNER_SMOOTH
+        )
+
+        if corner_fig is not None:
+            corner_figs.append(corner_fig)
+            corner_patient_ids.append(patient_idx)
+
+    print(f"\nSuccessfully generated {len(corner_figs)} corner plots")
+    return corner_figs, corner_patient_ids
+
+
+@app.cell
+def _(corner_figs, corner_patient_ids, mo):
+    """Section 2: Display corner plots"""
+
+    # Display all corner plots with patient ID headers
+    plots = []
+    for i, (fig, patient_id) in enumerate(zip(corner_figs, corner_patient_ids)):
+        plots.append(mo.md(f"### Patient {patient_id}"))
+        plots.append(fig)
+
+    mo.vstack(plots) if plots else mo.md("_No corner plots generated_")
+    return
+
+
+@app.cell
+def _(mo):
+    """Section 2.1 introduction"""
+    mo.md("""
+    ---
+
+    ## Section 2.1: Corner Plots - Particle Filter
+
+    This section generates corner plots for particle filter posterior samples,
+    analogous to the NPE corner plots above but using weighted particle filter results.
+
+    **Key Differences from NPE:**
+    - Samples loaded from pickle files containing particle filter fit results
+    - Weighted samples may be resampled if weights are non-uniform (CV > 0.01)
+    - Particle count is auto-detected from directory name
+    - If multiple particle counts exist, the highest is automatically selected
+
+    **Directory Structure:**
+    ```
+    results/particle_filter/<timestamp>/<patient_id>/
+        src.tiv.RefractoryCellModel_JSF_<n_particles>/
+            fit_result.pkl
+            corner_plot.png  # output
+    ```
+    """)
+    return
+
+
+@app.cell
+def _():
+    """Section 2.1: Configuration for particle filter corner plots"""
+
+    # Particle filter input directory
+    PF_INPUT_DIR = "../results/particle_filter/20251105"
+
+    # Output filename for corner plots (saved per patient)
+    PF_CORNER_OUTPUT_FILENAME = "corner_plot.png"
+
+    # Smoothing parameter for KDE in corner plots
+    PF_CORNER_SMOOTH = 1.0
+
+    # Resampling threshold (coefficient of variation)
+    PF_RESAMPLE_THRESHOLD = 0.01
+    return (
+        PF_CORNER_OUTPUT_FILENAME,
+        PF_CORNER_SMOOTH,
+        PF_INPUT_DIR,
+        PF_RESAMPLE_THRESHOLD,
+    )
+
+
+@app.cell
+def _(Path):
+    """Section 2.1: Helper function to find particle filter run directory"""
+
+    def find_particle_filter_run_dir(patient_dir: Path) -> tuple[Path, int]:
+        """
+        Find the particle filter run directory for a patient, auto-detecting particle count.
+
+        Searches for directories matching pattern: src.tiv.RefractoryCellModel_JSF_<n_particles>
+        If multiple particle counts exist, selects the highest.
+
+        Parameters:
+        -----------
+        patient_dir : Path
+            Patient directory path
+
+        Returns:
+        --------
+        tuple[Path, int]
+            (run_directory_path, particle_count)
+
+        Raises:
+        -------
+        FileNotFoundError
+            If no run directories found
+        """
+        # Pattern: src.tiv.RefractoryCellModel_JSF_<n_particles>
+        pattern = "src.tiv.RefractoryCellModel_JSF_*"
+        run_dirs = list(patient_dir.glob(pattern))
+
+        if not run_dirs:
+            raise FileNotFoundError(
+                f"No particle filter run directories found in {patient_dir}"
+            )
+
+        if len(run_dirs) == 1:
+            selected = run_dirs[0]
+            n_particles = int(selected.name.split('_')[-1])
+            return selected, n_particles
+
+        # Multiple particle counts - extract numbers and select highest
+        def extract_particle_count(path: Path) -> int:
+            # Extract number from "src.tiv.RefractoryCellModel_JSF_6000"
+            return int(path.name.split('_')[-1])
+
+        # Sort by particle count and return highest
+        sorted_dirs = sorted(run_dirs, key=extract_particle_count, reverse=True)
+        selected = sorted_dirs[0]
+        n_particles = extract_particle_count(selected)
+
+        print(f"  Found {len(run_dirs)} particle counts, using N={n_particles}")
+
+        return selected, n_particles
+    return (find_particle_filter_run_dir,)
+
+
+@app.cell
+def _(Path, find_particle_filter_run_dir, np):
+    """Section 2.1: Helper function to load particle filter samples"""
+
+    import pickle
+
+    def load_particle_filter_samples_pf(
+        patient_id: str,
+        input_dir: str
+    ) -> tuple[np.ndarray, np.ndarray, int]:
+        """
+        Load particle filter samples from pickle file with auto-detected particle count.
+
+        Parameters:
+        -----------
+        patient_id : str
+            Patient ID
+        input_dir : str
+            Directory containing patient results
+
+        Returns:
+        --------
+        tuple[np.ndarray, np.ndarray, int]
+            samples: Parameter samples with shape (n_samples, 6) in order [lnV0, beta, phi, rho, delta, pi]
+            weights: Sample weights with shape (n_samples,)
+            n_particles: Number of particles detected
+        """
+        # Find run directory and particle count
+        patient_dir = Path(input_dir) / patient_id
+        run_dir, n_particles = find_particle_filter_run_dir(patient_dir)
+        pickle_path = run_dir / "fit_result.pkl"
+
+        # Check if file exists
+        if not pickle_path.exists():
+            raise FileNotFoundError(f"Results file not found: {pickle_path}")
+
+        print(f"  Loading from: {pickle_path}")
+
+        # Load pickle file
+        with open(pickle_path, 'rb') as f:
+            fit_result = pickle.load(f)
+
+        # Extract snapshot table
+        snapshot = fit_result.estimation.tables['snapshot']
+
+        # Get final time particles
+        times = np.unique(snapshot['time'])
+        final_time = times[-1]
+        final_particles = snapshot[snapshot['time'] == final_time]
+
+        print(f"  Loaded {len(final_particles)} particles at final time t={final_time}")
+
+        # Extract parameter samples in order: [lnV0, beta, phi, rho, delta, pi]
+        param_names = ['lnV0', 'beta', 'phi', 'rho', 'delta', 'pi']
+        samples = np.column_stack([final_particles[p] for p in param_names])
+
+        # Extract weights
+        weights = final_particles['weight']
+
+        print(f"  Weight stats: min={weights.min():.6f}, max={weights.max():.6f}, "
+              f"sum={weights.sum():.6f}")
+
+        return samples, weights, n_particles
+    return (load_particle_filter_samples_pf,)
+
+
+@app.cell
+def _(np):
+    """Section 2.1: Helper function to resample weighted particles"""
+
+    def resample_if_needed_pf(
+        samples: np.ndarray,
+        weights: np.ndarray,
+        threshold: float = 0.01
+    ) -> np.ndarray:
+        """
+        Resample particles if weights are non-uniform.
+
+        If the coefficient of variation of weights exceeds the threshold,
+        resample particles according to their weights. Otherwise, return
+        samples as-is.
+
+        Parameters:
+        -----------
+        samples : np.ndarray
+            Parameter samples with shape (n_samples, n_params)
+        weights : np.ndarray
+            Sample weights with shape (n_samples,)
+        threshold : float
+            Coefficient of variation threshold for resampling
+
+        Returns:
+        --------
+        np.ndarray
+            Resampled (or original) samples
+        """
+        # Calculate coefficient of variation
+        cv = np.std(weights) / np.mean(weights)
+
+        if cv > threshold:
+            print(f"  Weights non-uniform (CV={cv:.4f}), resampling...")
+            # Normalize weights
+            weights_norm = weights / weights.sum()
+            # Resample
+            n_samples = len(samples)
+            indices = np.random.choice(n_samples, size=n_samples, replace=True, p=weights_norm)
+            resampled = samples[indices]
+            return resampled
+        else:
+            print(f"  Weights approximately uniform (CV={cv:.4f}), using all samples")
+            return samples
+    return (resample_if_needed_pf,)
+
+
+@app.cell
+def _(
+    Path,
+    SCIENCE_RCPARAMS,
+    corner,
+    find_particle_filter_run_dir,
+    load_particle_filter_samples_pf,
+    plt,
+    resample_if_needed_pf,
+    transform_samples,
+):
+    """Section 2.1: Corner plot function for particle filter"""
+
+    def plot_corner_for_patient_pf(
+        patient_id: str,
+        input_dir: str,
+        output_filename: str,
+        smooth: float = 1.0,
+        resample_threshold: float = 0.01
+    ) -> tuple:
+        """
+        Generate corner plot for a single patient's particle filter posterior samples.
+
+        Parameters:
+        -----------
+        patient_id : str
+            Patient ID
+        input_dir : str
+            Directory containing patient results
+        output_filename : str
+            Name for output corner plot file
+        smooth : float
+            Smoothing parameter for corner plots
+        resample_threshold : float
+            Coefficient of variation threshold for resampling
+
+        Returns:
+        --------
+        tuple
+            (figure, output_path, n_particles) or (None, None, None) if error
+        """
+        print(f"  Processing patient {patient_id}...")
+
+        try:
+            # Load samples, weights, and auto-detected particle count
+            samples, weights, n_particles = load_particle_filter_samples_pf(
+                patient_id, input_dir
+            )
+
+            # Resample if weights are non-uniform
+            samples = resample_if_needed_pf(samples, weights, resample_threshold)
+
+            # Transform and reorder parameters
+            display_samples = transform_samples(samples)
+
+        except FileNotFoundError as e:
+            print(f"  Warning: {e}, skipping...")
+            return None, None, None
+
+        # Parameter labels in display order
+        param_labels = [
+            r'$\beta$',
+            r'$\rho$',
+            r'$\pi$',
+            r'$\phi$',
+            r'$\delta$',
+            r'$\log_{10}V_0$'
+        ]
+
+        # Prior bounds matching exact prior ranges from config
+        # Display order: [β, ρ, π, φ, δ, log₁₀V₀]
+        prior_bounds = [
+            (0.0, 25.0),      # β: Extended range for better visualization
+            (-0.1, 1.0),      # ρ: Extended range for better visualization
+            (200.0, 600.0),   # π: Uniform(200, 600)
+            (-2.0, 20.0),     # φ: Extended range for better visualization
+            (-0.2, 12.0),     # δ: Extended range for better visualization
+            (-0.1, 3.0)       # log₁₀V₀: Extended range for better visualization
+        ]
+
+        # Corner plot settings
+        corner_kwargs = {
+            'labels': param_labels,
+            'color': 'darkorange',  # Different color from NPE (teal)
+            'bins': 30,
+            'range': prior_bounds,
+            'plot_datapoints': True,
+            'plot_density': True,
+            'plot_contours': True,
+            'data_kwargs': {'alpha': 0.2, 'color': 'peachpuff'},
+            'hist_kwargs': {'alpha': 0.8, 'color': 'darkorange'},
+            'contour_kwargs': {'colors': 'darkorange'},
+            'smooth': smooth,
+            'smooth1d': smooth,
+            'quantiles': [0.16, 0.5, 0.84],
+            'show_titles': True,
+            'title_kwargs': {"fontsize": 20},
+            'label_kwargs': {"fontsize": 22}
+        }
+
+        # Create corner plot
+        plt.rcParams.update(SCIENCE_RCPARAMS)
+        fig = corner.corner(display_samples, **corner_kwargs)
+
+        # Add patient ID and particle count as suptitle
+        fig.suptitle(f'Patient {patient_id} - Particle Filter Posterior (N={n_particles})',
+                     fontsize=24, y=0.995)
+
+        # Construct output path
+        patient_dir = Path(input_dir) / patient_id
+        run_dir, _ = find_particle_filter_run_dir(patient_dir)
+        output_path = run_dir / output_filename
+
+        # Save figure
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+        print(f"  Corner plot saved to: {output_path}")
+
+        return fig, output_path, n_particles
+    return (plot_corner_for_patient_pf,)
+
+
+@app.cell
+def _(
+    PF_CORNER_OUTPUT_FILENAME,
+    PF_CORNER_SMOOTH,
+    PF_INPUT_DIR,
+    PF_RESAMPLE_THRESHOLD,
+    Path,
+    plot_corner_for_patient_pf,
+):
+    """Section 2.1: Generate corner plots for all patients"""
+
+    # Get all patient directories
+    pf_input_path = Path(PF_INPUT_DIR)
+
+    if not pf_input_path.exists():
+        print(f"Warning: Particle filter input directory not found: {PF_INPUT_DIR}")
+        pf_corner_figs = []
+        pf_corner_patient_ids = []
+        pf_corner_particle_counts = []
+    else:
+        pf_patient_dirs = sorted([d for d in pf_input_path.iterdir() if d.is_dir()])
+        pf_patient_ids = [d.name for d in pf_patient_dirs]
+
+        print(f"\nGenerating particle filter corner plots for {len(pf_patient_ids)} patients...")
+
+        # Generate corner plots for all patients
+        pf_corner_figs = []
+        pf_corner_patient_ids = []
+        pf_corner_particle_counts = []
+
+        for patient_idj in pf_patient_ids:
+            pf_fig, pf_output_path, n_particles_j = plot_corner_for_patient_pf(
+                patient_id=patient_idj,
+                input_dir=PF_INPUT_DIR,
+                output_filename=PF_CORNER_OUTPUT_FILENAME,
+                smooth=PF_CORNER_SMOOTH,
+                resample_threshold=PF_RESAMPLE_THRESHOLD
+            )
+
+            if pf_fig is not None:
+                pf_corner_figs.append(pf_fig)
+                pf_corner_patient_ids.append(patient_idj)
+                pf_corner_particle_counts.append(n_particles_j)
+
+        print(f"\nSuccessfully generated {len(pf_corner_figs)} particle filter corner plots")
+    return pf_corner_figs, pf_corner_particle_counts, pf_corner_patient_ids
+
+
+@app.cell
+def _(mo, pf_corner_figs, pf_corner_particle_counts, pf_corner_patient_ids):
+    """Section 2.1: Display particle filter corner plots"""
+
+    # Display all corner plots with patient ID and particle count headers
+    pf_plots = []
+    for i, (fig, patient_id, n_particles) in enumerate(
+        zip(pf_corner_figs, pf_corner_patient_ids, pf_corner_particle_counts)
+    ):
+        pf_plots.append(
+            mo.md(f"### Patient {patient_id} (N={n_particles} particles)")
+        )
+        pf_plots.append(fig)
+
+    mo.vstack(pf_plots) if pf_plots else mo.md("_No particle filter corner plots generated_")
     return
 
 
