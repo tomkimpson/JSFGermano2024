@@ -355,6 +355,7 @@ def stage2_train(args):
     print(f"  Max epochs: {args.max_epochs}")
 
     start_time = time.time()
+
     density_estimator = inference.train(
         training_batch_size=args.batch_size,
         max_num_epochs=args.max_epochs,
