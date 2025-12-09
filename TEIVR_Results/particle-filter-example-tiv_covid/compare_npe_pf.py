@@ -87,7 +87,7 @@ def load_npe_results(patient_id, npe_output_dir="results/npe/<timestamp>"):
     return {'samples': samples, 'summary': summary}
 
 
-def extract_pf_samples(fit_result, n_samples=10000):
+def extract_pf_samples(fit_result, n_samples=6000):
     """
     Extract posterior samples from particle filter results.
 
@@ -101,12 +101,16 @@ def extract_pf_samples(fit_result, n_samples=10000):
     Returns:
         Array of samples (n_samples x n_params)
     """
+
     # The particle filter stores forecasts at different times
     # We want the forecast at time 10.0
-    if 'forecasts' not in fit_result or 10.0 not in fit_result['forecasts']:
-        raise ValueError("Particle filter results don't contain forecasts at time 10.0")
+    if hasattr(fit_result, 'forecasts'):
+         forecast = fit_result.forecasts[10.0]
+    #if 'forecasts' not in fit_result or 10.0 not in fit_result['forecasts']:
+    #    raise ValueError("Particle filter results don't contain forecasts at time 10.0")
 
-    forecast = fit_result['forecasts'][10.0]
+    #forecast = fit_result['forecasts'][10.0]
+    print(forecast)
 
     # Extract parameter names and samples
     # The exact structure depends on pypfilt output format
@@ -115,8 +119,14 @@ def extract_pf_samples(fit_result, n_samples=10000):
 
     # Try to extract samples (structure may vary)
     try:
-        state_vec = forecast.state_vec
-        weights = forecast.weights
+
+        # Extract state vectors and weights from snapshot table
+        state_vec = forecast.tables['snapshot']
+        weights = state_vec['weight']  
+
+        #state_vec = forecast.state_vec
+        #weights = forecast.weights
+        weights = weights / np.sum(weights)
 
         # Resample according to weights to get representative samples
         n_particles = len(weights)

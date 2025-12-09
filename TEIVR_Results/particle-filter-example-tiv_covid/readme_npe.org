@@ -119,7 +119,11 @@ This file contains the following information:
 - the prior distributions for the parameters
 - the *observation model*
 
+To run the prediction:
+./run_predict.sh
+
 --------------------------------------------------------------------------------
 * TO GENERATE THE FIGURES
 --------------------------------------------------------------------------------
  
+Scripts to generate plots are in the /results/scripts folder.
