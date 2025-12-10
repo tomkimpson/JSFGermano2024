@@ -341,6 +341,20 @@ def stage2_train(args):
         high=torch.tensor(upper_bounds, dtype=torch.float32, device=args.device)
     )
 
+    # Set random seeds for reproducible training
+    print("\nSetting random seeds for reproducible training...")
+    training_seed = 42  # Fixed seed for reproducibility
+    torch.manual_seed(training_seed)
+    np.random.seed(training_seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(training_seed)
+        torch.cuda.manual_seed_all(training_seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+    print(f"  Training seed: {training_seed}")
+    print(f"  CUDA available: {torch.cuda.is_available()}")
+    print(f"  Deterministic mode: enabled")
+
     # Initialize SNPE
     print("\nInitializing SNPE...")
     inference = SNPE(prior=prior, density_estimator='nsf', device=args.device)  # Neural Spline Flow
