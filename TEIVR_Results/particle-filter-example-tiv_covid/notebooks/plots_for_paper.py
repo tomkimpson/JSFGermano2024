@@ -594,6 +594,300 @@ def _(corner_figs, corner_patient_ids, mo):
 
 @app.cell
 def _(mo):
+    """Section 3 introduction"""
+    mo.md(
+        """
+        ---
+
+        ## Section 3: Within-Host R₀ Posterior Distributions
+
+        This section calculates and visualizes the within-host basic reproduction number (R₀)
+        from the NPE parameter posteriors. R₀ represents the average number of cells infected
+        by a single infected cell in a completely susceptible population.
+
+        **R₀ Formula:**
+        ```
+        R₀ = (π × β × T₀) / (δ × c)
+        ```
+
+        **Parameters:**
+        - π (pi): Virion production rate [from posterior]
+        - β (beta): Infection rate [from posterior, scaled by 10⁻⁹ in model]
+        - T₀: Initial target cells = 8×10⁷ [constant]
+        - δ (delta): Infected cell clearance rate [from posterior]
+        - c: Viral clearance rate = 10.0 [constant]
+
+        **Visualization:**
+        Half-violin plots showing the R₀ distribution for each patient. Each half-violin
+        represents the kernel density estimate (KDE) of the R₀ posterior, rotated 90° and
+        positioned at the patient's index on the x-axis.
+
+        **Statistics Shown:**
+        - **Red dashed line**: Mean R₀
+        - **Navy circle**: Median R₀
+        - **Navy error bars**: 95% credible interval
+
+        **Note:** This R₀ calculation is an approximation that ignores the refractory cell
+        dynamics (φ and ρ parameters). A complete R₀ derivation for the full TEIVR model
+        remains an open question.
+        """
+    )
+    return
+
+
+@app.cell
+def _():
+    """Section 3: Configuration for R0 calculations"""
+
+    # Reuse INPUT_DIR from Section 1 (already defined globally)
+    # Output filename for R0 half-violin plot
+    R0_OUTPUT_FILENAME = "r0_distribution_halfviolin_canonical.png"
+
+    # Figure size (width, height) in inches
+    R0_FIGSIZE = (12, 8)
+
+    # Model constants for R0 calculation
+    R0_T0 = 8E7  # Initial target cells
+    R0_VIRAL_CLEARANCE = 10.0  # Viral clearance rate (c parameter)
+
+    return R0_FIGSIZE, R0_OUTPUT_FILENAME, R0_T0, R0_VIRAL_CLEARANCE
+
+
+@app.cell
+def _(R0_T0, R0_VIRAL_CLEARANCE, np):
+    """Section 3: Helper function to calculate R0 from parameter samples"""
+
+    def calculate_r0(samples: np.ndarray) -> np.ndarray:
+        """
+        Calculate within-host R0 from parameter samples.
+
+        R0 = (pi * beta_scaled * T0) / (delta * c)
+
+        Parameters:
+        -----------
+        samples : np.ndarray
+            Parameter samples with shape (n_samples, 6) in order:
+            [lnV0, beta, phi, rho, delta, pi]
+
+        Returns:
+        --------
+        np.ndarray
+            R0 values with shape (n_samples,)
+        """
+        # Extract parameters from internal order [lnV0, beta, phi, rho, delta, pi]
+        beta = samples[:, 1]  # beta at index 1
+        delta = samples[:, 4]  # delta at index 4
+        pi = samples[:, 5]  # pi at index 5
+
+        # Apply beta scaling factor (model uses beta * 1e-9)
+        beta_scaled = beta * 1e-9
+
+        # Calculate R0 = (pi * beta_scaled * T0) / (delta * c)
+        r0 = (pi * beta_scaled * R0_T0) / (delta * R0_VIRAL_CLEARANCE)
+
+        return r0
+
+    return (calculate_r0,)
+
+
+@app.cell
+def _(np):
+    """Section 3: Helper function to plot half-violin"""
+
+    def plot_half_violin(ax, x_position, r0_samples, width=0.4, color='steelblue'):
+        """
+        Plot a half-violin (vertical KDE) at a given x-position.
+
+        Parameters:
+        -----------
+        ax : matplotlib.axes.Axes
+            Axes object to plot on
+        x_position : float
+            X-coordinate for this violin (patient index)
+        r0_samples : np.ndarray
+            1D array of R0 values
+        width : float
+            Maximum width of the violin plot (default: 0.4)
+        color : str
+            Fill color (default: 'steelblue')
+        """
+        from scipy.stats import gaussian_kde
+
+        # Compute KDE
+        kde = gaussian_kde(r0_samples)
+
+        # Create y-axis evaluation points (R0 values)
+        r0_min = np.min(r0_samples)
+        r0_max = np.max(r0_samples)
+        r0_range = r0_max - r0_min
+        y_eval = np.linspace(r0_min - 0.1 * r0_range, r0_max + 0.1 * r0_range, 200)
+
+        # Evaluate KDE density
+        density = kde(y_eval)
+
+        # Normalize density to width
+        density_normalized = density / density.max() * width
+
+        # Plot half-violin (only on right side)
+        x_vals = x_position + density_normalized
+        ax.fill_betweenx(y_eval, x_position, x_vals, alpha=0.6, color=color,
+                          edgecolor=color, linewidth=1.5)
+
+        # Compute statistics
+        mean_val = np.mean(r0_samples)
+        median_val = np.median(r0_samples)
+        ci_lower = np.percentile(r0_samples, 2.5)
+        ci_upper = np.percentile(r0_samples, 97.5)
+
+        # Plot mean as horizontal line
+        ax.plot([x_position - 0.05, x_position + width], [mean_val, mean_val],
+                color='darkred', linestyle='--', linewidth=2, zorder=10)
+
+        # Plot median as point
+        ax.scatter([x_position + width/2], [median_val], color='navy',
+                   s=50, zorder=11, marker='o')
+
+        # Plot 95% CI as error bar
+        ax.plot([x_position + width, x_position + width], [ci_lower, ci_upper],
+                color='navy', linewidth=2, zorder=10)
+        ax.plot([x_position + width - 0.05, x_position + width + 0.05],
+                [ci_lower, ci_lower], color='navy', linewidth=2, zorder=10)
+        ax.plot([x_position + width - 0.05, x_position + width + 0.05],
+                [ci_upper, ci_upper], color='navy', linewidth=2, zorder=10)
+
+    return (plot_half_violin,)
+
+
+@app.cell
+def _(Path, calculate_r0, mpl, np, plot_half_violin, plt):
+    """Section 3: Main function to generate R0 half-violin plot"""
+
+    def plot_r0_halfviolin(
+        input_dir: str,
+        output_filename: str,
+        figsize: tuple
+    ) -> tuple:
+        """
+        Generate half-violin plot showing R0 distributions for all patients.
+
+        Creates a single subplot with patient index on x-axis and R0 values on y-axis.
+        Each patient's R0 distribution is shown as a half-violin plot.
+
+        Parameters:
+        -----------
+        input_dir : str
+            Directory containing patient subdirectories with samples.npy files
+        output_filename : str
+            Name for output plot file
+        figsize : tuple
+            Figure size (width, height) in inches
+
+        Returns:
+        --------
+        tuple
+            (fig, output_path)
+        """
+        # Disable LaTeX if needed
+        mpl.rcParams['text.usetex'] = False
+
+        # Get patient directories
+        input_path = Path(input_dir)
+        if not input_path.exists():
+            raise FileNotFoundError(f"Input directory not found: {input_dir}")
+
+        patient_dirs = sorted([d for d in input_path.iterdir() if d.is_dir()])
+        patient_ids = [d.name for d in patient_dirs]
+
+        if not patient_ids:
+            raise ValueError(f"No patient directories found in {input_dir}")
+
+        print(f"Found {len(patient_ids)} patients: {', '.join(patient_ids)}")
+
+        # Create single figure with one subplot
+        fig, ax = plt.subplots(1, 1, figsize=figsize)
+
+        print("\nGenerating R0 half-violin plots...")
+
+        # Loop through patients and plot each as a half-violin
+        for i, patient_id in enumerate(patient_ids):
+            patient_dir = patient_dirs[i]
+            samples_path = patient_dir / "samples.npy"
+
+            if not samples_path.exists():
+                print(f"Warning: Samples file not found for patient {patient_id}, skipping...")
+                continue
+
+            # Load samples (in INTERNAL order: [lnV0, beta, phi, rho, delta, pi])
+            print(f"  Processing patient {patient_id}...")
+            samples = np.load(samples_path)
+
+            # Calculate R0 from internal-order samples
+            r0_samples = calculate_r0(samples)
+
+            # Plot half-violin at x-position i+1 (1-indexed for readability)
+            plot_half_violin(ax, x_position=i+1, r0_samples=r0_samples,
+                            width=0.4, color='steelblue')
+
+        # Styling
+        ax.set_xlabel('Patient', fontsize=18)
+        ax.set_ylabel(r'$R_0$', fontsize=18)
+        ax.set_title('Within-Host R$_0$ Posterior Distributions', fontsize=20)
+        ax.grid(True, alpha=0.3, linestyle='--', axis='y')
+        ax.tick_params(labelsize=14)
+
+        # Set x-axis ticks to patient IDs
+        ax.set_xticks(range(1, len(patient_ids) + 1))
+        ax.set_xticklabels(patient_ids, rotation=45, ha='right')
+
+        # Set x-axis limits with padding
+        ax.set_xlim(0.5, len(patient_ids) + 0.5)
+
+        # Add legend
+        from matplotlib.lines import Line2D
+        legend_elements = [
+            Line2D([0], [0], color='darkred', linestyle='--', linewidth=2, label='Mean'),
+            Line2D([0], [0], marker='o', color='w', markerfacecolor='navy',
+                   markersize=8, label='Median'),
+            Line2D([0], [0], color='navy', linewidth=2, label='95% CI')
+        ]
+        ax.legend(handles=legend_elements, loc='upper right', fontsize=12,
+                  frameon=True, fancybox=False, edgecolor='black')
+
+        # Adjust layout
+        plt.tight_layout()
+
+        # Save figure
+        output_path = input_path / output_filename
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+        print(f"\nR0 half-violin plot saved to: {output_path}")
+        return fig, output_path
+
+    return (plot_r0_halfviolin,)
+
+
+@app.cell
+def _(INPUT_DIR, R0_FIGSIZE, R0_OUTPUT_FILENAME, plot_r0_halfviolin):
+    """Section 3: Generate R0 half-violin plot"""
+
+    # Generate the R0 half-violin plot
+    fig_r0, output_path_r0 = plot_r0_halfviolin(
+        input_dir=INPUT_DIR,
+        output_filename=R0_OUTPUT_FILENAME,
+        figsize=R0_FIGSIZE
+    )
+    return (fig_r0,)
+
+
+@app.cell
+def _(fig_r0):
+    """Section 3: Display the R0 plot"""
+    fig_r0
+    return
+
+
+@app.cell
+def _(mo):
     """Section 2.1 introduction"""
     mo.md("""
     ---
