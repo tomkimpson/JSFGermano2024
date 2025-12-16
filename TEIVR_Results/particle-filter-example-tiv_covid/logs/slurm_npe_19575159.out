@@ -1,0 +1,195 @@
+==========================================
+Neural Posterior Estimation - COVID TIV
+==========================================
+Job ID: 19575159
+Node: spartan-gpgpu120
+Start time: Fri 05 Dec 2025 11:08:44 AEDT
+Working directory: /data/gpfs/projects/punim2780/NPE-light/TEIVR_Results/particle-filter-example-tiv_covid
+
+Python version:
+Python 3.9.21
+
+PyTorch version:
+2.1.0+cu121
+
+SBI version:
+0.22.0
+
+Configuration:
+  Number of trajectories: 10000
+  Number of timepoints: 10
+  Number of workers: 8
+  Patients: all
+  Posterior samples: 10000
+  Output directory: results/npe/20251205_110846
+  Skip simulate: false
+  Skip train: false
+  Skip infer: false
+
+==========================================
+STAGE 1: SIMULATE
+==========================================
+
+======================================================================
+STAGE 1: SIMULATE TRAINING DATA
+======================================================================
+
+Loading configuration from config/cli-refractory-tiv-jsf.toml
+
+Prior bounds:
+--------------------------------------------------
+lnV0      : [   0.000,    5.000]
+beta      : [   0.000,   20.000]
+phi       : [   0.000,   15.000]
+rho       : [   0.000,    1.000]
+delta     : [   1.000,   11.000]
+pi        : [ 200.000,  600.000]
+--------------------------------------------------
+
+Fixed parameters:
+  c: 10.0
+  k: 4.0
+  T0: 80000000.0
+  E0: 1.0
+  I0: 0.0
+  R0: 0.0
+
+Observation scale: 1.0
+
+Number of trajectories to simulate: 10000
+Number of time points per trajectory: 10
+Random seed: 42
+Number of parallel workers: 8
+
+Sampling parameters from prior...
+
+Simulating trajectories...
+Using 8 parallel workers...
+
+Simulation completed in 9603.91 seconds
+Average time per simulation: 0.96 seconds
+Parallelization: 8 workers (theoretical speedup: 8x)
+Training data saved to results/npe/20251205_110846/training/simulations_10000.npz
+
+Data summary:
+  Theta shape: (10000, 6)
+  X_obs shape: (10000, 10)
+
+Saved to: results/npe/20251205_110846/training/simulations_10000.npz
+
+Stage 1 completed successfully!
+
+==========================================
+STAGE 2: TRAIN
+==========================================
+
+======================================================================
+STAGE 2: TRAIN NEURAL POSTERIOR ESTIMATOR
+======================================================================
+
+Loading training data from results/npe/20251205_110846/training/simulations_10000.npz
+
+Training data loaded:
+  Number of simulations: 10000
+  Parameter dimension: 6
+  Observation dimension: 10
+
+Prior bounds:
+--------------------------------------------------
+lnV0      : [   0.000,    5.000]
+beta      : [   0.000,   20.000]
+phi       : [   0.000,   15.000]
+rho       : [   0.000,    1.000]
+delta     : [   1.000,   11.000]
+pi        : [ 200.000,  600.000]
+--------------------------------------------------
+
+Converting to PyTorch tensors...
+
+Setting up SBI prior...
+
+Initializing SNPE...
+Appending simulations to SNPE...
+
+Training posterior estimator...
+  Training fraction: 0.8
+  Max epochs: 100
+ Training neural network. Epochs trained: 1 Training neural network. Epochs trained: 2 Training neural network. Epochs trained: 3 Training neural network. Epochs trained: 4 Training neural network. Epochs trained: 5 Training neural network. Epochs trained: 6 Training neural network. Epochs trained: 7 Training neural network. Epochs trained: 8 Training neural network. Epochs trained: 9 Training neural network. Epochs trained: 10 Training neural network. Epochs trained: 11 Training neural network. Epochs trained: 12 Training neural network. Epochs trained: 13 Training neural network. Epochs trained: 14 Training neural network. Epochs trained: 15 Training neural network. Epochs trained: 16 Training neural network. Epochs trained: 17 Training neural network. Epochs trained: 18 Training neural network. Epochs trained: 19 Training neural network. Epochs trained: 20 Training neural network. Epochs trained: 21 Training neural network. Epochs trained: 22 Training neural network. Epochs trained: 23 Training neural network. Epochs trained: 24 Training neural network. Epochs trained: 25 Training neural network. Epochs trained: 26 Training neural network. Epochs trained: 27 Training neural network. Epochs trained: 28 Training neural network. Epochs trained: 29 Training neural network. Epochs trained: 30 Training neural network. Epochs trained: 31 Training neural network. Epochs trained: 32 Training neural network. Epochs trained: 33 Training neural network. Epochs trained: 34 Training neural network. Epochs trained: 35 Training neural network. Epochs trained: 36 Training neural network. Epochs trained: 37 Training neural network. Epochs trained: 38 Training neural network. Epochs trained: 39 Training neural network. Epochs trained: 40 Training neural network. Epochs trained: 41 Training neural network. Epochs trained: 42 Training neural network. Epochs trained: 43 Training neural network. Epochs trained: 44 Training neural network. Epochs trained: 45 Training neural network. Epochs trained: 46 Training neural network. Epochs trained: 47 Training neural network. Epochs trained: 48 Training neural network. Epochs trained: 49 Training neural network. Epochs trained: 50 Training neural network. Epochs trained: 51 Training neural network. Epochs trained: 52 Training neural network. Epochs trained: 53 Training neural network. Epochs trained: 54 Training neural network. Epochs trained: 55 Training neural network. Epochs trained: 56 Training neural network. Epochs trained: 57 Training neural network. Epochs trained: 58 Training neural network. Epochs trained: 59 Training neural network. Epochs trained: 60 Training neural network. Epochs trained: 61 Training neural network. Epochs trained: 62 Training neural network. Epochs trained: 63 Training neural network. Epochs trained: 64 Training neural network. Epochs trained: 65 Training neural network. Epochs trained: 66 Neural network successfully converged after 66 epochs.
+        -------------------------
+        ||||| ROUND 1 STATS |||||:
+        -------------------------
+        Epochs trained: 66
+        Best validation performance: -14.8105
+        -------------------------
+        
+
+Building posterior...
+
+Saving posterior to results/npe/20251205_110846/models/posterior_N10000.pkl
+
+Training completed successfully!
+Posterior saved to: results/npe/20251205_110846/models/posterior_N10000.pkl
+
+Stage 2 completed successfully!
+
+==========================================
+STAGE 3: INFER
+==========================================
+
+======================================================================
+STAGE 3: INFERENCE ON PATIENT DATA
+======================================================================
+
+Loading posterior from results/npe/20251205_110846/models/posterior_N10000.pkl
+Posterior loaded successfully
+
+Patients to process: ['432192', '443108', '444332', '444391', '445602', '451152']
+Number of posterior samples: 10000
+
+----------------------------------------------------------------------
+Processing patient: 432192
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Error processing patient 432192: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+
+----------------------------------------------------------------------
+Processing patient: 443108
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Error processing patient 443108: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+
+----------------------------------------------------------------------
+Processing patient: 444332
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Error processing patient 444332: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+
+----------------------------------------------------------------------
+Processing patient: 444391
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Error processing patient 444391: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+
+----------------------------------------------------------------------
+Processing patient: 445602
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Error processing patient 445602: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+
+----------------------------------------------------------------------
+Processing patient: 451152
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Error processing patient 451152: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+
+======================================================================
+Inference completed!
+======================================================================
+
+Stage 3 failed with exit code 0

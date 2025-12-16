@@ -1,0 +1,16 @@
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]/data/gpfs/projects/punim2780/NPE-light/TEIVR_Results/particle-filter-example-tiv_covid/venv-npe/lib64/python3.9/site-packages/nflows/transforms/lu.py:80: UserWarning: torch.triangular_solve is deprecated in favor of torch.linalg.solve_triangularand will be removed in a future PyTorch release.
+torch.linalg.solve_triangular has its arguments reversed and does not return a copy of one of the inputs.
+X = torch.triangular_solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve_triangular(A, B). (Triggered internally at ../aten/src/ATen/native/BatchLinearAlgebra.cpp:2192.)
+  outputs, _ = torch.triangular_solve(
+Drawing 10000 posterior samples:  94%|█████████▍| 9445/10000 [00:01<00:00, 5289.85it/s]Drawing 10000 posterior samples: 10274it [00:01, 5710.38it/s]                          
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]Drawing 10000 posterior samples: 10139it [00:00, 375389.93it/s]           
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]Drawing 10000 posterior samples: 10103it [00:00, 375126.62it/s]           
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]Drawing 10000 posterior samples: 10118it [00:00, 373100.72it/s]           
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]Drawing 10000 posterior samples: 10199it [00:00, 376584.21it/s]           
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]Drawing 10000 posterior samples: 10151it [00:00, 370838.86it/s]           
+
+real	0m14.367s
+user	0m9.062s
+sys	0m1.934s
