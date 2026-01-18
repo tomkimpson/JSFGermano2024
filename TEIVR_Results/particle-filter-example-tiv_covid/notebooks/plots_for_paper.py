@@ -28,8 +28,11 @@ def _(mo):
         or comparison:
 
         1. **Marginalised Posterior Distributions** - Grid of 1D marginalised posteriors for all patients
-        2. **Corner Plots** - 2D posterior correlations and 1D marginals for all patients
-        3. _(Additional sections to be added)_
+        2. **Corner Plots (NPE)** - 2D posterior correlations and 1D marginals for NPE results
+        3. **Corner Plots (Particle Filter)** - Corner plots for particle filter results
+        4. **Within-Host R₀ Posterior Distributions** - R₀ distributions from NPE posteriors
+        5. **Wasserstein Distance Comparison** - Quantitative comparison between NPE and PF
+        6. **Timing and Computation Comparison** - Performance metrics for NPE and PF methods
 
         All plots are saved with high resolution (300 DPI) and publication-quality styling
         using the `scienceplots` package.
@@ -594,300 +597,6 @@ def _(corner_figs, corner_patient_ids, mo):
 
 @app.cell
 def _(mo):
-    """Section 3 introduction"""
-    mo.md(
-        """
-        ---
-
-        ## Section 3: Within-Host R₀ Posterior Distributions
-
-        This section calculates and visualizes the within-host basic reproduction number (R₀)
-        from the NPE parameter posteriors. R₀ represents the average number of cells infected
-        by a single infected cell in a completely susceptible population.
-
-        **R₀ Formula:**
-        ```
-        R₀ = (π × β × T₀) / (δ × c)
-        ```
-
-        **Parameters:**
-        - π (pi): Virion production rate [from posterior]
-        - β (beta): Infection rate [from posterior, scaled by 10⁻⁹ in model]
-        - T₀: Initial target cells = 8×10⁷ [constant]
-        - δ (delta): Infected cell clearance rate [from posterior]
-        - c: Viral clearance rate = 10.0 [constant]
-
-        **Visualization:**
-        Half-violin plots showing the R₀ distribution for each patient. Each half-violin
-        represents the kernel density estimate (KDE) of the R₀ posterior, rotated 90° and
-        positioned at the patient's index on the x-axis.
-
-        **Statistics Shown:**
-        - **Red dashed line**: Mean R₀
-        - **Navy circle**: Median R₀
-        - **Navy error bars**: 95% credible interval
-
-        **Note:** This R₀ calculation is an approximation that ignores the refractory cell
-        dynamics (φ and ρ parameters). A complete R₀ derivation for the full TEIVR model
-        remains an open question.
-        """
-    )
-    return
-
-
-@app.cell
-def _():
-    """Section 3: Configuration for R0 calculations"""
-
-    # Reuse INPUT_DIR from Section 1 (already defined globally)
-    # Output filename for R0 half-violin plot
-    R0_OUTPUT_FILENAME = "r0_distribution_halfviolin_canonical.png"
-
-    # Figure size (width, height) in inches
-    R0_FIGSIZE = (12, 8)
-
-    # Model constants for R0 calculation
-    R0_T0 = 8E7  # Initial target cells
-    R0_VIRAL_CLEARANCE = 10.0  # Viral clearance rate (c parameter)
-
-    return R0_FIGSIZE, R0_OUTPUT_FILENAME, R0_T0, R0_VIRAL_CLEARANCE
-
-
-@app.cell
-def _(R0_T0, R0_VIRAL_CLEARANCE, np):
-    """Section 3: Helper function to calculate R0 from parameter samples"""
-
-    def calculate_r0(samples: np.ndarray) -> np.ndarray:
-        """
-        Calculate within-host R0 from parameter samples.
-
-        R0 = (pi * beta_scaled * T0) / (delta * c)
-
-        Parameters:
-        -----------
-        samples : np.ndarray
-            Parameter samples with shape (n_samples, 6) in order:
-            [lnV0, beta, phi, rho, delta, pi]
-
-        Returns:
-        --------
-        np.ndarray
-            R0 values with shape (n_samples,)
-        """
-        # Extract parameters from internal order [lnV0, beta, phi, rho, delta, pi]
-        beta = samples[:, 1]  # beta at index 1
-        delta = samples[:, 4]  # delta at index 4
-        pi = samples[:, 5]  # pi at index 5
-
-        # Apply beta scaling factor (model uses beta * 1e-9)
-        beta_scaled = beta * 1e-9
-
-        # Calculate R0 = (pi * beta_scaled * T0) / (delta * c)
-        r0 = (pi * beta_scaled * R0_T0) / (delta * R0_VIRAL_CLEARANCE)
-
-        return r0
-
-    return (calculate_r0,)
-
-
-@app.cell
-def _(np):
-    """Section 3: Helper function to plot half-violin"""
-
-    def plot_half_violin(ax, x_position, r0_samples, width=0.4, color='steelblue'):
-        """
-        Plot a half-violin (vertical KDE) at a given x-position.
-
-        Parameters:
-        -----------
-        ax : matplotlib.axes.Axes
-            Axes object to plot on
-        x_position : float
-            X-coordinate for this violin (patient index)
-        r0_samples : np.ndarray
-            1D array of R0 values
-        width : float
-            Maximum width of the violin plot (default: 0.4)
-        color : str
-            Fill color (default: 'steelblue')
-        """
-        from scipy.stats import gaussian_kde
-
-        # Compute KDE
-        kde = gaussian_kde(r0_samples)
-
-        # Create y-axis evaluation points (R0 values)
-        r0_min = np.min(r0_samples)
-        r0_max = np.max(r0_samples)
-        r0_range = r0_max - r0_min
-        y_eval = np.linspace(r0_min - 0.1 * r0_range, r0_max + 0.1 * r0_range, 200)
-
-        # Evaluate KDE density
-        density = kde(y_eval)
-
-        # Normalize density to width
-        density_normalized = density / density.max() * width
-
-        # Plot half-violin (only on right side)
-        x_vals = x_position + density_normalized
-        ax.fill_betweenx(y_eval, x_position, x_vals, alpha=0.6, color=color,
-                          edgecolor=color, linewidth=1.5)
-
-        # Compute statistics
-        mean_val = np.mean(r0_samples)
-        median_val = np.median(r0_samples)
-        ci_lower = np.percentile(r0_samples, 2.5)
-        ci_upper = np.percentile(r0_samples, 97.5)
-
-        # Plot mean as horizontal line
-        ax.plot([x_position - 0.05, x_position + width], [mean_val, mean_val],
-                color='darkred', linestyle='--', linewidth=2, zorder=10)
-
-        # Plot median as point
-        ax.scatter([x_position + width/2], [median_val], color='navy',
-                   s=50, zorder=11, marker='o')
-
-        # Plot 95% CI as error bar
-        ax.plot([x_position + width, x_position + width], [ci_lower, ci_upper],
-                color='navy', linewidth=2, zorder=10)
-        ax.plot([x_position + width - 0.05, x_position + width + 0.05],
-                [ci_lower, ci_lower], color='navy', linewidth=2, zorder=10)
-        ax.plot([x_position + width - 0.05, x_position + width + 0.05],
-                [ci_upper, ci_upper], color='navy', linewidth=2, zorder=10)
-
-    return (plot_half_violin,)
-
-
-@app.cell
-def _(Path, calculate_r0, mpl, np, plot_half_violin, plt):
-    """Section 3: Main function to generate R0 half-violin plot"""
-
-    def plot_r0_halfviolin(
-        input_dir: str,
-        output_filename: str,
-        figsize: tuple
-    ) -> tuple:
-        """
-        Generate half-violin plot showing R0 distributions for all patients.
-
-        Creates a single subplot with patient index on x-axis and R0 values on y-axis.
-        Each patient's R0 distribution is shown as a half-violin plot.
-
-        Parameters:
-        -----------
-        input_dir : str
-            Directory containing patient subdirectories with samples.npy files
-        output_filename : str
-            Name for output plot file
-        figsize : tuple
-            Figure size (width, height) in inches
-
-        Returns:
-        --------
-        tuple
-            (fig, output_path)
-        """
-        # Disable LaTeX if needed
-        mpl.rcParams['text.usetex'] = False
-
-        # Get patient directories
-        input_path = Path(input_dir)
-        if not input_path.exists():
-            raise FileNotFoundError(f"Input directory not found: {input_dir}")
-
-        patient_dirs = sorted([d for d in input_path.iterdir() if d.is_dir()])
-        patient_ids = [d.name for d in patient_dirs]
-
-        if not patient_ids:
-            raise ValueError(f"No patient directories found in {input_dir}")
-
-        print(f"Found {len(patient_ids)} patients: {', '.join(patient_ids)}")
-
-        # Create single figure with one subplot
-        fig, ax = plt.subplots(1, 1, figsize=figsize)
-
-        print("\nGenerating R0 half-violin plots...")
-
-        # Loop through patients and plot each as a half-violin
-        for i, patient_id in enumerate(patient_ids):
-            patient_dir = patient_dirs[i]
-            samples_path = patient_dir / "samples.npy"
-
-            if not samples_path.exists():
-                print(f"Warning: Samples file not found for patient {patient_id}, skipping...")
-                continue
-
-            # Load samples (in INTERNAL order: [lnV0, beta, phi, rho, delta, pi])
-            print(f"  Processing patient {patient_id}...")
-            samples = np.load(samples_path)
-
-            # Calculate R0 from internal-order samples
-            r0_samples = calculate_r0(samples)
-
-            # Plot half-violin at x-position i+1 (1-indexed for readability)
-            plot_half_violin(ax, x_position=i+1, r0_samples=r0_samples,
-                            width=0.4, color='steelblue')
-
-        # Styling
-        ax.set_xlabel('Patient', fontsize=18)
-        ax.set_ylabel(r'$R_0$', fontsize=18)
-        ax.set_title('Within-Host R$_0$ Posterior Distributions', fontsize=20)
-        ax.grid(True, alpha=0.3, linestyle='--', axis='y')
-        ax.tick_params(labelsize=14)
-
-        # Set x-axis ticks to patient IDs
-        ax.set_xticks(range(1, len(patient_ids) + 1))
-        ax.set_xticklabels(patient_ids, rotation=45, ha='right')
-
-        # Set x-axis limits with padding
-        ax.set_xlim(0.5, len(patient_ids) + 0.5)
-
-        # Add legend
-        from matplotlib.lines import Line2D
-        legend_elements = [
-            Line2D([0], [0], color='darkred', linestyle='--', linewidth=2, label='Mean'),
-            Line2D([0], [0], marker='o', color='w', markerfacecolor='navy',
-                   markersize=8, label='Median'),
-            Line2D([0], [0], color='navy', linewidth=2, label='95% CI')
-        ]
-        ax.legend(handles=legend_elements, loc='upper right', fontsize=12,
-                  frameon=True, fancybox=False, edgecolor='black')
-
-        # Adjust layout
-        plt.tight_layout()
-
-        # Save figure
-        output_path = input_path / output_filename
-        plt.savefig(output_path, dpi=300, bbox_inches='tight')
-
-        print(f"\nR0 half-violin plot saved to: {output_path}")
-        return fig, output_path
-
-    return (plot_r0_halfviolin,)
-
-
-@app.cell
-def _(INPUT_DIR, R0_FIGSIZE, R0_OUTPUT_FILENAME, plot_r0_halfviolin):
-    """Section 3: Generate R0 half-violin plot"""
-
-    # Generate the R0 half-violin plot
-    fig_r0, output_path_r0 = plot_r0_halfviolin(
-        input_dir=INPUT_DIR,
-        output_filename=R0_OUTPUT_FILENAME,
-        figsize=R0_FIGSIZE
-    )
-    return (fig_r0,)
-
-
-@app.cell
-def _(fig_r0):
-    """Section 3: Display the R0 plot"""
-    fig_r0
-    return
-
-
-@app.cell
-def _(mo):
     """Section 2.1 introduction"""
     mo.md("""
     ---
@@ -1225,6 +934,1191 @@ def _(mo, pf_corner_figs, pf_corner_particle_counts, pf_corner_patient_ids):
         pf_plots.append(fig_k)
 
     mo.vstack(pf_plots) if pf_plots else mo.md("_No particle filter corner plots generated_")
+    return
+
+
+@app.cell
+def _(mo):
+    """Section 3 introduction"""
+    mo.md(
+        """
+        ---
+
+        ## Section 3: Within-Host R₀ Posterior Distributions
+
+        This section calculates and visualizes the within-host basic reproduction number (R₀)
+        from the NPE parameter posteriors. R₀ represents the average number of cells infected
+        by a single infected cell in a completely susceptible population.
+
+        **R₀ Formula:**
+        ```
+        R₀ = (π × β × T₀) / (δ × c)
+        ```
+
+        **Parameters:**
+        - π (pi): Virion production rate [from posterior]
+        - β (beta): Infection rate [from posterior, scaled by 10⁻⁹ in model]
+        - T₀: Initial target cells = 8×10⁷ [constant]
+        - δ (delta): Infected cell clearance rate [from posterior]
+        - c: Viral clearance rate = 10.0 [constant]
+
+        **Visualization:**
+        Half-violin plots showing the R₀ distribution for each patient. Each half-violin
+        represents the kernel density estimate (KDE) of the R₀ posterior, rotated 90° and
+        positioned at the patient's index on the x-axis.
+
+        **Statistics Shown:**
+        - **Red dashed line**: Mean R₀
+        - **Navy circle**: Median R₀
+        - **Navy error bars**: 95% credible interval
+
+        **Note:** This R₀ calculation is an approximation that ignores the refractory cell
+        dynamics (φ and ρ parameters). A complete R₀ derivation for the full TEIVR model
+        remains an open question.
+        """
+    )
+    return
+
+
+@app.cell
+def _():
+    """Section 3: Configuration for R0 calculations"""
+
+    # Reuse INPUT_DIR from Section 1 (already defined globally)
+    # Output filename for R0 half-violin plot
+    R0_OUTPUT_FILENAME = "r0_distribution_halfviolin_canonical.png"
+
+    # Figure size (width, height) in inches
+    R0_FIGSIZE = (12, 8)
+
+    # Model constants for R0 calculation
+    R0_T0 = 8E7  # Initial target cells
+    R0_VIRAL_CLEARANCE = 10.0  # Viral clearance rate (c parameter)
+
+    return R0_FIGSIZE, R0_OUTPUT_FILENAME, R0_T0, R0_VIRAL_CLEARANCE
+
+
+@app.cell
+def _(R0_T0, R0_VIRAL_CLEARANCE, np):
+    """Section 3: Helper function to calculate R0 from parameter samples"""
+
+    def calculate_r0(samples: np.ndarray) -> np.ndarray:
+        """
+        Calculate within-host R0 from parameter samples.
+
+        R0 = (pi * beta_scaled * T0) / (delta * c)
+
+        Parameters:
+        -----------
+        samples : np.ndarray
+            Parameter samples with shape (n_samples, 6) in order:
+            [lnV0, beta, phi, rho, delta, pi]
+
+        Returns:
+        --------
+        np.ndarray
+            R0 values with shape (n_samples,)
+        """
+        # Extract parameters from internal order [lnV0, beta, phi, rho, delta, pi]
+        beta = samples[:, 1]  # beta at index 1
+        delta = samples[:, 4]  # delta at index 4
+        pi = samples[:, 5]  # pi at index 5
+
+        # Apply beta scaling factor (model uses beta * 1e-9)
+        beta_scaled = beta * 1e-9
+
+        # Calculate R0 = (pi * beta_scaled * T0) / (delta * c)
+        r0 = (pi * beta_scaled * R0_T0) / (delta * R0_VIRAL_CLEARANCE)
+
+        return r0
+
+    return (calculate_r0,)
+
+
+@app.cell
+def _(np):
+    """Section 3: Helper function to plot half-violin"""
+
+    def plot_half_violin(ax, x_position, r0_samples, width=0.4, color='steelblue'):
+        """
+        Plot a half-violin (vertical KDE) at a given x-position.
+
+        Parameters:
+        -----------
+        ax : matplotlib.axes.Axes
+            Axes object to plot on
+        x_position : float
+            X-coordinate for this violin (patient index)
+        r0_samples : np.ndarray
+            1D array of R0 values
+        width : float
+            Maximum width of the violin plot (default: 0.4)
+        color : str
+            Fill color (default: 'steelblue')
+        """
+        from scipy.stats import gaussian_kde
+
+        # Compute KDE
+        kde = gaussian_kde(r0_samples)
+
+        # Create y-axis evaluation points (R0 values)
+        r0_min = np.min(r0_samples)
+        r0_max = np.max(r0_samples)
+        r0_range = r0_max - r0_min
+        y_eval = np.linspace(r0_min - 0.1 * r0_range, r0_max + 0.1 * r0_range, 200)
+
+        # Evaluate KDE density
+        density = kde(y_eval)
+
+        # Normalize density to width
+        density_normalized = density / density.max() * width
+
+        # Plot half-violin (only on right side)
+        x_vals = x_position + density_normalized
+        ax.fill_betweenx(y_eval, x_position, x_vals, alpha=0.6, color=color,
+                          edgecolor=color, linewidth=1.5)
+
+        # Compute statistics
+        mean_val = np.mean(r0_samples)
+        median_val = np.median(r0_samples)
+        ci_lower = np.percentile(r0_samples, 2.5)
+        ci_upper = np.percentile(r0_samples, 97.5)
+
+        # Plot mean as horizontal line
+        ax.plot([x_position - 0.05, x_position + width], [mean_val, mean_val],
+                color='darkred', linestyle='--', linewidth=2, zorder=10)
+
+        # Plot median as point
+        ax.scatter([x_position + width/2], [median_val], color='navy',
+                   s=50, zorder=11, marker='o')
+
+        # Plot 95% CI as error bar
+        ax.plot([x_position + width, x_position + width], [ci_lower, ci_upper],
+                color='navy', linewidth=2, zorder=10)
+        ax.plot([x_position + width - 0.05, x_position + width + 0.05],
+                [ci_lower, ci_lower], color='navy', linewidth=2, zorder=10)
+        ax.plot([x_position + width - 0.05, x_position + width + 0.05],
+                [ci_upper, ci_upper], color='navy', linewidth=2, zorder=10)
+
+    return (plot_half_violin,)
+
+
+@app.cell
+def _(Path, calculate_r0, mpl, np, plot_half_violin, plt):
+    """Section 3: Main function to generate R0 half-violin plot"""
+
+    def plot_r0_halfviolin(
+        input_dir: str,
+        output_filename: str,
+        figsize: tuple
+    ) -> tuple:
+        """
+        Generate half-violin plot showing R0 distributions for all patients.
+
+        Creates a single subplot with patient index on x-axis and R0 values on y-axis.
+        Each patient's R0 distribution is shown as a half-violin plot.
+
+        Parameters:
+        -----------
+        input_dir : str
+            Directory containing patient subdirectories with samples.npy files
+        output_filename : str
+            Name for output plot file
+        figsize : tuple
+            Figure size (width, height) in inches
+
+        Returns:
+        --------
+        tuple
+            (fig, output_path)
+        """
+        # Disable LaTeX if needed
+        mpl.rcParams['text.usetex'] = False
+
+        # Get patient directories
+        input_path = Path(input_dir)
+        if not input_path.exists():
+            raise FileNotFoundError(f"Input directory not found: {input_dir}")
+
+        patient_dirs = sorted([d for d in input_path.iterdir() if d.is_dir()])
+        patient_ids = [d.name for d in patient_dirs]
+
+        if not patient_ids:
+            raise ValueError(f"No patient directories found in {input_dir}")
+
+        print(f"Found {len(patient_ids)} patients: {', '.join(patient_ids)}")
+
+        # Create single figure with one subplot
+        fig, ax = plt.subplots(1, 1, figsize=figsize)
+
+        print("\nGenerating R0 half-violin plots...")
+
+        # Loop through patients and plot each as a half-violin
+        for i, patient_id in enumerate(patient_ids):
+            patient_dir = patient_dirs[i]
+            samples_path = patient_dir / "samples.npy"
+
+            if not samples_path.exists():
+                print(f"Warning: Samples file not found for patient {patient_id}, skipping...")
+                continue
+
+            # Load samples (in INTERNAL order: [lnV0, beta, phi, rho, delta, pi])
+            print(f"  Processing patient {patient_id}...")
+            samples = np.load(samples_path)
+
+            # Calculate R0 from internal-order samples
+            r0_samples = calculate_r0(samples)
+
+            # Plot half-violin at x-position i+1 (1-indexed for readability)
+            plot_half_violin(ax, x_position=i+1, r0_samples=r0_samples,
+                            width=0.4, color='steelblue')
+
+        # Styling
+        ax.set_xlabel('Patient', fontsize=18)
+        ax.set_ylabel(r'$R_0$', fontsize=18)
+        ax.set_title('Within-Host R$_0$ Posterior Distributions', fontsize=20)
+        ax.grid(True, alpha=0.3, linestyle='--', axis='y')
+        ax.tick_params(labelsize=14)
+
+        # Set x-axis ticks to patient IDs
+        ax.set_xticks(range(1, len(patient_ids) + 1))
+        ax.set_xticklabels(patient_ids, rotation=45, ha='right')
+
+        # Set x-axis limits with padding
+        ax.set_xlim(0.5, len(patient_ids) + 0.5)
+
+        # Add legend
+        from matplotlib.lines import Line2D
+        legend_elements = [
+            Line2D([0], [0], color='darkred', linestyle='--', linewidth=2, label='Mean'),
+            Line2D([0], [0], marker='o', color='w', markerfacecolor='navy',
+                   markersize=8, label='Median'),
+            Line2D([0], [0], color='navy', linewidth=2, label='95% CI')
+        ]
+        ax.legend(handles=legend_elements, loc='upper right', fontsize=12,
+                  frameon=True, fancybox=False, edgecolor='black')
+
+        # Adjust layout
+        plt.tight_layout()
+
+        # Save figure
+        output_path = input_path / output_filename
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+        print(f"\nR0 half-violin plot saved to: {output_path}")
+        return fig, output_path
+
+    return (plot_r0_halfviolin,)
+
+
+@app.cell
+def _(INPUT_DIR, R0_FIGSIZE, R0_OUTPUT_FILENAME, plot_r0_halfviolin):
+    """Section 3: Generate R0 half-violin plot"""
+
+    # Generate the R0 half-violin plot
+    fig_r0, output_path_r0 = plot_r0_halfviolin(
+        input_dir=INPUT_DIR,
+        output_filename=R0_OUTPUT_FILENAME,
+        figsize=R0_FIGSIZE
+    )
+    return (fig_r0,)
+
+
+@app.cell
+def _(fig_r0):
+    """Section 3: Display the R0 plot"""
+    fig_r0
+    return
+
+
+@app.cell
+def _(mo):
+    """Section 4 introduction"""
+    mo.md(
+        """
+        ---
+
+        ## Section 4: Wasserstein Distance Comparison (NPE vs PF)
+
+        This section quantifies the difference between NPE and Particle Filter
+        marginal posterior distributions using the Wasserstein distance (also
+        known as Earth Mover's Distance).
+
+        **Wasserstein Distance:**
+        - Measures the minimum "cost" to transform one distribution into another
+        - Computed independently for each of the 6 model parameters
+        - Lower values indicate more similar distributions
+        - Units match the parameter units (dimensionful metric)
+
+        **Comparison Setup:**
+        - NPE samples: Unweighted posterior samples from neural density estimator
+        - PF samples: Weighted particle filter samples (resampled if weights non-uniform)
+        - Patient: 432192 (only patient with PF results in this run)
+        - Parameters (display order): β, ρ, π, φ, δ, log₁₀V₀
+
+        **Interpretation:**
+        - Small Wasserstein distances suggest agreement between methods
+        - Large distances indicate methodological differences or insufficient PF particles
+        - Compare distances across parameters to identify where methods diverge most
+        """
+    )
+    return
+
+
+@app.cell
+def _():
+    """Section 4: Configuration for Wasserstein distance calculations"""
+
+    # Patient ID to compare (only patient with PF results)
+    WD_PATIENT_ID = "432192"
+
+    # NPE results directory (reuse from Section 1)
+    WD_NPE_DIR = "../results/npe/20250103_existing_primary/inference"
+
+    # PF run directory
+    WD_PF_RUN_DIR = "../results/particle_filter/20250103_existing/432192/src.tiv.RefractoryCellModel_JSF_6000/"
+
+    # Resampling threshold for PF weights
+    WD_RESAMPLE_THRESHOLD = 0.01
+
+    # Output filename for results table
+    WD_OUTPUT_FILENAME = "wasserstein_distances_npe_vs_pf.csv"
+
+    # Prior ranges for normalization (in display order)
+    # Source: config/cli-refractory-tiv-jsf.toml
+    WD_PRIOR_RANGES = {
+        'β': 20.0,           # beta: Uniform[0, 20]
+        'ρ': 1.0,            # rho: Uniform[0, 1]
+        'π': 400.0,          # pi: Uniform[200, 600]
+        'φ': 15.0,           # phi: Uniform[0, 15]
+        'δ': 10.0,           # delta: Uniform[1, 11]
+        'log₁₀V₀': 2.17      # log10(V0): transformed from lnV0 ~ Uniform[0, 5]
+                             # Range = 5 / ln(10) ≈ 2.17
+    }
+
+    return (
+        WD_PATIENT_ID,
+        WD_NPE_DIR,
+        WD_PF_RUN_DIR,
+        WD_RESAMPLE_THRESHOLD,
+        WD_OUTPUT_FILENAME,
+        WD_PRIOR_RANGES,
+    )
+
+
+@app.cell
+def _():
+    """Section 4: Import libraries for Wasserstein distance"""
+    import pandas as pd
+    from scipy.stats import wasserstein_distance
+
+    return pd, wasserstein_distance
+
+
+@app.cell
+def _(Path, np):
+    """Section 4: Helper function to load NPE samples for a patient"""
+
+    def load_npe_samples_wd(patient_id: str, npe_dir: str) -> np.ndarray:
+        """
+        Load NPE samples for a specific patient.
+
+        Parameters:
+        -----------
+        patient_id : str
+            Patient ID
+        npe_dir : str
+            Directory containing patient subdirectories with samples.npy files
+
+        Returns:
+        --------
+        np.ndarray
+            Parameter samples with shape (n_samples, 6) in order:
+            [lnV0, beta, phi, rho, delta, pi]
+        """
+        patient_path = Path(npe_dir) / patient_id
+        samples_path = patient_path / "samples.npy"
+
+        if not samples_path.exists():
+            raise FileNotFoundError(f"NPE samples not found: {samples_path}")
+
+        samples = np.load(samples_path)
+        print(f"  Loaded {len(samples)} NPE samples for patient {patient_id}")
+
+        return samples
+
+    return (load_npe_samples_wd,)
+
+
+@app.cell
+def _(np, wasserstein_distance):
+    """Section 4: Helper function to calculate Wasserstein distances"""
+
+    def calculate_wasserstein_distances(
+        npe_samples: np.ndarray,
+        pf_samples: np.ndarray,
+        param_names: list
+    ) -> dict:
+        """
+        Calculate Wasserstein distances between NPE and PF for each parameter.
+
+        Both sample arrays should be in the SAME order (display order recommended).
+
+        Parameters:
+        -----------
+        npe_samples : np.ndarray
+            NPE samples with shape (n_samples, n_params)
+        pf_samples : np.ndarray
+            PF samples with shape (n_samples, n_params)
+        param_names : list
+            List of parameter names in order matching the sample columns
+
+        Returns:
+        --------
+        dict
+            Dictionary mapping parameter names to Wasserstein distances
+        """
+        n_params = npe_samples.shape[1]
+
+        if pf_samples.shape[1] != n_params:
+            raise ValueError(
+                f"Sample dimension mismatch: NPE has {n_params} params, "
+                f"PF has {pf_samples.shape[1]} params"
+            )
+
+        if len(param_names) != n_params:
+            raise ValueError(
+                f"Parameter name count ({len(param_names)}) doesn't match "
+                f"sample dimension ({n_params})"
+            )
+
+        distances = {}
+
+        print("\n  Calculating Wasserstein distances...")
+        for i, param_name in enumerate(param_names):
+            # Extract marginal samples for this parameter
+            npe_marginal = npe_samples[:, i]
+            pf_marginal = pf_samples[:, i]
+
+            # Calculate Wasserstein distance
+            wd = wasserstein_distance(npe_marginal, pf_marginal)
+            distances[param_name] = wd
+
+            print(f"    {param_name}: {wd:.6f}")
+
+        return distances
+
+    return (calculate_wasserstein_distances,)
+
+
+@app.cell
+def _(
+    Path,
+    WD_PATIENT_ID,
+    WD_NPE_DIR,
+    WD_PF_RUN_DIR,
+    WD_RESAMPLE_THRESHOLD,
+    WD_OUTPUT_FILENAME,
+    WD_PRIOR_RANGES,
+    calculate_wasserstein_distances,
+    load_npe_samples_wd,
+    load_particle_filter_samples_pf,
+    np,
+    pd,
+    resample_if_needed_pf,
+    transform_samples,
+):
+    """Section 4: Compute Wasserstein distances between NPE and PF"""
+
+    print(f"\nComputing Wasserstein distances for patient {WD_PATIENT_ID}...")
+    print("=" * 70)
+
+    # Load NPE samples (internal order: [lnV0, beta, phi, rho, delta, pi])
+    print("\n1. Loading NPE samples...")
+    npe_samples_internal = load_npe_samples_wd(WD_PATIENT_ID, WD_NPE_DIR)
+
+    # Load PF samples (internal order: [lnV0, beta, phi, rho, delta, pi])
+    print("\n2. Loading PF samples...")
+    pf_samples_internal, pf_weights, patient_id_pf, n_particles_pf = \
+        load_particle_filter_samples_pf(WD_PF_RUN_DIR)
+
+    # Resample PF if needed
+    print("\n3. Checking if PF resampling is needed...")
+    pf_samples_internal_resampled = resample_if_needed_pf(
+        pf_samples_internal,
+        pf_weights,
+        WD_RESAMPLE_THRESHOLD
+    )
+
+    # Transform both to display order: [beta, rho, pi, phi, delta, log10(V0)]
+    print("\n4. Transforming samples to display order...")
+    npe_samples_display = transform_samples(npe_samples_internal)
+    pf_samples_display = transform_samples(pf_samples_internal_resampled)
+
+    print(f"  NPE samples shape: {npe_samples_display.shape}")
+    print(f"  PF samples shape: {pf_samples_display.shape}")
+
+    # Parameter names in display order
+    param_display_names = ["β", "ρ", "π", "φ", "δ", "log₁₀V₀"]
+
+    # Calculate Wasserstein distances
+    print("\n5. Computing Wasserstein distances...")
+    wd_distances = calculate_wasserstein_distances(
+        npe_samples_display,
+        pf_samples_display,
+        param_display_names
+    )
+
+    # Calculate normalized Wasserstein distances
+    print("\n6. Computing normalized Wasserstein distances...")
+    wd_distances_normalized = {}
+    for param in param_display_names:
+        wd_normalized = wd_distances[param] / WD_PRIOR_RANGES[param]
+        wd_distances_normalized[param] = wd_normalized
+        print(f"  {param}: {wd_normalized:.4f} (normalized)")
+
+    # Create results DataFrame
+    print("\n7. Creating results table...")
+    wd_results_df = pd.DataFrame({
+        'Parameter': param_display_names,
+        'Wasserstein Distance': [wd_distances[p] for p in param_display_names],
+        'Normalized WD': [wd_distances_normalized[p] for p in param_display_names],
+        'NPE Samples': [len(npe_samples_display)] * 6,
+        'PF Particles': [n_particles_pf] * 6,
+    })
+
+    # Add summary statistics columns for context
+    wd_results_df['NPE Mean'] = [np.mean(npe_samples_display[:, i]) for i in range(6)]
+    wd_results_df['PF Mean'] = [np.mean(pf_samples_display[:, i]) for i in range(6)]
+    wd_results_df['NPE Std'] = [np.std(npe_samples_display[:, i]) for i in range(6)]
+    wd_results_df['PF Std'] = [np.std(pf_samples_display[:, i]) for i in range(6)]
+
+    # Save to CSV
+    output_path_wd = Path(WD_NPE_DIR) / WD_PATIENT_ID / WD_OUTPUT_FILENAME
+    wd_results_df.to_csv(output_path_wd, index=False, float_format='%.6f')
+
+    print(f"\n8. Results saved to: {output_path_wd}")
+    print("=" * 70)
+
+    return (
+        wd_results_df,
+        wd_distances,
+        wd_distances_normalized,
+        npe_samples_display,
+        pf_samples_display,
+        output_path_wd,
+    )
+
+
+@app.cell
+def _(mo, wd_results_df, WD_PATIENT_ID):
+    """Section 4: Display Wasserstein distance results"""
+
+    # Create formatted table for display
+    display_table = wd_results_df[['Parameter', 'Wasserstein Distance', 'Normalized WD',
+                                     'NPE Mean', 'PF Mean']].copy()
+
+    # Format numeric columns
+    display_table['Wasserstein Distance'] = display_table['Wasserstein Distance'].map('{:.6f}'.format)
+    display_table['Normalized WD'] = display_table['Normalized WD'].map('{:.4f}'.format)
+    display_table['NPE Mean'] = display_table['NPE Mean'].map('{:.4f}'.format)
+    display_table['PF Mean'] = display_table['PF Mean'].map('{:.4f}'.format)
+
+    mo.vstack([
+        mo.md(f"### Wasserstein Distances: Patient {WD_PATIENT_ID}"),
+        mo.md("""
+        The table below shows both absolute and normalized Wasserstein distances
+        between NPE and PF marginal posteriors for each parameter.
+
+        - **Wasserstein Distance**: Absolute distance in parameter units
+        - **Normalized WD**: Distance divided by prior range, giving a dimensionless
+          measure in [0, 1] that enables cross-parameter comparison
+        """),
+        display_table,
+        mo.md("""
+        **Interpretation:**
+        - Normalized distances show what fraction of the prior range separates the distributions
+        - Smaller values indicate better agreement between methods
+        - Normalized WD enables comparison across parameters with different scales
+        """)
+    ])
+    return (display_table,)
+
+
+@app.cell
+def _(mo):
+    """Section 5 introduction"""
+    mo.md(
+        """
+        ---
+
+        ## Section 5: Timing and Computation Comparison
+
+        This section presents detailed timing and computational performance metrics for both
+        Neural Posterior Estimation (NPE) and Particle Filter (PF) methods.
+
+        **NPE Timing Breakdown:**
+        1. **Training Time**: Time to train the neural density estimator on simulated data
+        2. **Inference Time**: Time to draw posterior samples for each patient
+           - Highly variable due to rejection sampling when posterior approaches prior bounds
+           - See `docs/npe_inference_timing.md` for detailed explanation
+
+        **Particle Filter Timing:**
+        - **Total Runtime**: Wall-clock time for particle filter execution
+        - Depends on: number of samples, particles, prediction horizon, and parallel workers
+
+        **Data Sources:**
+        All timing information is extracted from log files generated during execution:
+        - NPE training: `results/npe/<run>/models/training_timing_N<N>.txt`
+        - NPE inference: `results/npe/<run>/inference/<patient_id>/inference_timing.txt`
+        - PF runtime: `results/posterior_predictive/<run>/<patient_id>/timing.txt`
+
+        **Important Notes:**
+        - Timing values are wall-clock times (not CPU time)
+        - NPE inference timing varies significantly across patients due to rejection sampling
+        - PF timing depends on parallelization configuration (number of workers)
+        - Data generation/simulation timing may not be logged for all runs
+        """
+    )
+    return
+
+
+@app.cell
+def _():
+    """Section 5: Configuration for timing analysis"""
+
+    # NPE run to analyze (recent GPU run with comprehensive timing)
+    TIMING_NPE_RUN = "20251209_091829_gpu"
+    TIMING_NPE_DIR = f"../results/npe/{TIMING_NPE_RUN}"
+
+    # PF run to analyze (if available)
+    TIMING_PF_RUN = "20251105_083032"
+    TIMING_PF_DIR = f"../results/posterior_predictive/{TIMING_PF_RUN}"
+
+    return TIMING_NPE_DIR, TIMING_NPE_RUN, TIMING_PF_DIR, TIMING_PF_RUN
+
+
+@app.cell
+def _(Path, pd):
+    """Section 5: Helper function to parse NPE training timing"""
+
+    import re
+
+    def load_npe_training_timing(npe_run_dir: str) -> dict:
+        """
+        Load NPE training timing information.
+
+        Parameters:
+        -----------
+        npe_run_dir : str
+            Path to NPE run directory
+
+        Returns:
+        --------
+        dict
+            Dictionary with training timing information, or None if not found
+        """
+        run_path = Path(npe_run_dir)
+        models_dir = run_path / "models"
+
+        if not models_dir.exists():
+            print(f"  Warning: Models directory not found: {models_dir}")
+            return None
+
+        # Find training timing file
+        timing_files = list(models_dir.glob("training_timing_N*.txt"))
+
+        if not timing_files:
+            print(f"  Warning: No training timing file found in {models_dir}")
+            return None
+
+        timing_file = timing_files[0]
+        print(f"  Loading training timing from: {timing_file}")
+
+        timing_data = {"source_file": str(timing_file.relative_to(run_path.parent.parent))}
+
+        with open(timing_file, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if ':' in line and '=' not in line:
+                    key, value = line.split(':', 1)
+                    key = key.strip()
+                    value = value.strip()
+
+                    if key == "Number of training samples":
+                        timing_data['num_samples'] = int(value)
+                    elif key == "Training fraction":
+                        timing_data['training_fraction'] = float(value)
+                    elif key == "Batch size":
+                        timing_data['batch_size'] = int(value)
+                    elif key == "Max epochs":
+                        timing_data['max_epochs'] = int(value)
+                    elif key == "Training time" and "seconds" in value:
+                        match = re.search(r'(\d+\.?\d*)', value)
+                        if match:
+                            timing_data['training_time_seconds'] = float(match.group(1))
+                    elif key == "Training time" and "minutes" in value:
+                        match = re.search(r'(\d+\.?\d*)', value)
+                        if match:
+                            timing_data['training_time_minutes'] = float(match.group(1))
+
+        return timing_data
+
+    return (load_npe_training_timing,)
+
+
+@app.cell
+def _(Path, pd):
+    """Section 5: Helper function to parse NPE inference timing"""
+
+    def load_npe_inference_timing(npe_run_dir: str) -> pd.DataFrame:
+        """
+        Load NPE inference timing for all patients.
+
+        Parameters:
+        -----------
+        npe_run_dir : str
+            Path to NPE run directory
+
+        Returns:
+        --------
+        pd.DataFrame
+            DataFrame with columns: patient_id, num_samples, inference_time_seconds,
+            time_per_sample_ms, source_file
+        """
+        run_path = Path(npe_run_dir)
+        inference_dir = run_path / "inference"
+
+        if not inference_dir.exists():
+            print(f"  Warning: Inference directory not found: {inference_dir}")
+            return pd.DataFrame()
+
+        timing_data = []
+
+        # Iterate through patient directories
+        for patient_dir in sorted(inference_dir.iterdir()):
+            if not patient_dir.is_dir():
+                continue
+
+            timing_file = patient_dir / "inference_timing.txt"
+            if not timing_file.exists():
+                continue
+
+            patient_id = patient_dir.name
+            patient_timing = {
+                'patient_id': patient_id,
+                'source_file': str(timing_file.relative_to(run_path.parent.parent))
+            }
+
+            with open(timing_file, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    if ':' in line and '=' not in line:
+                        key, value = line.split(':', 1)
+                        key = key.strip()
+                        value = value.strip()
+
+                        if key == "Number of posterior samples":
+                            patient_timing['num_samples'] = int(value)
+                        elif key == "Inference time" and "seconds" in value:
+                            import re
+                            match = re.search(r'(\d+\.?\d*)', value)
+                            if match:
+                                patient_timing['inference_time_seconds'] = float(match.group(1))
+                        elif key == "Time per sample":
+                            import re
+                            match = re.search(r'(\d+\.?\d*)', value)
+                            if match:
+                                patient_timing['time_per_sample_ms'] = float(match.group(1))
+
+            timing_data.append(patient_timing)
+
+        df = pd.DataFrame(timing_data)
+        if not df.empty:
+            print(f"  Loaded inference timing for {len(df)} patients")
+        return df
+
+    return (load_npe_inference_timing,)
+
+
+@app.cell
+def _(Path, pd):
+    """Section 5: Helper function to parse PF timing"""
+
+    def load_pf_timing(pf_run_dir: str) -> pd.DataFrame:
+        """
+        Load Particle Filter timing for all patients.
+
+        Parameters:
+        -----------
+        pf_run_dir : str
+            Path to PF run directory
+
+        Returns:
+        --------
+        pd.DataFrame
+            DataFrame with columns: patient_id, total_time_seconds, time_per_sample_seconds,
+            num_samples, num_particles, horizon, num_workers, num_failed, source_file
+        """
+        run_path = Path(pf_run_dir)
+
+        if not run_path.exists():
+            print(f"  Warning: PF directory not found: {run_path}")
+            return pd.DataFrame()
+
+        timing_data = []
+
+        # Iterate through patient directories
+        for patient_dir in sorted(run_path.iterdir()):
+            if not patient_dir.is_dir():
+                continue
+
+            timing_file = patient_dir / "timing.txt"
+            if not timing_file.exists():
+                continue
+
+            patient_id = patient_dir.name
+            patient_timing = {
+                'patient_id': patient_id,
+                'source_file': str(timing_file.relative_to(run_path.parent.parent))
+            }
+
+            with open(timing_file, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    if ':' in line:
+                        key, value = line.split(':', 1)
+                        key = key.strip()
+                        value = value.strip()
+
+                        if key == "Total time":
+                            import re
+                            match = re.search(r'(\d+\.?\d*)', value)
+                            if match:
+                                patient_timing['total_time_seconds'] = float(match.group(1))
+                        elif key == "Time per sample":
+                            import re
+                            match = re.search(r'(\d+\.?\d*)', value)
+                            if match:
+                                patient_timing['time_per_sample_seconds'] = float(match.group(1))
+                        elif key == "Samples":
+                            patient_timing['num_samples'] = int(value)
+                        elif key == "Particles":
+                            patient_timing['num_particles'] = int(value)
+                        elif key == "Horizon":
+                            patient_timing['horizon'] = int(value)
+                        elif key == "Workers":
+                            patient_timing['num_workers'] = int(value)
+                        elif key == "Failed":
+                            patient_timing['num_failed'] = int(value)
+
+            timing_data.append(patient_timing)
+
+        df = pd.DataFrame(timing_data)
+        if not df.empty:
+            print(f"  Loaded PF timing for {len(df)} patients")
+        return df
+
+    return (load_pf_timing,)
+
+
+@app.cell
+def _(
+    TIMING_NPE_DIR,
+    TIMING_NPE_RUN,
+    load_npe_inference_timing,
+    load_npe_training_timing,
+):
+    """Section 5: Load NPE timing data"""
+
+    print(f"Loading NPE timing data from run: {TIMING_NPE_RUN}")
+    print("=" * 70)
+
+    # Load training timing
+    print("\n1. Training Timing:")
+    npe_training_timing = load_npe_training_timing(TIMING_NPE_DIR)
+
+    # Load inference timing
+    print("\n2. Inference Timing:")
+    npe_inference_timing_df = load_npe_inference_timing(TIMING_NPE_DIR)
+
+    print("\n" + "=" * 70)
+
+    return npe_inference_timing_df, npe_training_timing
+
+
+@app.cell
+def _(TIMING_PF_DIR, TIMING_PF_RUN, load_pf_timing):
+    """Section 5: Load PF timing data"""
+
+    print(f"\nLoading PF timing data from run: {TIMING_PF_RUN}")
+    print("=" * 70)
+
+    pf_timing_df = load_pf_timing(TIMING_PF_DIR)
+
+    if pf_timing_df.empty:
+        print("  No PF timing data available for this run")
+    print("=" * 70)
+
+    return (pf_timing_df,)
+
+
+@app.cell
+def _(mo, npe_training_timing, TIMING_NPE_RUN):
+    """Section 5: Display NPE training timing"""
+
+    if npe_training_timing is not None:
+        training_info = f"""
+        ### NPE Training Timing - Run: {TIMING_NPE_RUN}
+
+        **Configuration:**
+        - Training samples: {npe_training_timing.get('num_samples', 'N/A'):,}
+        - Training fraction: {npe_training_timing.get('training_fraction', 'N/A')}
+        - Batch size: {npe_training_timing.get('batch_size', 'N/A')}
+        - Max epochs: {npe_training_timing.get('max_epochs', 'N/A')}
+
+        **Training Time:**
+        - Total: **{npe_training_timing.get('training_time_seconds', 'N/A'):.2f} seconds** ({npe_training_timing.get('training_time_minutes', 'N/A'):.2f} minutes)
+
+        **Data Source:**
+        ```
+        {npe_training_timing.get('source_file', 'N/A')}
+        ```
+
+        **Note:** This is the time to train the neural density estimator on pre-generated
+        simulation data. Data generation time is not included in this metric.
+        """
+    else:
+        training_info = "### NPE Training Timing\n\n_No training timing data available_"
+
+    mo.md(training_info)
+    return
+
+
+@app.cell
+def _(mo, npe_inference_timing_df, np, TIMING_NPE_RUN):
+    """Section 5: Display NPE inference timing"""
+
+    if not npe_inference_timing_df.empty:
+        # Calculate summary statistics
+        mean_time = npe_inference_timing_df['inference_time_seconds'].mean()
+        median_time = npe_inference_timing_df['inference_time_seconds'].median()
+        min_time = npe_inference_timing_df['inference_time_seconds'].min()
+        max_time = npe_inference_timing_df['inference_time_seconds'].max()
+        total_time = npe_inference_timing_df['inference_time_seconds'].sum()
+
+        # Create display table
+        display_df = npe_inference_timing_df[['patient_id', 'num_samples',
+                                               'inference_time_seconds',
+                                               'time_per_sample_ms']].copy()
+        display_df.columns = ['Patient ID', 'Samples', 'Time (s)', 'Time/Sample (ms)']
+
+        inference_content = [
+            mo.md(f"""
+            ### NPE Inference Timing - Run: {TIMING_NPE_RUN}
+
+            **Summary Statistics:**
+            - Total patients: {len(npe_inference_timing_df)}
+            - Mean inference time: {mean_time:.2f} seconds
+            - Median inference time: {median_time:.2f} seconds
+            - Range: {min_time:.2f}s - {max_time:.2f}s
+            - Total inference time (all patients): {total_time:.2f} seconds ({total_time/60:.2f} minutes)
+
+            **Per-Patient Timing:**
+            """),
+            display_df,
+            mo.md("""
+            **Important Notes:**
+            - Inference time varies significantly across patients (see range above)
+            - This variation is due to **rejection sampling** in the posterior sampling algorithm
+            - Patients whose observations push the posterior toward prior boundaries require more
+              rejection iterations, leading to longer inference times
+            - This is NOT due to computational randomness, but is deterministic based on the
+              learned posterior and observation data
+            - For detailed explanation, see: `docs/npe_inference_timing.md`
+
+            **Data Sources:**
+            Each row loaded from: `results/npe/{run}/inference/<patient_id>/inference_timing.txt`
+            """)
+        ]
+    else:
+        inference_content = [mo.md("### NPE Inference Timing\n\n_No inference timing data available_")]
+
+    mo.vstack(inference_content)
+    return
+
+
+@app.cell
+def _(mo, pf_timing_df, TIMING_PF_RUN):
+    """Section 5: Display PF timing"""
+
+    if not pf_timing_df.empty:
+        # Calculate summary statistics
+        mean_total = pf_timing_df['total_time_seconds'].mean()
+        total_total = pf_timing_df['total_time_seconds'].sum()
+
+        # Create display table
+        display_pf_df = pf_timing_df[['patient_id', 'num_samples', 'num_particles',
+                                       'total_time_seconds', 'time_per_sample_seconds',
+                                       'num_workers']].copy()
+        display_pf_df.columns = ['Patient ID', 'Samples', 'Particles',
+                                  'Total Time (s)', 'Time/Sample (s)', 'Workers']
+
+        pf_content = [
+            mo.md(f"""
+            ### Particle Filter Timing - Run: {TIMING_PF_RUN}
+
+            **Summary Statistics:**
+            - Total patients: {len(pf_timing_df)}
+            - Mean total time: {mean_total:.2f} seconds ({mean_total/60:.2f} minutes)
+            - Total PF time (all patients): {total_total:.2f} seconds ({total_total/60:.2f} minutes)
+
+            **Per-Patient Timing:**
+            """),
+            display_pf_df,
+            mo.md("""
+            **Notes:**
+            - PF timing depends on: number of samples, particles, horizon, and parallel workers
+            - Wall-clock time reflects parallelization across workers
+            - CPU time would be approximately: `Total Time × Workers`
+
+            **Data Sources:**
+            Each row loaded from: `results/posterior_predictive/{run}/<patient_id>/timing.txt`
+            """)
+        ]
+    else:
+        pf_content = [mo.md(f"""
+        ### Particle Filter Timing - Run: {TIMING_PF_RUN}
+
+        _No PF timing data available for this run_
+
+        PF timing files are located at:
+        ```
+        results/posterior_predictive/<run>/<patient_id>/timing.txt
+        ```
+        """)]
+
+    mo.vstack(pf_content)
+    return
+
+
+@app.cell
+def _(mo, npe_inference_timing_df, npe_training_timing, pf_timing_df):
+    """Section 5: Timing comparison and methodology summary"""
+
+    # Check if we can do a comparison
+    can_compare = (not npe_inference_timing_df.empty and
+                   not pf_timing_df.empty and
+                   npe_training_timing is not None)
+
+    if can_compare:
+        # Find common patients
+        npe_patients = set(npe_inference_timing_df['patient_id'])
+        pf_patients = set(pf_timing_df['patient_id'])
+        common_patients = npe_patients & pf_patients
+
+        if common_patients:
+            comparison_md = f"""
+            ### Timing Comparison: NPE vs Particle Filter
+
+            **Common patients analyzed:** {len(common_patients)}
+
+            **NPE Total Pipeline Time:**
+            - Training: {npe_training_timing.get('training_time_seconds', 0):.2f}s (one-time cost, amortized across all patients)
+            - Inference (all patients): {npe_inference_timing_df['inference_time_seconds'].sum():.2f}s
+            - **Total**: {npe_training_timing.get('training_time_seconds', 0) + npe_inference_timing_df['inference_time_seconds'].sum():.2f}s
+
+            **PF Total Pipeline Time:**
+            - Total (all patients): {pf_timing_df['total_time_seconds'].sum():.2f}s
+
+            **Key Differences:**
+            - **NPE**: High upfront training cost, but very fast per-patient inference
+            - **PF**: No training phase, but slower per-patient runtime
+            - **Scalability**: NPE is more efficient when analyzing many patients (training cost is amortized)
+            - **Hardware**: NPE training benefits from GPU acceleration; these timings used GPU
+
+            **Methodology Notes:**
+
+            1. **NPE Training Time**: Measured from start to end of neural network training
+               - Source: `COVID_TEIVR_NPE.py` stage2_train() function (lines 371-416)
+               - Logs: `results/npe/<run>/models/training_timing_N<N>.txt`
+
+            2. **NPE Inference Time**: Measured for posterior sampling per patient
+               - Source: `COVID_TEIVR_NPE.py` stage3_infer() function (lines 481-535)
+               - Logs: `results/npe/<run>/inference/<patient_id>/inference_timing.txt`
+               - **Caveat**: Timing varies due to rejection sampling (see docs/npe_inference_timing.md)
+
+            3. **PF Runtime**: Wall-clock time for particle filter execution
+               - Source: `COVID_TEIVR_Predict.py` process_patient() function (lines 284-292)
+               - Logs: `results/posterior_predictive/<run>/<patient_id>/timing.txt`
+               - **Caveat**: Wall-clock time with {pf_timing_df['num_workers'].iloc[0] if not pf_timing_df.empty else 'N/A'} parallel workers
+
+            4. **Data Generation Time**: Currently not systematically logged
+               - Would be measured in stage1_simulate() if implemented
+               - Occurs before training, generates simulation dataset
+
+            **Interpretation:**
+            All times are wall-clock (elapsed) time, not CPU time. For fair comparison, consider:
+            - NPE used GPU for training (CPU times would be higher)
+            - PF used {pf_timing_df['num_workers'].iloc[0] if not pf_timing_df.empty else 'N/A'} parallel workers (serial time = wall-clock × workers)
+            - NPE inference time highly variable across patients due to rejection sampling
+            """
+        else:
+            comparison_md = """
+            ### Timing Comparison: NPE vs Particle Filter
+
+            _No common patients found between NPE and PF runs for comparison_
+            """
+    else:
+        # Summarize what data we have
+        have_npe_train = npe_training_timing is not None
+        have_npe_infer = not npe_inference_timing_df.empty
+        have_pf = not pf_timing_df.empty
+
+        comparison_md = f"""
+        ### Methodology: How Timing Data is Collected
+
+        **Available Timing Data:**
+        - NPE Training: {'✓ Available' if have_npe_train else '✗ Not available'}
+        - NPE Inference: {'✓ Available' if have_npe_infer else '✗ Not available'}
+        - Particle Filter: {'✓ Available' if have_pf else '✗ Not available'}
+
+        **NPE Timing Collection:**
+
+        1. **Training Time** (`stage2_train` in COVID_TEIVR_NPE.py):
+           - Logged in: `results/npe/<run>/models/training_timing_N<N>.txt`
+           - Measures: Wall-clock time to train neural density estimator
+           - Includes: Data loading, network training, validation
+           - Code location: Lines 371-416 in COVID_TEIVR_NPE.py
+
+        2. **Inference Time** (`stage3_infer` in COVID_TEIVR_NPE.py):
+           - Logged in: `results/npe/<run>/inference/<patient_id>/inference_timing.txt`
+           - Measures: Wall-clock time to draw posterior samples for one patient
+           - Code location: Lines 481-535 in COVID_TEIVR_NPE.py
+           - **Important**: Highly variable due to rejection sampling (see docs/npe_inference_timing.md)
+
+        3. **Data Generation Time** (currently not logged):
+           - Would be measured in `stage1_simulate`
+           - Would log simulation time for generating training data
+           - Code location: Lines 223-270 in COVID_TEIVR_NPE.py
+
+        **Particle Filter Timing Collection:**
+
+        1. **Runtime** (`process_patient` in COVID_TEIVR_Predict.py):
+           - Logged in: `results/posterior_predictive/<run>/<patient_id>/timing.txt`
+           - Measures: Wall-clock time for full PF execution
+           - Includes: All samples, particles, and prediction horizon
+           - Code location: Lines 284-292 in COVID_TEIVR_Predict.py
+
+        **Timing Caveats:**
+        - All times are **wall-clock time**, not CPU time
+        - NPE training used **GPU acceleration** (CPU times would be significantly higher)
+        - PF uses **parallel workers** (serial time ≈ wall-clock × num_workers)
+        - NPE inference time varies 100x+ across patients due to posterior geometry
+        - Data generation time is not systematically logged in current runs
+        """
+
+    mo.md(comparison_md)
     return
 
 

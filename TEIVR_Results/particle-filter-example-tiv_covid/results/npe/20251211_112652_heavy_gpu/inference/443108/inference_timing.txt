@@ -1,0 +1,6 @@
+Inference timing for patient 443108
+==================================================
+Number of posterior samples: 6000
+Inference time: 0.0832 seconds
+Inference time: 0.00 minutes
+Time per sample: 0.0139 ms

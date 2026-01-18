@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=64GB
-#SBATCH --time=12:00:00
+#SBATCH --time=24:00:00
 #SBATCH --partition=milan-c
 #SBATCH --gres=gpu:1
 
@@ -58,7 +58,7 @@ NUM_TRAJECTORIES=100000
 NUM_TIMEPOINTS=10
 NUM_WORKERS=16  # More parallel workers for faster simulation
 PATIENTS="all"
-NUM_SAMPLES=50000  # 5x more posterior samples for better resolution
+NUM_SAMPLES=6000  # To match standard particle filter
 BATCH_SIZE=256     # Larger batch size for more stable training
 MAX_EPOCHS=200     # More epochs to ensure convergence
 TRAINING_FRACTION=0.9  # Use more data for training with large dataset
