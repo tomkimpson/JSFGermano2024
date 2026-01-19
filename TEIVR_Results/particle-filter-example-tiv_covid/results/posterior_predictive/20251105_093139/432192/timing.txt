@@ -1,0 +1,7 @@
+Total time: 83.37 seconds
+Time per sample: 16.67 seconds
+Samples: 5
+Particles: 5
+Horizon: 14
+Workers: 8
+Failed: 5

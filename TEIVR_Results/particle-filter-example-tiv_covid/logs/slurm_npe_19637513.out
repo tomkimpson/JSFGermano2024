@@ -1,0 +1,195 @@
+==========================================
+Neural Posterior Estimation - COVID TIV
+==========================================
+Job ID: 19637513
+Node: spartan-gpgpu121
+Start time: Mon 08 Dec 2025 12:02:44 AEDT
+Working directory: /data/gpfs/projects/punim2780/NPE-light/TEIVR_Results/particle-filter-example-tiv_covid
+
+Python version:
+Python 3.9.21
+
+PyTorch version:
+2.1.0+cu121
+
+SBI version:
+0.22.0
+
+Configuration:
+  Number of trajectories: 10000
+  Number of timepoints: 10
+  Number of workers: 8
+  Patients: all
+  Posterior samples: 10000
+  Output directory: results/npe/20251205_110846
+  Skip simulate: true
+  Skip train: true
+  Skip infer: false
+
+Skipping Stage 1 (simulate)
+
+Skipping Stage 2 (train)
+
+==========================================
+STAGE 3: INFER
+==========================================
+
+======================================================================
+STAGE 3: INFERENCE ON PATIENT DATA
+======================================================================
+
+Loading posterior from results/npe/20251205_110846/models/posterior_N10000.pkl
+Posterior loaded successfully
+checking device
+
+Patients to process: ['432192', '443108', '444332', '444391', '445602', '451152']
+Number of posterior samples: 10000
+
+----------------------------------------------------------------------
+Processing patient: 432192
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Inference completed in 1.8003 seconds (0.03 minutes)
+
+Posterior summary:
+Parameter        Mean        Std       2.5%     Median      97.5%
+--------------------------------------------------------------
+lnV0           3.7299     1.0220     0.9277     3.9777     4.9553
+beta          15.4065     3.2681     7.7090    15.9452    19.7424
+phi            9.7404     3.6268     1.8052    10.7293    14.3633
+rho            0.0328     0.0291     0.0040     0.0327     0.0586
+delta          6.4479     2.5407     1.8626     6.4245    10.5612
+pi           428.7632   114.6249   216.3491   441.5233   591.2473
+
+Samples saved to: results/npe/20251205_110846/inference/432192/samples.npy
+Summary saved to: results/npe/20251205_110846/inference/432192/summary.csv
+Timing saved to: results/npe/20251205_110846/inference/432192/inference_timing.txt
+Generating diagnostic plots...
+Plots saved to: results/npe/20251205_110846/inference/432192/posterior_histograms.png
+
+----------------------------------------------------------------------
+Processing patient: 443108
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Inference completed in 0.0275 seconds (0.00 minutes)
+
+Posterior summary:
+Parameter        Mean        Std       2.5%     Median      97.5%
+--------------------------------------------------------------
+lnV0           3.8312     1.0208     1.1134     4.0836     4.9614
+beta          16.2794     2.8702     8.9656    16.8993    19.7079
+phi            9.0912     3.8758     1.3977     9.5223    14.4479
+rho            0.1215     0.1552     0.0170     0.0703     0.6873
+delta          5.4976     2.7083     1.2764     5.1710    10.3955
+pi           473.4980    97.6294   250.4159   491.4882   594.6692
+
+Samples saved to: results/npe/20251205_110846/inference/443108/samples.npy
+Summary saved to: results/npe/20251205_110846/inference/443108/summary.csv
+Timing saved to: results/npe/20251205_110846/inference/443108/inference_timing.txt
+Generating diagnostic plots...
+Plots saved to: results/npe/20251205_110846/inference/443108/posterior_histograms.png
+
+----------------------------------------------------------------------
+Processing patient: 444332
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Inference completed in 0.0274 seconds (0.00 minutes)
+
+Posterior summary:
+Parameter        Mean        Std       2.5%     Median      97.5%
+--------------------------------------------------------------
+lnV0           3.4287     1.0785     0.9243     3.6376     4.9237
+beta          15.1134     3.4857     7.3368    15.7832    19.6835
+phi            8.4023     3.7287     1.5482     8.6486    14.4634
+rho            0.4358     0.2621     0.0582     0.3905     0.9531
+delta          5.3612     2.6399     1.2676     5.1589    10.3506
+pi           438.5663   104.7772   226.6242   448.7129   590.8484
+
+Samples saved to: results/npe/20251205_110846/inference/444332/samples.npy
+Summary saved to: results/npe/20251205_110846/inference/444332/summary.csv
+Timing saved to: results/npe/20251205_110846/inference/444332/inference_timing.txt
+Generating diagnostic plots...
+Plots saved to: results/npe/20251205_110846/inference/444332/posterior_histograms.png
+
+----------------------------------------------------------------------
+Processing patient: 444391
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Inference completed in 0.0276 seconds (0.00 minutes)
+
+Posterior summary:
+Parameter        Mean        Std       2.5%     Median      97.5%
+--------------------------------------------------------------
+lnV0           3.7051     1.0411     1.0218     3.9386     4.9441
+beta          16.7116     2.6452    10.0790    17.3602    19.7696
+phi            8.1434     3.9566     1.1078     8.2025    14.4022
+rho            0.2737     0.2470     0.0290     0.1837     0.9149
+delta          4.8919     2.6507     1.1820     4.5248    10.2840
+pi           487.6813    91.5622   269.6501   509.6244   595.6914
+
+Samples saved to: results/npe/20251205_110846/inference/444391/samples.npy
+Summary saved to: results/npe/20251205_110846/inference/444391/summary.csv
+Timing saved to: results/npe/20251205_110846/inference/444391/inference_timing.txt
+Generating diagnostic plots...
+Plots saved to: results/npe/20251205_110846/inference/444391/posterior_histograms.png
+
+----------------------------------------------------------------------
+Processing patient: 445602
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Inference completed in 0.0278 seconds (0.00 minutes)
+
+Posterior summary:
+Parameter        Mean        Std       2.5%     Median      97.5%
+--------------------------------------------------------------
+lnV0           3.6055     1.0428     0.8786     3.8193     4.9386
+beta          14.7346     3.3713     7.2317    15.1738    19.5553
+phi            9.5134     3.7379     1.7128    10.1994    14.4109
+rho            0.0443     0.0569     0.0061     0.0382     0.1185
+delta          6.4842     2.5982     1.7923     6.5980    10.6579
+pi           408.4155   110.3802   213.4380   418.4254   587.3377
+
+Samples saved to: results/npe/20251205_110846/inference/445602/samples.npy
+Summary saved to: results/npe/20251205_110846/inference/445602/summary.csv
+Timing saved to: results/npe/20251205_110846/inference/445602/inference_timing.txt
+Generating diagnostic plots...
+Plots saved to: results/npe/20251205_110846/inference/445602/posterior_histograms.png
+
+----------------------------------------------------------------------
+Processing patient: 451152
+----------------------------------------------------------------------
+Loaded 10 observations
+Sampling 10000 samples from posterior...
+Inference completed in 0.0281 seconds (0.00 minutes)
+
+Posterior summary:
+Parameter        Mean        Std       2.5%     Median      97.5%
+--------------------------------------------------------------
+lnV0           3.8910     0.9846     1.1591     4.1251     4.9622
+beta          15.5157     3.1264     8.0758    16.0692    19.5943
+phi           10.4230     3.4127     2.4756    11.2831    14.5658
+rho            0.0613     0.0846     0.0086     0.0465     0.2421
+delta          6.2823     2.6023     1.6703     6.3492    10.5896
+pi           432.3376   106.9338   217.2310   441.9166   591.2314
+
+Samples saved to: results/npe/20251205_110846/inference/451152/samples.npy
+Summary saved to: results/npe/20251205_110846/inference/451152/summary.csv
+Timing saved to: results/npe/20251205_110846/inference/451152/inference_timing.txt
+Generating diagnostic plots...
+Plots saved to: results/npe/20251205_110846/inference/451152/posterior_histograms.png
+
+======================================================================
+Inference completed!
+======================================================================
+
+Stage 3 completed successfully!
+
+==========================================
+ALL STAGES COMPLETED
+==========================================
+End time: Mon 08 Dec 2025 12:03:04 AEDT

@@ -1,0 +1,28 @@
+/data/gpfs/projects/punim2780/NPE-light/TEIVR_Results/particle-filter-example-tiv_covid/venv-npe/lib64/python3.9/site-packages/sbi/utils/torchutils.py:27: UserWarning: GPU was selected as a device for training the neural network. Note that we expect no significant speed ups in training for the default architectures we provide. Using the GPU will be effective only for large neural networks with operations that are fast on the GPU, e.g., for a CNN or RNN `embedding_net`.
+  warnings.warn(
+/data/gpfs/projects/punim2780/NPE-light/TEIVR_Results/particle-filter-example-tiv_covid/venv-npe/lib64/python3.9/site-packages/sbi/utils/user_input_checks.py:720: UserWarning: Data x has device 'cpu'.Moving x to the data_device 'cuda:0'.Training will proceed on device 'cuda:0'.
+  warnings.warn(
+/data/gpfs/projects/punim2780/NPE-light/TEIVR_Results/particle-filter-example-tiv_covid/venv-npe/lib64/python3.9/site-packages/sbi/utils/user_input_checks.py:728: UserWarning: Parameters theta has device 'cpu'. Moving theta to the data_device 'cuda:0'.Training will proceed on device 'cuda:0'.
+  warnings.warn(
+/data/gpfs/projects/punim2780/NPE-light/TEIVR_Results/particle-filter-example-tiv_covid/venv-npe/lib64/python3.9/site-packages/sbi/utils/torchutils.py:27: UserWarning: GPU was selected as a device for training the neural network. Note that we expect no significant speed ups in training for the default architectures we provide. Using the GPU will be effective only for large neural networks with operations that are fast on the GPU, e.g., for a CNN or RNN `embedding_net`.
+  warnings.warn(
+
+real	4m8.688s
+user	4m4.122s
+sys	0m1.705s
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]/data/gpfs/projects/punim2780/NPE-light/TEIVR_Results/particle-filter-example-tiv_covid/venv-npe/lib64/python3.9/site-packages/nflows/transforms/lu.py:80: UserWarning: torch.triangular_solve is deprecated in favor of torch.linalg.solve_triangularand will be removed in a future PyTorch release.
+torch.linalg.solve_triangular has its arguments reversed and does not return a copy of one of the inputs.
+X = torch.triangular_solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve_triangular(A, B). (Triggered internally at ../aten/src/ATen/native/BatchLinearAlgebra.cpp:2192.)
+  outputs, _ = torch.triangular_solve(
+Drawing 10000 posterior samples:  92%|█████████▏| 9214/10000 [00:00<00:00, 29900.05it/s]Drawing 10000 posterior samples: 10403it [00:00, 32469.37it/s]                          
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]Drawing 10000 posterior samples: 10185it [00:00, 392143.96it/s]           
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]Drawing 10000 posterior samples: 10121it [00:00, 390095.21it/s]           
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]Drawing 10000 posterior samples: 10270it [00:00, 395413.01it/s]           
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]Drawing 10000 posterior samples: 10201it [00:00, 391487.82it/s]           
+Drawing 10000 posterior samples:   0%|          | 0/10000 [00:00<?, ?it/s]Drawing 10000 posterior samples: 10234it [00:00, 360313.50it/s]           
+
+real	0m10.444s
+user	0m8.425s
+sys	0m1.617s

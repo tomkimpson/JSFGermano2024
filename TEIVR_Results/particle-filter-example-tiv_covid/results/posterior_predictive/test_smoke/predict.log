@@ -1,0 +1,211 @@
+2025-11-04 18:42:31,704 - __main__ - INFO - ============================================================
+2025-11-04 18:42:31,705 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-04 18:42:31,705 - __main__ - INFO - ============================================================
+2025-11-04 18:42:31,705 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-04 18:42:31,705 - __main__ - INFO - Output directory: results/posterior_predictive/test_smoke
+2025-11-04 18:42:31,705 - __main__ - INFO - Configuration: config/npe_config.toml
+2025-11-04 18:42:31,705 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-04 18:42:31,705 - __main__ - INFO - Number of samples: 5
+2025-11-04 18:42:31,705 - __main__ - INFO - Particles per filter: 100
+2025-11-04 18:42:31,705 - __main__ - INFO - Prediction horizon: 3 days
+2025-11-04 18:42:31,705 - __main__ - INFO - Random seed: 42
+2025-11-04 18:42:31,705 - __main__ - INFO - Parallel workers: 1
+2025-11-04 18:42:31,705 - __main__ - INFO - Processing 1 patients: ['432192']
+2025-11-04 18:42:31,705 - __main__ - INFO - 
+============================================================
+2025-11-04 18:42:31,705 - __main__ - INFO - Processing patient: 432192
+2025-11-04 18:42:31,706 - __main__ - INFO - ============================================================
+2025-11-04 18:42:31,706 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-04 18:42:31,706 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-04 18:42:52,701 - arviz.preview - INFO - arviz_base not installed
+2025-11-04 18:42:52,701 - arviz.preview - INFO - arviz_stats not installed
+2025-11-04 18:42:52,701 - arviz.preview - INFO - arviz_plots not installed
+2025-11-04 18:42:53,419 - __main__ - ERROR - Failed to process patient 432192: '<' not supported between instances of 'int' and 'NoneType'
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 409, in main
+    process_patient(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 190, in process_patient
+    theta_samples, metadata = pp.load_posterior_and_samples(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 73, in load_posterior_and_samples
+    times, observations = npe_utils.load_patient_data(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/npe_utils.py", line 220, in load_patient_data
+    if len(times) < n_timepoints:
+TypeError: '<' not supported between instances of 'int' and 'NoneType'
+2025-11-04 18:42:53,421 - __main__ - INFO - 
+============================================================
+2025-11-04 18:42:53,422 - __main__ - INFO - All patients completed in 21.7s
+2025-11-04 18:42:53,422 - __main__ - INFO - Results saved to: results/posterior_predictive/test_smoke
+2025-11-04 18:42:53,422 - __main__ - INFO - ============================================================
+2025-11-04 18:49:08,134 - __main__ - INFO - ============================================================
+2025-11-04 18:49:08,135 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-04 18:49:08,135 - __main__ - INFO - ============================================================
+2025-11-04 18:49:08,135 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-04 18:49:08,135 - __main__ - INFO - Output directory: results/posterior_predictive/test_smoke
+2025-11-04 18:49:08,135 - __main__ - INFO - Configuration: config/npe_config.toml
+2025-11-04 18:49:08,135 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-04 18:49:08,135 - __main__ - INFO - Number of samples: 5
+2025-11-04 18:49:08,135 - __main__ - INFO - Particles per filter: 100
+2025-11-04 18:49:08,135 - __main__ - INFO - Prediction horizon: 3 days
+2025-11-04 18:49:08,135 - __main__ - INFO - Random seed: 42
+2025-11-04 18:49:08,135 - __main__ - INFO - Parallel workers: 1
+2025-11-04 18:49:08,135 - __main__ - INFO - Processing 1 patients: ['432192']
+2025-11-04 18:49:08,135 - __main__ - INFO - 
+============================================================
+2025-11-04 18:49:08,135 - __main__ - INFO - Processing patient: 432192
+2025-11-04 18:49:08,135 - __main__ - INFO - ============================================================
+2025-11-04 18:49:08,135 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-04 18:49:08,136 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-04 18:49:09,337 - arviz.preview - INFO - arviz_base not installed
+2025-11-04 18:49:09,337 - arviz.preview - INFO - arviz_stats not installed
+2025-11-04 18:49:09,337 - arviz.preview - INFO - arviz_plots not installed
+2025-11-04 18:49:09,445 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-04 18:49:09,455 - __main__ - ERROR - Failed to process patient 432192: Observed data shape (torch.Size([1, 14])) must match the shape of simulated data x (torch.Size([1, 10])).
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 409, in main
+    process_patient(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 190, in process_patient
+    theta_samples, metadata = pp.load_posterior_and_samples(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 96, in load_posterior_and_samples
+    theta_tensor = posterior.sample((num_samples,), x=x_obs)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/sbi/inference/posteriors/direct_posterior.py", line 104, in sample
+    x = self._x_else_default_x(x)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/sbi/inference/posteriors/base_posterior.py", line 137, in _x_else_default_x
+    return process_x(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/venv/lib/python3.10/site-packages/sbi/utils/user_input_checks.py", line 601, in process_x
+    assert input_x_shape[start_idx:] == x_shape[start_idx:], (
+AssertionError: Observed data shape (torch.Size([1, 14])) must match the shape of simulated data x (torch.Size([1, 10])).
+2025-11-04 18:49:09,511 - __main__ - INFO - 
+============================================================
+2025-11-04 18:49:09,511 - __main__ - INFO - All patients completed in 1.4s
+2025-11-04 18:49:09,511 - __main__ - INFO - Results saved to: results/posterior_predictive/test_smoke
+2025-11-04 18:49:09,511 - __main__ - INFO - ============================================================
+2025-11-04 18:50:15,258 - __main__ - INFO - ============================================================
+2025-11-04 18:50:15,258 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-04 18:50:15,258 - __main__ - INFO - ============================================================
+2025-11-04 18:50:15,258 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-04 18:50:15,258 - __main__ - INFO - Output directory: results/posterior_predictive/test_smoke
+2025-11-04 18:50:15,258 - __main__ - INFO - Configuration: config/npe_config.toml
+2025-11-04 18:50:15,258 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-04 18:50:15,258 - __main__ - INFO - Number of samples: 5
+2025-11-04 18:50:15,259 - __main__ - INFO - Particles per filter: 100
+2025-11-04 18:50:15,259 - __main__ - INFO - Prediction horizon: 3 days
+2025-11-04 18:50:15,259 - __main__ - INFO - Random seed: 42
+2025-11-04 18:50:15,259 - __main__ - INFO - Parallel workers: 1
+2025-11-04 18:50:15,259 - __main__ - INFO - Processing 1 patients: ['432192']
+2025-11-04 18:50:15,259 - __main__ - INFO - 
+============================================================
+2025-11-04 18:50:15,259 - __main__ - INFO - Processing patient: 432192
+2025-11-04 18:50:15,259 - __main__ - INFO - ============================================================
+2025-11-04 18:50:15,259 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-04 18:50:15,259 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-04 18:50:16,485 - arviz.preview - INFO - arviz_base not installed
+2025-11-04 18:50:16,485 - arviz.preview - INFO - arviz_stats not installed
+2025-11-04 18:50:16,485 - arviz.preview - INFO - arviz_plots not installed
+2025-11-04 18:50:16,534 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-04 18:50:16,898 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-04 18:50:16,898 - __main__ - INFO - Prediction horizon: H=3 days beyond observations
+2025-11-04 18:50:16,898 - __main__ - ERROR - Failed to process patient 432192: [Errno 2] No such file or directory: 'config/npe_config.toml'
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 409, in main
+    process_patient(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 202, in process_patient
+    config = npe_utils.load_config(config_path)
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/npe_utils.py", line 33, in load_config
+    with open(config_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'config/npe_config.toml'
+2025-11-04 18:50:16,898 - __main__ - INFO - 
+============================================================
+2025-11-04 18:50:16,898 - __main__ - INFO - All patients completed in 1.6s
+2025-11-04 18:50:16,898 - __main__ - INFO - Results saved to: results/posterior_predictive/test_smoke
+2025-11-04 18:50:16,898 - __main__ - INFO - ============================================================
+2025-11-04 18:52:04,889 - __main__ - INFO - ============================================================
+2025-11-04 18:52:04,889 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-04 18:52:04,889 - __main__ - INFO - ============================================================
+2025-11-04 18:52:04,889 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-04 18:52:04,889 - __main__ - INFO - Output directory: results/posterior_predictive/test_smoke
+2025-11-04 18:52:04,889 - __main__ - INFO - Configuration: config/cli-refractory-tiv-jsf.toml
+2025-11-04 18:52:04,889 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-04 18:52:04,890 - __main__ - INFO - Number of samples: 5
+2025-11-04 18:52:04,890 - __main__ - INFO - Particles per filter: 100
+2025-11-04 18:52:04,890 - __main__ - INFO - Prediction horizon: 3 days
+2025-11-04 18:52:04,890 - __main__ - INFO - Random seed: 42
+2025-11-04 18:52:04,890 - __main__ - INFO - Parallel workers: 1
+2025-11-04 18:52:04,890 - __main__ - INFO - Processing 1 patients: ['432192']
+2025-11-04 18:52:04,890 - __main__ - INFO - 
+============================================================
+2025-11-04 18:52:04,890 - __main__ - INFO - Processing patient: 432192
+2025-11-04 18:52:04,890 - __main__ - INFO - ============================================================
+2025-11-04 18:52:04,890 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-04 18:52:04,890 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-04 18:52:06,198 - arviz.preview - INFO - arviz_base not installed
+2025-11-04 18:52:06,198 - arviz.preview - INFO - arviz_stats not installed
+2025-11-04 18:52:06,198 - arviz.preview - INFO - arviz_plots not installed
+2025-11-04 18:52:06,251 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-04 18:52:06,261 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-04 18:52:06,261 - __main__ - INFO - Prediction horizon: H=3 days beyond observations
+2025-11-04 18:52:06,262 - __main__ - INFO - Processing 5 samples with 100 particles each
+2025-11-04 18:52:06,263 - __main__ - INFO - Using sequential processing
+2025-11-04 18:52:06,264 - __main__ - ERROR - Sample 0: Failed with error: 'scenario'
+2025-11-04 18:52:06,266 - __main__ - ERROR - Sample 1: Failed with error: 'scenario'
+2025-11-04 18:52:06,267 - __main__ - ERROR - Sample 2: Failed with error: 'scenario'
+2025-11-04 18:52:06,268 - __main__ - ERROR - Sample 3: Failed with error: 'scenario'
+2025-11-04 18:52:06,269 - __main__ - ERROR - Sample 4: Failed with error: 'scenario'
+2025-11-04 18:52:06,273 - __main__ - WARNING - 5/5 samples failed
+2025-11-04 18:52:06,274 - __main__ - INFO - Saving results to results/posterior_predictive/test_smoke/432192
+2025-11-04 18:52:06,310 - __main__ - ERROR - Failed to process patient 432192: Object of type int64 is not JSON serializable
+Traceback (most recent call last):
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 409, in main
+    process_patient(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/COVID_TEIVR_Predict.py", line 259, in process_patient
+    pp.save_predictions(
+  File "/fred/oz022/tkimpson/sandbox/TEIVR/JSFGermano2024/TEIVR_Results/particle-filter-example-tiv_covid/src/posterior_predictive.py", line 489, in save_predictions
+    json.dump(meta_save, f, indent=2)
+  File "/fred/oz022/tkimpson/miniconda3/lib/python3.10/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/fred/oz022/tkimpson/miniconda3/lib/python3.10/json/encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/fred/oz022/tkimpson/miniconda3/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/fred/oz022/tkimpson/miniconda3/lib/python3.10/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/fred/oz022/tkimpson/miniconda3/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type int64 is not JSON serializable
+2025-11-04 18:52:06,359 - __main__ - INFO - 
+============================================================
+2025-11-04 18:52:06,359 - __main__ - INFO - All patients completed in 1.5s
+2025-11-04 18:52:06,359 - __main__ - INFO - Results saved to: results/posterior_predictive/test_smoke
+2025-11-04 18:52:06,359 - __main__ - INFO - ============================================================
+2025-11-04 18:57:45,046 - __main__ - INFO - ============================================================
+2025-11-04 18:57:45,046 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-04 18:57:45,046 - __main__ - INFO - ============================================================
+2025-11-04 18:57:45,046 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-04 18:57:45,046 - __main__ - INFO - Output directory: results/posterior_predictive/test_smoke
+2025-11-04 18:57:45,046 - __main__ - INFO - Configuration: config/cli-refractory-tiv-jsf.toml
+2025-11-04 18:57:45,046 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-04 18:57:45,046 - __main__ - INFO - Number of samples: 5
+2025-11-04 18:57:45,047 - __main__ - INFO - Particles per filter: 100
+2025-11-04 18:57:45,047 - __main__ - INFO - Prediction horizon: 3 days
+2025-11-04 18:57:45,047 - __main__ - INFO - Random seed: 42
+2025-11-04 18:57:45,047 - __main__ - INFO - Parallel workers: 1
+2025-11-04 18:57:45,047 - __main__ - INFO - Processing 1 patients: ['432192']
+2025-11-04 18:57:45,047 - __main__ - INFO - 
+============================================================
+2025-11-04 18:57:45,047 - __main__ - INFO - Processing patient: 432192
+2025-11-04 18:57:45,047 - __main__ - INFO - ============================================================
+2025-11-04 18:57:45,047 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-04 18:57:45,047 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-04 18:57:46,432 - arviz.preview - INFO - arviz_base not installed
+2025-11-04 18:57:46,433 - arviz.preview - INFO - arviz_stats not installed
+2025-11-04 18:57:46,433 - arviz.preview - INFO - arviz_plots not installed
+2025-11-04 18:57:46,488 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-04 18:57:46,498 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-04 18:57:46,498 - __main__ - INFO - Prediction horizon: H=3 days beyond observations
+2025-11-04 18:57:46,499 - __main__ - INFO - Processing 5 samples with 100 particles each
+2025-11-04 18:57:46,499 - __main__ - INFO - Using sequential processing
+2025-11-04 18:57:47,424 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-04 18:57:47,450 - pypfilt - INFO -   18:57:47  Estimating  from 0.0 to 14.0
+2025-11-04 19:12:37,817 - pypfilt - INFO -   19:12:37  Forecasting from 14.0 to 21.0
+2025-11-04 19:19:52,094 - __main__ - ERROR - Sample 0: Failed with error: 'Result' object has no attribute 'state_vec'
+2025-11-04 19:19:52,105 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-04 19:19:52,142 - pypfilt - INFO -   19:19:52  Estimating  from 0.0 to 14.0

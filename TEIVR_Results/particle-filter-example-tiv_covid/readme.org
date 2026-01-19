@@ -69,14 +69,12 @@ Look in the output directory for the results.
 
 * Environment
 
+** REQUIRED: Setting up the virtual environment
+
+*IMPORTANT:* You MUST set up a virtual environment before running any code in this project.
+
 The [[file:./requirements.txt][requirements.txt]] file contains a description of the packages (and
-versions) needed to run this. You can use this the requirements file to construct a virtual environment with the required packages.
-
-** Setting up the environment
-
-*YOU MUST INSTALL A LOCAL COPY OF JSF FOR THIS TO WORK*
-
-Use the following to set up a virtual environment.
+versions) needed to run this. Use the following commands to create and set up the virtual environment.
 
 #+begin_src sh
   python3 -m venv venv
@@ -85,7 +83,7 @@ Use the following to set up a virtual environment.
   pip install -r requirements.txt
 #+end_src
 
-TODO - Explain how to install a local copy of jsf by cloning the package from GitHub.
+*NOTE:* The requirements.txt file includes jsf==0.1, which will be installed from PyPI. If you need to use a local/development copy of JSF instead, you will need to clone the JSF repository from GitHub and install it using =pip install -e /path/to/jsf=.
 
 TODO - Explain that you need to run the COVID.*py script to run the actual compute.
 

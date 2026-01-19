@@ -1,0 +1,10 @@
+Training timing for N=100000 trajectories
+==================================================
+Number of training samples: 100000
+Training fraction: 0.9
+Validation fraction: 0.09999999999999998
+Batch size: 256
+Max epochs: 200
+Training time: 927.03 seconds
+Training time: 15.45 minutes
+Training time: 0.26 hours

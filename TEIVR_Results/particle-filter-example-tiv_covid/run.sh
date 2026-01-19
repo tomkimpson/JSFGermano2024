@@ -1,15 +1,15 @@
 #!/bin/bash
 #SBATCH --job-name=covid_tiv_inference
-#SBATCH --output=slurm_%j.out
-#SBATCH --error=slurm_%j.err
+#SBATCH --output=logs/slurm_%j.out
+#SBATCH --error=logs/slurm_%j.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=24GB
 #SBATCH --time=24:00:00
 
 # Optional: Uncomment to receive email notifications
-# #SBATCH --mail-type=END,FAIL
-# #SBATCH --mail-user=your.email@example.com
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=tomkimpson@gmail.com
 
 # Print job information
 echo "Job ID: $SLURM_JOB_ID"

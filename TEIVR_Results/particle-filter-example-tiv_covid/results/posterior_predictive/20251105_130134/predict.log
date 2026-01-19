@@ -1,0 +1,43 @@
+2025-11-05 13:01:34,381 - __main__ - INFO - ============================================================
+2025-11-05 13:01:34,382 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-05 13:01:34,382 - __main__ - INFO - ============================================================
+2025-11-05 13:01:34,382 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-05 13:01:34,382 - __main__ - INFO - Output directory: results/posterior_predictive/20251105_130134
+2025-11-05 13:01:34,382 - __main__ - INFO - Configuration: config/cli-refractory-tiv-jsf.toml
+2025-11-05 13:01:34,382 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-05 13:01:34,382 - __main__ - INFO - Number of samples: 1
+2025-11-05 13:01:34,382 - __main__ - INFO - Particles per filter: 10
+2025-11-05 13:01:34,382 - __main__ - INFO - Prediction horizon: 1 days
+2025-11-05 13:01:34,382 - __main__ - INFO - Random seed: 123
+2025-11-05 13:01:34,382 - __main__ - INFO - Parallel workers: 1
+2025-11-05 13:01:34,382 - __main__ - INFO - Processing 1 patients: ['432192']
+2025-11-05 13:01:34,382 - __main__ - INFO - 
+============================================================
+2025-11-05 13:01:34,382 - __main__ - INFO - Processing patient: 432192
+2025-11-05 13:01:34,383 - __main__ - INFO - ============================================================
+2025-11-05 13:01:34,383 - __main__ - INFO - Loading posterior and sampling 1 parameter sets
+2025-11-05 13:01:34,383 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 13:01:37,295 - arviz.preview - INFO - arviz_base not installed
+2025-11-05 13:01:37,295 - arviz.preview - INFO - arviz_stats not installed
+2025-11-05 13:01:37,295 - arviz.preview - INFO - arviz_plots not installed
+2025-11-05 13:01:37,433 - src.posterior_predictive - INFO - Sampling 1 parameter sets from posterior
+2025-11-05 13:01:37,588 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 13:01:37,588 - __main__ - INFO - Prediction horizon: H=1 days beyond observations
+2025-11-05 13:01:37,590 - __main__ - INFO - Processing 1 samples with 10 particles each
+2025-11-05 13:01:37,590 - __main__ - INFO - Using sequential processing
+2025-11-05 13:01:37,689 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 13:01:37,737 - pypfilt - INFO -   13:01:37  Estimating  from 0.0 to 14.0
+2025-11-05 13:03:22,089 - pypfilt - INFO -   13:03:22  Forecasting from 14.0 to 21.0
+2025-11-05 13:04:04,121 - __main__ - INFO - Sample 0: Extracted filter trajectory over 15 timepoints
+2025-11-05 13:04:04,128 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 13:04:04,128 - __main__ - INFO - Sample 0: Simulating 1 days forward
+2025-11-05 13:04:05,115 - __main__ - INFO - Sample 0: Complete
+2025-11-05 13:04:05,116 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_130134/432192
+2025-11-05 13:04:05,212 - src.posterior_predictive - INFO - Filter trajectories saved
+2025-11-05 13:04:05,212 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_130134/432192
+2025-11-05 13:04:05,212 - __main__ - INFO - Patient 432192 completed in 150.8s (150.83s per sample)
+2025-11-05 13:04:05,257 - __main__ - INFO - 
+============================================================
+2025-11-05 13:04:05,257 - __main__ - INFO - All patients completed in 150.9s
+2025-11-05 13:04:05,257 - __main__ - INFO - Results saved to: results/posterior_predictive/20251105_130134
+2025-11-05 13:04:05,257 - __main__ - INFO - ============================================================

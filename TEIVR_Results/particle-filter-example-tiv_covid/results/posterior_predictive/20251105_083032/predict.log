@@ -1,0 +1,852 @@
+2025-11-05 08:30:32,452 - __main__ - INFO - ============================================================
+2025-11-05 08:30:32,453 - __main__ - INFO - COVID TIV Posterior Predictive Simulation
+2025-11-05 08:30:32,453 - __main__ - INFO - ============================================================
+2025-11-05 08:30:32,453 - __main__ - INFO - Posterior run: results/npe/20250103_existing_primary
+2025-11-05 08:30:32,453 - __main__ - INFO - Output directory: results/posterior_predictive/20251105_083032
+2025-11-05 08:30:32,453 - __main__ - INFO - Configuration: config/cli-refractory-tiv-jsf.toml
+2025-11-05 08:30:32,453 - __main__ - INFO - pypfilt config: config/cli-refractory-tiv-jsf.toml
+2025-11-05 08:30:32,453 - __main__ - INFO - Number of samples: 5
+2025-11-05 08:30:32,453 - __main__ - INFO - Particles per filter: 5
+2025-11-05 08:30:32,453 - __main__ - INFO - Prediction horizon: 14 days
+2025-11-05 08:30:32,453 - __main__ - INFO - Random seed: 42
+2025-11-05 08:30:32,453 - __main__ - INFO - Parallel workers: 8
+2025-11-05 08:30:32,454 - __main__ - INFO - Auto-detected 6 patients: ['432192', '443108', '444332', '444391', '445602', '451152']
+2025-11-05 08:30:32,454 - __main__ - INFO - 
+============================================================
+2025-11-05 08:30:32,454 - __main__ - INFO - Processing patient: 432192
+2025-11-05 08:30:32,454 - __main__ - INFO - ============================================================
+2025-11-05 08:30:32,454 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 08:30:32,455 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 08:30:33,641 - arviz.preview - INFO - arviz_base not installed
+2025-11-05 08:30:33,641 - arviz.preview - INFO - arviz_stats not installed
+2025-11-05 08:30:33,641 - arviz.preview - INFO - arviz_plots not installed
+2025-11-05 08:30:33,690 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 08:30:33,706 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 08:30:33,706 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 08:30:33,707 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 08:30:33,708 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 08:30:33,798 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 08:30:33,798 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 08:30:33,798 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 08:30:33,798 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 08:30:33,799 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 08:30:33,816 - pypfilt - INFO -   08:30:33  Estimating  from 0.0 to 14.0
+2025-11-05 08:30:33,817 - pypfilt - INFO -   08:30:33  Estimating  from 0.0 to 14.0
+2025-11-05 08:30:33,817 - pypfilt - INFO -   08:30:33  Estimating  from 0.0 to 14.0
+2025-11-05 08:30:33,817 - pypfilt - INFO -   08:30:33  Estimating  from 0.0 to 14.0
+2025-11-05 08:30:33,817 - pypfilt - INFO -   08:30:33  Estimating  from 0.0 to 14.0
+2025-11-05 08:30:37,652 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:30:37,652 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:30:37,652 - pypfilt.resample - WARNING - Minimum values: [6.72318902e-02 3.15891590e+00 2.49790332e+00 7.00802654e-02
+ 1.11168723e+00 2.20653315e+02]
+2025-11-05 08:30:37,652 - pypfilt.resample - WARNING - Maximum values: [  4.25095322  16.26779116  12.47232573   0.86292134  10.20706639
+ 533.59201554]
+2025-11-05 08:30:37,652 - pypfilt.resample - WARNING - Mean values:    [  2.29680684   9.61654513   7.32157576   0.49866606   5.97881632
+ 384.45919648]
+2025-11-05 08:30:37,652 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 3.68849370e-01 -5.38899862e+00  4.11383542e+00 -3.23472239e-01
+        -8.64625461e-01 -1.27415604e+02]
+       [-5.38899862e+00  8.50173604e+01 -6.46938552e+01  5.13183848e+00
+         1.34854507e+01  2.02598248e+03]
+       [ 4.11383542e+00 -6.46938552e+01  4.92382974e+01 -3.90293440e+00
+        -1.02432833e+01 -1.54078770e+03]
+       [-3.23472239e-01  5.13183848e+00 -3.90293440e+00  3.10473693e-01
+         8.23269633e-01  1.22557283e+02]
+       [-8.64625461e-01  1.34854507e+01 -1.02432833e+01  8.23269633e-01
+         2.31648986e+00  3.24272728e+02]
+       [-1.27415604e+02  2.02598248e+03 -1.54078770e+03  1.22557283e+02
+         3.24272728e+02  4.83847477e+04]]
+2025-11-05 08:30:42,578 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:30:42,579 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:30:42,579 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 08:30:42,579 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 08:30:42,579 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 08:30:42,579 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 4.28100636e+00  1.40081583e+01  1.15796782e+01 -2.60615758e-02
+         3.11818352e+00 -1.32183606e+02]
+       [ 1.40081583e+01  7.86396829e+01  4.30201426e+01 -1.24822326e+00
+         1.43056517e+01 -8.46805889e+02]
+       [ 1.15796782e+01  4.30201426e+01  3.70008616e+01 -4.15331069e-02
+         7.42786685e+00 -2.87886268e+02]
+       [-2.60615758e-02 -1.24822326e+00 -4.15331069e-02  6.39960373e-02
+        -1.04430852e-01  2.14020366e+01]
+       [ 3.11818352e+00  1.43056517e+01  7.42786685e+00 -1.04430852e-01
+         4.61742459e+00 -1.92563350e+02]
+       [-1.32183606e+02 -8.46805889e+02 -2.87886268e+02  2.14020366e+01
+        -1.92563350e+02  1.30202835e+04]]
+2025-11-05 08:30:44,254 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:30:44,254 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:30:44,254 - pypfilt.resample - WARNING - Minimum values: [2.46186895e-01 2.54051465e+00 1.86636428e+00 1.46257812e-01
+ 1.89343442e+00 2.65430277e+02]
+2025-11-05 08:30:44,254 - pypfilt.resample - WARNING - Maximum values: [  4.08088209  17.31302921  12.92705913   0.88175062  10.69404176
+ 574.28927517]
+2025-11-05 08:30:44,255 - pypfilt.resample - WARNING - Mean values:    [  2.45698667  10.30281936   7.93806667   0.4742918    6.23933118
+ 419.3258669 ]
+2025-11-05 08:30:44,255 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 1.00037001e+00 -2.61507214e+00  2.86290793e+00  4.31324361e-01
+        -1.71281696e+00  1.23607712e+02]
+       [-2.61507214e+00  8.13973037e+00 -6.42678900e+00 -1.14101415e+00
+         5.13058064e+00 -3.50379502e+02]
+       [ 2.86290793e+00 -6.42678900e+00  9.05056654e+00  1.22345152e+00
+        -4.37223695e+00  3.31644304e+02]
+       [ 4.31324361e-01 -1.14101415e+00  1.22345152e+00  1.86111571e-01
+        -7.45264264e-01  5.35773042e+01]
+       [-1.71281696e+00  5.13058064e+00 -4.37223695e+00 -7.45264264e-01
+         3.25985235e+00 -2.25293976e+02]
+       [ 1.23607712e+02 -3.50379502e+02  3.31644304e+02  5.35773042e+01
+        -2.25293976e+02  1.58430855e+04]]
+2025-11-05 08:30:50,340 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:30:50,341 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:30:50,341 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 08:30:50,341 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 08:30:50,341 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 08:30:50,341 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 2.37562836e+00  6.87981710e+00  9.28585498e+00 -3.79858191e-01
+         3.68174563e+00 -2.25706882e+02]
+       [ 6.87981710e+00  1.99384369e+01  2.69009722e+01 -1.10091172e+00
+         1.06595568e+01 -6.53564072e+02]
+       [ 9.28585498e+00  2.69009722e+01  3.63023177e+01 -1.48532139e+00
+         1.43894547e+01 -8.82190705e+02]
+       [-3.79858191e-01 -1.10091172e+00 -1.48532139e+00  6.07875696e-02
+        -5.88542379e-01  3.60852612e+01]
+       [ 3.68174563e+00  1.06595568e+01  1.43894547e+01 -5.88542379e-01
+         5.70649553e+00 -3.49816072e+02]
+       [-2.25706882e+02 -6.53564072e+02 -8.82190705e+02  3.60852612e+01
+        -3.49816072e+02  2.14447352e+04]]
+2025-11-05 08:31:16,660 - pypfilt - INFO -   08:31:16  Forecasting from 14.0 to 21.0
+2025-11-05 08:31:20,092 - pypfilt - INFO -   08:31:20  Forecasting from 14.0 to 21.0
+2025-11-05 08:31:21,603 - pypfilt - INFO -   08:31:21  Forecasting from 14.0 to 21.0
+2025-11-05 08:31:27,492 - pypfilt - INFO -   08:31:27  Forecasting from 14.0 to 21.0
+2025-11-05 08:31:29,677 - pypfilt - INFO -   08:31:29  Forecasting from 14.0 to 21.0
+2025-11-05 08:31:38,191 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 08:31:38,191 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 08:31:41,661 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 08:31:41,661 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 08:31:43,308 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 08:31:43,309 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 08:31:49,040 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 08:31:49,040 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 08:31:52,302 - __main__ - INFO - Sample 4: Complete
+2025-11-05 08:31:52,334 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 08:31:52,334 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 08:31:56,147 - __main__ - INFO - Sample 1: Complete
+2025-11-05 08:31:57,758 - __main__ - INFO - Sample 3: Complete
+2025-11-05 08:32:03,416 - __main__ - INFO - Sample 2: Complete
+2025-11-05 08:32:06,455 - __main__ - INFO - Sample 0: Complete
+2025-11-05 08:32:06,473 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_083032/432192
+2025-11-05 08:32:06,607 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_083032/432192
+2025-11-05 08:32:06,608 - __main__ - INFO - Patient 432192 completed in 94.2s (18.83s per sample)
+2025-11-05 08:32:06,623 - __main__ - INFO - 
+============================================================
+2025-11-05 08:32:06,624 - __main__ - INFO - Processing patient: 443108
+2025-11-05 08:32:06,624 - __main__ - INFO - ============================================================
+2025-11-05 08:32:06,624 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 08:32:06,625 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 08:32:06,654 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 08:32:06,661 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 08:32:06,661 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 08:32:06,662 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 08:32:06,662 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 08:32:06,744 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 08:32:06,744 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 08:32:06,744 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 08:32:06,744 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 08:32:06,745 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 08:32:06,763 - pypfilt - INFO -   08:32:06  Estimating  from 0.0 to 14.0
+2025-11-05 08:32:06,763 - pypfilt - INFO -   08:32:06  Estimating  from 0.0 to 14.0
+2025-11-05 08:32:06,763 - pypfilt - INFO -   08:32:06  Estimating  from 0.0 to 14.0
+2025-11-05 08:32:06,763 - pypfilt - INFO -   08:32:06  Estimating  from 0.0 to 14.0
+2025-11-05 08:32:06,763 - pypfilt - INFO -   08:32:06  Estimating  from 0.0 to 14.0
+2025-11-05 08:32:10,983 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:32:10,983 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:32:10,984 - pypfilt.resample - WARNING - Minimum values: [6.72318902e-02 3.15891590e+00 2.49790332e+00 7.00802654e-02
+ 1.11168723e+00 2.20653315e+02]
+2025-11-05 08:32:10,984 - pypfilt.resample - WARNING - Maximum values: [  4.25095322  16.26779116  12.47232573   0.86292134  10.20706639
+ 533.59201554]
+2025-11-05 08:32:10,984 - pypfilt.resample - WARNING - Mean values:    [  2.29680684   9.61654513   7.32157576   0.49866606   5.97881632
+ 384.45919648]
+2025-11-05 08:32:10,984 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 1.04847550e+00 -7.84170525e+00  6.48269109e+00 -2.56623873e-01
+         1.20596113e+00 -9.92865593e+01]
+       [-7.84170525e+00  7.07005531e+01 -5.69511280e+01  2.93997763e+00
+        -3.81796879e+00  1.14847769e+03]
+       [ 6.48269109e+00 -5.69511280e+01  4.60313967e+01 -2.30275688e+00
+         3.81714808e+00 -8.98688759e+02]
+       [-2.56623873e-01  2.93997763e+00 -2.30275688e+00  1.49879535e-01
+         1.54840452e-01  5.89085827e+01]
+       [ 1.20596113e+00 -3.81796879e+00  3.81714808e+00  1.54840452e-01
+         3.77673820e+00  6.44592225e+01]
+       [-9.92865593e+01  1.14847769e+03 -8.98688759e+02  5.89085827e+01
+         6.44592225e+01  2.31583728e+04]]
+2025-11-05 08:32:13,062 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:32:13,062 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:32:13,062 - pypfilt.resample - WARNING - Minimum values: [2.46186895e-01 2.54051465e+00 1.86636428e+00 1.46257812e-01
+ 1.89343442e+00 2.65430277e+02]
+2025-11-05 08:32:13,062 - pypfilt.resample - WARNING - Maximum values: [  4.08088209  17.31302921  12.92705913   0.88175062  10.69404176
+ 574.28927517]
+2025-11-05 08:32:13,062 - pypfilt.resample - WARNING - Mean values:    [  2.45698667  10.30281936   7.93806667   0.4742918    6.23933118
+ 419.3258669 ]
+2025-11-05 08:32:13,062 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 2.19588242e+00 -6.09453218e+00  7.89569517e+00  4.94830335e-01
+         2.22077999e+00 -6.28882151e+01]
+       [-6.09453218e+00  1.69173410e+01 -2.19146054e+01 -1.37337935e+00
+        -6.16318156e+00  1.74558030e+02]
+       [ 7.89569517e+00 -2.19146054e+01  2.83915719e+01  1.77926152e+00
+         7.98523411e+00 -2.26147782e+02]
+       [ 4.94830335e-01 -1.37337935e+00  1.77926152e+00  1.11507955e-01
+         5.00433505e-01 -1.41713624e+01]
+       [ 2.22077999e+00 -6.16318156e+00  7.98523411e+00  5.00433505e-01
+         2.24614548e+00 -6.36047930e+01]
+       [-6.28882151e+01  1.74558030e+02 -2.26147782e+02 -1.41713624e+01
+        -6.36047930e+01  1.80170410e+03]]
+2025-11-05 08:32:16,157 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:32:16,157 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:32:16,157 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 08:32:16,157 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 08:32:16,157 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 08:32:16,157 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 4.28118144e+00  1.40093763e+01  1.15802863e+01 -2.60912334e-02
+         3.11831056e+00 -1.32196284e+02]
+       [ 1.40093763e+01  7.86427771e+01  4.30234413e+01 -1.24822348e+00
+         1.43060813e+01 -8.46828507e+02]
+       [ 1.15802863e+01  4.30234413e+01  3.70022676e+01 -4.16232766e-02
+         7.42842010e+00 -2.87933951e+02]
+       [-2.60912334e-02 -1.24822348e+00 -4.16232766e-02  6.39905612e-02
+        -1.04442943e-01  2.14010295e+01]
+       [ 3.11831056e+00  1.43060813e+01  7.42842010e+00 -1.04442943e-01
+         4.61725627e+00 -1.92561873e+02]
+       [-1.32196284e+02 -8.46828507e+02 -2.87933951e+02  2.14010295e+01
+        -1.92561873e+02  1.30199883e+04]]
+2025-11-05 08:32:21,723 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:32:21,723 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:32:21,724 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 08:32:21,724 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 08:32:21,724 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 08:32:21,724 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 6.69932429e-01 -3.57750178e+00 -8.76235288e-01  2.12430811e-01
+         2.06039576e+00 -9.46886093e+01]
+       [-3.57750178e+00  4.27465454e+01  1.96174253e+01 -2.50729436e+00
+        -1.54788045e+01  6.40016893e+02]
+       [-8.76235288e-01  1.96174253e+01  1.05987321e+01 -1.14390789e+00
+        -5.48633430e+00  2.08225169e+02]
+       [ 2.12430811e-01 -2.50729436e+00 -1.14390789e+00  1.47221458e-01
+         9.16905841e-01 -3.78798550e+01]
+       [ 2.06039576e+00 -1.54788045e+01 -5.48633430e+00  9.16905841e-01
+         7.28038279e+00 -3.18027455e+02]
+       [-9.46886093e+01  6.40016893e+02  2.08225169e+02 -3.78798550e+01
+        -3.18027455e+02  1.41665614e+04]]
+2025-11-05 08:32:34,894 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:32:34,894 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:32:34,894 - pypfilt.resample - WARNING - Minimum values: [3.70459706e-01 2.65940343e+00 1.41328862e+00 8.73434778e-02
+ 2.11406430e+00 2.07203829e+02]
+2025-11-05 08:32:34,895 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573  10.32383303
+ 556.95017842]
+2025-11-05 08:32:34,895 - pypfilt.resample - WARNING - Mean values:    [  2.46456439  10.54272179   7.86267147   0.47776206   6.18430167
+ 383.3322927 ]
+2025-11-05 08:32:34,895 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 8.19308102e-01 -2.84134053e+00  2.17028181e+00  7.10607612e-02
+         1.43316293e+00  6.65953927e+01]
+       [-2.84134053e+00  9.85369971e+00 -7.52648444e+00 -2.46436988e-01
+        -4.97017410e+00 -2.30951199e+02]
+       [ 2.17028181e+00 -7.52648444e+00  5.74890342e+00  1.88234288e-01
+         3.79633428e+00  1.76405883e+02]
+       [ 7.10607612e-02 -2.46436988e-01  1.88234288e-01  6.16328798e-03
+         1.24302016e-01  5.77599474e+00]
+       [ 1.43316293e+00 -4.97017410e+00  3.79633428e+00  1.24302016e-01
+         2.50693966e+00  1.16491034e+02]
+       [ 6.65953927e+01 -2.30951199e+02  1.76405883e+02  5.77599474e+00
+         1.16491034e+02  5.41303853e+03]]
+2025-11-05 08:32:50,042 - pypfilt - INFO -   08:32:50  Forecasting from 14.0 to 21.0
+2025-11-05 08:32:51,087 - pypfilt - INFO -   08:32:51  Forecasting from 14.0 to 21.0
+2025-11-05 08:32:53,725 - pypfilt - INFO -   08:32:53  Forecasting from 14.0 to 21.0
+2025-11-05 08:33:03,223 - pypfilt - INFO -   08:33:03  Forecasting from 14.0 to 21.0
+2025-11-05 08:33:11,864 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 08:33:11,864 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 08:33:12,773 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 08:33:12,773 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 08:33:15,473 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 08:33:15,473 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 08:33:19,034 - pypfilt - INFO -   08:33:19  Forecasting from 14.0 to 21.0
+2025-11-05 08:33:25,015 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 08:33:25,016 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 08:33:26,196 - __main__ - INFO - Sample 4: Complete
+2025-11-05 08:33:27,242 - __main__ - INFO - Sample 3: Complete
+2025-11-05 08:33:29,812 - __main__ - INFO - Sample 1: Complete
+2025-11-05 08:33:39,444 - __main__ - INFO - Sample 0: Complete
+2025-11-05 08:33:40,846 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 08:33:40,846 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 08:33:55,215 - __main__ - INFO - Sample 2: Complete
+2025-11-05 08:33:55,237 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_083032/443108
+2025-11-05 08:33:55,496 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_083032/443108
+2025-11-05 08:33:55,496 - __main__ - INFO - Patient 443108 completed in 108.9s (21.77s per sample)
+2025-11-05 08:33:55,512 - __main__ - INFO - 
+============================================================
+2025-11-05 08:33:55,512 - __main__ - INFO - Processing patient: 444332
+2025-11-05 08:33:55,512 - __main__ - INFO - ============================================================
+2025-11-05 08:33:55,512 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 08:33:55,512 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 08:33:55,542 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 08:33:55,549 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 08:33:55,549 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 08:33:55,550 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 08:33:55,550 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 08:33:55,625 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 08:33:55,625 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 08:33:55,626 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 08:33:55,626 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 08:33:55,626 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 08:33:55,644 - pypfilt - INFO -   08:33:55  Estimating  from 0.0 to 14.0
+2025-11-05 08:33:55,644 - pypfilt - INFO -   08:33:55  Estimating  from 0.0 to 14.0
+2025-11-05 08:33:55,645 - pypfilt - INFO -   08:33:55  Estimating  from 0.0 to 14.0
+2025-11-05 08:33:55,645 - pypfilt - INFO -   08:33:55  Estimating  from 0.0 to 14.0
+2025-11-05 08:33:55,645 - pypfilt - INFO -   08:33:55  Estimating  from 0.0 to 14.0
+2025-11-05 08:34:04,652 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:34:04,652 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:34:04,653 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 08:34:04,653 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 08:34:04,653 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 08:34:04,653 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 4.27986310e+00  1.40002049e+01  1.15757072e+01 -2.58679108e-02
+         3.11735400e+00 -1.32100823e+02]
+       [ 1.40002049e+01  7.86194780e+01  4.29986022e+01 -1.24822187e+00
+         1.43028465e+01 -8.46658197e+02]
+       [ 1.15757072e+01  4.29986022e+01  3.69916798e+01 -4.09442956e-02
+         7.42425410e+00 -2.87574896e+02]
+       [-2.58679108e-02 -1.24822187e+00 -4.09442956e-02  6.40317963e-02
+        -1.04351902e-01  2.14086136e+01]
+       [ 3.11735400e+00  1.43028465e+01  7.42425410e+00 -1.04351902e-01
+         4.61852373e+00 -1.92572993e+02]
+       [-1.32100823e+02 -8.46658197e+02 -2.87574896e+02  2.14086136e+01
+        -1.92572993e+02  1.30222111e+04]]
+2025-11-05 08:34:20,779 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:34:20,779 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:34:20,780 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 08:34:20,780 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 08:34:20,780 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 08:34:20,780 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 4.19729525e+00 -4.84697415e+00  5.67689072e+00  3.17494336e-01
+         9.75875653e+00 -4.95910970e+02]
+       [-4.84697415e+00  5.60655349e+00 -6.54797132e+00 -3.67009808e-01
+        -1.12665441e+01  5.72659689e+02]
+       [ 5.67689072e+00 -6.54797132e+00  7.68427390e+00  4.29111322e-01
+         1.32010527e+01 -6.70734273e+02]
+       [ 3.17494336e-01 -3.67009808e-01  4.29111322e-01  2.40309199e-02
+         7.38069269e-01 -3.75115610e+01]
+       [ 9.75875653e+00 -1.12665441e+01  1.32010527e+01  7.38069269e-01
+         2.26900075e+01 -1.15300151e+03]
+       [-4.95910970e+02  5.72659689e+02 -6.70734273e+02 -3.75115610e+01
+        -1.15300151e+03  5.85919571e+04]]
+2025-11-05 08:34:31,844 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:34:31,844 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:34:31,845 - pypfilt.resample - WARNING - Minimum values: [3.70459706e-01 2.65940343e+00 1.41328862e+00 8.73434778e-02
+ 2.11406430e+00 2.07203829e+02]
+2025-11-05 08:34:31,845 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573  10.32383303
+ 556.95017842]
+2025-11-05 08:34:31,845 - pypfilt.resample - WARNING - Mean values:    [  2.46456439  10.54272179   7.86267147   0.47776206   6.18430167
+ 383.3322927 ]
+2025-11-05 08:34:31,845 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 8.19813113e-01 -2.83852645e+00  2.17069049e+00  7.11227258e-02
+         1.43345370e+00  6.65941157e+01]
+       [-2.83852645e+00  9.86144197e+00 -7.52259168e+00 -2.46123285e-01
+        -4.96752336e+00 -2.30884716e+02]
+       [ 2.17069049e+00 -7.52259168e+00  5.74890539e+00  1.88290860e-01
+         3.79635988e+00  1.76389873e+02]
+       [ 7.11227258e-02 -2.46123285e-01  1.88290860e-01  6.17076542e-03
+         1.24341793e-01  5.77613090e+00]
+       [ 1.43345370e+00 -4.96752336e+00  3.79635988e+00  1.24341793e-01
+         2.50697333e+00  1.16480745e+02]
+       [ 6.65941157e+01 -2.30884716e+02  1.76389873e+02  5.77613090e+00
+         1.16480745e+02  5.41235945e+03]]
+2025-11-05 08:34:33,715 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:34:33,716 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:34:33,716 - pypfilt.resample - WARNING - Minimum values: [2.46186895e-01 2.54051465e+00 1.86636428e+00 1.46257812e-01
+ 1.89343442e+00 2.65430277e+02]
+2025-11-05 08:34:33,716 - pypfilt.resample - WARNING - Maximum values: [  4.08088209  17.31302921  12.92705913   0.88175062  10.69404176
+ 574.28927517]
+2025-11-05 08:34:33,716 - pypfilt.resample - WARNING - Mean values:    [  2.45698667  10.30281936   7.93806667   0.4742918    6.23933118
+ 419.3258669 ]
+2025-11-05 08:34:33,716 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 2.18414585e+00 -6.03817454e+00  7.83108484e+00  4.94556710e-01
+         2.17889430e+00 -6.04132818e+01]
+       [-6.03817454e+00  1.67882411e+01 -2.17156503e+01 -1.36735403e+00
+        -6.01728582e+00  1.68728472e+02]
+       [ 7.83108484e+00 -2.17156503e+01  2.81271051e+01  1.77193479e+00
+         7.82558681e+00 -2.18758656e+02]
+       [ 4.94556710e-01 -1.36735403e+00  1.77193479e+00  1.12522849e-01
+         4.86251632e-01 -1.32964880e+01]
+       [ 2.17889430e+00 -6.01728582e+00  7.82558681e+00  4.86251632e-01
+         2.26761426e+00 -6.52231188e+01]
+       [-6.04132818e+01  1.68728472e+02 -2.18758656e+02 -1.32964880e+01
+        -6.52231188e+01  1.97654300e+03]]
+2025-11-05 08:34:38,172 - pypfilt - INFO -   08:34:38  Forecasting from 14.0 to 21.0
+2025-11-05 08:34:42,878 - pypfilt - INFO -   08:34:42  Forecasting from 14.0 to 21.0
+2025-11-05 08:34:53,143 - pypfilt - INFO -   08:34:53  Forecasting from 14.0 to 21.0
+2025-11-05 08:34:56,573 - pypfilt - INFO -   08:34:56  Forecasting from 14.0 to 21.0
+2025-11-05 08:35:00,185 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 08:35:00,185 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 08:35:01,790 - pypfilt - INFO -   08:35:01  Forecasting from 14.0 to 21.0
+2025-11-05 08:35:04,825 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 08:35:04,825 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 08:35:14,720 - __main__ - INFO - Sample 4: Complete
+2025-11-05 08:35:14,996 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 08:35:14,996 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 08:35:18,527 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 08:35:18,527 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 08:35:19,316 - __main__ - INFO - Sample 1: Complete
+2025-11-05 08:35:23,916 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 08:35:23,916 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 08:35:29,293 - __main__ - INFO - Sample 2: Complete
+2025-11-05 08:35:33,153 - __main__ - INFO - Sample 0: Complete
+2025-11-05 08:35:38,436 - __main__ - INFO - Sample 3: Complete
+2025-11-05 08:35:38,454 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_083032/444332
+2025-11-05 08:35:38,593 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_083032/444332
+2025-11-05 08:35:38,593 - __main__ - INFO - Patient 444332 completed in 103.1s (20.62s per sample)
+2025-11-05 08:35:38,626 - __main__ - INFO - 
+============================================================
+2025-11-05 08:35:38,626 - __main__ - INFO - Processing patient: 444391
+2025-11-05 08:35:38,626 - __main__ - INFO - ============================================================
+2025-11-05 08:35:38,626 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 08:35:38,627 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 08:35:38,651 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 08:35:38,663 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 08:35:38,663 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 08:35:38,665 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 08:35:38,665 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 08:35:38,740 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 08:35:38,740 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 08:35:38,741 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 08:35:38,741 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 08:35:38,741 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 08:35:38,758 - pypfilt - INFO -   08:35:38  Estimating  from 0.0 to 14.0
+2025-11-05 08:35:38,758 - pypfilt - INFO -   08:35:38  Estimating  from 0.0 to 14.0
+2025-11-05 08:35:38,760 - pypfilt - INFO -   08:35:38  Estimating  from 0.0 to 14.0
+2025-11-05 08:35:38,760 - pypfilt - INFO -   08:35:38  Estimating  from 0.0 to 14.0
+2025-11-05 08:35:38,760 - pypfilt - INFO -   08:35:38  Estimating  from 0.0 to 14.0
+2025-11-05 08:35:46,011 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:35:46,011 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:35:46,011 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 08:35:46,011 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 08:35:46,012 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 08:35:46,012 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 3.75810520e+00 -7.94981320e+00  2.13833379e+00  4.28090024e-01
+         7.68517201e+00 -4.39793346e+02]
+       [-7.94981320e+00  3.42844740e+01  9.71934154e+00 -1.60139506e+00
+        -1.11670965e+01  9.10007816e+02]
+       [ 2.13833379e+00  9.71934154e+00  1.28327100e+01 -3.23817344e-01
+         8.52441227e+00 -2.66883497e+02]
+       [ 4.28090024e-01 -1.60139506e+00 -3.23817344e-01  7.64835776e-02
+         6.72663393e-01 -4.92869063e+01]
+       [ 7.68517201e+00 -1.11670965e+01  8.52441227e+00  6.72663393e-01
+         1.71999687e+01 -9.05318915e+02]
+       [-4.39793346e+02  9.10007816e+02 -2.66883497e+02 -4.92869063e+01
+        -9.05318915e+02  5.14925907e+04]]
+2025-11-05 08:35:48,073 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:35:48,073 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:35:48,073 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 08:35:48,073 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 08:35:48,074 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 08:35:48,074 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 4.28117685e+00  1.40093444e+01  1.15802704e+01 -2.60904566e-02
+         3.11830723e+00 -1.32195952e+02]
+       [ 1.40093444e+01  7.86426960e+01  4.30233549e+01 -1.24822347e+00
+         1.43060700e+01 -8.46827914e+02]
+       [ 1.15802704e+01  4.30233549e+01  3.70022308e+01 -4.16209148e-02
+         7.42840561e+00 -2.87932702e+02]
+       [-2.60904566e-02 -1.24822347e+00 -4.16209148e-02  6.39907047e-02
+        -1.04442626e-01  2.14010558e+01]
+       [ 3.11830723e+00  1.43060700e+01  7.42840561e+00 -1.04442626e-01
+         4.61726068e+00 -1.92561912e+02]
+       [-1.32195952e+02 -8.46827914e+02 -2.87932702e+02  2.14010558e+01
+        -1.92561912e+02  1.30199960e+04]]
+2025-11-05 08:35:57,774 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:35:57,775 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:35:57,775 - pypfilt.resample - WARNING - Minimum values: [6.72318902e-02 3.15891590e+00 2.49790332e+00 7.00802654e-02
+ 1.11168723e+00 2.20653315e+02]
+2025-11-05 08:35:57,775 - pypfilt.resample - WARNING - Maximum values: [  4.25095322  16.26779116  12.47232573   0.86292134  10.20706639
+ 533.59201554]
+2025-11-05 08:35:57,775 - pypfilt.resample - WARNING - Mean values:    [  2.29680684   9.61654513   7.32157576   0.49866606   5.97881632
+ 384.45919648]
+2025-11-05 08:35:57,775 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 4.42113183e-01  1.03475368e+00 -3.08471559e-01  2.65099374e-01
+         2.46512016e+00  1.06461266e+02]
+       [ 1.03475368e+00  2.42181236e+00 -7.21969152e-01  6.20457752e-01
+         5.76954556e+00  2.49169648e+02]
+       [-3.08471559e-01 -7.21969152e-01  2.15227020e-01 -1.84965345e-01
+        -1.71996559e+00 -7.42802386e+01]
+       [ 2.65099374e-01  6.20457752e-01 -1.84965345e-01  1.58958567e-01
+         1.47813238e+00  6.38361760e+01]
+       [ 2.46512016e+00  5.76954556e+00 -1.71996559e+00  1.47813238e+00
+         1.37449361e+01  5.93603231e+02]
+       [ 1.06461266e+02  2.49169648e+02 -7.42802386e+01  6.38361760e+01
+         5.93603231e+02  2.56359720e+04]]
+2025-11-05 08:36:08,107 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:36:08,107 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:36:08,107 - pypfilt.resample - WARNING - Minimum values: [3.70459706e-01 2.65940343e+00 1.41328862e+00 8.73434778e-02
+ 2.11406430e+00 2.07203829e+02]
+2025-11-05 08:36:08,108 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573  10.32383303
+ 556.95017842]
+2025-11-05 08:36:08,108 - pypfilt.resample - WARNING - Mean values:    [  2.46456439  10.54272179   7.86267147   0.47776206   6.18430167
+ 383.3322927 ]
+2025-11-05 08:36:08,108 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 8.19308103e-01 -2.84134053e+00  2.17028181e+00  7.10607612e-02
+         1.43316293e+00  6.65953927e+01]
+       [-2.84134053e+00  9.85369971e+00 -7.52648443e+00 -2.46436988e-01
+        -4.97017410e+00 -2.30951199e+02]
+       [ 2.17028181e+00 -7.52648443e+00  5.74890342e+00  1.88234288e-01
+         3.79633428e+00  1.76405883e+02]
+       [ 7.10607612e-02 -2.46436988e-01  1.88234288e-01  6.16328798e-03
+         1.24302016e-01  5.77599474e+00]
+       [ 1.43316293e+00 -4.97017410e+00  3.79633428e+00  1.24302016e-01
+         2.50693966e+00  1.16491034e+02]
+       [ 6.65953927e+01 -2.30951199e+02  1.76405883e+02  5.77599474e+00
+         1.16491034e+02  5.41303853e+03]]
+2025-11-05 08:36:16,670 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:36:16,671 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:36:16,671 - pypfilt.resample - WARNING - Minimum values: [2.46186895e-01 2.54051465e+00 1.86636428e+00 1.46257812e-01
+ 1.89343442e+00 2.65430277e+02]
+2025-11-05 08:36:16,671 - pypfilt.resample - WARNING - Maximum values: [  4.08088209  17.31302921  12.92705913   0.88175062  10.69404176
+ 574.28927517]
+2025-11-05 08:36:16,671 - pypfilt.resample - WARNING - Mean values:    [  2.45698667  10.30281936   7.93806667   0.4742918    6.23933118
+ 419.3258669 ]
+2025-11-05 08:36:16,671 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 2.19588065e+00 -6.09462842e+00  7.89584140e+00  4.94839416e-01
+         2.22067103e+00 -6.28856298e+01]
+       [-6.09462842e+00  1.69155528e+01 -2.19147864e+01 -1.37341659e+00
+        -6.16345344e+00  1.74539427e+02]
+       [ 7.89584140e+00 -2.19147864e+01  2.83915079e+01  1.77931482e+00
+         7.98504382e+00 -2.26124841e+02]
+       [ 4.94839416e-01 -1.37341659e+00  1.77931482e+00  1.11513031e-01
+         5.00406446e-01 -1.41701228e+01]
+       [ 2.22067103e+00 -6.16345344e+00  7.98504382e+00  5.00406446e-01
+         2.24599633e+00 -6.36098269e+01]
+       [-6.28856298e+01  1.74539427e+02 -2.26124841e+02 -1.41701228e+01
+        -6.36098269e+01  1.80172250e+03]]
+2025-11-05 08:36:26,045 - pypfilt - INFO -   08:36:26  Forecasting from 14.0 to 21.0
+2025-11-05 08:36:27,895 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:36:27,895 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:36:27,895 - pypfilt.resample - WARNING - Minimum values: [  3.18947136  13.8356631   10.90415496   0.77068061   4.32862708
+ 452.90174232]
+2025-11-05 08:36:27,896 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573   6.56779642
+ 556.95017842]
+2025-11-05 08:36:27,896 - pypfilt.resample - WARNING - Mean values:    [  3.44548825  17.38710445  11.58232328   0.79288564   4.77646095
+ 473.71142954]
+2025-11-05 08:36:27,896 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 7.64761102e-04 -2.65217286e-03  2.02579116e-03  6.63297554e-05
+         1.33774737e-03  6.21616773e-02]
+       [-2.65217286e-03  9.19767085e-03 -7.02539437e-03 -2.30029975e-04
+        -4.63927528e-03 -2.15575182e-01]
+       [ 2.02579116e-03 -7.02539437e-03  5.36615920e-03  1.75702231e-04
+         3.54358608e-03  1.64661325e-01]
+       [ 6.63297554e-05 -2.30029975e-04  1.75702231e-04  5.75295532e-06
+         1.16026372e-04  5.39144687e-03]
+       [ 1.33774737e-03 -4.63927528e-03  3.54358608e-03  1.16026372e-04
+         2.34003537e-03  1.08735421e-01]
+       [ 6.21616773e-02 -2.15575182e-01  1.64661325e-01  5.39144687e-03
+         1.08735421e-01  5.05265516e+00]]
+2025-11-05 08:36:31,996 - pypfilt - INFO -   08:36:31  Forecasting from 14.0 to 21.0
+2025-11-05 08:36:40,532 - pypfilt - INFO -   08:36:40  Forecasting from 14.0 to 21.0
+2025-11-05 08:36:44,935 - pypfilt - INFO -   08:36:44  Forecasting from 14.0 to 21.0
+2025-11-05 08:36:45,590 - pypfilt - INFO -   08:36:45  Forecasting from 14.0 to 21.0
+2025-11-05 08:36:47,946 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 08:36:47,946 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 08:36:53,907 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 08:36:53,908 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 08:37:02,397 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 08:37:02,397 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 08:37:02,486 - __main__ - INFO - Sample 1: Complete
+2025-11-05 08:37:07,006 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 08:37:07,007 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 08:37:07,670 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 08:37:07,671 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 08:37:08,220 - __main__ - INFO - Sample 4: Complete
+2025-11-05 08:37:16,781 - __main__ - INFO - Sample 0: Complete
+2025-11-05 08:37:21,468 - __main__ - INFO - Sample 3: Complete
+2025-11-05 08:37:22,052 - __main__ - INFO - Sample 2: Complete
+2025-11-05 08:37:22,068 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_083032/444391
+2025-11-05 08:37:22,337 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_083032/444391
+2025-11-05 08:37:22,337 - __main__ - INFO - Patient 444391 completed in 103.7s (20.74s per sample)
+2025-11-05 08:37:22,412 - __main__ - INFO - 
+============================================================
+2025-11-05 08:37:22,412 - __main__ - INFO - Processing patient: 445602
+2025-11-05 08:37:22,412 - __main__ - INFO - ============================================================
+2025-11-05 08:37:22,412 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 08:37:22,413 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 08:37:22,443 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 08:37:22,455 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 08:37:22,455 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 08:37:22,456 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 08:37:22,457 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 08:37:22,532 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 08:37:22,532 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 08:37:22,532 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 08:37:22,532 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 08:37:22,532 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 08:37:22,550 - pypfilt - INFO -   08:37:22  Estimating  from 0.0 to 14.0
+2025-11-05 08:37:22,550 - pypfilt - INFO -   08:37:22  Estimating  from 0.0 to 14.0
+2025-11-05 08:37:22,550 - pypfilt - INFO -   08:37:22  Estimating  from 0.0 to 14.0
+2025-11-05 08:37:22,551 - pypfilt - INFO -   08:37:22  Estimating  from 0.0 to 14.0
+2025-11-05 08:37:22,551 - pypfilt - INFO -   08:37:22  Estimating  from 0.0 to 14.0
+2025-11-05 08:37:26,775 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:37:26,775 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:37:26,775 - pypfilt.resample - WARNING - Minimum values: [6.72318902e-02 3.15891590e+00 2.49790332e+00 7.00802654e-02
+ 1.11168723e+00 2.20653315e+02]
+2025-11-05 08:37:26,775 - pypfilt.resample - WARNING - Maximum values: [  4.25095322  16.26779116  12.47232573   0.86292134  10.20706639
+ 533.59201554]
+2025-11-05 08:37:26,775 - pypfilt.resample - WARNING - Mean values:    [  2.29680684   9.61654513   7.32157576   0.49866606   5.97881632
+ 384.45919648]
+2025-11-05 08:37:26,775 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 1.35940972e+00 -1.58795426e+00  1.85920545e+00  2.41174130e-02
+        -1.86931677e-01  2.21799405e+01]
+       [-1.58795426e+00  4.19622767e+01 -3.21481438e+01  2.04174877e+00
+        -1.85595130e+00  8.26711225e+02]
+       [ 1.85920545e+00 -3.21481438e+01  2.50951764e+01 -1.46292052e+00
+         2.27706391e+00 -5.91333654e+02]
+       [ 2.41174130e-02  2.04174877e+00 -1.46292052e+00  1.27849236e-01
+         2.59922069e-01  5.10576919e+01]
+       [-1.86931677e-01 -1.85595130e+00  2.27706391e+00  2.59922069e-01
+         6.97793437e+00  6.97368959e+01]
+       [ 2.21799405e+01  8.26711225e+02 -5.91333654e+02  5.10576919e+01
+         6.97368959e+01  2.06862283e+04]]
+2025-11-05 08:37:47,744 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:37:47,745 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:37:47,745 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 08:37:47,745 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 08:37:47,745 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 08:37:47,745 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 5.01144768e+00  1.25186590e+01  6.06134217e+00 -4.22748060e-01
+         3.23570903e+00 -2.97296576e+02]
+       [ 1.25186590e+01  3.12718084e+01  1.51417150e+01 -1.05601792e+00
+         8.08267484e+00 -7.42640095e+02]
+       [ 6.06134217e+00  1.51417150e+01  7.33514988e+00 -5.11196307e-01
+         3.91196237e+00 -3.59477946e+02]
+       [-4.22748060e-01 -1.05601792e+00 -5.11196307e-01  3.56650009e-02
+        -2.73001075e-01  2.50819090e+01]
+       [ 3.23570903e+00  8.08267484e+00  3.91196237e+00 -2.73001075e-01
+         2.08984619e+00 -1.91995426e+02]
+       [-2.97296576e+02 -7.42640095e+02 -3.59477946e+02  2.50819090e+01
+        -1.91995426e+02  1.76392996e+04]]
+2025-11-05 08:37:49,957 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:37:49,957 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:37:49,957 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 08:37:49,958 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 08:37:49,958 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 08:37:49,958 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 4.19701964e+00 -4.84400880e+00  5.67787097e+00  3.17380846e-01
+         9.75852684e+00 -4.95860113e+02]
+       [-4.84400880e+00  5.60690376e+00 -6.55211854e+00 -3.66757278e-01
+        -1.12635766e+01  5.72603119e+02]
+       [ 5.67787097e+00 -6.55211854e+00  7.68128155e+00  4.29335134e-01
+         1.32016210e+01 -6.70797231e+02]
+       [ 3.17380846e-01 -3.66757278e-01  4.29335134e-01  2.40130739e-02
+         7.37965303e-01 -3.75056782e+01]
+       [ 9.75852684e+00 -1.12635766e+01  1.32016210e+01  7.37965303e-01
+         2.26896685e+01 -1.15294237e+03]
+       [-4.95860113e+02  5.72603119e+02 -6.70797231e+02 -3.75056782e+01
+        -1.15294237e+03  5.85894888e+04]]
+2025-11-05 08:38:05,959 - pypfilt - INFO -   08:38:05  Forecasting from 14.0 to 21.0
+2025-11-05 08:38:12,208 - pypfilt - INFO -   08:38:12  Forecasting from 14.0 to 21.0
+2025-11-05 08:38:20,835 - pypfilt - INFO -   08:38:20  Forecasting from 14.0 to 21.0
+2025-11-05 08:38:21,053 - pypfilt - INFO -   08:38:21  Forecasting from 14.0 to 21.0
+2025-11-05 08:38:22,372 - pypfilt - INFO -   08:38:22  Forecasting from 14.0 to 21.0
+2025-11-05 08:38:28,234 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 08:38:28,234 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 08:38:34,240 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 08:38:34,240 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 08:38:42,805 - __main__ - INFO - Sample 4: Complete
+2025-11-05 08:38:43,824 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 08:38:43,824 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 08:38:44,754 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 08:38:44,754 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 08:38:47,683 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 08:38:47,684 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 08:38:48,778 - __main__ - INFO - Sample 0: Complete
+2025-11-05 08:38:58,246 - __main__ - INFO - Sample 3: Complete
+2025-11-05 08:38:59,197 - __main__ - INFO - Sample 2: Complete
+2025-11-05 08:39:04,118 - __main__ - INFO - Sample 1: Complete
+2025-11-05 08:39:04,139 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_083032/445602
+2025-11-05 08:39:04,300 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_083032/445602
+2025-11-05 08:39:04,300 - __main__ - INFO - Patient 445602 completed in 101.9s (20.38s per sample)
+2025-11-05 08:39:04,317 - __main__ - INFO - 
+============================================================
+2025-11-05 08:39:04,317 - __main__ - INFO - Processing patient: 451152
+2025-11-05 08:39:04,317 - __main__ - INFO - ============================================================
+2025-11-05 08:39:04,317 - __main__ - INFO - Loading posterior and sampling 5 parameter sets
+2025-11-05 08:39:04,318 - src.posterior_predictive - INFO - Loading posterior from results/npe/20250103_existing_primary/models/posterior_N10000.pkl
+2025-11-05 08:39:04,352 - src.posterior_predictive - INFO - Sampling 5 parameter sets from posterior
+2025-11-05 08:39:04,358 - __main__ - INFO - Observation horizon: T=14.0 days
+2025-11-05 08:39:04,358 - __main__ - INFO - Prediction horizon: H=14 days beyond observations
+2025-11-05 08:39:04,359 - __main__ - INFO - Processing 5 samples with 5 particles each
+2025-11-05 08:39:04,359 - __main__ - INFO - Using parallel processing with 8 workers
+2025-11-05 08:39:04,431 - __main__ - INFO - Sample 0: Running particle filter
+2025-11-05 08:39:04,431 - __main__ - INFO - Sample 1: Running particle filter
+2025-11-05 08:39:04,431 - __main__ - INFO - Sample 4: Running particle filter
+2025-11-05 08:39:04,431 - __main__ - INFO - Sample 2: Running particle filter
+2025-11-05 08:39:04,431 - __main__ - INFO - Sample 3: Running particle filter
+2025-11-05 08:39:04,449 - pypfilt - INFO -   08:39:04  Estimating  from 0.0 to 14.0
+2025-11-05 08:39:04,449 - pypfilt - INFO -   08:39:04  Estimating  from 0.0 to 14.0
+2025-11-05 08:39:04,450 - pypfilt - INFO -   08:39:04  Estimating  from 0.0 to 14.0
+2025-11-05 08:39:04,450 - pypfilt - INFO -   08:39:04  Estimating  from 0.0 to 14.0
+2025-11-05 08:39:04,450 - pypfilt - INFO -   08:39:04  Estimating  from 0.0 to 14.0
+2025-11-05 08:39:13,742 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:39:13,742 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:39:13,742 - pypfilt.resample - WARNING - Minimum values: [7.21553093e-01 3.01062053e-01 2.24827075e+00 1.09598073e-01
+ 2.73747170e+00 2.70189256e+02]
+2025-11-05 08:39:13,742 - pypfilt.resample - WARNING - Maximum values: [  4.85206436  19.71808947  13.96831493   0.99780428   9.13269283
+ 570.18398964]
+2025-11-05 08:39:13,742 - pypfilt.resample - WARNING - Mean values:    [  2.68727238  10.48734261   7.6649614    0.51134292   5.90086415
+ 419.21101976]
+2025-11-05 08:39:13,742 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 3.01429738e+00  8.54415649e+00  1.32859665e+01  3.22226283e-02
+        -1.98092835e+00  6.91063508e+01]
+       [ 8.54415649e+00  2.45381579e+01  3.76776378e+01  7.99908208e-02
+        -5.55107717e+00  1.90980499e+02]
+       [ 1.32859665e+01  3.76776378e+01  5.87332913e+01  1.43478718e-01
+        -8.83802081e+00  3.09033497e+02]
+       [ 3.22226283e-02  7.99908208e-02  1.43478718e-01  9.62236294e-04
+        -2.29456913e-02  9.71538902e-01]
+       [-1.98092835e+00 -5.55107717e+00 -8.83802081e+00 -2.29456913e-02
+         1.40321491e+00 -4.94016286e+01]
+       [ 6.91063508e+01  1.90980499e+02  3.09033497e+02  9.71538902e-01
+        -4.94016286e+01  1.78852653e+03]]
+2025-11-05 08:39:23,223 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:39:23,223 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:39:23,223 - pypfilt.resample - WARNING - Minimum values: [6.72318902e-02 3.15891590e+00 2.49790332e+00 7.00802654e-02
+ 1.11168723e+00 2.20653315e+02]
+2025-11-05 08:39:23,223 - pypfilt.resample - WARNING - Maximum values: [  4.25095322  16.26779116  12.47232573   0.86292134  10.20706639
+ 533.59201554]
+2025-11-05 08:39:23,224 - pypfilt.resample - WARNING - Mean values:    [  2.29680684   9.61654513   7.32157576   0.49866606   5.97881632
+ 384.45919648]
+2025-11-05 08:39:23,224 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 1.57446414e+00 -9.67825581e+00  8.26776711e+00 -2.03180804e-01
+         2.78322079e+00 -7.67523980e+01]
+       [-9.67825581e+00  5.94925520e+01 -5.08222076e+01  1.24896944e+00
+        -1.71084296e+01  4.71803699e+02]
+       [ 8.26776711e+00 -5.08222076e+01  4.34154683e+01 -1.06694513e+00
+         1.46150941e+01 -4.03043174e+02]
+       [-2.03180804e-01  1.24896944e+00 -1.06694513e+00  2.62211819e-02
+        -3.59161727e-01  9.90518437e+00]
+       [ 2.78322079e+00 -1.71084296e+01  1.46150941e+01 -3.59161727e-01
+         4.92000350e+00 -1.35674722e+02]
+       [-7.67523980e+01  4.71803699e+02 -4.03043174e+02  9.90518437e+00
+        -1.35674722e+02  3.74173406e+03]]
+2025-11-05 08:39:25,563 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:39:25,564 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:39:25,564 - pypfilt.resample - WARNING - Minimum values: [9.23212289e-01 3.84025568e+00 2.14905502e+00 1.33740512e-01
+ 2.65924653e+00 2.51277375e+02]
+2025-11-05 08:39:25,564 - pypfilt.resample - WARNING - Maximum values: [  4.62165395  19.23431385  13.50432301   0.81313466  10.57166855
+ 593.60813745]
+2025-11-05 08:39:25,564 - pypfilt.resample - WARNING - Mean values:    [  2.73332941  10.69510573   7.552059     0.49975417   5.90916256
+ 410.05619091]
+2025-11-05 08:39:25,564 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 2.37580664e+00  6.88094671e+00  9.28693890e+00 -3.79922363e-01
+         3.68190453e+00 -2.25720317e+02]
+       [ 6.88094671e+00  1.99360807e+01  2.69018365e+01 -1.10076511e+00
+         1.06623847e+01 -6.53703550e+02]
+       [ 9.28693890e+00  2.69018365e+01  3.63051190e+01 -1.48536243e+00
+         1.43915700e+01 -8.82306683e+02]
+       [-3.79922363e-01 -1.10076511e+00 -1.48536243e+00  6.07784990e-02
+        -5.88705469e-01  3.60932575e+01]
+       [ 3.68190453e+00  1.06623847e+01  1.43915700e+01 -5.88705469e-01
+         5.70628854e+00 -3.49817642e+02]
+       [-2.25720317e+02 -6.53703550e+02 -8.82306683e+02  3.60932575e+01
+        -3.49817642e+02  2.14454371e+04]]
+2025-11-05 08:39:32,823 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:39:32,823 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:39:32,823 - pypfilt.resample - WARNING - Minimum values: [2.46186895e-01 2.54051465e+00 1.86636428e+00 1.46257812e-01
+ 1.89343442e+00 2.65430277e+02]
+2025-11-05 08:39:32,824 - pypfilt.resample - WARNING - Maximum values: [  4.08088209  17.31302921  12.92705913   0.88175062  10.69404176
+ 574.28927517]
+2025-11-05 08:39:32,824 - pypfilt.resample - WARNING - Mean values:    [  2.45698667  10.30281936   7.93806667   0.4742918    6.23933118
+ 419.3258669 ]
+2025-11-05 08:39:32,824 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 2.10344992e+00 -5.82109483e+00  7.51436921e+00  4.88926368e-01
+         1.93173288e+00 -4.92779927e+01]
+       [-5.82109483e+00  1.61134218e+01 -2.08071491e+01 -1.34945579e+00
+        -5.39306997e+00  1.39018029e+02]
+       [ 7.51436921e+00 -2.08071491e+01  2.68786122e+01  1.73623644e+00
+         7.03727876e+00 -1.83686772e+02]
+       [ 4.88926368e-01 -1.34945579e+00  1.73623644e+00  1.16806089e-01
+         4.07604020e-01 -9.13220281e+00]
+       [ 1.93173288e+00 -5.39306997e+00  7.03727876e+00  4.07604020e-01
+         2.31665784e+00 -7.56828784e+01]
+       [-4.92779927e+01  1.39018029e+02 -1.83686772e+02 -9.13220281e+00
+        -7.56828784e+01  2.86068845e+03]]
+2025-11-05 08:39:44,435 - pypfilt.resample - WARNING - Post-RPF Cholesky decomposition: Matrix is not positive definite
+2025-11-05 08:39:44,435 - pypfilt.resample - WARNING - Post-RPF parameters: lnV0, beta, phi, rho, delta, pi
+2025-11-05 08:39:44,435 - pypfilt.resample - WARNING - Minimum values: [3.70459706e-01 2.65940343e+00 1.41328862e+00 8.73434778e-02
+ 2.11406430e+00 2.07203829e+02]
+2025-11-05 08:39:44,435 - pypfilt.resample - WARNING - Maximum values: [  4.46955581  18.27496478  14.29499657   0.88170573  10.32383303
+ 556.95017842]
+2025-11-05 08:39:44,436 - pypfilt.resample - WARNING - Mean values:    [  2.46456439  10.54272179   7.86267147   0.47776206   6.18430167
+ 383.3322927 ]
+2025-11-05 08:39:44,436 - pypfilt.resample - WARNING - Covariance matrix:
+      [[ 8.19308102e-01 -2.84134053e+00  2.17028181e+00  7.10607612e-02
+         1.43316293e+00  6.65953927e+01]
+       [-2.84134053e+00  9.85369971e+00 -7.52648444e+00 -2.46436988e-01
+        -4.97017410e+00 -2.30951199e+02]
+       [ 2.17028181e+00 -7.52648444e+00  5.74890342e+00  1.88234288e-01
+         3.79633428e+00  1.76405883e+02]
+       [ 7.10607612e-02 -2.46436988e-01  1.88234288e-01  6.16328798e-03
+         1.24302016e-01  5.77599474e+00]
+       [ 1.43316293e+00 -4.97017410e+00  3.79633428e+00  1.24302016e-01
+         2.50693966e+00  1.16491034e+02]
+       [ 6.65953927e+01 -2.30951199e+02  1.76405883e+02  5.77599474e+00
+         1.16491034e+02  5.41303853e+03]]
+2025-11-05 08:39:51,784 - pypfilt - INFO -   08:39:51  Forecasting from 14.0 to 21.0
+2025-11-05 08:39:54,882 - pypfilt - INFO -   08:39:54  Forecasting from 14.0 to 21.0
+2025-11-05 08:39:57,052 - pypfilt - INFO -   08:39:57  Forecasting from 14.0 to 21.0
+2025-11-05 08:40:00,288 - pypfilt - INFO -   08:40:00  Forecasting from 14.0 to 21.0
+2025-11-05 08:40:00,836 - pypfilt - INFO -   08:40:00  Forecasting from 14.0 to 21.0
+2025-11-05 08:40:13,599 - __main__ - INFO - Sample 1: Sampled latent state - V=0.00e+00
+2025-11-05 08:40:13,599 - __main__ - INFO - Sample 1: Simulating 14 days forward
+2025-11-05 08:40:16,702 - __main__ - INFO - Sample 4: Sampled latent state - V=0.00e+00
+2025-11-05 08:40:16,703 - __main__ - INFO - Sample 4: Simulating 14 days forward
+2025-11-05 08:40:19,029 - __main__ - INFO - Sample 0: Sampled latent state - V=0.00e+00
+2025-11-05 08:40:19,029 - __main__ - INFO - Sample 0: Simulating 14 days forward
+2025-11-05 08:40:22,070 - __main__ - INFO - Sample 2: Sampled latent state - V=0.00e+00
+2025-11-05 08:40:22,071 - __main__ - INFO - Sample 2: Simulating 14 days forward
+2025-11-05 08:40:22,762 - __main__ - INFO - Sample 3: Sampled latent state - V=0.00e+00
+2025-11-05 08:40:22,762 - __main__ - INFO - Sample 3: Simulating 14 days forward
+2025-11-05 08:40:28,087 - __main__ - INFO - Sample 1: Complete
+2025-11-05 08:40:31,178 - __main__ - INFO - Sample 4: Complete
+2025-11-05 08:40:33,402 - __main__ - INFO - Sample 0: Complete
+2025-11-05 08:40:36,346 - __main__ - INFO - Sample 2: Complete
+2025-11-05 08:40:37,138 - __main__ - INFO - Sample 3: Complete
+2025-11-05 08:40:37,156 - __main__ - INFO - Saving results to results/posterior_predictive/20251105_083032/451152
+2025-11-05 08:40:37,344 - src.posterior_predictive - INFO - Results saved to results/posterior_predictive/20251105_083032/451152
+2025-11-05 08:40:37,345 - __main__ - INFO - Patient 451152 completed in 93.0s (18.61s per sample)
+2025-11-05 08:40:37,394 - __main__ - INFO - 
+============================================================
+2025-11-05 08:40:37,394 - __main__ - INFO - All patients completed in 604.9s
+2025-11-05 08:40:37,395 - __main__ - INFO - Results saved to: results/posterior_predictive/20251105_083032
+2025-11-05 08:40:37,395 - __main__ - INFO - ============================================================
