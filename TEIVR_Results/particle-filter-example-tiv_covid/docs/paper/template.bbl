@@ -1,0 +1,209 @@
+\begin{thebibliography}{10}
+
+\bibitem{Anderson1991Infections}
+Roy~M Anderson and Robert~M May.
+\newblock {\em {Infectious Diseases of Humans: Dynamics and Control}}.
+\newblock Oxford University Press, 1991.
+
+\bibitem{Perelson2002Modelling}
+Alan~S Perelson.
+\newblock {Modelling Viral and Immune System Dynamics}.
+\newblock {\em Nature Reviews Immunology}, 2(1):28--36, 2002.
+
+\bibitem{Baccam2006Influenza}
+Prasith Baccam, Catherine Beauchemin, Catherine~A Macken, Frederick~G Hayden,
+  and Alan~S Perelson.
+\newblock {Kinetics of Influenza A Virus Infection in Humans}.
+\newblock {\em Journal of Virology}, 80(15):7590--7599, 2006.
+
+\bibitem{Isaacson2013}
+Samuel~A Isaacson.
+\newblock {A Convergent Reaction-Diffusion Master Equation}.
+\newblock {\em The Journal of Chemical Physics}, 139(5), 2013.
+
+\bibitem{Flegg2014}
+Mark~B Flegg, S~Jonathan Chapman, Likun Zheng, and Radek Erban.
+\newblock {Analysis of the Two-Regime Method on Square Meshes}.
+\newblock {\em SIAM Journal on Scientific Computing}, 36(3):B561--B588, 2014.
+
+\bibitem{Cotter2016}
+Simon~L Cotter and Radek Erban.
+\newblock {Error Analysis of Diffusion Approximation Methods for Multiscale
+  Systems in Reaction Kinetics}.
+\newblock {\em SIAM Journal on Scientific Computing}, 38(1):B144--B163, 2016.
+
+\bibitem{Fowler2021Attofox}
+Andrew~C Fowler.
+\newblock {Atto-foxes and Other Minutiae}.
+\newblock {\em Bulletin of Mathematical Biology}, 83(10):104, 2021.
+
+\bibitem{Mollison1991Attofox}
+Denis Mollison.
+\newblock {Dependence of Epidemic and Population Velocities on Basic
+  Parameters}.
+\newblock {\em Mathematical Biosciences}, 107(2):255--287, 1991.
+
+\bibitem{Lobry2015Attofox}
+Claude Lobry and Tewfik Sari.
+\newblock {Migrations in the Rosenzweig-MacArthur Model and the \"atto-fox\"
+  Problem}.
+\newblock {\em Revue Africaine de Recherche en Informatique et
+  Math{\'e}matiques Appliqu{\'e}es}, 20:95--125, 2015.
+
+\bibitem{Germano2024JSF}
+Domenic~PJ Germano, Alexander~E Zarebski, Sophie Hautphenne, Robert Moss,
+  Jennifer~A Flegg, and Mark~B Flegg.
+\newblock {A Hybrid Framework for Compartmental Models Enabling
+  Simulation-based Inference}.
+\newblock {\em arXiv preprint arXiv:2405.13239}, 2024.
+
+\bibitem{Cranmer2020NPE}
+Kyle Cranmer, Johann Brehmer, and Gilles Louppe.
+\newblock {The Frontier of Simulation-based Inference}.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  117(48):30055--30062, 2020.
+
+\bibitem{Arulampalam2002PF}
+M~Sanjeev Arulampalam, Simon Maskell, Neil Gordon, and Tim Clapp.
+\newblock {A Tutorial on Particle Filters for Online Nonlinear/Non-Gaussian
+  Bayesian Tracking}.
+\newblock {\em IEEE Transactions on Signal Processing}, 50(2):174--188, 2002.
+
+\bibitem{Kitagawa1996PF}
+Genshiro Kitagawa.
+\newblock {Monte Carlo Filter and Smoother for Non-Gaussian Nonlinear State
+  Space Models}.
+\newblock {\em Journal of Computational and Graphical Statistics}, 5(1):1--25,
+  1996.
+
+\bibitem{ABC}
+Mark~A. Beaumont.
+\newblock Approximate bayesian computation in evolution and ecology.
+\newblock {\em Annual Review of Ecology, Evolution, and Systematics},
+  41:379--406, 2010.
+
+\bibitem{Papamakarios2016NPE}
+George Papamakarios and Iain Murray.
+\newblock {Fast $\varepsilon$-free Inference of Simulation Models with Bayesian
+  Conditional Density Estimation}.
+\newblock {\em Advances in Neural Information Processing Systems}, 29, 2016.
+
+\bibitem{Greenberg2019NPE}
+David Greenberg, Marcel Nonnenmacher, and Jakob Macke.
+\newblock {Automatic Posterior Transformation for Likelihood-free Inference}.
+\newblock In {\em International Conference on Machine Learning}, pages
+  2404--2414, 2019.
+
+\bibitem{griffiths2010numerical}
+David~Francis Griffiths and Desmond~J Higham.
+\newblock {\em {Numerical Methods for Ordinary Differential Equations: Initial
+  Value Problems}}, volume~5.
+\newblock Springer, 2010.
+
+\bibitem{Gillespie1976}
+Daniel~T Gillespie.
+\newblock {A General Method for Numerically Simulating the Stochastic Time
+  Evolution of Coupled Chemical Reactions}.
+\newblock {\em Journal of Computational Physics}, 22(4):403--434, 1976.
+
+\bibitem{Sanft2015}
+Kevin~R Sanft and Hans~G Othmer.
+\newblock {Constant-Complexity Stochastic Simulation Algorithm with Optimal
+  Binning}.
+\newblock {\em The Journal of Chemical Physics}, 143(7), 2015.
+
+\bibitem{Gillespie2001}
+Daniel~T Gillespie.
+\newblock {Approximate Accelerated Stochastic Simulation of Chemically Reacting
+  Systems}.
+\newblock {\em The Journal of Chemical Physics}, 115(4):1716--1733, 2001.
+
+\bibitem{Cao2006}
+Yang Cao, Daniel~T Gillespie, and Linda~R Petzold.
+\newblock {Efficient Step Size Selection for the Tau-leaping Simulation
+  Method}.
+\newblock {\em The Journal of Chemical Physics}, 124(4), 2006.
+
+\bibitem{Rao2003}
+Christopher~V Rao and Adam~P Arkin.
+\newblock {Stochastic Chemical Kinetics and the Quasi-Steady-State Assumption:
+  Application to the Gillespie Algorithm}.
+\newblock {\em The Journal of Chemical Physics}, 118(11):4999--5010, 2003.
+
+\bibitem{Gillespie2000}
+Daniel~T Gillespie.
+\newblock {The Chemical Langevin Equation}.
+\newblock {\em The Journal of Chemical Physics}, 113(1):297--306, 2000.
+
+\bibitem{Kreger2021Hybrid}
+Jesse Kreger, Natalia~L Komarova, and Dominik Wodarz.
+\newblock {A Hybrid Stochastic-Deterministic Approach to Explore Multiple
+  Infection and Evolution in HIV}.
+\newblock {\em PLOS Computational Biology}, 17(12):e1009713, 2021.
+
+\bibitem{Simoni2019Hybrid}
+Giulia Simoni, Federico Reali, Corrado Priami, and Luca Marchetti.
+\newblock {Stochastic Simulation Algorithms for Computational Systems Biology:
+  Exact, Approximate, and Hybrid Methods}.
+\newblock {\em Wiley Interdisciplinary Reviews: Systems Biology and Medicine},
+  11(6):e1459, 2019.
+
+\bibitem{Bressloff2014Hybrid}
+Paul~C Bressloff and Jay~M Newby.
+\newblock {Path Integrals and Large Deviations in Stochastic Hybrid Systems}.
+\newblock {\em Physical Review E}, 89(4):042701, 2014.
+
+\bibitem{Kynaston2023Hybrid}
+Joshua~C Kynaston, Christian~A Yates, Anna~VF Hekkink, and Chris Guiver.
+\newblock {The Regime-Conversion Method: A Hybrid Technique for Simulating
+  Well-mixed Chemical Reaction Networks}.
+\newblock {\em Frontiers in Applied Mathematics and Statistics}, 9:1107441,
+  2023.
+
+\bibitem{Trindade2024Hybrid}
+Thomas~Trigo Trindade and Konstantinos~C Zygalakis.
+\newblock {A Hybrid tau-leap for Simulating Chemical Kinetics with Applications
+  to Parameter Estimation}.
+\newblock {\em Royal Society Open Science}, 11(12):240157, 2024.
+
+\bibitem{alahmadi2020ABC}
+Amani~A Alahmadi, Jennifer~A Flegg, Davis~G Cochrane, Christopher~C Drovandi,
+  and Jonathan~M Keith.
+\newblock {A Comparison of Approximate versus Exact Techniques for Bayesian
+  Parameter Inference in Nonlinear Ordinary Differential Equation Models}.
+\newblock {\em Royal Society Open Science}, 7(3):191315, 2020.
+
+\bibitem{Perelson2002}
+Alan~S. Perelson.
+\newblock {Modelling Viral and Immune System Dynamics}.
+\newblock {\em Nature Reviews Immunology}, 2(1):28--36, 2002.
+
+\bibitem{Ke2022SarsData}
+Ruian Ke, Pamela~P Martinez, Rebecca~L Smith, Laura~L Gibson, Agha Mirza,
+  Madison Conte, Nicholas Gallagher, Chun~Huai Luo, Junko Jarrett, Ruifeng
+  Zhou, et~al.
+\newblock {Daily Longitudinal Sampling of SARS-CoV-2 Infection Reveals
+  Substantial Heterogeneity in Infectiousness}.
+\newblock {\em Nature Microbiology}, 7(5):640--652, 2022.
+
+\bibitem{BlancoMelo2020}
+Daniel Blanco-Melo, Benjamin~E. Nilsson-Payant, Wenyang-Chen Liu, Sascha Uhl,
+  Daniel Hoagland, Rasmus M{\o}ller, Thomas~X. Jordan, Kohei Oishi, Maryline
+  Panis, David Sachs, Thomas~T. Wang, Robert~E. Schwartz, Jean~K. Lim, Randy~A.
+  Albrecht, and Benjamin~R. tenOever.
+\newblock {Imbalanced Host Response to SARS-CoV-2 Drives Development of
+  COVID-19}.
+\newblock {\em Cell}, 181(5):1036--1045.e9, 2020.
+
+\bibitem{Andrieu2010}
+Christophe Andrieu, Arnaud Doucet, and Roman Holenstein.
+\newblock {Particle Markov chain Monte Carlo Methods}.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 72(3):269--342, 2010.
+
+\bibitem{Kantas2009}
+{An Overview of Sequential Monte Carlo Methods for Parameter Estimation in
+  General State-Space Models}.
+\newblock {\em IFAC Proceedings Volumes}, 42(10):774--785, 2009.
+
+\end{thebibliography}

@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: template.aux
+The style file: unsrt.bst
+Database file #1: references.bib
+Warning--empty author in Kantas2009
+You've used 34 entries,
+            1791 wiz_defined-function locations,
+            680 strings with 10165 characters,
+and the built_in function-call counts, 8020 in all, are:
+= -- 709
+> -- 360
+< -- 2
++ -- 135
+- -- 101
+* -- 634
+:= -- 1296
+add.period$ -- 101
+call.type$ -- 34
+change.case$ -- 32
+chr.to.int$ -- 0
+cite$ -- 35
+duplicate$ -- 317
+empty$ -- 777
+format.name$ -- 101
+if$ -- 1732
+int.to.chr$ -- 0
+int.to.str$ -- 34
+missing$ -- 36
+newline$ -- 172
+num.names$ -- 33
+pop$ -- 53
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 130
+stack$ -- 0
+substring$ -- 659
+swap$ -- 47
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 78
+width$ -- 36
+write$ -- 372
+(There was 1 warning)
